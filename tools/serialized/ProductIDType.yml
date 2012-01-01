@@ -1,0 +1,23 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductIDType
+  onix_code: '01'
+  const_name: PROPRIETARY
+  name:
+    en: proprietary
+    pl: własnościowy
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductIDType
+  onix_code: '03'
+  const_name: EAN
+  name:
+    en: EAN
+    pl: EAN
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductIDType
+  onix_code: '15'
+  const_name: ISBN13
+  name:
+    en: ISBN-13
+    pl: ISBN-13
+
+

@@ -1,0 +1,36 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NotificationType
+  onix_code: '01'
+  const_name: EARLY_NOTIFICATION
+  name:
+    en: early notification
+    pl: wczesne powiadomienie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NotificationType
+  onix_code: '02'
+  const_name: ADVANCED_NOTIFICATION
+  name:
+    en: advanced notification
+    pl: późne powiadomienie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NotificationType
+  onix_code: '03'
+  const_name: CONFIRMED_ON_PUBLICATION
+  name:
+    en: notification confirmed on publication
+    pl: powiadomienie o publikacji
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NotificationType
+  onix_code: '05'
+  const_name: DELETE
+  name:
+    en: delete
+    pl: usunięcie rekordu
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NotificationType
+  onix_code: '12'
+  const_name: UPDATE_SUPPLY_DETAIL_ONLY
+  name:
+    en: update - SupplyDetail only
+    pl: uaktualnienie tylko informacji o dostępności
+

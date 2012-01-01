@@ -1,0 +1,26 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierRole
+  onix_code: '01'
+  const_name: PUB_TO_RET
+  name:
+    en: publisher to retailers
+    pl: sprzedaż wydawnictwa do detalu
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierRole
+  onix_code: '02'
+  const_name: PUB_EXL_DIST
+  name:
+    en: "publisher's exclusive distributor to retailers"
+    pl: wyłączny dystrybutor wydawnictwa
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierRole
+  onix_code: '03'
+  const_name: PUB_NON_EXL_DIST
+  name:
+    en: "publisher's non-exclusive distributor to retailers"
+    pl: dystrybutor wydawnictwa bez prawa wyłączności
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierRole
+  onix_code: '04'
+  const_name: WHOLESALER
+  name:
+    en: Wholesaler
+    pl: hurtownia książek

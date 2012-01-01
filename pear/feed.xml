@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.elibri.com.pl/system/pear</id>
+    <updated>2012-01-01T21:58:29+01:00</updated>
+    <title>eLibri's PEAR channel Latest Releases</title>
+    <link href="https://www.elibri.com.pl/system/pear/feed.xml" rel="self" />
+    <author>
+        <name>https://www.elibri.com.pl/system/pear</name>
+    </author>
+
+    <entry>
+        <title>elibriPHP 0.1.0 (beta)</title>
+        <link href="https://www.elibri.com.pl/system/pear/get/elibriPHP-0.1.0.tgz" />
+        <id>https://www.elibri.com.pl/system/pear/get/elibriPHP-0.1.0.tgz</id>
+        <author>
+            <name></name>
+        </author>
+        <updated>2012-01-01T20:58:10+01:00</updated>
+        <content>
+            
+Pierwszy release
+ 
+        </content>
+    </entry>
+</feed>

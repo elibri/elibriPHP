@@ -1,0 +1,15 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceRangePrecision
+  onix_code: '03'
+  const_name: FROM
+  name:
+    en: from
+    pl: od
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceRangePrecision
+  onix_code: '04'
+  const_name: TO
+  name:
+    en: to
+    pl: do

@@ -1,0 +1,19 @@
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
+  onix_code: '00'
+  const_name: PAGE_COUNT
+  name:
+    en: page count
+    pl: ilość stron
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
+  onix_code: '09'
+  const_name: DURATION
+  name:
+    en: duration
+    pl: czas trwania
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
+  onix_code: '22'
+  const_name: FILE_SIZE
+  name:
+    en: file size
+    pl: rozmiar pliku

@@ -1,0 +1,20 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceMode
+  onix_code: '02'
+  const_name: AUDIO
+  name:
+    en: audio
+    pl: audio
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceMode
+  onix_code: '03'
+  const_name: IMAGE
+  name:
+    en: image
+    pl: obrazek
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceMode
+  onix_code: '04'
+  const_name: TEXT
+  name:
+    en: text
+    pl: tekst

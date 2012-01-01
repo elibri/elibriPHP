@@ -1,0 +1,43 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '00'
+  const_name: UNSPECIFIED
+  name:
+    en: unspecified
+    pl: nieokreślony
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '01'
+  const_name: CANCELLED
+  name:
+    en: cancelled
+    pl: anulowany
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '02'
+  const_name: FORTHCOMING
+  name:
+    en: forthcoming
+    pl: nadchodzący
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '04'
+  const_name: ACTIVE
+  name:
+    en: active
+    pl: w sprzedaży
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '07'
+  const_name: OUT_OF_PRINT
+  name:
+    en: out of print
+    pl: nakład wyczerpany
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '08'
+  const_name: UNAVAILABLE
+  name:
+    en: inactive
+    pl: niedostępny

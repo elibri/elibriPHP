@@ -1,0 +1,57 @@
+/*! \mainpage Biblioteka do obsługi API eLibri
+ *
+ * \section intro_sec Wprowadzenie
+ *
+ * <a href='https://www.elibri.com.pl'>eLibri</a> jest systemem stworzonym dla wydawnictw,
+ * które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek.
+ * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
+ *
+ * \section install_sec Instalacja
+ *
+ * Biblioteka jest dystrybuowana jako pakiet PEAR. Najpierw musisz zarejestrować kanał elibri: 
+ * \verbatim pear channel-discover elibri.com.pl/system/pear \endverbatim
+ *
+ * Następnie instalujesz pakiet poprzez:
+ * \verbatim  pear install channel://elibri.com.pl/system/pear/elibriPHP-0.1.0 \endverbatim
+ *
+ * Rozwój pakietu możesz śledzić na <a href='https://github.com/elibri/elibriPHP'>githubie</a>
+ *
+ * Jeśli używasz czytnika rss, to możesz zaabonować <a href='https://www.elibri.com.pl/system/pear/feed.xml'>ten kanał</a>.
+ *
+ * \section usage_sec Użycie biblioteki
+ *
+ * Żeby używać API należy najpierw uzyskać login i hasło dostępowe. Proszę pisać w tym celu na adres kontakt@elibri.com.pl.
+ *
+ * Ogólne założenia API są opisane <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
+ *
+ * \section examples_sec Przykłady użycia
+ * 
+ * Użycie biblioteki jest bardzo proste. W poniższych przykładach zakładamy, że login i hasło są przechowywane jako zmienne środowiskowe
+ * ELIBRI_API_LOGIN i ELIBRI_API_PASSWORD. Wszystkie przykłady można znaleźć w katalogu examples
+ * 
+ * \subsection example1 Przykład 1
+ * 
+ * W poniższym przykładzie instancjujemy obiekt klasy ElibriAPI oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących
+ * w każdej z kolejek. Podczas połączenia może wystąpić jeden z @link exceptions wyjątków @endlink
+ *
+ * \include queues_info.php
+ *
+ * \subsection example2 Przykład 2
+ *
+ * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły.
+ * Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID
+ * w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.
+ *
+ * \include get_products.php
+ *
+ * \subsection example3 Przykład 3
+ * 
+ * Poniżej pobieramy listę wszystkich wydawnictw dostępnych w systemie, po czym drukowana jest informacja o pierwszym wydawnictwie, 
+ * i pobierane dane pierwszej książki tego wydawnictwa.
+ *
+ * \include publisher_info.php
+ *
+ * \page tests Testy modułowe
+ * W pliku tests/elibriOnixTest.php znajdują się testy modułowe:
+ * \include ../tests/elibriOnixTest.php
+ */

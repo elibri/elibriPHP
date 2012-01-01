@@ -1,0 +1,4 @@
+#!/bin/bash
+php elibriDictTest.php
+php elibriOnixTest.php
+

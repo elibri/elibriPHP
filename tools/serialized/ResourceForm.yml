@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceForm
+  onix_code: '02'
+  const_name: DOWNLOADABLE_FILE
+  name:
+    en: downloadable file
+    pl: plik do pobrania

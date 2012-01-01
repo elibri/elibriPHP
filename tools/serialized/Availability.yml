@@ -1,0 +1,15 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Availability
+  onix_code: '21'
+  const_name: IN_STOCK
+  name:
+    en: In Stock
+    pl: Na stanie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Availability
+  onix_code: '40'
+  const_name: NOT_AVAILABLE
+  name:
+    en: Not available
+    pl: niedostępne

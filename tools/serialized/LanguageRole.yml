@@ -1,0 +1,36 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '01'
+  const_name: LANGUAGE_OF_TEXT
+  name:
+    en: language of text
+    pl: język tekstu
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '02'
+  const_name: LANGUAGE_OF_ORIGINAL
+  name:
+    en: language of original
+    pl: język oryginału
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '03'
+  const_name: LANGUAGE_OF_ABSTRACTS
+  name:
+    en: language of abstracts
+    pl: język streszczenia
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '08'
+  const_name: LANGUAGE_OF_AUDIO_TRACK
+  name:
+    en: language of audio track (CD/DVD)
+    pl: język ścieżki audio (CD/DVD)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '09'
+  const_name: LANGUAGE_OF_SUBTITLES
+  name:
+    en: language of subtitles(CD/DVD)
+    pl: język napisów (CD/DVD)

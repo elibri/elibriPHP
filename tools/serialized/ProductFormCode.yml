@@ -1,0 +1,85 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'BA'
+  const_name: BOOK
+  name:
+    en: book
+    pl: książka
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'EA'
+  const_name: EBOOK
+  name:
+    en: e-book
+    pl: e-book
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'AA'
+  const_name: AUDIO_RECORDING
+  name:
+    en: audio recording
+    pl: nagranie audio
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'AB'
+  const_name: AUDIO_CASSETTE
+  name:
+    en: audio cassette
+    pl: kaseta magnetofonowa
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'AC'
+  const_name: AUDIO_CD
+  name:
+    en: CD-audio
+    pl: audio CD
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'AI'
+  const_name: AUDIO_DVD
+  name:
+    en: DVD-audio
+    pl: audio DVD
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'CA'
+  const_name: SHEET_MAP
+  name:
+    en: sheet map
+    pl: mapa
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'CB'
+  const_name: SHEET_MAP_FOLDED
+  name:
+    en: sheet map / folded
+    pl: mapa składana
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'CC'
+  const_name: SHEET_MAP_FLAT
+  name:
+    en: sheet map / flat
+    pl: mapa płaska
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'CD'
+  const_name: SHEET_MAP_ROLLED
+  name:
+    en: sheet map / rolled
+    pl: mapa w rolce
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'CZ'
+  const_name: OTHER_CARTOGRAPHIC
+  name:
+    en: other cartographic
+    pl: inny format kartograficzny
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'PC'
+  const_name: CALENDAR
+  name:
+    en: calendar
+    pl: kalendarz

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<server>
+  <name>elibri.com.pl/system/pear</name>
+  <summary>eLibri's PEAR channel</summary>
+  <alias>elibri</alias>
+  <url>https://www.elibri.com.pl/system/pear</url>
+</server>

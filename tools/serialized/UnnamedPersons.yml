@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
+  onix_code: '04'
+  const_name: VARIOUS_AUTHORS
+  name:
+    en: various authors
+    pl: opracowanie zbiorowe

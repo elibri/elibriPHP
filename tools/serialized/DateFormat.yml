@@ -1,0 +1,20 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::DateFormat
+  onix_code: '00'
+  const_name: YYYYMMDD
+  name:
+    en: YYYYMMDD
+    pl: RRRRMMDD
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::DateFormat
+  onix_code: '01'
+  const_name: YYYYMM
+  name:
+    en: YYYYMM
+    pl: RRRRMM
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::DateFormat
+  onix_code: '05'
+  const_name: YYYY
+  name:
+    en: YYYY
+    pl: RRRR

@@ -1,0 +1,4 @@
+/*! \page releases Historia wersji
+    \section Wersja 0.1.0 z dnia 1. stycznia 2011 
+    Pierwszy release.
+*/

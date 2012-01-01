@@ -1,0 +1,51 @@
+<?php
+  require_once(dirname(__FILE__) . '/../Elibri.php');
+ 
+  function error_handler($errno, $errstr, $errfile, $errline) {
+    global $xml;
+    print $xml;
+    switch ($errno) {
+    case E_USER_ERROR:
+        echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
+        echo "  Fatal error on line $errline in file $errfile";
+        echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
+        echo "Aborting...<br />\n";
+        break;
+
+    case E_USER_WARNING:
+        echo "<b>My WARNING</b> [$errno] $errstr on line $errline in file $errfile<br />\n";
+        break;
+
+    case E_USER_NOTICE:
+        echo "<b>My NOTICE</b> [$errno] $errstr on line $errline in file $errfile<br />\n";
+        break;
+
+    default:
+        echo "Unknown error type: [$errno] $errstr on line $errline in file $errfile<br />\n";
+        break;
+    }
+    exit(1);
+    return true;
+  }
+
+  set_error_handler("error_handler", E_ALL);
+
+  $login = getenv('ELIBRI_API_LOGIN');
+  $password = getenv('ELIBRI_API_PASSWORD');
+
+  $api = new ElibriAPI($login, $password);
+
+
+  $queues_list = $api->getQueues();
+
+  //$api->refillAll();
+  //$queues_list = $api->getQueues();
+
+  //foreach ($queues_list as $queue) {
+  //  print "Kolejka {$queue->name} => {$queue->product_count} produktów\n";
+  //}
+  while ($message = $api->popQueue("meta", 100)) {
+    //do smth with message
+    print "OK\n";
+  }
+?>

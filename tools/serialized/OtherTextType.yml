@@ -1,0 +1,30 @@
+#lista 153
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '03'
+  const_name: MAIN_DESCRIPTION
+  name:
+    en: description
+    pl: opis produktu
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '04'
+  const_name: TABLE_OF_CONTENTS
+  name:
+    en: table of contents
+    pl: spis treści
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '07'
+  const_name: REVIEW
+  name:
+    en: review text
+    pl: recenzja
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '14'
+  const_name: EXCERPT
+  name:
+    en: excerpt
+    pl: fragment książki

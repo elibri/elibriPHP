@@ -1,0 +1,18 @@
+1. zmień wersję w pliku pearfarm.spec, dodaj opis nowego releasu
+2. wykonaj pearfarm build
+3. W katalogu głównym będzie plik elibriPHP-x.x.x.tgz
+4. wejdz do katalogu pear
+5. wykonaj pirum add . ../elibriPHP-x.x.x.tgz
+5.1 zmień wersję w pliku lib/doc.txt, dodaj wpis w lib/releases.txt
+6. wykonaj cap deploy:doc
+7. wykonaj cap deploy:pear
+8. zrób finalnego commita
+9. wykasuj wygenerowany plik
+10. Stwórz odpowiedni tag w git-ie: git tag 0.1.1 HEAD
+11. git push
+
+
+//zmiany w PackageSpec.php +639
+wykomentowałem $rootDirObj = new Pearfarm_PackageSpecDir('.'); //, array(Pearfarm_PackageSpecDir::BASEINSTALLDIR => $this->name));
+żeby dir nie zawierał klauzuli baseinstalldir
+w innym miejscu wyrzuciłem htmlentities, i dodałem na początku xml-a instrukcję z kodowaniem utf-8

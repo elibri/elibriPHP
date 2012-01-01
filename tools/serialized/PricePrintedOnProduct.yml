@@ -1,0 +1,16 @@
+
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PricePrintedOnProduct
+  onix_code: '01'
+  const_name: 'NO'
+  name:
+    en: no
+    pl: nie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PricePrintedOnProduct
+  onix_code: '02'
+  const_name: 'YES'
+  name:
+    en: yes
+    pl: tak

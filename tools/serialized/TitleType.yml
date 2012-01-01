@@ -1,0 +1,20 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::TitleType
+  onix_code: '01'
+  const_name: DISTINCTIVE_TITLE
+  name:
+    en: distinctive title
+    pl: tytuł
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::TitleType
+  onix_code: '03'
+  const_name: ORIGINAL_TITLE
+  name:
+    en: title in original language
+    pl: tytuł w języku oryginału
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::TitleType
+  onix_code: '10'
+  const_name: DISTRIBUTORS_TITLE
+  name:
+    en: "distributor's title"
+    pl: tytuł wydawcy

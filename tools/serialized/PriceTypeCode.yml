@@ -1,0 +1,15 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceTypeCode
+  onix_code: '02'
+  const_name: RRP_WITH_TAX
+  name:
+    en: RRP including tax
+    pl: sugerowana cena detaliczna brutto
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceTypeCode
+  onix_code: '01'
+  const_name: RRP_WITHOUT_TAX
+  name:
+    en: RRP excluding tax
+    pl: sugerowana cena detaliczna netto

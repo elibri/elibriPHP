@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri: Testy modułowe</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri
+   
+   </div>
+   <div id="projectbrief">Biblioteka&nbsp;abstrahująca&nbsp;dostęp&nbsp;do&nbsp;API&nbsp;eLibri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Wygenerowano przez Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+--></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li class="current"><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
+      <li><a href="modules.html"><span>Moduły</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">Testy modułowe </div>  </div>
+</div>
+<div class="contents">
+<div class="textblock"><p>W pliku tests/elibriOnixTest.php znajdują się testy modułowe: </p>
+<div class="fragment"><pre class="fragment">&lt;?php
+
+require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);
+
+<span class="keyword">class </span>ElibriDictTest <span class="keyword">extends</span> PHPUnit_Framework_TestCase {
+
+   <span class="keyword">public</span> function load($s) {
+     $xml = file_get_contents(dirname(__FILE__) . <span class="stringliteral">&quot;/xml/&quot;</span>.$s);
+     $m = <a class="code" href="classElibriOnixMessage.html#ad8d21fe0a805a02819a92392053382a1" title="parsuje wiadomość ONIX">ElibriOnixMessage::parse</a>($xml);
+     <span class="keywordflow">return</span> $m-&gt;products[0];
+   }
+
+  <span class="keyword">public</span> function test_audience_range() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_audience_range_example.xml&quot;</span>);
+    $this-&gt;assertEquals(7, $product-&gt;reading_age_from);
+    $this-&gt;assertEquals(10, $product-&gt;reading_age_to);
+
+  }
+
+  <span class="keyword">public</span> function test_contributors() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_contributors_example.xml&quot;</span>);
+
+    $this-&gt;assertFalse($product-&gt;no_contributors());
+    $this-&gt;assertFalse($product-&gt;unnamed_persons());
+
+    $cont1 = $product-&gt;contributors[0];
+    $cont2 = $product-&gt;contributors[1];
+
+    $this-&gt;assertEquals(255, $cont1-&gt;id);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20111104T0905&quot;</span>, $cont1-&gt;datestamp_before_type_cast);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-11-04 09:05&quot;</span>), $cont1-&gt;datestamp);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;AUTHOR&quot;</span>, $cont1-&gt;role_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Św. Tomasz z Akwinu&quot;</span>, $cont1-&gt;person_name);
+
+    $this-&gt;assertEquals(array(<span class="stringliteral">&quot;Św. Tomasz z Akwinu&quot;</span>), $product-&gt;authors());
+
+    $this-&gt;assertTrue(isset($cont1-&gt;biographical_note) &amp;&amp; (strlen($cont1-&gt;biographical_note) &gt; 0));
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;TRANSLATOR&quot;</span>, $cont2-&gt;role_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;prof. ks. Henryk von Hausswolff OP&quot;</span>, $cont2-&gt;person_name);
+    $this-&gt;assertEquals(array(<span class="stringliteral">&quot;prof. ks. Henryk von Hausswolff OP&quot;</span>), $product-&gt;translators());
+
+  }
+
+  <span class="keyword">public</span> function test_no_contributors() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_no_contributors_example.xml&quot;</span>);
+
+    $this-&gt;assertTrue($product-&gt;no_contributors());
+    $this-&gt;assertFalse($product-&gt;unnamed_persons());
+
+    $this-&gt;assertEquals(0, count($product-&gt;authors()));
+
+  }
+
+
+  <span class="keyword">public</span> function test_collective_work() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_collective_work_example.xml&quot;</span>);
+
+    $this-&gt;assertFalse($product-&gt;no_contributors());
+    $this-&gt;assertTrue($product-&gt;unnamed_persons());
+    $this-&gt;assertEquals(array(<span class="stringliteral">&quot;praca zbiorowa&quot;</span>), $product-&gt;authors());
+  }
+
+  <span class="keyword">public</span> function test_edition_number() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_edition_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;wyd. 3, poprawione&quot;</span>, $product-&gt;edition_statement);
+  }
+
+
+  <span class="keyword">public</span> function test_elibri_extensions() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_elibri_extensions_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;miękka&quot;</span>, $product-&gt;cover_type);
+    $this-&gt;assertEquals(12.99, $product-&gt;cover_price);
+    $this-&gt;assertEquals(5, $product-&gt;vat);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;58.11.1&quot;</span>, $product-&gt;pkwiu);
+  }
+
+  <span class="keyword">public</span> function test_ebook_extent() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_ebook_extent_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(150, $product-&gt;number_of_pages);
+    $this-&gt;assertEquals(12, $product-&gt;number_of_illustrations);
+    $this-&gt;assertEquals(1.22, $product-&gt;file_size);
+  }
+
+
+  <span class="keyword">public</span> function test_audiobook_extent() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_audiobook_extent_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(340, $product-&gt;duration);
+  }
+
+  <span class="keyword">public</span> function test_languages() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_languages_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;polski&quot;</span>, $product-&gt;languages[0]-&gt;language);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;LANGUAGE_OF_TEXT&quot;</span>, $product-&gt;languages[0]-&gt;role_name);
+    $this-&gt;assertEquals(<a class="code" href="classElibriDictLanguageRole.html#a5905c03b21e70d0ca96435948351f5f7" title="język tekstu">ElibriDictLanguageRole::LANGUAGE_OF_TEXT</a>, $product-&gt;languages[0]-&gt;role);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;angielski&quot;</span>, $product-&gt;languages[1]-&gt;language);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;LANGUAGE_OF_ABSTRACTS&quot;</span>, $product-&gt;languages[1]-&gt;role_name);
+    $this-&gt;assertEquals(<a class="code" href="classElibriDictLanguageRole.html#a28db74705fe455ce90ba941df03f84ce" title="język streszczenia">ElibriDictLanguageRole::LANGUAGE_OF_ABSTRACTS</a>, $product-&gt;languages[1]-&gt;role);
+
+  }
+
+  <span class="keyword">public</span> function test_measurements() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_measurement_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(195, $product-&gt;height);   <span class="comment">//mm</span>
+    $this-&gt;assertEquals(125, $product-&gt;width);    <span class="comment">//mm</span>
+    $this-&gt;assertEquals(20, $product-&gt;thickness); <span class="comment">//mm</span>
+    $this-&gt;assertEquals(90, $product-&gt;weight);    <span class="comment">//gr</span>
+  }
+
+  <span class="keyword">public</span> function test_product_form() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_product_form_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;00&quot;</span>, $product-&gt;product_composition);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;BA&quot;</span>, $product-&gt;product_form);
+    $this-&gt;assertEquals(<a class="code" href="classElibriDictProductFormCode.html#aa2793f9d6ba9746fcd4e11b36089c50c" title="książka">ElibriDictProductFormCode::BOOK</a>, $product-&gt;product_form);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;BOOK&quot;</span>, $product-&gt;product_form_name);
+  }
+
+  <span class="keyword">public</span> function test_publisher_info() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_publisher_info_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;G+J Gruner+Jahr Polska&quot;</span>, $product-&gt;publisher_name);
+    $this-&gt;assertEquals(14, $product-&gt;publisher_id);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;National Geographic&quot;</span>, $product-&gt;imprint_name);
+  }
+
+  <span class="keyword">public</span> function test_onix_record_identifiers() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_record_identifiers_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;fdb8fa072be774d97a97&quot;</span>, $product-&gt;record_reference);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324799992&quot;</span>, $product-&gt;isbn13);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324788882&quot;</span>, $product-&gt;ean);
+    $this-&gt;assertEquals($product-&gt;proprietary_identifiers, array(<span class="stringliteral">&quot;Olesiejuk&quot;</span> =&gt; <span class="stringliteral">&quot;355006&quot;</span>));
+  }
+
+  <span class="keyword">public</span> function test_sale_restrictions() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_sale_restrictions_example.xml&quot;</span>);
+
+    $this-&gt;assertTrue($product-&gt;sales_restrictions);
+    $this-&gt;assertEquals(array(2012, 7, 22), $product-&gt;parsed_publishing_date);
+
+  }
+
+  <span class="keyword">public</span> function test_series_memberships() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_series_memberships_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324799992&quot;</span>, $product-&gt;isbn13);
+    $this-&gt;assertEquals(NULL, $product-&gt;ean);
+   
+    $this-&gt;assertEquals($product-&gt;series_names, array(<span class="stringliteral">&quot;Lektury szkolne&quot;</span>, <span class="stringliteral">&quot;Dla Bystrzaków&quot;</span>));
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Lektury szkolne&quot;</span>, $product-&gt;series[0][0]);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;2&quot;</span>, $product-&gt;series[0][1]);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Dla Bystrzaków&quot;</span>, $product-&gt;series[1][0]);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;1&quot;</span>, $product-&gt;series[1][1]);
+  }
+
+  <span class="keyword">public</span> function test_supporting_resources() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_supporting_resources_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(2, count($product-&gt;supporting_resources));
+
+    $this-&gt;assertEquals($product-&gt;supporting_resources[0], $product-&gt;front_cover);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;FRONT_COVER&quot;</span>, $product-&gt;supporting_resources[0]-&gt;content_type_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;IMAGE&quot;</span>, $product-&gt;supporting_resources[0]-&gt;mode_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;DOWNLOADABLE_FILE&quot;</span>, $product-&gt;supporting_resources[0]-&gt;form_name);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;http://elibri.com.pl/sciezka/do/pliku.png&quot;</span>, $product-&gt;front_cover-&gt;link);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-01 18:05&quot;</span>), $product-&gt;front_cover-&gt;datestamp);
+    $this-&gt;assertEquals(667, $product-&gt;front_cover-&gt;id);
+
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;SAMPLE_CONTENT&quot;</span>, $product-&gt;supporting_resources[1]-&gt;content_type_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;TEXT&quot;</span>, $product-&gt;supporting_resources[1]-&gt;mode_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;DOWNLOADABLE_FILE&quot;</span>, $product-&gt;supporting_resources[1]-&gt;form_name);
+
+  }
+
+
+  <span class="keyword">public</span> function test_texts() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_texts_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;1. Wprowadzenie&lt;br /&gt;2. Rozdział pierwszy&lt;br /&gt;[...]&quot;</span>, $product-&gt;table_of_contents-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1215&quot;</span>, $product-&gt;table_of_contents-&gt;datestamp_before_type_cast);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:15&quot;</span>), $product-&gt;table_of_contents-&gt;datestamp);
+    <span class="comment">//sprawdźmy, czy na pewno nie ma błędu z interpretacją formatu</span>
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;04.12.2011 12:15&quot;</span>, $product-&gt;table_of_contents-&gt;datestamp-&gt;format(<span class="stringliteral">&#39;d.m.Y H:i&#39;</span>));
+    $this-&gt;assertEquals(133, $product-&gt;table_of_contents-&gt;id);
+
+    $this-&gt;assertEquals(1, count($product-&gt;reviews));
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Recenzja książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;reviews[0]-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Jan Kowalski&quot;</span>, $product-&gt;reviews[0]-&gt;author);
+   
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1218&quot;</span>, $product-&gt;reviews[0]-&gt;datestamp_before_type_cast);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:18&quot;</span>), $product-&gt;reviews[0]-&gt;datestamp);
+    $this-&gt;assertEquals(134, $product-&gt;reviews[0]-&gt;id);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Opis książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;description-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1225&quot;</span>, $product-&gt;description-&gt;datestamp_before_type_cast);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:25&quot;</span>), $product-&gt;description-&gt;datestamp);
+    $this-&gt;assertEquals(135, $product-&gt;description-&gt;id);
+
+    $this-&gt;assertEquals(1, count($product-&gt;excerpts));
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Fragment książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;excerpts[0]-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1235&quot;</span>, $product-&gt;excerpts[0]-&gt;datestamp_before_type_cast);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:35&quot;</span>), $product-&gt;excerpts[0]-&gt;datestamp);
+    $this-&gt;assertEquals(136, $product-&gt;excerpts[0]-&gt;id);
+
+  }
+
+  <span class="keyword">public</span> function test_titles() {
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_titles_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Nothing to Envy: Ordinary Lives in North Korea&quot;</span>, $product-&gt;original_title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Światu nie mamy czego zazdrościć. Zwyczajne losy mieszkańców Korei Północnej.&quot;</span>, $product-&gt;full_title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Światu nie mamy czego zazdrościć.&quot;</span>, $product-&gt;title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Zwyczajne losy mieszkańców Korei Północnej.&quot;</span>, $product-&gt;subtitle);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;ŚWIATU NIE MAMY CZEGO ZAZDROŚCIĆ.&quot;</span>, $product-&gt;trade_title);
+  }
+
+
+  <span class="keyword">public</span> function test_titles_with_collection() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_title_with_collection_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals($product-&gt;full_title, <span class="stringliteral">&quot;Thorgal (#33). Statek-Miecz&quot;</span>);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Statek-Miecz&quot;</span>, $product-&gt;title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Thorgal&quot;</span>, $product-&gt;collection_title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;33&quot;</span>, $product-&gt;collection_part);
+  }
+
+  <span class="keyword">public</span> function test_announced_state() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_announced_product_example.xml&quot;</span>);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;01&quot;</span>, $product-&gt;notification_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $product-&gt;publishing_status);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;announced&quot;</span>, $product-&gt;current_state);
+    $this-&gt;assertEquals(array(2011), $product-&gt;parsed_publishing_date);
+    $this-&gt;assertFalse(isset($product-&gt;premiere)); <span class="comment">//nieznana jest dokładna data premiery</span>
+    $this-&gt;assertFalse($product-&gt;sales_restrictions);
+  }
+
+  <span class="keyword">public</span> function test_preorder_state() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_preorder_product_example.xml&quot;</span>);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $product-&gt;notification_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $product-&gt;publishing_status);
+    $this-&gt;assertEquals(<span class="stringliteral">&#39;preorder&#39;</span>, $product-&gt;current_state);
+    $this-&gt;assertEquals(array(2011, 2, 10), $product-&gt;parsed_publishing_date);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-02-10&quot;</span>), $product-&gt;premiere);
+    $this-&gt;assertFalse($product-&gt;sales_restrictions);
+  }
+
+  <span class="keyword">public</span> function test_published_state() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_published_product_example.xml&quot;</span>);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;03&quot;</span>, $product-&gt;notification_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;04&quot;</span>, $product-&gt;publishing_status);
+    $this-&gt;assertEquals(<span class="stringliteral">&#39;published&#39;</span>, $product-&gt;current_state);
+    $this-&gt;assertEquals(array(2011, 2), $product-&gt;parsed_publishing_date);
+    $this-&gt;assertFalse(isset($product-&gt;premiere));
+    $this-&gt;assertFalse($product-&gt;sales_restrictions);
+  }
+
+  <span class="keyword">public</span> function test_out_of_print_state() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_out_of_print_product_example.xml&quot;</span>);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;03&quot;</span>, $product-&gt;notification_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;07&quot;</span>, $product-&gt;publishing_status);
+    $this-&gt;assertEquals(<span class="stringliteral">&#39;out_of_print&#39;</span>, $product-&gt;current_state);
+    $this-&gt;assertEquals(array(), $product-&gt;parsed_publishing_date);
+    $this-&gt;assertFalse(isset($product-&gt;premiere));
+    $this-&gt;assertFalse($product-&gt;sales_restrictions);
+  }
+
+
+
+  <span class="keyword">public</span> function test_all_possible_tags() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;all_possible_tags.xml&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;miękka&quot;</span>, $product-&gt;cover_type);
+    $this-&gt;assertEquals(12.99, $product-&gt;cover_price);
+    $this-&gt;assertEquals(5, $product-&gt;vat);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;58.11.1&quot;</span>, $product-&gt;pkwiu);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;fdb8fa072be774d97a97&quot;</span>, $product-&gt;record_reference);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;03&quot;</span>, $product-&gt;notification_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Record had many errors&quot;</span>, $product-&gt;deletion_text);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324799992&quot;</span>, $product-&gt;isbn13);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324788882&quot;</span>, $product-&gt;ean);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;00&quot;</span>, $product-&gt;product_composition);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;BA&quot;</span>, $product-&gt;product_form);
+
+    $this-&gt;assertEquals(195, $product-&gt;height);
+    $this-&gt;assertEquals(125, $product-&gt;width);
+    $this-&gt;assertEquals(20, $product-&gt;thickness);
+    $this-&gt;assertEquals(90, $product-&gt;weight);
+
+    $this-&gt;assertEquals(1, count($product-&gt;series));
+    $this-&gt;assertEquals($product-&gt;series[0][0], <span class="stringliteral">&quot;Publisher series title&quot;</span>);
+    $this-&gt;assertEquals($product-&gt;series[0][1], <span class="stringliteral">&quot;Vol. 1&quot;</span>);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Original title&quot;</span>, $product-&gt;original_title);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Trade title&quot;</span>, $product-&gt;trade_title);
+    $this-&gt;assertEquals($product-&gt;full_title, <span class="stringliteral">&quot;Collection title (Vol. 1). Title. Subtitle (part 5)&quot;</span>);
+
+    $this-&gt;assertEquals(1, count($product-&gt;contributors));
+    $c = $product-&gt;contributors[0];
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;B06&quot;</span>, $c-&gt;role);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;pol&quot;</span>, $c-&gt;from_language);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;prof. Henryk von Sienkiewicz Ibrahim&quot;</span>, $c-&gt;person_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;prof.&quot;</span>, $c-&gt;titles_before_names);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Henryk&quot;</span>, $c-&gt;names_before_key);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;von&quot;</span>, $c-&gt;prefix_to_key);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Sienkiewicz&quot;</span>, $c-&gt;key_names);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Ibrahim&quot;</span>, $c-&gt;names_after_key);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Sienkiewicz&#39;s biography&quot;</span>, $c-&gt;biographical_note);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;second edition&quot;</span>, $product-&gt;edition_statement);
+
+    $this-&gt;assertEquals(1, count($product-&gt;languages));
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;01&quot;</span>, $product-&gt;languages[0]-&gt;role);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;pol&quot;</span>, $product-&gt;languages[0]-&gt;code);
+
+    $this-&gt;assertEquals(250, $product-&gt;number_of_pages);
+    $this-&gt;assertEquals(32, $product-&gt;number_of_illustrations);
+
+    $this-&gt;assertEquals(2, count($product-&gt;subjects));
+    $this-&gt;assertFalse(isset($product-&gt;subjects[1]-&gt;main_subject));
+
+    $s = $product-&gt;subjects[0];
+
+    $this-&gt;assertTrue(isset($s-&gt;main_subject));
+    $this-&gt;assertEquals(24, $s-&gt;scheme_identifier);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;elibri.com.pl&quot;</span>, $s-&gt;scheme_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;1.0&quot;</span>, $s-&gt;scheme_version);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;1110&quot;</span>, $s-&gt;code);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Beletrystyka / Literatura popularna / Powieść historyczna&quot;</span>, $s-&gt;heading_text);
+
+    $this-&gt;assertEquals(7, $product-&gt;reading_age_from);
+    $this-&gt;assertEquals(25, $product-&gt;reading_age_to);
+
+    $bk = $product-&gt;reviews[0];
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;07&quot;</span>, $bk-&gt;type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Jan Kowalski&quot;</span>, $bk-&gt;author);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;This book is purely &lt;strong&gt;awesome!&lt;/strong&gt;&quot;</span>, trim($bk-&gt;text));
+
+    $this-&gt;assertEquals(1, count($product-&gt;supporting_resources));
+
+    $cvr = $product-&gt;supporting_resources[0];
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;01&quot;</span>, $cvr-&gt;content_type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;03&quot;</span>, $cvr-&gt;mode);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $cvr-&gt;form);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;http://elibri.com.pl/path/to/file.png&quot;</span>, $cvr-&gt;link);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;National Geographic&quot;</span>, $product-&gt;imprint_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;GREG&quot;</span>, $product-&gt;publisher_name);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;04&quot;</span>, $product-&gt;publishing_status);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;01&quot;</span>, $product-&gt;publishing_date-&gt;role);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;05&quot;</span>, $product-&gt;publishing_date-&gt;format);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;2011&quot;</span>, $product-&gt;publishing_date-&gt;date);
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;04&quot;</span>, $product-&gt;sales_restrictions_info-&gt;type);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;sklep.gildia.pl&quot;</span>, $product-&gt;sales_restrictions_info-&gt;outlet_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20120722&quot;</span>, $product-&gt;sales_restrictions_info-&gt;end_date);
+
+    $this-&gt;assertEquals(2, count($product-&gt;related_products));
+
+    $rp = $product-&gt;related_products[0];
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;24&quot;</span>, $rp-&gt;relation_code);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324705818&quot;</span>, $rp-&gt;isbn13);
+
+    $rp = $product-&gt;related_products[1];
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;23&quot;</span>, $rp-&gt;relation_code);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324799992&quot;</span>, $rp-&gt;isbn13);
+
+
+    $this-&gt;assertEquals(2, count($product-&gt;supply_details));
+
+    $sd = $product-&gt;supply_details[0];
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;03&quot;</span>, $sd-&gt;supplier-&gt;role);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;5213359408&quot;</span>, $sd-&gt;supplier-&gt;nip());
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Gildia.pl&quot;</span>, $sd-&gt;supplier-&gt;name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;22 631 40 83&quot;</span>, $sd-&gt;supplier-&gt;telephone_number);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;bok@gildia.pl&quot;</span>, $sd-&gt;supplier-&gt;email_address);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;http://gildia.pl&quot;</span>, $sd-&gt;supplier-&gt;website);
+
+
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;21&quot;</span>, $sd-&gt;product_availability);
+    $this-&gt;assertEquals(1000, $sd-&gt;on_hand);
+    $this-&gt;assertEquals(7, $sd-&gt;pack_quantity);
+
+    $pr = $sd-&gt;price;
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $pr-&gt;type);
+    $this-&gt;assertEquals(20, $pr-&gt;minimum_order_quantity);
+    $this-&gt;assertEquals(12.99, $pr-&gt;amount);
+    $this-&gt;assertEquals(7, $pr-&gt;vat);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;PLN&quot;</span>, $pr-&gt;currency_code);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;02&quot;</span>, $pr-&gt;printed_on_product);
+
+    $sd = $product-&gt;supply_details[1];
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;very few&quot;</span>, $sd-&gt;quantity_coded-&gt;code);
+  }
+
+}
+
+
+?&gt;
+</pre></div> </div></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Sun Jan 1 2012 21:55:53 dla Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri programem&#160;<a href="http://www.doxygen.org/index.html">1.7.4</a></small></address>
+
+</body>
+</html>

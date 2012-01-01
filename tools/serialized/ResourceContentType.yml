@@ -1,0 +1,51 @@
+#lista 158
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '01'
+  const_name: FRONT_COVER
+  name:
+    en: front cover
+    pl: okładka (przód)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '02'
+  const_name: BACK_COVER
+  name:
+    en: back cover
+    pl: okładka (tył)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '11'
+  const_name: AUTHOR_INTERVIEW
+  name:
+    en: author interview
+    pl: wywiad z autorem
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '13'
+  const_name: AUTHOR_READING
+  name:
+    en: author reading
+    pl: fragment książki czytany przez autora
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '15'
+  const_name: SAMPLE_CONTENT
+  name:
+    en: sample content
+    pl: fragment książki lub audiobook-a
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '17'
+  const_name: REVIEW
+  name:
+    en: review
+    pl: recenzja
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '24'
+  const_name: PRESS_RELEASE
+  name:
+    en: press release
+    pl: mediapack

@@ -1,0 +1,106 @@
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A01
+  const_name: AUTHOR
+  name:
+    en: author
+    pl: autor
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A02
+  const_name: GHOSTWRITER
+  name:
+    en: ghostwriter
+    pl: współautor
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A03
+  const_name: SCENARIST
+  name:
+    en: scenarist
+    pl: scenarzysta
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A10
+  const_name: ORIGINATOR
+  name:
+    en: originator
+    pl: pomysłodawca
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A12
+  const_name: ILLUSTRATOR
+  name:
+    en: illustrator
+    pl: ilustrator
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A13
+  const_name: PHOTOGRAPHER
+  name:
+    en: photographer
+    pl: fotograf
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A15
+  const_name: AUTHOR_OF_PREFACE
+  name:
+    en: author of preface
+    pl: autor wstępu
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A35
+  const_name: DRAWER
+  name:
+    en: drawer
+    pl: rysownik
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A36
+  const_name: COVER_DESIGNER
+  name:
+    en: cover designer
+    pl: projektant okładki
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: A40
+  const_name: INKED_OR_COLORED_BY
+  name:
+    en: inked or colored by
+    pl: tusz/kolor
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: B01
+  const_name: EDITOR
+  name:
+    en: editor
+    pl: redaktor
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: B02
+  const_name: REVISOR
+  name:
+    en: revisor
+    pl: korektor
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: B06
+  const_name: TRANSLATOR
+  name:
+    en: translator
+    pl: tłumacz
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
+  onix_code: B11
+  const_name: EDITOR_IN_CHIEF
+  name:
+    en: editor-in-chief
+    pl: redaktor naczelny
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole
+  onix_code: E07
+  const_name: READ_BY
+  name:
+    en: read by
+    pl: lektor
+

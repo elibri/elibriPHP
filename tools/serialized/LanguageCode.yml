@@ -1,0 +1,272 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: afr
+  name:
+    en: afrikaans 
+    pl: afrikaans 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ara
+  name:
+    en: arabic  
+    pl: arabski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: arm
+  name:
+    en: Armenian  
+    pl: armeński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: aze
+  name:
+    en: Azerbaijani 
+    pl: azerbejdżański 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: bat
+  name:
+    en: Baltic languages  
+    pl: języki bałtyckie
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: bel
+  name:
+    en: Belarusian  
+    pl: białoruski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ben
+  name:
+    en: Bengali 
+    pl: bengalski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: bos
+  name:
+    en: Bosnian 
+    pl: bośniacki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: bul
+  name:
+    en: Bulgarian 
+    pl: bułgarski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: che
+  name:
+    en: Chechen 
+    pl: czeczeński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: chi
+  name:
+    en: Chinese 
+    pl: chiński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: csb
+  name:
+    en: Kashubian 
+    pl: kaszubski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: cze
+  name:
+    en: Czech 
+    pl: czeski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: dan
+  name:
+    en: Danish  
+    pl: duński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: dut
+  name:
+    en: Dutch
+    pl: holenderski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: egy
+  name:
+    en: Egyptian  
+    pl: egipski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: eng
+  name:
+    en: English 
+    pl: angielski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: epo
+  name:
+    en: Esperanto 
+    pl: Esperanto 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: fin
+  name:
+    en: Finnish 
+    pl: fiński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: fre
+  name:
+    en: French  
+    pl: francuski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: gem
+  name:
+    en: Germanic languages  
+    pl: języki germańskie
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ger
+  name:
+    en: German  
+    pl: niemiecki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: gle
+  name:
+    en: Irish 
+    pl: irlandzki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: heb
+  name:
+    en: Hebrew  
+    pl: hebrajski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: hin
+  name:
+    en: Hindi 
+    pl: hindi 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: hrv
+  name:
+    en: Croatian  
+    pl: chorwacki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: hun
+  name:
+    en: Hungarian 
+    pl: węgierski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ira
+  name:
+    en: Iranian languages 
+    pl: irański
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ita
+  name:
+    en: Italian 
+    pl: włoski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: jpn
+  name:
+    en: Japanese  
+    pl: japoński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: lat
+  name:
+    en: Latin 
+    pl: łaciński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: lav
+  name:
+    en: Latvian 
+    pl: łotewski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: lit
+  name:
+    en: Lithuanian  
+    pl: litewski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ltz
+  name:
+    en: Luxembourgish; Letzeburgesch  
+    pl: luksemburski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: mol
+  name:
+    en: Moldavian
+    pl: mołdawski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: mon
+  name:
+    en: Mongolian 
+    pl: mongolski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: mul
+  name:
+    en: Multiple languages  
+    pl: wiele języków
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: nap
+  name:
+    en: Neapolitan  
+    pl: neapolitański
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: nep
+  name:
+    en: Nepali  
+    pl: nepalski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: nor
+  name:
+    en: Norwegian 
+    pl: norweski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: per
+  name:
+    en: Persian 
+    pl: perski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: pol
+  name:
+    en: Polish  
+    pl: polski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: por
+  name:
+    en: Portuguese  
+    pl: portugalski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: rum
+  name:
+    en: Romanian  
+    pl: rumuński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: rus
+  name:
+    en: Russian 
+    pl: rosyjski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: slo
+  name:
+    en: Slovak  
+    pl: słowacki  
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: slv
+  name:
+    en: Slovenian 
+    pl: słoweński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: spa
+  name:
+    en: Spanish 
+    pl: hiszpański
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: srp
+  name:
+    en: Serbian 
+    pl: serbski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: swe
+  name:
+    en: Swedish 
+    pl: szwedzki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: syr
+  name:
+    en: Syriac  
+    pl: syryjski
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: tur
+  name:
+    en: Turkish 
+    pl: turecki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ukr
+  name:
+    en: Ukrainian 
+    pl: ukraiński
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: vie
+  name:
+    en: Vietnamese  
+    pl: wietnamski

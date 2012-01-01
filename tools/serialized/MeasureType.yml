@@ -1,0 +1,26 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::MeasureType
+  onix_code: '01'
+  const_name: HEIGHT
+  name:
+    en: height
+    pl: wysokość
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::MeasureType
+  onix_code: '02'
+  const_name: WIDTH
+  name:
+    en: width
+    pl: szerokość
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::MeasureType
+  onix_code: '03'
+  const_name: THICKNESS
+  name:
+    en: thickness
+    pl: grubość
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::MeasureType
+  onix_code: '08'
+  const_name: WEIGHT
+  name:
+    en: weight
+    pl: masa

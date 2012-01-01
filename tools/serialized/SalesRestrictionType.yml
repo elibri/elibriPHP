@@ -1,0 +1,9 @@
+
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SalesRestrictionType
+  onix_code: '04'
+  const_name: RETAILER_EXCLUSIVE
+  name:
+    en: retailer exclusive
+    pl: sprzedaż z wyłącznością dla detalisty

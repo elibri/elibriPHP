@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '24'
+  const_name: PROPRIETARY
+  name:
+    en: proprietary
+    pl: własnościowy

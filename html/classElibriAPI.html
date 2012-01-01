@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri: Dokumentacja klasy ElibriAPI</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri
+   
+   </div>
+   <div id="projectbrief">Biblioteka&nbsp;abstrahująca&nbsp;dostęp&nbsp;do&nbsp;API&nbsp;eLibri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Wygenerowano przez Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+--></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
+      <li><a href="modules.html"><span>Moduły</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-attribs">Atrybuty publiczne</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja klasy ElibriAPI</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="ElibriAPI" -->
+<p><a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.">ElibriAPI</a> abstrahuje wykorzystanie API udostępniane przez eLibri.  
+ <a href="classElibriAPI.html#details">Więcej...</a></p>
+
+<p><a href="classElibriAPI-members.html">Lista wszystkich składowych.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afad96342c17ff5f29f471e0bf12b9f53"></a><!-- doxytag: member="ElibriAPI::__construct" ref="afad96342c17ff5f29f471e0bf12b9f53" args="($login, $password, $host=NULL)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#afad96342c17ff5f29f471e0bf12b9f53">__construct</a> ($login, $password, $host=NULL)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontruktor obiektu API. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9217eedc54af66d0910f48d3ab3789c4"></a><!-- doxytag: member="ElibriAPI::getPublishersList" ref="a9217eedc54af66d0910f48d3ab3789c4" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a9217eedc54af66d0910f48d3ab3789c4">getPublishersList</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobierz listę wydawnict obecnych w eLibri. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#aba0903598bb1c1eb144c9ba509c88f6c">getPublisherProducts</a> ($publisherId)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobierz listę produktów należących do wydawnictwa.  <a href="#aba0903598bb1c1eb144c9ba509c88f6c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#ab95d68e201c65518dc8066f030ced90a">getQueues</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">pobierz listę kolejek danych  <a href="#ab95d68e201c65518dc8066f030ced90a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a1ddc5075b051dcdbeceb7c587b9c3885">popQueue</a> ($queue, $count=30, $testing=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobierz dane z kolejki.  <a href="#a1ddc5075b051dcdbeceb7c587b9c3885"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30a101e671fc23f49d4a7525123894bd"></a><!-- doxytag: member="ElibriAPI::refillAll" ref="a30a101e671fc23f49d4a7525123894bd" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a30a101e671fc23f49d4a7525123894bd">refillAll</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">zapełnij kolejki wszystkimi dostępnymi danymi <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a0f86aaa747d4104a03fe85fe5e445ba8">lastPopQueue</a> ($queue)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponów pobieranie danych z kolejki. Metoda ta może zostać użyta, gdy podczas pobierania danych z kolejki wystąpił jakiś błąd.  <a href="#a0f86aaa747d4104a03fe85fe5e445ba8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a84979bf9c56e813f6134aeba2d508054">getProduct</a> ($reference)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobierz metadane jednego produktu.  <a href="#a84979bf9c56e813f6134aeba2d508054"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a177d27e53d3370251dff213e9be01d62"></a><!-- doxytag: member="ElibriAPI::STOCKS_QUEUE" ref="a177d27e53d3370251dff213e9be01d62" args="" -->
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a177d27e53d3370251dff213e9be01d62">STOCKS_QUEUE</a> = &quot;stocks&quot;</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nazwa kolejki z danymi o dostępności produktów. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fc9472f95cd89fd64015d0e22058dcb"></a><!-- doxytag: member="ElibriAPI::META_QUEUE" ref="a5fc9472f95cd89fd64015d0e22058dcb" args="" -->
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriAPI.html#a5fc9472f95cd89fd64015d0e22058dcb">META_QUEUE</a> = &quot;meta&quot;</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nazwa kolejki z metadanymi produktów. <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Opis szczegółowy</h2>
+<div class="textblock"><p><a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.">ElibriAPI</a> abstrahuje wykorzystanie API udostępniane przez eLibri. </p>
+</div><hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a84979bf9c56e813f6134aeba2d508054"></a><!-- doxytag: member="ElibriAPI::getProduct" ref="a84979bf9c56e813f6134aeba2d508054" args="($reference)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElibriAPI::getProduct </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pobierz metadane jednego produktu. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$reference</td><td>- record_reference produktu, który ma zostać pobrany </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a> - w tablicy $products jest tylko jeden produkt </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aba0903598bb1c1eb144c9ba509c88f6c"></a><!-- doxytag: member="ElibriAPI::getPublisherProducts" ref="aba0903598bb1c1eb144c9ba509c88f6c" args="($publisherId)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElibriAPI::getPublisherProducts </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>publisherId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pobierz listę produktów należących do wydawnictwa. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$publisherId</td><td>- ID wydawnictwa </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>lista instancji <a class="el" href="classElibriPublisherProduct.html" title="Klasa abstrahuje informację o jednym produkcie, zwracane przez ElibriAPI::getPublisherProducts.">ElibriPublisherProduct</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab95d68e201c65518dc8066f030ced90a"></a><!-- doxytag: member="ElibriAPI::getQueues" ref="ab95d68e201c65518dc8066f030ced90a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElibriAPI::getQueues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>pobierz listę kolejek danych </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>lista instancji <a class="el" href="classElibriQueue.html" title="Klasa pomocnicza reprezentująca informacja o kolejce.">ElibriQueue</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f86aaa747d4104a03fe85fe5e445ba8"></a><!-- doxytag: member="ElibriAPI::lastPopQueue" ref="a0f86aaa747d4104a03fe85fe5e445ba8" args="($queue)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElibriAPI::lastPopQueue </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Ponów pobieranie danych z kolejki. Metoda ta może zostać użyta, gdy podczas pobierania danych z kolejki wystąpił jakiś błąd. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">String</td><td class="paramname">$queue</td><td>- nazwa kolejki </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1ddc5075b051dcdbeceb7c587b9c3885"></a><!-- doxytag: member="ElibriAPI::popQueue" ref="a1ddc5075b051dcdbeceb7c587b9c3885" args="($queue, $count=30, $testing=false)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElibriAPI::popQueue </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>count</em> = <code>30</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>testing</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pobierz dane z kolejki. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">String</td><td class="paramname">$queue</td><td>- nazwa kolejki </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$count</td><td>- ilość produktów do pobrania, max. 100 (domyślnie 30) </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$testing</td><td>- jeśli true, to dane nie są usuwane z kolejki (domyślnie false) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a> albo NULL, jeśli kolejka danych jest pusta </dd></dl>
+
+</div>
+</div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Sun Jan 1 2012 21:55:53 dla Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri programem&#160;<a href="http://www.doxygen.org/index.html">1.7.4</a></small></address>
+
+</body>
+</html>

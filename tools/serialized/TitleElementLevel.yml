@@ -1,0 +1,15 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::TitleElementLevel
+  onix_code: '01'
+  const_name: PRODUCT
+  name:
+    en: product
+    pl: produkt
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::TitleElementLevel
+  onix_code: '02'
+  const_name: COLLECTION
+  name:
+    en: collection
+    pl: kolekcja
