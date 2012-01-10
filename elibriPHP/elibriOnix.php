@@ -345,6 +345,9 @@ class ElibriProduct {
   //! symbol PKWiU
   public $pkwiu;
 
+  //! flaga bool, czy dla produktu istnieje podgląd
+  public $preview_exists;
+  
   //! \brief status wydawniczy - wartość String - jedna z: 'announced', 'preorder', 'published', 'out_of_print' 
   //! \details 
   //! \li 'announced' - informacja o produkcie jest szczątkowa, ale wydawnictwo zdecydowało się ją opublikować. Można taką informację umieścić w dziale zapowiedzi.
@@ -410,6 +413,8 @@ class ElibriProduct {
     $this->cover_price = FirstNodeValue::get($xml_fragment, "CoverPrice");
     $this->vat = FirstNodeValue::get($xml_fragment, "Vat", true);
     $this->pkwiu = FirstNodeValue::get($xml_fragment, "PKWiU");
+    $this->preview_exists = (FirstNodeValue::get($xml_fragment, "preview_exists") == "true");
+
       
     //product identifiers
     foreach ($xml_fragment->getElementsByTagName("ProductIdentifier") as $product_identifier_element) {

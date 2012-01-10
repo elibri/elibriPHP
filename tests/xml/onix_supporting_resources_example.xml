@@ -50,5 +50,6 @@
     <PublishingDetail>
       <PublishingStatus>04</PublishingStatus>
     </PublishingDetail>
+    <elibri:preview_exists>true</elibri:preview_exists>
   </Product>
 </ONIXMessage>

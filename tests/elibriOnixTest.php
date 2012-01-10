@@ -79,6 +79,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(12.99, $product->cover_price);
     $this->assertEquals(5, $product->vat);
     $this->assertEquals("58.11.1", $product->pkwiu);
+    $this->assertFalse($product->preview_exists);
   }
 
   public function test_ebook_extent() {
@@ -191,6 +192,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals("TEXT", $product->supporting_resources[1]->mode_name);
     $this->assertEquals("DOWNLOADABLE_FILE", $product->supporting_resources[1]->form_name);
 
+    $this->assertTrue($product->preview_exists);
   }
 
 
