@@ -7,5 +7,6 @@ the elibri API allows accessing the stream of bookdata in ONIX 3.0 format.
 This library is released under the MIT license.
 
 A few links:
+
   * [PEAR channel](http://elibri.com.pl/system/pear/)
   * [documentation](http://elibri.com.pl/system/doc/php/)

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<r xmlns="http://pear.php.net/dtd/rest.release" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://pear.php.net/dtd/rest.release http://pear.php.net/dtd/rest.release.xsd">
+    <p xlink:href="/rest/p/elibriphp">elibriPHP</p>
+    <c>elibri.com.pl/system/pear</c>
+    <v>0.1.1</v>
+    <st>beta</st>
+    <l>MIT</l>
+    <m></m>
+    <s>Biblioteka abstrahująca dostęp do API elibri</s>
+    <d>Źródła do projektu znajdziesz pod adresem https://github.com/elibri/elibriPHP,
+                               dokumentację pod adresem http://elibri.com.pl/system/doc/php/, 
+                               kanał PEAR pod adresem http://elibri.com.pl/system/pear/</d>
+    <da>2012-01-10 15:35:37</da>
+    <n>
+Dodana informacja o tym, czy produkt posiada podglad (pole $preview_exists)
+ </n>
+    <f>233041</f>
+    <g>https://www.elibri.com.pl/system/pear/get/elibriPHP-0.1.1</g>
+    <x xlink:href="package.0.1.1.xml"/>
+</r>

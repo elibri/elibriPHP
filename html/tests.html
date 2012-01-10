@@ -153,6 +153,7 @@ require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.
     $this-&gt;assertEquals(12.99, $product-&gt;cover_price);
     $this-&gt;assertEquals(5, $product-&gt;vat);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;58.11.1&quot;</span>, $product-&gt;pkwiu);
+    $this-&gt;assertFalse($product-&gt;preview_exists);
   }
 
   <span class="keyword">public</span> function test_ebook_extent() {
@@ -265,6 +266,7 @@ require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.
     $this-&gt;assertEquals(<span class="stringliteral">&quot;TEXT&quot;</span>, $product-&gt;supporting_resources[1]-&gt;mode_name);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;DOWNLOADABLE_FILE&quot;</span>, $product-&gt;supporting_resources[1]-&gt;form_name);
 
+    $this-&gt;assertTrue($product-&gt;preview_exists);
   }
 
 
@@ -521,7 +523,7 @@ require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.
 
 
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Sun Jan 1 2012 21:55:53 dla Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri programem&#160;<a href="http://www.doxygen.org/index.html">1.7.4</a></small></address>
+Wygenerowano dla Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri programem&#160;<a href="http://www.doxygen.org/index.html">1.7.4</a></small></address>
 
 </body>
 </html>
