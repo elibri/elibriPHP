@@ -21,11 +21,6 @@
     en: Azerbaijani 
     pl: azerbejdżański 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
-  onix_code: bat
-  name:
-    en: Baltic languages  
-    pl: języki bałtyckie
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: bel
   name:
     en: Belarusian  
@@ -74,7 +69,7 @@
   onix_code: dut
   name:
     en: Dutch
-    pl: holenderski
+    pl: niederlandzki; flamandzki
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: egy
   name:
@@ -100,11 +95,6 @@
   name:
     en: French  
     pl: francuski
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
-  onix_code: gem
-  name:
-    en: Germanic languages  
-    pl: języki germańskie
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: ger
   name:
@@ -180,11 +170,7 @@
   name:
     en: Mongolian 
     pl: mongolski
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
-  onix_code: mul
-  name:
-    en: Multiple languages  
-    pl: wiele języków
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: nap
   name:
@@ -270,3 +256,70 @@
   name:
     en: Vietnamese  
     pl: wietnamski
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: alb
+  name:
+    en: Albanian
+    pl: albański
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: baq
+  name:
+    en: Basque
+    pl: baskijski
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: est
+  name:
+    en: Estonian
+    pl: estoński
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: gre
+  name:
+    en: Greek, Modern (1453-)
+    pl: grecki nowożytny
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: geo
+  name:
+    en: Georgian
+    pl: gruziński
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ice
+  name:
+    en: Icelandic
+    pl: islandzki
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: yid
+  name:
+    en: Yiddish
+    pl: jidisz
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: cat
+  name:
+    en: Catalan
+    pl: kataloński
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: kor
+  name:
+    en: Korean
+    pl: koreański
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: mac
+  name:
+    en: Macedonian
+    pl: macedoński
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: arm
+  name:
+    en: Armenian
+    pl: armeński
+

@@ -1,9 +1,12 @@
 /*! \page releases Historia wersji
 
-    \section Wersja 0.1.1 z dnia 10. stycznia 2011
+    \section Wersja 0.1.2 z dnia 20 czerwca 2012
+    Rozszerzona lista języków  
+
+    \section Wersja 0.1.1 z dnia 10. stycznia 2012
     Dodane pole $preview_exists, które jest flagą bool informującą o tym, czy dla produktu istnieje podgląd
 
-    \section Wersja 0.1.0 z dnia 1. stycznia 2011 
+    \section Wersja 0.1.0 z dnia 1. stycznia 2012
     Pierwszy release.
 
 */

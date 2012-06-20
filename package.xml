@@ -12,10 +12,10 @@
     <email>kontakt@elibri.com.pl</email>
     <active>yes</active>
   </lead>
-  <date>2012-01-10</date>
-  <time>16:35:37</time>
+  <date>2012-06-20</date>
+  <time>10:54:22</time>
   <version>
-    <release>0.1.1</release>
+    <release>0.1.2</release>
     <api>3.0.1</api>
   </version>
   <stability>
@@ -23,13 +23,13 @@
     <api>beta</api>
   </stability>
   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
-  <notes>Dodana informacja o tym, czy produkt posiada podglad (pole $preview_exists)</notes>
+  <notes>Rozszerzona lista języków</notes>
   <contents>
     <dir name="/">
       <file name="elibriPHP.php" role="php" baseinstalldir="/" md5sum="e182fa18c56b11a1e0646dcf24933937"/>
       <dir name="elibriPHP">
         <file name="elibriAPI.php" role="php" md5sum="48b2cdae7e1b2f2704966d9e5cdb27a1"/>
-        <file name="elibriDefinitions.php" role="php" md5sum="cff773a5c5f6c544126b5f893635282f"/>
+        <file name="elibriDefinitions.php" role="php" md5sum="8201a46f3b184f7008b4fb1393c69273"/>
         <file name="elibriDict.php" role="php" md5sum="accdb567e89455303db50a10c85d0fdd"/>
         <file name="elibriOnix.php" role="php" md5sum="937fcb3d3cd1fa39ce67cd42a0da1dc3"/>
       </dir>
@@ -39,220 +39,220 @@
         <file name="queues_info.php" role="php" md5sum="b5eff07640bec8e4db2f0cdbd5fba43c"/>
       </dir>
       <dir name="html">
-        <file name="annotated.html" role="doc" md5sum="701c89921db8a7a11a64efb663d90d65"/>
+        <file name="annotated.html" role="doc" md5sum="312e216b9906cb4b679dba28963fc2c0"/>
         <file name="bc_s.png" role="doc" md5sum="5a84917eb31d8218289efe468b9ab6c2"/>
-        <file name="classElibriAPI-members.html" role="doc" md5sum="07c4ea833ac82a7327412f75c2b81138"/>
-        <file name="classElibriAPI.html" role="doc" md5sum="deb9a7eaaec95d749b47d576ca2fee66"/>
-        <file name="classElibriAPIConnectionException-members.html" role="doc" md5sum="803180a631ee73e36a235896f1e8117c"/>
-        <file name="classElibriAPIConnectionException.html" role="doc" md5sum="a6e1245c9babcc887dd9d14d36c286b4"/>
-        <file name="classElibriAnnotatedObject-members.html" role="doc" md5sum="fc3b2ee9fac8c4e5309b32fdd0c6647f"/>
-        <file name="classElibriAnnotatedObject.html" role="doc" md5sum="9327846f88eb7719bade08378341fbe1"/>
-        <file name="classElibriAudienceRange-members.html" role="doc" md5sum="56f3dcf17d265c68ac40460f63332464"/>
-        <file name="classElibriAudienceRange.html" role="doc" md5sum="91c9df60e708fa7d522af33970c25518"/>
-        <file name="classElibriCollection-members.html" role="doc" md5sum="445cc5b274cc41a203d5f0b9473b2837"/>
-        <file name="classElibriCollection.html" role="doc" md5sum="0428312fa966d8ae057fa77b2fc4b74d"/>
-        <file name="classElibriContributor-members.html" role="doc" md5sum="bd342227e404566720fc89b11be0ed57"/>
-        <file name="classElibriContributor.html" role="doc" md5sum="049c3a73ada831e79b2e0609b149c51b"/>
-        <file name="classElibriDictAtom-members.html" role="doc" md5sum="b2cb3037e8459ec576bac891cca3fc8a"/>
-        <file name="classElibriDictAtom.html" role="doc" md5sum="68f85a12ac73397e8e442fbb9d1e97ad"/>
-        <file name="classElibriDictAudienceRangePrecision-members.html" role="doc" md5sum="443cb02bf7fbf2494dadf6a6cb42d1b9"/>
-        <file name="classElibriDictAudienceRangePrecision.html" role="doc" md5sum="a100c55790e6171a5617354739c1ca0e"/>
-        <file name="classElibriDictAudienceRangeQualifier-members.html" role="doc" md5sum="9d5536ae28879aa09a7c5f3c5f0ea789"/>
-        <file name="classElibriDictAudienceRangeQualifier.html" role="doc" md5sum="c04ecb69a121180a98cc83e1f621b10e"/>
-        <file name="classElibriDictAvailability-members.html" role="doc" md5sum="a4e07fac737ba33dd29138d8bcca1eba"/>
-        <file name="classElibriDictAvailability.html" role="doc" md5sum="c9446767edd7dfd139fddffa4eff391c"/>
-        <file name="classElibriDictCollectionType-members.html" role="doc" md5sum="5d8b87097ce37cc1cc89d7e586ac0266"/>
-        <file name="classElibriDictCollectionType.html" role="doc" md5sum="67bd5e80770657d6a41f5be5dbdba695"/>
-        <file name="classElibriDictContentAudience-members.html" role="doc" md5sum="59faab1bb1ee0b6e33f2c9ffc9a276bc"/>
-        <file name="classElibriDictContentAudience.html" role="doc" md5sum="a9311bb39236559af80843cd6df53bb2"/>
-        <file name="classElibriDictContributorRole-members.html" role="doc" md5sum="a01ca95a2a0ff331c26fdbc772eb9b6d"/>
-        <file name="classElibriDictContributorRole.html" role="doc" md5sum="4e0359e926a4261354492d0e2ab8dbaa"/>
-        <file name="classElibriDictDateFormat-members.html" role="doc" md5sum="b992ae23a4ae48a077cb39698af8c650"/>
-        <file name="classElibriDictDateFormat.html" role="doc" md5sum="683edcfd38425f623dd813a0867c80b1"/>
-        <file name="classElibriDictElement-members.html" role="doc" md5sum="d74b397ab699f345cd8fa14ea094e334"/>
-        <file name="classElibriDictElement.html" role="doc" md5sum="f63c401f52de8e583253cb6a03c57884"/>
-        <file name="classElibriDictExtentType-members.html" role="doc" md5sum="0579c774c75713074546c7760185ae18"/>
-        <file name="classElibriDictExtentType.html" role="doc" md5sum="429703c5411b67bbd43e99b6b6ba7e01"/>
-        <file name="classElibriDictExtentUnit-members.html" role="doc" md5sum="d79b48d31652e3e678479730ed2ebd58"/>
-        <file name="classElibriDictExtentUnit.html" role="doc" md5sum="908ee522ea9ffef68e8fe4d134d5eee4"/>
-        <file name="classElibriDictLanguageCode-members.html" role="doc" md5sum="2eddec9b22d893e9c25a8f4d0410ef42"/>
-        <file name="classElibriDictLanguageCode.html" role="doc" md5sum="d1925062a40fc3f46cdf61559c1b5b3b"/>
-        <file name="classElibriDictLanguageRole-members.html" role="doc" md5sum="b2b766c296a3a6f1ec08ac91bfc64655"/>
-        <file name="classElibriDictLanguageRole.html" role="doc" md5sum="3b8b5a83bf80b2753d9804b9abdeee43"/>
-        <file name="classElibriDictMeasureType-members.html" role="doc" md5sum="7bdd3ab39df4051022df8cd2cbc20c27"/>
-        <file name="classElibriDictMeasureType.html" role="doc" md5sum="5adb0dcde01cae3f3d61024b714c77fd"/>
-        <file name="classElibriDictNotificationType-members.html" role="doc" md5sum="7240351a10da3f2ba814d113be4e1daf"/>
-        <file name="classElibriDictNotificationType.html" role="doc" md5sum="6b3e40b5c6452c7ad601250b417fde01"/>
-        <file name="classElibriDictOtherTextType-members.html" role="doc" md5sum="5bbaf44f6b51195b058eb21c9f247e4c"/>
-        <file name="classElibriDictOtherTextType.html" role="doc" md5sum="8ab87a0807780d3337ea8a3404deb9c7"/>
-        <file name="classElibriDictPricePrintedOnProduct-members.html" role="doc" md5sum="a2c149a1b0b67f45953b2a1d198991f5"/>
-        <file name="classElibriDictPricePrintedOnProduct.html" role="doc" md5sum="cee5e0270ca1702e25361159c68f1025"/>
-        <file name="classElibriDictPriceTypeCode-members.html" role="doc" md5sum="9891a166016a23fa56b279ff3c0ffa3e"/>
-        <file name="classElibriDictPriceTypeCode.html" role="doc" md5sum="61659d5b72c28e8094942bc5cdad92dd"/>
-        <file name="classElibriDictProductAvailabilityType-members.html" role="doc" md5sum="055b9d1df1967b5a45dcc4d8ea15cc44"/>
-        <file name="classElibriDictProductAvailabilityType.html" role="doc" md5sum="cbaaa57adab5cd0cea611d7db6aaa9b9"/>
-        <file name="classElibriDictProductFormCode-members.html" role="doc" md5sum="046114a2bd894a0af0ba0cdf154b8371"/>
-        <file name="classElibriDictProductFormCode.html" role="doc" md5sum="ad67a95e03442424f990bc901b6a61b8"/>
-        <file name="classElibriDictProductIDType-members.html" role="doc" md5sum="8951acbf80677261a22eeb6ff408da93"/>
-        <file name="classElibriDictProductIDType.html" role="doc" md5sum="1c64c74f52fa55b6921eaf724df6bc1c"/>
-        <file name="classElibriDictProductRelationType-members.html" role="doc" md5sum="1071a5048ad23238f10b9231d4f00b6b"/>
-        <file name="classElibriDictProductRelationType.html" role="doc" md5sum="52f871f9121db47ddd7412e49b19590e"/>
-        <file name="classElibriDictPublishingDateRole-members.html" role="doc" md5sum="1d94242bc8af96315d5a8556ea306d6c"/>
-        <file name="classElibriDictPublishingDateRole.html" role="doc" md5sum="21affa36e125c3cac188526a494348ac"/>
-        <file name="classElibriDictPublishingStatusCode-members.html" role="doc" md5sum="7fcf467d6f06dbc39347afa5703e268b"/>
-        <file name="classElibriDictPublishingStatusCode.html" role="doc" md5sum="455e03f80d80b626d092589a2fa7fdd8"/>
-        <file name="classElibriDictResourceContentType-members.html" role="doc" md5sum="49e133e8c02d3214f760cc4435fc0c03"/>
-        <file name="classElibriDictResourceContentType.html" role="doc" md5sum="9b5fcf5b94caeffe6a8c076369d3525d"/>
-        <file name="classElibriDictResourceForm-members.html" role="doc" md5sum="6fa0642806c723a8f35c9e5d8b4e43d2"/>
-        <file name="classElibriDictResourceForm.html" role="doc" md5sum="02135ad6575e88f00320ba58ad7d79b0"/>
-        <file name="classElibriDictResourceMode-members.html" role="doc" md5sum="6d2f35d21235349347b7ffb621fe85d9"/>
-        <file name="classElibriDictResourceMode.html" role="doc" md5sum="540cd8cb6ced7093a5c1def9914c5412"/>
-        <file name="classElibriDictSalesRestrictionType-members.html" role="doc" md5sum="ca0a2472d3fe315b5f9e155cf16110d5"/>
-        <file name="classElibriDictSalesRestrictionType.html" role="doc" md5sum="8bc4816757f3e2a32b8d4477c644b182"/>
-        <file name="classElibriDictSubjectSchemeIdentifier-members.html" role="doc" md5sum="0e2fddf6407677b749192c853d8b8b3b"/>
-        <file name="classElibriDictSubjectSchemeIdentifier.html" role="doc" md5sum="7f1e66ebd9e883e6fb8fcd000e97fb1c"/>
-        <file name="classElibriDictSupplierRole-members.html" role="doc" md5sum="d275f935158c9958c2b6bf254222a0df"/>
-        <file name="classElibriDictSupplierRole.html" role="doc" md5sum="7c0b325d01e9f45cf02df89e88c8623d"/>
-        <file name="classElibriDictTitleElementLevel-members.html" role="doc" md5sum="b3bd162a208515427569e97ba7b6af8a"/>
-        <file name="classElibriDictTitleElementLevel.html" role="doc" md5sum="e03f5b1451244634dfd404f3f8dd3a15"/>
-        <file name="classElibriDictTitleType-members.html" role="doc" md5sum="6136e98ccd934267cb6379d4089efff1"/>
-        <file name="classElibriDictTitleType.html" role="doc" md5sum="1fd7e02fa28749c0b06e3d489e83be6f"/>
-        <file name="classElibriDictUnnamedPersons-members.html" role="doc" md5sum="d718e06cf450c50f67194cd8ff382b2a"/>
-        <file name="classElibriDictUnnamedPersons.html" role="doc" md5sum="a79ff87626c68ed30e551bfc8e710ac9"/>
-        <file name="classElibriExtent-members.html" role="doc" md5sum="70f9c990475dc41147c2b9c747311d03"/>
-        <file name="classElibriExtent.html" role="doc" md5sum="e835aa1214fcb94602f3d8f8a34583f0"/>
-        <file name="classElibriForbiddenException-members.html" role="doc" md5sum="a12cd88e37f4fa147a15b78904d87513"/>
-        <file name="classElibriForbiddenException.html" role="doc" md5sum="7ed3957d79dd32e40bea8c47afbd5a08"/>
-        <file name="classElibriHeader-members.html" role="doc" md5sum="9869cf430c927b8cccfa5e57f235a0d6"/>
-        <file name="classElibriHeader.html" role="doc" md5sum="0fd50b22842e9bd5c072c8f4e47e2235"/>
-        <file name="classElibriImprint-members.html" role="doc" md5sum="fd07a39ab48fa2d3e0c39f06e55ffa8c"/>
-        <file name="classElibriImprint.html" role="doc" md5sum="63509d6c38bf7f322aa0ab82fe6a2a9e"/>
-        <file name="classElibriInvalidAuthException-members.html" role="doc" md5sum="0bde27b94e6ffd6e27114826cf960937"/>
-        <file name="classElibriInvalidAuthException.html" role="doc" md5sum="c627ec23b9dc6413c7f75af0bc2d7545"/>
-        <file name="classElibriInvalidDialectException-members.html" role="doc" md5sum="2817810f39a52a0f6d5574e587d43c2f"/>
-        <file name="classElibriInvalidDialectException.html" role="doc" md5sum="3eae3dae75d53caa0c733d5020ceb765"/>
-        <file name="classElibriInvalidQueueException-members.html" role="doc" md5sum="98cbb1ac55bbd8411cdd9b5dfd832d7d"/>
-        <file name="classElibriInvalidQueueException.html" role="doc" md5sum="0b4c955590aa2387dd25331f9ea32834"/>
-        <file name="classElibriLanguage-members.html" role="doc" md5sum="a2e9c2dd2c3e80a47ad8722367f11ca4"/>
-        <file name="classElibriLanguage.html" role="doc" md5sum="f8c308a955d61d01432c7170d44e486e"/>
-        <file name="classElibriMeasure-members.html" role="doc" md5sum="04ed5c4de0a7d994df7fd5a5451c9b06"/>
-        <file name="classElibriMeasure.html" role="doc" md5sum="cc938676f94b035b7b111daec3f19238"/>
-        <file name="classElibriNoPoppedDataException-members.html" role="doc" md5sum="11022aa9b8fba5fd1663563713d06c73"/>
-        <file name="classElibriNoPoppedDataException.html" role="doc" md5sum="ff7c1adeb4bba5bb8f741192419298ac"/>
-        <file name="classElibriNotFoundException-members.html" role="doc" md5sum="4da8b0e6dcb31c3adbc073fe77df40ad"/>
-        <file name="classElibriNotFoundException.html" role="doc" md5sum="82320bdd8d0dd96d7f4cc56a6ac6ffd5"/>
-        <file name="classElibriOnixMessage-members.html" role="doc" md5sum="876d8a34010ddb1f03098f05bdb5d868"/>
-        <file name="classElibriOnixMessage.html" role="doc" md5sum="adffd2c37b1ce7091eba6d7bd16ebf35"/>
-        <file name="classElibriPrice-members.html" role="doc" md5sum="5db5ff8b07a11cbd111a44acd1657aab"/>
-        <file name="classElibriPrice.html" role="doc" md5sum="f2e3cbc0ef53a761def042dcb0e89bbe"/>
-        <file name="classElibriProduct-members.html" role="doc" md5sum="217f5b6a385e72d24fb1dad1aa257973"/>
-        <file name="classElibriProduct.html" role="doc" md5sum="4ce52b5d2c07d28fe184b19bf602385e"/>
-        <file name="classElibriProductIdentifier-members.html" role="doc" md5sum="b835543f9351a55fbef78179a4c2a6b0"/>
-        <file name="classElibriProductIdentifier.html" role="doc" md5sum="5c69d6165410df9defe197e40a5977c6"/>
-        <file name="classElibriPublisher-members.html" role="doc" md5sum="b30554f521031a04dca504c458c8c5b7"/>
-        <file name="classElibriPublisher.html" role="doc" md5sum="dcc8dfd5bd2d3c556f5085ea06c2be33"/>
-        <file name="classElibriPublisherInfo-members.html" role="doc" md5sum="63f9bb1a27a2a1cebecd14625e33618d"/>
-        <file name="classElibriPublisherInfo.html" role="doc" md5sum="5207dd6740168a0857ddcb319205a52e"/>
-        <file name="classElibriPublisherProduct-members.html" role="doc" md5sum="5040610c2681304882eae18cd9a9e9ed"/>
-        <file name="classElibriPublisherProduct.html" role="doc" md5sum="38ace2091b4893305f7ad32ad2ee573c"/>
-        <file name="classElibriPublishingDate-members.html" role="doc" md5sum="1288cd41fe10d0259039531bd9370c26"/>
-        <file name="classElibriPublishingDate.html" role="doc" md5sum="7bb0aa982a85f48033ea498ad55fd8cf"/>
-        <file name="classElibriQueue-members.html" role="doc" md5sum="68fe0144a9387fc0f3a3dd689e1dcc29"/>
-        <file name="classElibriQueue.html" role="doc" md5sum="3853ea93cc10789787ac3679045d2b95"/>
-        <file name="classElibriRelatedProduct-members.html" role="doc" md5sum="424d99fbadfbc5535fbbe6f227d83041"/>
-        <file name="classElibriRelatedProduct.html" role="doc" md5sum="b777769bbc1c3a688fd33d539558ac6b"/>
-        <file name="classElibriSalesRestriction-members.html" role="doc" md5sum="7ec483b99a25c33e4d64d0de78addec4"/>
-        <file name="classElibriSalesRestriction.html" role="doc" md5sum="d3d44271269c2adb7236a788feebc769"/>
-        <file name="classElibriSender-members.html" role="doc" md5sum="28c82b7ac951a651200bb88b136138ae"/>
-        <file name="classElibriSender.html" role="doc" md5sum="c5e71d705d284dc61be30d894735d872"/>
-        <file name="classElibriServerErrorException-members.html" role="doc" md5sum="15368cdeb43c9b1248192c101bfdf974"/>
-        <file name="classElibriServerErrorException.html" role="doc" md5sum="ae292f899b680aab2608a9ebc7164b63"/>
-        <file name="classElibriStockQuantityCoded-members.html" role="doc" md5sum="ea147c3cef72caab0fec27c0b0a57274"/>
-        <file name="classElibriStockQuantityCoded.html" role="doc" md5sum="ab1a3edd38eda07254b947c157b4709f"/>
-        <file name="classElibriSubject-members.html" role="doc" md5sum="aea0a4a42a0b5bc0b6b813f29993fe2b"/>
-        <file name="classElibriSubject.html" role="doc" md5sum="99e833adf10ff3e3a2d0acb1de72e1e1"/>
-        <file name="classElibriSupplier-members.html" role="doc" md5sum="66518f4220eae76f144c6e6fed8086dd"/>
-        <file name="classElibriSupplier.html" role="doc" md5sum="aa1e86be118bc415fdae278ed1ae19ab"/>
-        <file name="classElibriSupplierIdentifier-members.html" role="doc" md5sum="99088c39a95afa824a8c464880742900"/>
-        <file name="classElibriSupplierIdentifier.html" role="doc" md5sum="be4c9f020b14a5ee912fdf1e8fe34c0a"/>
-        <file name="classElibriSupplyDetail-members.html" role="doc" md5sum="0b1bb474b9fae8ad6291f75a01cf323f"/>
-        <file name="classElibriSupplyDetail.html" role="doc" md5sum="4a89ea851447e77d9b423fdedfa3fb36"/>
-        <file name="classElibriSupportingResource-members.html" role="doc" md5sum="39edbd8d1c1949c95a5ee2738d76267e"/>
-        <file name="classElibriSupportingResource.html" role="doc" md5sum="0035c32cac61d11f670bfabeafcacc13"/>
-        <file name="classElibriTextContent-members.html" role="doc" md5sum="02d7c4bc41c9e3551ed83611ad80afd2"/>
-        <file name="classElibriTextContent.html" role="doc" md5sum="a4f9ce23fb78ec04378f9b05b1eaa52c"/>
-        <file name="classElibriTitleDetail-members.html" role="doc" md5sum="964dc871be31a1b9b81ba5f244ce1bc7"/>
-        <file name="classElibriTitleDetail.html" role="doc" md5sum="abc39dec5110261d7fa89ac52408c61b"/>
-        <file name="classElibriTitleElement-members.html" role="doc" md5sum="8dc7c06a11e60c9db31356769a33e656"/>
-        <file name="classElibriTitleElement.html" role="doc" md5sum="9430c2e1ab3dd53842b01dbfb5069160"/>
-        <file name="classElibriUnknownException-members.html" role="doc" md5sum="b2a9dce4c6918c377d387e217c9ffc18"/>
-        <file name="classElibriUnknownException.html" role="doc" md5sum="cfe9f7aa89dab63bc003567f0d8597f4"/>
-        <file name="classFirstNodeValue-members.html" role="doc" md5sum="b61c80aefc95b41f938be876b664c995"/>
-        <file name="classFirstNodeValue.html" role="doc" md5sum="d2eb1d1fc2118cd3f15c3eeac49225d1"/>
-        <file name="classes.html" role="doc" md5sum="b6cc2e080833adee59e40c5a2c45187a"/>
+        <file name="classElibriAPI-members.html" role="doc" md5sum="df203bcc51064751fb2a974ffc6e4f5a"/>
+        <file name="classElibriAPI.html" role="doc" md5sum="e0fd5fe58c5b30f6c9035db52f3548a8"/>
+        <file name="classElibriAPIConnectionException-members.html" role="doc" md5sum="d4cecf3f2c5b99eef995e1d82d6ae425"/>
+        <file name="classElibriAPIConnectionException.html" role="doc" md5sum="3f3a54ca6313ad9cee2919b73d634d92"/>
+        <file name="classElibriAnnotatedObject-members.html" role="doc" md5sum="b0654a5c9fe41114d17729a6ed4b337d"/>
+        <file name="classElibriAnnotatedObject.html" role="doc" md5sum="f27721a954b91dea2653178f3d093d90"/>
+        <file name="classElibriAudienceRange-members.html" role="doc" md5sum="2f44b7e588c0b1a68bf92d30b6ddd0f6"/>
+        <file name="classElibriAudienceRange.html" role="doc" md5sum="70c72df9dd6f9374707d549be0f2c359"/>
+        <file name="classElibriCollection-members.html" role="doc" md5sum="d0b73603f54a7545a1c000e83148b8c9"/>
+        <file name="classElibriCollection.html" role="doc" md5sum="2eb94a41fc0ccae9953aa92bfe881b56"/>
+        <file name="classElibriContributor-members.html" role="doc" md5sum="0fd5316415181141f9f7d1531925090d"/>
+        <file name="classElibriContributor.html" role="doc" md5sum="ec9877be1c7cbd7f3847bae9ea6b0560"/>
+        <file name="classElibriDictAtom-members.html" role="doc" md5sum="390bcc33ee3470be39897043958b929c"/>
+        <file name="classElibriDictAtom.html" role="doc" md5sum="030d0c6bc99c347b619c4883bee49467"/>
+        <file name="classElibriDictAudienceRangePrecision-members.html" role="doc" md5sum="3d440492dbfb43134b784cc722f0f857"/>
+        <file name="classElibriDictAudienceRangePrecision.html" role="doc" md5sum="78fd04472baec2dc52a89aa07c1073fa"/>
+        <file name="classElibriDictAudienceRangeQualifier-members.html" role="doc" md5sum="15255e335c92da06ddda1f446c4f36af"/>
+        <file name="classElibriDictAudienceRangeQualifier.html" role="doc" md5sum="4ea8602dc1ae0a448081838937640b28"/>
+        <file name="classElibriDictAvailability-members.html" role="doc" md5sum="0ecd4b3990c40a6c98bb37ae3c76f60a"/>
+        <file name="classElibriDictAvailability.html" role="doc" md5sum="841ad5a55f0fa214b41e864aa482d6c9"/>
+        <file name="classElibriDictCollectionType-members.html" role="doc" md5sum="3cd87cf5a7576c21846466d3073d6134"/>
+        <file name="classElibriDictCollectionType.html" role="doc" md5sum="4396b9aeab3985637b5d18eef3eda7fe"/>
+        <file name="classElibriDictContentAudience-members.html" role="doc" md5sum="5ef90ad1754d73fe6bb1455cecee86f8"/>
+        <file name="classElibriDictContentAudience.html" role="doc" md5sum="5c099401e81561b655de73119dbaff17"/>
+        <file name="classElibriDictContributorRole-members.html" role="doc" md5sum="ce069872367462804abe5b232836f341"/>
+        <file name="classElibriDictContributorRole.html" role="doc" md5sum="83d35b4e9d65cb7c402870cb1add33ed"/>
+        <file name="classElibriDictDateFormat-members.html" role="doc" md5sum="108b4d960fbc506b02fe44ebe632c617"/>
+        <file name="classElibriDictDateFormat.html" role="doc" md5sum="b182a702ee5fbce738d4831b2ade74bf"/>
+        <file name="classElibriDictElement-members.html" role="doc" md5sum="38e03ac5f69248ca3346db73def52864"/>
+        <file name="classElibriDictElement.html" role="doc" md5sum="d5ceea7de2da58b97fe5db956d242b8d"/>
+        <file name="classElibriDictExtentType-members.html" role="doc" md5sum="a5e5679185024faf39dd4fe78180cab3"/>
+        <file name="classElibriDictExtentType.html" role="doc" md5sum="e3e2f356eeca2df0deacea98360c8180"/>
+        <file name="classElibriDictExtentUnit-members.html" role="doc" md5sum="5d7c31132d0c5e7e14a5cd961f94059e"/>
+        <file name="classElibriDictExtentUnit.html" role="doc" md5sum="ae380cad71764e1b5d71c97cdb3ec459"/>
+        <file name="classElibriDictLanguageCode-members.html" role="doc" md5sum="90cf3134a6831078d2c71078ddacbbeb"/>
+        <file name="classElibriDictLanguageCode.html" role="doc" md5sum="f023cd083c460dcc965f6d7b633f5333"/>
+        <file name="classElibriDictLanguageRole-members.html" role="doc" md5sum="08a8676ef4a5caa9db3b9c217d896113"/>
+        <file name="classElibriDictLanguageRole.html" role="doc" md5sum="7097b73a28fcd682f9939265ba2b8a8a"/>
+        <file name="classElibriDictMeasureType-members.html" role="doc" md5sum="5e1bfb418754b0901f80e3089f06db71"/>
+        <file name="classElibriDictMeasureType.html" role="doc" md5sum="5f27129530ca89b80856d2938feeb014"/>
+        <file name="classElibriDictNotificationType-members.html" role="doc" md5sum="5461c7effe76e4a0430f22c32a61e862"/>
+        <file name="classElibriDictNotificationType.html" role="doc" md5sum="45c774f4b457a090af83fb1c66a876ab"/>
+        <file name="classElibriDictOtherTextType-members.html" role="doc" md5sum="05d16fe2ffa6433d6f6e08ca7d409097"/>
+        <file name="classElibriDictOtherTextType.html" role="doc" md5sum="22bebdcf024eb8d0efff5021efdc807d"/>
+        <file name="classElibriDictPricePrintedOnProduct-members.html" role="doc" md5sum="7670719df3947e57d04713e2ee73ec4f"/>
+        <file name="classElibriDictPricePrintedOnProduct.html" role="doc" md5sum="67300c76a129ceca27e8b48f94a548da"/>
+        <file name="classElibriDictPriceTypeCode-members.html" role="doc" md5sum="7a5943e013b7859dba9be5cbf850e719"/>
+        <file name="classElibriDictPriceTypeCode.html" role="doc" md5sum="ae3f15b8042b3cd00ccbd31f8dd64f4f"/>
+        <file name="classElibriDictProductAvailabilityType-members.html" role="doc" md5sum="0f60b33dd89c939f75bb0b864c4532df"/>
+        <file name="classElibriDictProductAvailabilityType.html" role="doc" md5sum="600cabdf8aaf4ddceee427b5618ad7f7"/>
+        <file name="classElibriDictProductFormCode-members.html" role="doc" md5sum="630f35ce482cb8c5c7a26c3da40fda94"/>
+        <file name="classElibriDictProductFormCode.html" role="doc" md5sum="b9c24ed3fbf283c188fe9a59f1f2ac98"/>
+        <file name="classElibriDictProductIDType-members.html" role="doc" md5sum="4d3992fcb936a5daaebe9e5bdb5cf148"/>
+        <file name="classElibriDictProductIDType.html" role="doc" md5sum="1485ab6679b8199b34de24d98074e907"/>
+        <file name="classElibriDictProductRelationType-members.html" role="doc" md5sum="784a32b3cbf7b930773235e2e7def636"/>
+        <file name="classElibriDictProductRelationType.html" role="doc" md5sum="d4aa73f8ea994eefac49c9198f448962"/>
+        <file name="classElibriDictPublishingDateRole-members.html" role="doc" md5sum="94f2838071f3ed1549086cd50da59895"/>
+        <file name="classElibriDictPublishingDateRole.html" role="doc" md5sum="0e44c2daec52d98dd1b687b87abe9057"/>
+        <file name="classElibriDictPublishingStatusCode-members.html" role="doc" md5sum="855ced4c3da809096373122fc6836430"/>
+        <file name="classElibriDictPublishingStatusCode.html" role="doc" md5sum="fa67d8f3022ecfdb82caa15371e68fd9"/>
+        <file name="classElibriDictResourceContentType-members.html" role="doc" md5sum="20e0872ffce477366e48448cbfd7b276"/>
+        <file name="classElibriDictResourceContentType.html" role="doc" md5sum="5a831af6b051f71fd463f4dc0b48922f"/>
+        <file name="classElibriDictResourceForm-members.html" role="doc" md5sum="23c1e4b10726e2257d0c8b1958ce5f1a"/>
+        <file name="classElibriDictResourceForm.html" role="doc" md5sum="b52d5302307ef0aea16e3c49eec349fc"/>
+        <file name="classElibriDictResourceMode-members.html" role="doc" md5sum="1880fb23d49f05036ca10851d6008a46"/>
+        <file name="classElibriDictResourceMode.html" role="doc" md5sum="3cac37ed5852a0562c80834f618d1f65"/>
+        <file name="classElibriDictSalesRestrictionType-members.html" role="doc" md5sum="42cba2c36707edf33fc75ed71a879916"/>
+        <file name="classElibriDictSalesRestrictionType.html" role="doc" md5sum="d8cf4b5b3e7fe16c014a5a54e6026ee1"/>
+        <file name="classElibriDictSubjectSchemeIdentifier-members.html" role="doc" md5sum="e02ee88f959a1aa97e758de06b8eea3c"/>
+        <file name="classElibriDictSubjectSchemeIdentifier.html" role="doc" md5sum="e0946bdbdd5b99dd9563f86114ea5347"/>
+        <file name="classElibriDictSupplierRole-members.html" role="doc" md5sum="d4513f96b2a0ce2af3a3ea55a874c810"/>
+        <file name="classElibriDictSupplierRole.html" role="doc" md5sum="6aa21125b7736554f7858bb8a05f966d"/>
+        <file name="classElibriDictTitleElementLevel-members.html" role="doc" md5sum="1ec4cc4d6a8333527f3d0ef4493c8659"/>
+        <file name="classElibriDictTitleElementLevel.html" role="doc" md5sum="2a51309b33ba7a64e5d1b2ca07c3023d"/>
+        <file name="classElibriDictTitleType-members.html" role="doc" md5sum="cd77186eeadc08c8a590ef343bc1708e"/>
+        <file name="classElibriDictTitleType.html" role="doc" md5sum="77418ffe9179a4642a64af8d99a4e48e"/>
+        <file name="classElibriDictUnnamedPersons-members.html" role="doc" md5sum="a4e92c416f03d0e24fc8281cf06bbe06"/>
+        <file name="classElibriDictUnnamedPersons.html" role="doc" md5sum="44c1a50798e26d1b27e774cc227786a7"/>
+        <file name="classElibriExtent-members.html" role="doc" md5sum="f42be55ccf5970fffcb3dfdccda0308a"/>
+        <file name="classElibriExtent.html" role="doc" md5sum="e729c953485d08f09dc07981abc1d855"/>
+        <file name="classElibriForbiddenException-members.html" role="doc" md5sum="0287e0a02ef991e847d09bdb1380b77a"/>
+        <file name="classElibriForbiddenException.html" role="doc" md5sum="5982db789ebce726e066fa690763f46d"/>
+        <file name="classElibriHeader-members.html" role="doc" md5sum="ba239759dcbfa7f93e5653812420d461"/>
+        <file name="classElibriHeader.html" role="doc" md5sum="dad2b71c14104def215304d1aa69b404"/>
+        <file name="classElibriImprint-members.html" role="doc" md5sum="acfa1bedffb547d3ff292303e530b0ff"/>
+        <file name="classElibriImprint.html" role="doc" md5sum="d553e4dc380d405d6e1e865aefc012d8"/>
+        <file name="classElibriInvalidAuthException-members.html" role="doc" md5sum="6c588d81e5f056092ffdad113daa0a63"/>
+        <file name="classElibriInvalidAuthException.html" role="doc" md5sum="b3c75d57c85698339cce80d986c7a4c3"/>
+        <file name="classElibriInvalidDialectException-members.html" role="doc" md5sum="37235c9276d53ee4934b30a0cf2bb73f"/>
+        <file name="classElibriInvalidDialectException.html" role="doc" md5sum="3448b6e0d8895f2945d3459a105baecf"/>
+        <file name="classElibriInvalidQueueException-members.html" role="doc" md5sum="273706d5036c783c1f6a10911a00d880"/>
+        <file name="classElibriInvalidQueueException.html" role="doc" md5sum="fc69bd412d410d97f8455b3dd26d6351"/>
+        <file name="classElibriLanguage-members.html" role="doc" md5sum="e781bca731f8a3aa40c72794d6f462cd"/>
+        <file name="classElibriLanguage.html" role="doc" md5sum="9a02364b8603d3d1d44fbde7e6e85af3"/>
+        <file name="classElibriMeasure-members.html" role="doc" md5sum="08a1fe8ed3be2bbac233aaa48987f360"/>
+        <file name="classElibriMeasure.html" role="doc" md5sum="f81d5962d66777ae76f05edecb2c2bf6"/>
+        <file name="classElibriNoPoppedDataException-members.html" role="doc" md5sum="cc99b0a4faeb4881c61654897bbea447"/>
+        <file name="classElibriNoPoppedDataException.html" role="doc" md5sum="e7d27e71873b7b749f2fc1858002b7cd"/>
+        <file name="classElibriNotFoundException-members.html" role="doc" md5sum="0bc5167f6f846301942f66c3c267ecd3"/>
+        <file name="classElibriNotFoundException.html" role="doc" md5sum="ce2be43674b1297ae47281c64b433ca9"/>
+        <file name="classElibriOnixMessage-members.html" role="doc" md5sum="830954936589d7a569c89828a16ec40b"/>
+        <file name="classElibriOnixMessage.html" role="doc" md5sum="13ee2c1e3ab0b938c75ebc3e5cba8ccd"/>
+        <file name="classElibriPrice-members.html" role="doc" md5sum="59ee199d2855061028769c39cb50b2d2"/>
+        <file name="classElibriPrice.html" role="doc" md5sum="9a253ef05801bf9d3fbcd9bce38b54a2"/>
+        <file name="classElibriProduct-members.html" role="doc" md5sum="121098eb83d808b9dddeaf4bbf068965"/>
+        <file name="classElibriProduct.html" role="doc" md5sum="df0a918a71ea188fb2f8ffe5908cbd9e"/>
+        <file name="classElibriProductIdentifier-members.html" role="doc" md5sum="af823bc467a7f4614ff9fa9c6db8bad8"/>
+        <file name="classElibriProductIdentifier.html" role="doc" md5sum="706e4729b533cd3325f9d0626a0fb3f3"/>
+        <file name="classElibriPublisher-members.html" role="doc" md5sum="a28a015e6967883ac625c5719b47d429"/>
+        <file name="classElibriPublisher.html" role="doc" md5sum="0d13c22a15bea0d31f491d0aa56f4b7c"/>
+        <file name="classElibriPublisherInfo-members.html" role="doc" md5sum="5a048a08e3efebedb6025b2c35dd7ae5"/>
+        <file name="classElibriPublisherInfo.html" role="doc" md5sum="888e4616d69a94a8b28cb9e4e46bda80"/>
+        <file name="classElibriPublisherProduct-members.html" role="doc" md5sum="db915111b037e6d341111727868ccf2d"/>
+        <file name="classElibriPublisherProduct.html" role="doc" md5sum="e77b8e147c9c60e27a1107bc428aa8bb"/>
+        <file name="classElibriPublishingDate-members.html" role="doc" md5sum="ee364d8f03045a51e3db6185f3d2eff3"/>
+        <file name="classElibriPublishingDate.html" role="doc" md5sum="9b5d49573bbf461f5fc4ae577b531a0a"/>
+        <file name="classElibriQueue-members.html" role="doc" md5sum="b05fe3e9b07eb0fa2e274ecb79f5b5e8"/>
+        <file name="classElibriQueue.html" role="doc" md5sum="af0938d3096ea39c9d2f6985f8db8061"/>
+        <file name="classElibriRelatedProduct-members.html" role="doc" md5sum="8c8e10c113f0cc1e18ffe8de31326203"/>
+        <file name="classElibriRelatedProduct.html" role="doc" md5sum="b7e189e9d543b892d0dd7d262d9dcb82"/>
+        <file name="classElibriSalesRestriction-members.html" role="doc" md5sum="6521ee147ddcc697da2bf4bafc76face"/>
+        <file name="classElibriSalesRestriction.html" role="doc" md5sum="9a2421122275eccc681510c6f44c35e7"/>
+        <file name="classElibriSender-members.html" role="doc" md5sum="3651919164f8e99d2411c9b8d0be4c58"/>
+        <file name="classElibriSender.html" role="doc" md5sum="a71ebb85849b4610a37854e51b22ba26"/>
+        <file name="classElibriServerErrorException-members.html" role="doc" md5sum="dcc8bc5315cbb4d7fd4311dc577d83a0"/>
+        <file name="classElibriServerErrorException.html" role="doc" md5sum="a0af5b3e3bea0b779b0b9e1a7e85a126"/>
+        <file name="classElibriStockQuantityCoded-members.html" role="doc" md5sum="8bfde29736253ffe91c34a9601dc4375"/>
+        <file name="classElibriStockQuantityCoded.html" role="doc" md5sum="8d182a782875374e13fcf96f6085ad32"/>
+        <file name="classElibriSubject-members.html" role="doc" md5sum="e2c30b3015ff8763bf39a9bc808fe99a"/>
+        <file name="classElibriSubject.html" role="doc" md5sum="3b4da98fea0c56f7343e30084c75c39d"/>
+        <file name="classElibriSupplier-members.html" role="doc" md5sum="7d6e1ac7e9906d31dde5b9a9d05657c2"/>
+        <file name="classElibriSupplier.html" role="doc" md5sum="c17ee05bd4b438d7207348c22f638b1c"/>
+        <file name="classElibriSupplierIdentifier-members.html" role="doc" md5sum="31a73238d8a01dcf60ebb98f6affbccd"/>
+        <file name="classElibriSupplierIdentifier.html" role="doc" md5sum="11880ed57169f6af52dac0ec00a7aed9"/>
+        <file name="classElibriSupplyDetail-members.html" role="doc" md5sum="2c0151f05d73d4afda6903ea373c24a4"/>
+        <file name="classElibriSupplyDetail.html" role="doc" md5sum="34a8d4987343154104c6fe0a87cefee6"/>
+        <file name="classElibriSupportingResource-members.html" role="doc" md5sum="48480ba73414571eee98aa472a8496fc"/>
+        <file name="classElibriSupportingResource.html" role="doc" md5sum="16292c1b9ba767327607f719eb017866"/>
+        <file name="classElibriTextContent-members.html" role="doc" md5sum="70ab3c17a8589d9947ebff8bf63afd4b"/>
+        <file name="classElibriTextContent.html" role="doc" md5sum="4bbde9d1396d611ace48fff4f58b944b"/>
+        <file name="classElibriTitleDetail-members.html" role="doc" md5sum="8d50848f48d980262e19cf5d5865746f"/>
+        <file name="classElibriTitleDetail.html" role="doc" md5sum="7d7427b6ff3520a2d231758959e71edd"/>
+        <file name="classElibriTitleElement-members.html" role="doc" md5sum="e98c59610b1acae282258bb126e2653d"/>
+        <file name="classElibriTitleElement.html" role="doc" md5sum="6869236628b7c2defd1793d8df6f255b"/>
+        <file name="classElibriUnknownException-members.html" role="doc" md5sum="96a0626587c49e615a1d5f782ffa429f"/>
+        <file name="classElibriUnknownException.html" role="doc" md5sum="9b544d609f55965339a0df9241c87373"/>
+        <file name="classFirstNodeValue-members.html" role="doc" md5sum="a5026833ca1aebcd398db7a1a4cdf3fa"/>
+        <file name="classFirstNodeValue.html" role="doc" md5sum="ac46987e1c8c84ef8ecde8d296c34fae"/>
+        <file name="classes.html" role="doc" md5sum="8ced13f4c659c020c0235f69437db2b4"/>
         <file name="closed.png" role="doc" md5sum="b7b32a2805956e5315b936dca8bd53b4"/>
         <file name="doxygen.png" role="doc" md5sum="f85ad9242dc2d3c86015ed326a33e47d"/>
-        <file name="functions.html" role="doc" md5sum="4bda7165b9a6b7c7fffb77bce9933de8"/>
-        <file name="functions_0x5f.html" role="doc" md5sum="4c4ecd628e1765ed2ddc6ac725279e5e"/>
-        <file name="functions_0x61.html" role="doc" md5sum="c5d96a4a8f6e513e42cc3a20f34c7c86"/>
-        <file name="functions_0x62.html" role="doc" md5sum="f29e86abafc32c8fe83b4b1bb1288d38"/>
-        <file name="functions_0x63.html" role="doc" md5sum="d5edc2ddf6f6d8cad52596fa3f0b7c37"/>
-        <file name="functions_0x64.html" role="doc" md5sum="5d59587c28e584aedf21207da7f8917f"/>
-        <file name="functions_0x65.html" role="doc" md5sum="200c83816a70b76f1fa057a9cf873da5"/>
-        <file name="functions_0x66.html" role="doc" md5sum="32a52a7186bacd3e06c61ec667373046"/>
-        <file name="functions_0x67.html" role="doc" md5sum="06f03015b605ae362fa9f55a31d68853"/>
-        <file name="functions_0x68.html" role="doc" md5sum="c240329f06df4280d8c40d4efef5cf07"/>
-        <file name="functions_0x69.html" role="doc" md5sum="d2b2e6674c6102ad6f1a6fc8545081c3"/>
-        <file name="functions_0x6c.html" role="doc" md5sum="ea65aa2b9f783b296d58e5c138ff8805"/>
-        <file name="functions_0x6d.html" role="doc" md5sum="ac6e4ed48151ff27ba6d53a99a4bbe94"/>
-        <file name="functions_0x6e.html" role="doc" md5sum="d870c2388bc9ac013281f057b2eaca41"/>
-        <file name="functions_0x6f.html" role="doc" md5sum="5a5badb04649d41c4edbcf4c11169097"/>
-        <file name="functions_0x70.html" role="doc" md5sum="9eb750024d5f995258e5da5d1fa8393b"/>
-        <file name="functions_0x72.html" role="doc" md5sum="4d6cdde8535115c02ab290a790abac6d"/>
-        <file name="functions_0x73.html" role="doc" md5sum="74f89bb7bcd50a9a3ef86f461511f0c0"/>
-        <file name="functions_0x74.html" role="doc" md5sum="7d1c85dce177bdda22dc09dca6622718"/>
-        <file name="functions_0x75.html" role="doc" md5sum="58470b19631637d134bab15b5369e55b"/>
-        <file name="functions_0x76.html" role="doc" md5sum="158ee0eb3ee105b6e5f8cb7e2e8ee37b"/>
-        <file name="functions_0x77.html" role="doc" md5sum="22c984f3d50d904c9e6a82740de9b49c"/>
-        <file name="functions_0x79.html" role="doc" md5sum="2c2b66e770a8a4fafb98ab580824e269"/>
-        <file name="functions_func.html" role="doc" md5sum="ba494f6d0cbf0c3e5e127c394c660a26"/>
-        <file name="functions_vars.html" role="doc" md5sum="299d57903a7c5373b1b01ec1bcc09fea"/>
-        <file name="functions_vars_0x61.html" role="doc" md5sum="7c2792a5eb056a21258ee28a440beb27"/>
-        <file name="functions_vars_0x62.html" role="doc" md5sum="79da84fc86a08041accfe03ea104c050"/>
-        <file name="functions_vars_0x63.html" role="doc" md5sum="1e3ffdbd6dd40b480a108bccba22d60a"/>
-        <file name="functions_vars_0x64.html" role="doc" md5sum="61bbc5cf2238dca9986765976b4ce617"/>
-        <file name="functions_vars_0x65.html" role="doc" md5sum="bca27fa11626039f8d3b4285def57599"/>
-        <file name="functions_vars_0x66.html" role="doc" md5sum="d9f343b899f11201b238daae02fba439"/>
-        <file name="functions_vars_0x67.html" role="doc" md5sum="0348d6f23e7290618b8e9981a0a99f44"/>
-        <file name="functions_vars_0x68.html" role="doc" md5sum="5838e26e6c172c7a5d52fa1757b01847"/>
-        <file name="functions_vars_0x69.html" role="doc" md5sum="79dc850c4c7556897e7d24cbcc685f19"/>
-        <file name="functions_vars_0x6c.html" role="doc" md5sum="0c6f0aa241b6a66adba214f94d20b1e0"/>
-        <file name="functions_vars_0x6d.html" role="doc" md5sum="036b089deaa3460a746930dc8d66c22d"/>
-        <file name="functions_vars_0x6e.html" role="doc" md5sum="4fb0e4944eb5c434e49d3f3d78034678"/>
-        <file name="functions_vars_0x6f.html" role="doc" md5sum="247a8645bd75bd1ead75e4e7b4aca737"/>
-        <file name="functions_vars_0x70.html" role="doc" md5sum="a6be4dd44f061dda335932a6e97b51ee"/>
-        <file name="functions_vars_0x72.html" role="doc" md5sum="82f339329c39cf01f1aaaa0118e3d90b"/>
-        <file name="functions_vars_0x73.html" role="doc" md5sum="d33f89c8acd7784de2db3ba2d34fc1e2"/>
-        <file name="functions_vars_0x74.html" role="doc" md5sum="76c4e6c6c9dca8138da0bb3eeed72b49"/>
-        <file name="functions_vars_0x75.html" role="doc" md5sum="187432cabb5e33b8fad62622a0b19769"/>
-        <file name="functions_vars_0x76.html" role="doc" md5sum="5355d65b67c6845363a083f84324392d"/>
-        <file name="functions_vars_0x77.html" role="doc" md5sum="ccc14534f4912564efefc962d63bdc6f"/>
-        <file name="functions_vars_0x79.html" role="doc" md5sum="7ae6b459ec8236c655be1d2a0cd5fd8e"/>
-        <file name="group__dictionaries.html" role="doc" md5sum="de4915324a827b3ed540ac1767268b0b"/>
-        <file name="group__exceptions.html" role="doc" md5sum="0480bd8ba3d9167fb6fdd9b0f6cd647e"/>
-        <file name="group__private.html" role="doc" md5sum="dc54c6fed3af200cd7da102d50afc9b3"/>
-        <file name="hierarchy.html" role="doc" md5sum="cd5fd0da9c32b9142f407e69adbf6d3c"/>
-        <file name="index.html" role="doc" md5sum="94c786e0bd377ef985d13e968d492d78"/>
+        <file name="functions.html" role="doc" md5sum="43236c90ee6bbd3a83cc5c1cd353937b"/>
+        <file name="functions_0x5f.html" role="doc" md5sum="9f2bcab117bffe12d346cade917fc502"/>
+        <file name="functions_0x61.html" role="doc" md5sum="371e4e183220ec470d784da541b8dd2b"/>
+        <file name="functions_0x62.html" role="doc" md5sum="a3a32c873b94dc93b2dd3bc773f234da"/>
+        <file name="functions_0x63.html" role="doc" md5sum="f02e2b9a2b1bed5792404a458afaa7fb"/>
+        <file name="functions_0x64.html" role="doc" md5sum="be91ec6ecc00906be160e2913157a4d1"/>
+        <file name="functions_0x65.html" role="doc" md5sum="2af8d393ac8930e65c1acfadead1fb84"/>
+        <file name="functions_0x66.html" role="doc" md5sum="1d00110244a4f4e4e0bb74638bf1b928"/>
+        <file name="functions_0x67.html" role="doc" md5sum="09bcc80d8ab3f2966696187bab240493"/>
+        <file name="functions_0x68.html" role="doc" md5sum="dd0455edb59ae36ff129a862e324d25d"/>
+        <file name="functions_0x69.html" role="doc" md5sum="18e923c91cdf565600cb3dac9182cc55"/>
+        <file name="functions_0x6c.html" role="doc" md5sum="dbcb231aa686b09239eb47c0a48360ac"/>
+        <file name="functions_0x6d.html" role="doc" md5sum="43ef2e02e3257a7b71a53aa45dd18689"/>
+        <file name="functions_0x6e.html" role="doc" md5sum="d9435509b997221f4df578a480b156ae"/>
+        <file name="functions_0x6f.html" role="doc" md5sum="6a9fb7937b9a7e9d648a69f86d76a931"/>
+        <file name="functions_0x70.html" role="doc" md5sum="3e6784706f04a14ff2fdbae587bc20ef"/>
+        <file name="functions_0x72.html" role="doc" md5sum="6220ff68957fb8f9e86ac3d88b88bf33"/>
+        <file name="functions_0x73.html" role="doc" md5sum="25628c1e2f2495a08ee4a128aa1e8f5f"/>
+        <file name="functions_0x74.html" role="doc" md5sum="0ad1e6bbfa638224421812b7576b2f6a"/>
+        <file name="functions_0x75.html" role="doc" md5sum="365182c3e89f2bc613b1ac3fd588ee4d"/>
+        <file name="functions_0x76.html" role="doc" md5sum="9ead23255b7d64f1bc4740e08d7eed85"/>
+        <file name="functions_0x77.html" role="doc" md5sum="86c6b9ff02495557aaa85c01fd32933f"/>
+        <file name="functions_0x79.html" role="doc" md5sum="3bd8f465fdde5f146e48b5ba640a9f62"/>
+        <file name="functions_func.html" role="doc" md5sum="bb66910fe5e925597951ecf7f5265d97"/>
+        <file name="functions_vars.html" role="doc" md5sum="e8fbec4ff1eb6c5669951311364761ad"/>
+        <file name="functions_vars_0x61.html" role="doc" md5sum="397db26906e7136336176c77ed6cff7f"/>
+        <file name="functions_vars_0x62.html" role="doc" md5sum="50fbd02aa39d0c4eb27214b8eaab50fc"/>
+        <file name="functions_vars_0x63.html" role="doc" md5sum="dbce741d4321b608833c99e1f7688f07"/>
+        <file name="functions_vars_0x64.html" role="doc" md5sum="1eb9c70715a7e318ec34f537ca139139"/>
+        <file name="functions_vars_0x65.html" role="doc" md5sum="502800ebeadd6d1e4989e0cd9505615a"/>
+        <file name="functions_vars_0x66.html" role="doc" md5sum="5abea9dce21016c5ddf0c1889d0b812d"/>
+        <file name="functions_vars_0x67.html" role="doc" md5sum="c158169a2f34f3c2f459a8c81f20f6c8"/>
+        <file name="functions_vars_0x68.html" role="doc" md5sum="882b3760660230b90de1781add16df39"/>
+        <file name="functions_vars_0x69.html" role="doc" md5sum="145e350bd2e526338097ff2e101468ac"/>
+        <file name="functions_vars_0x6c.html" role="doc" md5sum="374f7a56a0764ab3ee21257a35f17f90"/>
+        <file name="functions_vars_0x6d.html" role="doc" md5sum="f84ac53cc18cdd92df691641d03f5111"/>
+        <file name="functions_vars_0x6e.html" role="doc" md5sum="c3546f5266edac1f63bf52dbdcf302d7"/>
+        <file name="functions_vars_0x6f.html" role="doc" md5sum="2837c64fa442fa84a07e16ceae0071ba"/>
+        <file name="functions_vars_0x70.html" role="doc" md5sum="7be19bb1980b5ed12fb599efe18d9caf"/>
+        <file name="functions_vars_0x72.html" role="doc" md5sum="23776378814618f45f899d4afd88974f"/>
+        <file name="functions_vars_0x73.html" role="doc" md5sum="025a8c16eaf53c446c287895d1ea3986"/>
+        <file name="functions_vars_0x74.html" role="doc" md5sum="9ecd73dee60e375a7678a3446d296595"/>
+        <file name="functions_vars_0x75.html" role="doc" md5sum="5977fdaae7e792f7881407c157c32af0"/>
+        <file name="functions_vars_0x76.html" role="doc" md5sum="871134bd94a03228c2011459e494b1fd"/>
+        <file name="functions_vars_0x77.html" role="doc" md5sum="3a8c2a4d5a8ad1542e425aa5d7101986"/>
+        <file name="functions_vars_0x79.html" role="doc" md5sum="0f91cc2fc3ba2554ec2617499eb1c491"/>
+        <file name="group__dictionaries.html" role="doc" md5sum="67fcf193ece01f4c258a08ab1764aacd"/>
+        <file name="group__exceptions.html" role="doc" md5sum="d3507eea60e89eed001b31e5e7d9866f"/>
+        <file name="group__private.html" role="doc" md5sum="1f9b56a0481978a73ee40f4440c7b4ba"/>
+        <file name="hierarchy.html" role="doc" md5sum="6c17d13106f734dea8449dbb6bcb3635"/>
+        <file name="index.html" role="doc" md5sum="6948bbff131f780a9be7ca16453f399f"/>
         <file name="installdox" role="doc" md5sum="682bfb22e0aab540f51a81ad25d1a109"/>
         <file name="jquery.js" role="doc" md5sum="f75690f25e3347ded91834300278729b"/>
-        <file name="modules.html" role="doc" md5sum="e787a38096e85eac7ad9637dc24f90ca"/>
+        <file name="modules.html" role="doc" md5sum="67fb05a43323ded3eee9bd8f2595993a"/>
         <file name="nav_f.png" role="doc" md5sum="e8c8cb4f8528837f0a419b442a9bfe84"/>
         <file name="nav_h.png" role="doc" md5sum="a4442f1641379745a7253652ced4ca15"/>
         <file name="open.png" role="doc" md5sum="7edab25d4d2f756e5b01303c5417c9ad"/>
-        <file name="pages.html" role="doc" md5sum="755b1e95e636383ee927b2f65ad7a390"/>
-        <file name="releases.html" role="doc" md5sum="97132a6be2402e9b31255fe0fe68c871"/>
+        <file name="pages.html" role="doc" md5sum="d63e53ba433bd33a7449720cc2eaa44b"/>
+        <file name="releases.html" role="doc" md5sum="1d45949149403ca229b790bf327b6d14"/>
         <dir name="search">
-          <file name="all_24.html" role="doc" md5sum="2aab143ad1276303e513ebd63a3282e8"/>
+          <file name="all_24.html" role="doc" md5sum="33d3f2f54e519e952e8111fbde3edc36"/>
           <file name="all_5f.html" role="doc" md5sum="5cac534a9be1c5e2f1c7497d32fb2c08"/>
           <file name="all_61.html" role="doc" md5sum="3c22fd8dc47c601cd1d6be4acddb37ad"/>
           <file name="all_62.html" role="doc" md5sum="a0753af70241a0e7264522307f67512a"/>
@@ -296,7 +296,7 @@
           <file name="search_l.png" role="doc" md5sum="496450f84d51c69db49f756b2d0acc20"/>
           <file name="search_m.png" role="doc" md5sum="20910c4cfe0e8efc8211bc9f7e58b7ff"/>
           <file name="search_r.png" role="doc" md5sum="03ee24f1971c0e31ffb6246882e18edd"/>
-          <file name="variables_24.html" role="doc" md5sum="2aab143ad1276303e513ebd63a3282e8"/>
+          <file name="variables_24.html" role="doc" md5sum="33d3f2f54e519e952e8111fbde3edc36"/>
           <file name="variables_61.html" role="doc" md5sum="8b339e7e1d6da8b2e51c938e493ec28a"/>
           <file name="variables_62.html" role="doc" md5sum="e799c2d12f73e12d230e14731242d05d"/>
           <file name="variables_63.html" role="doc" md5sum="6f144feae43bdfc9f746ffa7be20f33f"/>
@@ -325,7 +325,7 @@
         <file name="tab_h.png" role="doc" md5sum="f26c88de61dbab342e12ec784cedb949"/>
         <file name="tab_s.png" role="doc" md5sum="c6195905186e9930105c815267b0135e"/>
         <file name="tabs.css" role="doc" md5sum="db4f61e9388437021c678b1c927c0f93"/>
-        <file name="tests.html" role="doc" md5sum="61998bfe888c3c208a7903381edba369"/>
+        <file name="tests.html" role="doc" md5sum="4db0c4fa6b3b088c23c07ff50495e148"/>
       </dir>
       <dir name="tests">
         <file name="elibriDictTest.php" role="test" md5sum="94d2457173e291088ecb16d4b23fc330"/>

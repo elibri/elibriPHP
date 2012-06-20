@@ -3,6 +3,11 @@
     <p>elibriPHP</p>
     <c>elibri.com.pl/system/pear</c>
     <r>
+        <v>0.1.2</v>
+        <s>beta</s>
+        <m>5.0.0</m>
+    </r>
+    <r>
         <v>0.1.1</v>
         <s>beta</s>
         <m>5.0.0</m>

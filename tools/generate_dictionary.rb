@@ -88,7 +88,7 @@ module Elibri
             klass.const_set(:ALL, YAML::load_file(file))
             dictionaries << [klass, klass_name]
           end
-          open(File.join(File.dirname(__FILE__), "../lib/ElibriDefinitions.php"), "w") do |f|
+          open(File.join(File.dirname(__FILE__), "../elibriPHP/elibriDefinitions.php"), "w") do |f|
             dump_header(f, dictionaries);
             dictionaries.each do |klass, klass_name|
               dump_dictionary(f, klass, klass_name)

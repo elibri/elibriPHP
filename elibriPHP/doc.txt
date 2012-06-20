@@ -12,7 +12,7 @@
  * \verbatim pear channel-discover elibri.com.pl/system/pear \endverbatim
  *
  * Następnie instalujesz pakiet poprzez:
- * \verbatim  pear install channel://elibri.com.pl/system/pear/elibriPHP-0.1.1 \endverbatim
+ * \verbatim  pear install channel://elibri.com.pl/system/pear/elibriPHP-0.1.2 \endverbatim
  *
  * Rozwój pakietu możesz śledzić na <a href='https://github.com/elibri/elibriPHP'>githubie</a>
  *

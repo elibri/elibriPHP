@@ -3,7 +3,7 @@
 3. W katalogu głównym będzie plik elibriPHP-x.x.x.tgz
 4. wejdz do katalogu pear
 5. wykonaj pirum add . ../elibriPHP-x.x.x.tgz
-5.1 zmień wersję w pliku lib/doc.txt, dodaj wpis w lib/releases.txt
+5.1 zmień wersję w pliku elibriPHP/doc.txt, dodaj wpis w elibriPHP/releases.txt
 6. wykonaj cap deploy:doc
 7. wykonaj cap deploy:pear
 8. zrób finalnego commita
