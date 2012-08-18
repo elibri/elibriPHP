@@ -277,6 +277,9 @@ class ElibriProduct {
   //! Opis książki, instancja ElibriTextContent
   public $description;
 
+  //! Krótki opis, instanca ElibriTextContent
+  public $short_description;
+
   //! Lista recenzji - lista instancji ElibriTextContent
   public $reviews = array();
 
@@ -401,7 +404,7 @@ class ElibriProduct {
   //! Wiek czytelnika - partz pola $reading_age_from i $reading_age_to
   private $audience_ranges = array();
 
-  //! Lista wszystkich tekstów towarzyszących produktowi - patrz  $table_of_contents, $description, $reviews, $excerpts 
+  //! Lista wszystkich tekstów towarzyszących produktowi - patrz  $table_of_contents, $description, $short_description, $reviews, $excerpts 
   private $text_contents = array();
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
@@ -505,6 +508,7 @@ class ElibriProduct {
         switch ($textcontent->type) {
           case ElibriDictOtherTextType::TABLE_OF_CONTENTS: $this->table_of_contents = $textcontent; break;
           case ElibriDictOtherTextType::MAIN_DESCRIPTION: $this->description = $textcontent; break;
+          case ElibriDictOtherTextType::SHORT_DESCRIPTION: $this->short_description = $textcontent; break;
           case ElibriDictOtherTextType::REVIEW: $this->reviews[] = $textcontent; break;
           case ElibriDictOtherTextType::EXCERPT: $this->excerpts[] = $textcontent; break;
         }

@@ -28,3 +28,11 @@
   name:
     en: excerpt
     pl: fragment książki
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '02'
+  const_name: SHORT_DESCRIPTION
+  name:
+    en: short description
+    pl: krótki opis (max. 350 znaków)
+

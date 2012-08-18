@@ -929,6 +929,9 @@ class ElibriDictOtherTextType extends  ElibriDictElement {
   //! fragment książki
   const EXCERPT = '14';
 
+  //! krótki opis (max. 350 znaków)
+  const SHORT_DESCRIPTION = '02';
+
 
   protected function __construct() {
       parent::__construct(array(
@@ -936,6 +939,7 @@ class ElibriDictOtherTextType extends  ElibriDictElement {
           new ElibriDictAtom('04', array('pl' => 'spis treści', 'en' => 'table of contents'), 'TABLE_OF_CONTENTS'),
           new ElibriDictAtom('07', array('pl' => 'recenzja', 'en' => 'review text'), 'REVIEW'),
           new ElibriDictAtom('14', array('pl' => 'fragment książki', 'en' => 'excerpt'), 'EXCERPT'),
+          new ElibriDictAtom('02', array('pl' => 'krótki opis (max. 350 znaków)', 'en' => 'short description'), 'SHORT_DESCRIPTION'),
       ));
 
    }

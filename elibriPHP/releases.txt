@@ -1,5 +1,8 @@
 /*! \page releases Historia wersji
 
+    \section v3 Wersja 0.1.3 z dnia 19 sierpnia 2012
+    Dodany krótki opis przy produkcie
+
     \section v2 Wersja 0.1.2 z dnia 20 czerwca 2012
     Rozszerzona lista języków  
 

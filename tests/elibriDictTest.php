@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(__FILE__) . '/../elibriPHP.php');
+require_once('PHPUnit/Framework/TestCase.php');
 
 class ElibriDictTest extends PHPUnit_Framework_TestCase {
    
