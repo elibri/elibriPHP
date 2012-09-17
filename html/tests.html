@@ -79,10 +79,10 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
 
 <span class="keyword">class </span>ElibriDictTest <span class="keyword">extends</span> PHPUnit_Framework_TestCase {
 
-   <span class="keyword">public</span> function load($s) {
+   <span class="keyword">public</span> function load($s, $idx = 0) {
      $xml = file_get_contents(dirname(__FILE__) . <span class="stringliteral">&quot;/xml/&quot;</span>.$s);
      $m = <a class="code" href="classElibriOnixMessage.html#ad8d21fe0a805a02819a92392053382a1" title="parsuje wiadomość ONIX">ElibriOnixMessage::parse</a>($xml);
-     <span class="keywordflow">return</span> $m-&gt;products[0];
+     <span class="keywordflow">return</span> $m-&gt;products[$idx];
    }
 
   <span class="keyword">public</span> function test_audience_range() {
@@ -154,7 +154,7 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertEquals(12.99, $product-&gt;cover_price);
     $this-&gt;assertEquals(5, $product-&gt;vat);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;58.11.1&quot;</span>, $product-&gt;pkwiu);
-    $this-&gt;assertFalse($product-&gt;preview_exists);
+    $this-&gt;assertTrue($product-&gt;preview_exists);
   }
 
   <span class="keyword">public</span> function test_ebook_extent() {
@@ -212,6 +212,7 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertEquals(<span class="stringliteral">&quot;G+J Gruner+Jahr Polska&quot;</span>, $product-&gt;publisher_name);
     $this-&gt;assertEquals(14, $product-&gt;publisher_id);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;National Geographic&quot;</span>, $product-&gt;imprint_name);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;Warszawa&quot;</span>, $product-&gt;city_of_publication);
   }
 
   <span class="keyword">public</span> function test_onix_record_identifiers() {
@@ -219,6 +220,7 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
 
     $this-&gt;assertEquals(<span class="stringliteral">&quot;fdb8fa072be774d97a97&quot;</span>, $product-&gt;record_reference);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324799992&quot;</span>, $product-&gt;isbn13);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;978-83-2478-888-2&quot;</span>, $product-&gt;isbn13_with_hyphens);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;9788324788882&quot;</span>, $product-&gt;ean);
     $this-&gt;assertEquals($product-&gt;proprietary_identifiers, array(<span class="stringliteral">&quot;Olesiejuk&quot;</span> =&gt; <span class="stringliteral">&quot;355006&quot;</span>));
   }
@@ -267,7 +269,7 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertEquals(<span class="stringliteral">&quot;TEXT&quot;</span>, $product-&gt;supporting_resources[1]-&gt;mode_name);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;DOWNLOADABLE_FILE&quot;</span>, $product-&gt;supporting_resources[1]-&gt;form_name);
 
-    $this-&gt;assertTrue($product-&gt;preview_exists);
+    $this-&gt;assertFalse($product-&gt;preview_exists);
   }
 
 
@@ -275,7 +277,7 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
 
     $product = $this-&gt;load(<span class="stringliteral">&quot;onix_texts_example.xml&quot;</span>);
 
-    $this-&gt;assertEquals(<span class="stringliteral">&quot;1. Wprowadzenie&lt;br /&gt;2. Rozdział pierwszy&lt;br /&gt;[...]&quot;</span>, $product-&gt;table_of_contents-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;&lt;p&gt;1. Wprowadzenie&lt;/p&gt; &lt;p&gt;2. Rozdział pierwszy&lt;/p&gt; &lt;p&gt;[...]&lt;/p&gt;&quot;</span>, $product-&gt;table_of_contents-&gt;text);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1215&quot;</span>, $product-&gt;table_of_contents-&gt;datestamp_before_type_cast);
     $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:15&quot;</span>), $product-&gt;table_of_contents-&gt;datestamp);
     <span class="comment">//sprawdźmy, czy na pewno nie ma błędu z interpretacją formatu</span>
@@ -283,20 +285,20 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertEquals(133, $product-&gt;table_of_contents-&gt;id);
 
     $this-&gt;assertEquals(1, count($product-&gt;reviews));
-    $this-&gt;assertEquals(<span class="stringliteral">&quot;Recenzja książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;reviews[0]-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;&lt;p&gt;Recenzja książki&lt;/p&gt; &lt;p&gt;[...]&lt;/p&gt;&quot;</span>, $product-&gt;reviews[0]-&gt;text);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;Jan Kowalski&quot;</span>, $product-&gt;reviews[0]-&gt;author);
    
     $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1218&quot;</span>, $product-&gt;reviews[0]-&gt;datestamp_before_type_cast);
     $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:18&quot;</span>), $product-&gt;reviews[0]-&gt;datestamp);
     $this-&gt;assertEquals(134, $product-&gt;reviews[0]-&gt;id);
 
-    $this-&gt;assertEquals(<span class="stringliteral">&quot;Opis książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;description-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;&lt;p&gt;Opis książki&lt;/p&gt; &lt;p&gt;[...]&lt;/p&gt;&quot;</span>, $product-&gt;description-&gt;text);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1225&quot;</span>, $product-&gt;description-&gt;datestamp_before_type_cast);
     $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:25&quot;</span>), $product-&gt;description-&gt;datestamp);
     $this-&gt;assertEquals(135, $product-&gt;description-&gt;id);
 
     $this-&gt;assertEquals(1, count($product-&gt;excerpts));
-    $this-&gt;assertEquals(<span class="stringliteral">&quot;Fragment książki&lt;br /&gt;[...]&quot;</span>, $product-&gt;excerpts[0]-&gt;text);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;&lt;p&gt;Fragment książki&lt;/p&gt; &lt;p&gt;[...]&lt;/p&gt;&quot;</span>, $product-&gt;excerpts[0]-&gt;text);
     $this-&gt;assertEquals(<span class="stringliteral">&quot;20111204T1235&quot;</span>, $product-&gt;excerpts[0]-&gt;datestamp_before_type_cast);
     $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2011-12-04 12:35&quot;</span>), $product-&gt;excerpts[0]-&gt;datestamp);
     $this-&gt;assertEquals(136, $product-&gt;excerpts[0]-&gt;id);
@@ -364,7 +366,53 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertFalse($product-&gt;sales_restrictions);
   }
 
+  <span class="keyword">public</span> function test_territorial_rights() {
+    $pl_product = $this-&gt;load(<span class="stringliteral">&quot;onix_territorial_rights_example.xml&quot;</span>, 0);
+    $this-&gt;assertTrue($pl_product-&gt;sale_restricted_to_poland);
 
+    $world_product = $this-&gt;load(<span class="stringliteral">&quot;onix_territorial_rights_example.xml&quot;</span>, 1);
+    $this-&gt;assertFalse($world_product-&gt;sale_restricted_to_poland);
+  }
+
+  <span class="keyword">public</span> function test_licence_information() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_unlimited_book_sample_example.xml&quot;</span>); 
+    $this-&gt;assertTrue($product-&gt;unlimited_licence);
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_epub_details_example.xml&quot;</span>);
+    $this-&gt;assertFalse($product-&gt;unlimited_licence);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;20140307&quot;</span>, $product-&gt;licence_limited_to_before_type_cast);
+    $this-&gt;assertEquals(array(<span class="stringliteral">&#39;2014&#39;</span>, <span class="stringliteral">&#39;03&#39;</span>, <span class="stringliteral">&#39;07&#39;</span>), $product-&gt;parsed_licence_limited_to);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2014-03-07&quot;</span>), $product-&gt;licence_limited_to);
+  }
+
+  <span class="keyword">public</span> function test_formats_and_protection() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_epub_details_example.xml&quot;</span>);
+    $this-&gt;assertEquals(array(<span class="stringliteral">&quot;EPUB&quot;</span>, <span class="stringliteral">&quot;MOBI&quot;</span>), $product-&gt;digital_formats);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;DRM&quot;</span>, $product-&gt;technical_protection);
+  }
+
+  <span class="keyword">public</span> function test_excerpt_info() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_epub_details_example.xml&quot;</span>);
+    $this-&gt;assertFalse($product-&gt;excerpt_info);
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_prohibited_book_sample_example.xml&quot;</span>);
+    $this-&gt;assertTrue($product-&gt;excerpt_info);
+    $this-&gt;assertFalse($product-&gt;excerpt_publishing_allowed);
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_limited_book_sample_example.xml&quot;</span>);
+    $this-&gt;assertTrue($product-&gt;excerpt_info);
+    $this-&gt;assertTrue($product-&gt;excerpt_publishing_allowed);
+    $this-&gt;assertTrue($product-&gt;excerpt_publishing_with_limit);
+    $this-&gt;assertEquals(10, $product-&gt;excerpt_limit_quantity);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;PERCENTAGE&quot;</span>, $product-&gt;excerpt_limit_unit);
+
+
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_unlimited_book_sample_example.xml&quot;</span>);
+    $this-&gt;assertTrue($product-&gt;excerpt_info);
+    $this-&gt;assertTrue($product-&gt;excerpt_publishing_allowed);
+    $this-&gt;assertFalse($product-&gt;excerpt_publishing_with_limit);
+
+  }
 
   <span class="keyword">public</span> function test_all_possible_tags() {
     $product = $this-&gt;load(<span class="stringliteral">&quot;all_possible_tags.xml&quot;</span>);

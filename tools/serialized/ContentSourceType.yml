@@ -1,0 +1,29 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentSourceType
+  onix_code: '01'
+  const_name: PRINTED_MEDIA
+  name:
+    en: printed media
+    pl: media drukowane
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentSourceType
+  onix_code: '02'
+  const_name: WEBSITE
+  name:
+    en: website
+    pl: strona internetowa
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentSourceType
+  onix_code: '03'
+  const_name: RADIO
+  name:
+    en: radio
+    pl: radio
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentSourceType
+  onix_code: '04'
+  const_name: TV
+  name:
+    en: TV
+    pl: telewizja

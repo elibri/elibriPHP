@@ -1,0 +1,22 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
+  onix_code: 'E101'
+  const_name: EPUB
+  name:
+    en: EPUB
+    pl: EPUB
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
+  onix_code: 'E107'
+  const_name: PDF
+  name:
+    en: PDF
+    pl: PDF
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
+  onix_code: 'E127'
+  const_name: MOBIPOCKET
+  name:
+    en: Mobipocket
+    pl: Mobipocket

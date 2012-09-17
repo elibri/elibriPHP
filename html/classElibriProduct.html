@@ -123,7 +123,10 @@ Atrybuty publiczne</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">EAN produktu - NULL, jeśli taki sam, jak ISBN13 ($isbn13) <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeab6eaac3082c85eb59bb8c1792a8cf9"></a><!-- doxytag: member="ElibriProduct::$isbn13" ref="aeab6eaac3082c85eb59bb8c1792a8cf9" args="" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#aeab6eaac3082c85eb59bb8c1792a8cf9">$isbn13</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ISBN13 produktu. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ISBN13 produktu (bez myślników) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0974db15aa29c5be8239a6e6f269322"></a><!-- doxytag: member="ElibriProduct::$isbn13_with_hyphens" ref="ab0974db15aa29c5be8239a6e6f269322" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#ab0974db15aa29c5be8239a6e6f269322">$isbn13_with_hyphens</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ISBN13 produktu (z myślnikami) <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa05a7ec8d36651e419cae69eecd181fc"></a><!-- doxytag: member="ElibriProduct::$number_of_pages" ref="aa05a7ec8d36651e419cae69eecd181fc" args="" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#aa05a7ec8d36651e419cae69eecd181fc">$number_of_pages</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ilość stron <br/></td></tr>
@@ -145,6 +148,9 @@ Atrybuty publiczne</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f556e40f53a70fc94b2053a16037ab"></a><!-- doxytag: member="ElibriProduct::$publisher_id" ref="a90f556e40f53a70fc94b2053a16037ab" args="" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a90f556e40f53a70fc94b2053a16037ab">$publisher_id</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">numeryczne ID wydawnictwa w bazie eLibri <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38e9b5798b1c78a7f2b88560e7fd0a88"></a><!-- doxytag: member="ElibriProduct::$city_of_publication" ref="a38e9b5798b1c78a7f2b88560e7fd0a88" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a38e9b5798b1c78a7f2b88560e7fd0a88">$city_of_publication</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">miasto publikacji <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbed6e9877868a12804b943a5a1dac2b"></a><!-- doxytag: member="ElibriProduct::$imprint_name" ref="afbed6e9877868a12804b943a5a1dac2b" args="" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#afbed6e9877868a12804b943a5a1dac2b">$imprint_name</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">nazwa imprintu, jeśli książka jest wydana pod imprintem jeśli to pole jest uzupełnione, to proszę tą właśnie nazwę pokazywać jako nazwę wydawnictwa klientowi końcowemu <br/></td></tr>
@@ -264,6 +270,42 @@ Atrybuty publiczne</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d0d349d24b3bb86f20f532409b9953b"></a><!-- doxytag: member="ElibriProduct::$sales_restrictions_info" ref="a7d0d349d24b3bb86f20f532409b9953b" args="" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a7d0d349d24b3bb86f20f532409b9953b">$sales_restrictions_info</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli produkt będzie sprzedawany na wyłączność, to tutaj znajdziesz szczegółowe informacje, instancja <a class="el" href="classElibriSalesRestriction.html" title="Informacja o restrykcji w sprzedaży, np. dwutygodniowej wyłączności w empiku.">ElibriSalesRestriction</a>. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac69f86d1f61fc338673e41a6f5c4a30d"></a><!-- doxytag: member="ElibriProduct::$sale_restricted_to_poland" ref="ac69f86d1f61fc338673e41a6f5c4a30d" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#ac69f86d1f61fc338673e41a6f5c4a30d">$sale_restricted_to_poland</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Czy sprzedaż produktu jest ograniczona do teresu Polski? (flaga bool) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a829660dbe128f5b223f463233f75d613"></a><!-- doxytag: member="ElibriProduct::$unlimited_licence" ref="a829660dbe128f5b223f463233f75d613" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a829660dbe128f5b223f463233f75d613">$unlimited_licence</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Czy licencja jest nieograniczona czasowo (tylko produkty elektroniczne, bool) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa721579706fc28c7671bf9f8cfb93172"></a><!-- doxytag: member="ElibriProduct::$licence_limited_to_before_type_cast" ref="aa721579706fc28c7671bf9f8cfb93172" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#aa721579706fc28c7671bf9f8cfb93172">$licence_limited_to_before_type_cast</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data końca licencji na sprzedaż w formacie YYYYMMDD (tylko produkty elektroniczne, jeśli $unlimited_licence jest False) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87e44bdd7ceb5f4c7713303e58dd69f4"></a><!-- doxytag: member="ElibriProduct::$parsed_licence_limited_to" ref="a87e44bdd7ceb5f4c7713303e58dd69f4" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a87e44bdd7ceb5f4c7713303e58dd69f4">$parsed_licence_limited_to</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data końca licencji na sprzedaż jako Array(rok, miesiąc, dzień) - (tylko produkty elektroniczne, jeśli $unlimited_licence jest False) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3075fc05f16fa5f23fc117686b32f58d"></a><!-- doxytag: member="ElibriProduct::$licence_limited_to" ref="a3075fc05f16fa5f23fc117686b32f58d" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a3075fc05f16fa5f23fc117686b32f58d">$licence_limited_to</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data końca licencji na sprzedaż, jako instancja DateTime, (tylko produkty elektroniczne, jeśli $unlimited_licence jest False) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a159b4095afde8976f34f27bfbdf29d"></a><!-- doxytag: member="ElibriProduct::$digital_formats" ref="a0a159b4095afde8976f34f27bfbdf29d" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a0a159b4095afde8976f34f27bfbdf29d">$digital_formats</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dostępne formaty elektronicznych produktów (lista z wyborem wartości: MOBI, EPUB, PDF, MP3) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd753c21228dcb65bcfe200bd2fa441f"></a><!-- doxytag: member="ElibriProduct::$technical_protection" ref="acd753c21228dcb65bcfe200bd2fa441f" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#acd753c21228dcb65bcfe200bd2fa441f">$technical_protection</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sposób zabezpieczenia pliku (tylko elektroniczne produktu). Możliwe wartości: WATERMARK, DRM, NONE. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ab50dc3be5654b466315a82f61e06df"></a><!-- doxytag: member="ElibriProduct::$excerpt_info" ref="a9ab50dc3be5654b466315a82f61e06df" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a9ab50dc3be5654b466315a82f61e06df">$excerpt_info</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Czy istnieje informacja o możliwości udostępnienia fragmentu książki (tylko produkty elektroniczne - flaga bool) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2d0a0923e92dd6cb6ad882989ae15e1"></a><!-- doxytag: member="ElibriProduct::$excerpt_publishing_allowed" ref="af2d0a0923e92dd6cb6ad882989ae15e1" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#af2d0a0923e92dd6cb6ad882989ae15e1">$excerpt_publishing_allowed</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli $excerpt_info jest True, to flaga $excerpt_publishing_allowed zawiera informację, czy wydawca zgadza się na opublikowanie fragmentu e-booka. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c949850c88764e47a672163b1d2fdfa"></a><!-- doxytag: member="ElibriProduct::$excerpt_publishing_with_limit" ref="a1c949850c88764e47a672163b1d2fdfa" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a1c949850c88764e47a672163b1d2fdfa">$excerpt_publishing_with_limit</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli $excerpt_publishing_allowed, to flaga $excerpt_publishing_with_limit zawiera informcję, czy wydawca nałożył limit na wielkość publikowanego materiału. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a781fb3a7b64acd8e7a30be98f1a69ae0"></a><!-- doxytag: member="ElibriProduct::$excerpt_limit_quantity" ref="a781fb3a7b64acd8e7a30be98f1a69ae0" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#a781fb3a7b64acd8e7a30be98f1a69ae0">$excerpt_limit_quantity</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli $excerpt_publishing_with_limit jest True, to w polu $excerpt_limit_quantity jest informacja na temat limitu co do ilości publikowanego materiału. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee7a2b7a1a8fa0c425bfc3ab4c2f226"></a><!-- doxytag: member="ElibriProduct::$excerpt_limit_unit" ref="adee7a2b7a1a8fa0c425bfc3ab4c2f226" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElibriProduct.html#adee7a2b7a1a8fa0c425bfc3ab4c2f226">$excerpt_limit_unit</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Jednostka miary, w którym wyrażona jest liczba w polu $excerpt_limit_quantity (w tej chwili CHARACTERS lub PERCENTAGE) <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Opis szczegółowy</h2>
 <div class="textblock"><p>Reprezentacja produktu. </p>

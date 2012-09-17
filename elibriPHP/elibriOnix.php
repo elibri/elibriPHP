@@ -235,8 +235,11 @@ class ElibriProduct {
   //! EAN produktu - NULL, jeśli taki sam, jak ISBN13 ($isbn13)
   public $ean;
 
-  //! ISBN13 produktu
+  //! ISBN13 produktu (bez myślników)
   public $isbn13;
+
+  //! ISBN13 produktu (z myślnikami)
+  public $isbn13_with_hyphens;
 
   //! ilość stron
   public $number_of_pages;
@@ -259,6 +262,9 @@ class ElibriProduct {
 
   //! numeryczne ID wydawnictwa w bazie eLibri
   public $publisher_id;
+
+  //! miasto publikacji
+  public $city_of_publication;
 
   //! @brief nazwa imprintu, jeśli książka jest wydana pod imprintem
   //! jeśli to pole jest uzupełnione, to proszę tą właśnie nazwę pokazywać jako
@@ -392,6 +398,42 @@ class ElibriProduct {
   //! Jeśli produkt będzie sprzedawany na wyłączność, to tutaj znajdziesz szczegółowe informacje, instancja ElibriSalesRestriction
   public $sales_restrictions_info;
 
+  //! Czy sprzedaż produktu jest ograniczona do teresu Polski? (flaga bool)
+  public $sale_restricted_to_poland;
+
+  //! Czy licencja jest nieograniczona czasowo (tylko produkty elektroniczne, bool)
+  public $unlimited_licence;
+
+  //! Data końca licencji na sprzedaż w formacie YYYYMMDD (tylko produkty elektroniczne, jeśli $unlimited_licence jest False)
+  public $licence_limited_to_before_type_cast;
+
+  //! Data końca licencji na sprzedaż jako Array(rok, miesiąc, dzień) - (tylko produkty elektroniczne, jeśli $unlimited_licence jest False)
+  public $parsed_licence_limited_to;
+
+  //! Data końca licencji na sprzedaż, jako instancja DateTime, (tylko produkty elektroniczne, jeśli $unlimited_licence jest False)
+  public $licence_limited_to;
+
+  //! Dostępne formaty elektronicznych produktów (lista z wyborem wartości: MOBI, EPUB, PDF, MP3)
+  public $digital_formats;
+ 
+  //! Sposób zabezpieczenia pliku (tylko elektroniczne produktu). Możliwe wartości: WATERMARK, DRM, NONE
+  public $technical_protection;
+ 
+  //! Czy istnieje informacja o możliwości udostępnienia fragmentu książki (tylko produkty elektroniczne - flaga bool)
+  public $excerpt_info;
+
+  //! Jeśli $excerpt_info jest True, to flaga $excerpt_publishing_allowed zawiera informację, czy wydawca zgadza się na opublikowanie fragmentu e-booka
+  public $excerpt_publishing_allowed;
+
+  //! Jeśli $excerpt_publishing_allowed, to flaga $excerpt_publishing_with_limit zawiera informcję, czy wydawca nałożył limit na wielkość publikowanego materiału
+  public $excerpt_publishing_with_limit;
+
+  //! Jeśli $excerpt_publishing_with_limit jest True, to w polu $excerpt_limit_quantity jest informacja na temat limitu co do ilości publikowanego materiału
+  public $excerpt_limit_quantity;
+
+  //! Jednostka miary, w którym wyrażona jest liczba w polu $excerpt_limit_quantity (w tej chwili CHARACTERS lub PERCENTAGE)
+  public $excerpt_limit_unit;
+
   //! Lista identyfikatorów - patrz pola $ean, $isbn, $proprietary_identifiers
   private $identifiers = array();
 
@@ -416,8 +458,9 @@ class ElibriProduct {
     $this->cover_price = FirstNodeValue::get($xml_fragment, "CoverPrice");
     $this->vat = FirstNodeValue::get($xml_fragment, "Vat", true);
     $this->pkwiu = FirstNodeValue::get($xml_fragment, "PKWiU");
+    $this->isbn13_with_hyphens = FirstNodeValue::get($xml_fragment, "HyphenatedISBN");
     $this->preview_exists = (FirstNodeValue::get($xml_fragment, "preview_exists") == "true");
-
+    $this->city_of_publication = FirstNodeValue::get($xml_fragment, "CityOfPublication");
       
     //product identifiers
     foreach ($xml_fragment->getElementsByTagName("ProductIdentifier") as $product_identifier_element) {
@@ -429,7 +472,7 @@ class ElibriProduct {
         $this->{strtolower($pid->identifier_type)} = $pid->value; //ean, isbn13
       }
     }
-      
+
     //descriptive detail
     if ($xml_fragment->getElementsByTagName("DescriptiveDetail")->length > 0) {
       $this->parseDescriptiveDetail($xml_fragment->getElementsByTagName("DescriptiveDetail")->item(0));
@@ -455,7 +498,9 @@ class ElibriProduct {
       }
     } 
 
-    $this->compute_state();      
+    $this->computeState();      
+
+    $this->checkLicence($xml_fragment);
 
     //Supply detail
     $xsupplys = $xml_fragment->getElementsByTagName("SupplyDetail");
@@ -465,6 +510,18 @@ class ElibriProduct {
     } 
   }
 
+
+  private function checkLicence($xml_fragment) {
+    if ($xml_fragment->getElementsByTagName("SaleNotRestricted")->length > 0) {
+      $this->unlimited_licence = True;
+    } elseif ($xml_fragment->getElementsByTagName("SaleRestrictedTo")->length > 0) {
+      $this->unlimited_licence = False;
+      $this->licence_limited_to_before_type_cast = FirstNodeValue::get($xml_fragment, "SaleRestrictedTo");
+      $this->parsed_licence_limited_to = ElibriPublishingDate::parseDate($this->licence_limited_to_before_type_cast, 'YYYYMMDD');
+      $this->licence_limited_to =  new DateTime($this->parsed_licence_limited_to[0] . "-" . 
+                                                $this->parsed_licence_limited_to[1] . "-" . $this->parsed_licence_limited_to[2]);
+    }
+  }
 
   private function parsePublishingDetail($publishing_node) {
 
@@ -499,6 +556,12 @@ class ElibriProduct {
       $this->premiere = $this->sales_restrictions_info->end_date_as_datetime;
     } else {
       $this->sales_restrictions = false;
+    }
+
+    //ograniczenia terytorialne
+    $this->sale_restricted_to_poland = False;
+    if (FirstNodeValue::get($publishing_node, "CountriesIncluded") == "PL") {
+      $this->sale_restricted_to_poland = True;
     }
   }
 
@@ -614,9 +677,46 @@ class ElibriProduct {
          $this->reading_age_to = $audience->value;
        }
     }
+
+    //formaty plików
+    if ($descriptive_detail->getElementsByTagName("ProductFormDetail")->length > 0) {
+      $this->digital_formats = array();
+      foreach ($descriptive_detail->getElementsByTagName("ProductFormDetail") as $xml_fragment) {
+         $code = $xml_fragment->nodeValue;
+         $atom = ElibriDictProductFormDetail::byCode($code);
+         $this->digital_formats[] = str_replace("MOBIPOCKET", "MOBI", $atom->const_name);
+      }
+    }
+    //zabezpiecznie
+    $protection = FirstNodeValue::get($descriptive_detail, "EpubTechnicalProtection");
+    if ($protection) {
+      $this->technical_protection = ElibriDictEpubTechnicalProtection::byCode($protection)->const_name;
+    }
+
+    //informacje o fragmencie
+    if ($descriptive_detail->getElementsByTagName("EpubUsageConstraint")->length > 0) {
+      $this->excerpt_info = True;
+      $status = FirstNodeValue::get($descriptive_detail, "EpubUsageStatus");
+      if ($status == ElibriDictEpubUsageStatus::PROHIBITED) {
+        $this->excerpt_publishing_allowed = False;   
+      } else {
+        $this->excerpt_publishing_allowed = True;
+        if ($status == ElibriDictEpubUsageStatus::LIMITED) {
+          $this->excerpt_publishing_with_limit = True;
+          $excerpt_limitation_dom = $descriptive_detail->getElementsByTagName("EpubUsageLimit")->item(0);
+          $this->excerpt_limit_quantity = FirstNodeValue::get($excerpt_limitation_dom, "Quantity");
+          $this->excerpt_limit_unit = ElibriDictEpubUsageUnit::byCode(FirstNodeValue::get($excerpt_limitation_dom, "EpubUsageUnit"))->const_name;
+        } else {
+          $this->excerpt_publishing_with_limit = False;
+        }
+      }
+    } else {
+      $this->excerpt_info = False;
+    }
+
   }
 
-  private function compute_state() {
+  private function computeState() {
     if ($this->notification_type == "01") {
       $this->current_state = 'announced';
     } else if ($this->notification_type == "02") {

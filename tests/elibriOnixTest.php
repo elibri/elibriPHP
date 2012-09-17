@@ -5,10 +5,10 @@ require_once 'PHPUnit/Autoload.php';
 
 class ElibriDictTest extends PHPUnit_Framework_TestCase {
 
-   public function load($s) {
+   public function load($s, $idx = 0) {
      $xml = file_get_contents(dirname(__FILE__) . "/xml/".$s);
      $m = ElibriOnixMessage::parse($xml);
-     return $m->products[0];
+     return $m->products[$idx];
    }
 
   public function test_audience_range() {
@@ -80,7 +80,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(12.99, $product->cover_price);
     $this->assertEquals(5, $product->vat);
     $this->assertEquals("58.11.1", $product->pkwiu);
-    $this->assertFalse($product->preview_exists);
+    $this->assertTrue($product->preview_exists);
   }
 
   public function test_ebook_extent() {
@@ -138,6 +138,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals("G+J Gruner+Jahr Polska", $product->publisher_name);
     $this->assertEquals(14, $product->publisher_id);
     $this->assertEquals("National Geographic", $product->imprint_name);
+    $this->assertEquals("Warszawa", $product->city_of_publication);
   }
 
   public function test_onix_record_identifiers() {
@@ -145,6 +146,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
 
     $this->assertEquals("fdb8fa072be774d97a97", $product->record_reference);
     $this->assertEquals("9788324799992", $product->isbn13);
+    $this->assertEquals("978-83-2478-888-2", $product->isbn13_with_hyphens);
     $this->assertEquals("9788324788882", $product->ean);
     $this->assertEquals($product->proprietary_identifiers, array("Olesiejuk" => "355006"));
   }
@@ -193,7 +195,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals("TEXT", $product->supporting_resources[1]->mode_name);
     $this->assertEquals("DOWNLOADABLE_FILE", $product->supporting_resources[1]->form_name);
 
-    $this->assertTrue($product->preview_exists);
+    $this->assertFalse($product->preview_exists);
   }
 
 
@@ -201,7 +203,7 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
 
     $product = $this->load("onix_texts_example.xml");
 
-    $this->assertEquals("1. Wprowadzenie<br />2. Rozdział pierwszy<br />[...]", $product->table_of_contents->text);
+    $this->assertEquals("<p>1. Wprowadzenie</p> <p>2. Rozdział pierwszy</p> <p>[...]</p>", $product->table_of_contents->text);
     $this->assertEquals("20111204T1215", $product->table_of_contents->datestamp_before_type_cast);
     $this->assertEquals(new DateTime("2011-12-04 12:15"), $product->table_of_contents->datestamp);
     //sprawdźmy, czy na pewno nie ma błędu z interpretacją formatu
@@ -209,20 +211,20 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(133, $product->table_of_contents->id);
 
     $this->assertEquals(1, count($product->reviews));
-    $this->assertEquals("Recenzja książki<br />[...]", $product->reviews[0]->text);
+    $this->assertEquals("<p>Recenzja książki</p> <p>[...]</p>", $product->reviews[0]->text);
     $this->assertEquals("Jan Kowalski", $product->reviews[0]->author);
    
     $this->assertEquals("20111204T1218", $product->reviews[0]->datestamp_before_type_cast);
     $this->assertEquals(new DateTime("2011-12-04 12:18"), $product->reviews[0]->datestamp);
     $this->assertEquals(134, $product->reviews[0]->id);
 
-    $this->assertEquals("Opis książki<br />[...]", $product->description->text);
+    $this->assertEquals("<p>Opis książki</p> <p>[...]</p>", $product->description->text);
     $this->assertEquals("20111204T1225", $product->description->datestamp_before_type_cast);
     $this->assertEquals(new DateTime("2011-12-04 12:25"), $product->description->datestamp);
     $this->assertEquals(135, $product->description->id);
 
     $this->assertEquals(1, count($product->excerpts));
-    $this->assertEquals("Fragment książki<br />[...]", $product->excerpts[0]->text);
+    $this->assertEquals("<p>Fragment książki</p> <p>[...]</p>", $product->excerpts[0]->text);
     $this->assertEquals("20111204T1235", $product->excerpts[0]->datestamp_before_type_cast);
     $this->assertEquals(new DateTime("2011-12-04 12:35"), $product->excerpts[0]->datestamp);
     $this->assertEquals(136, $product->excerpts[0]->id);
@@ -290,7 +292,53 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertFalse($product->sales_restrictions);
   }
 
+  public function test_territorial_rights() {
+    $pl_product = $this->load("onix_territorial_rights_example.xml", 0);
+    $this->assertTrue($pl_product->sale_restricted_to_poland);
 
+    $world_product = $this->load("onix_territorial_rights_example.xml", 1);
+    $this->assertFalse($world_product->sale_restricted_to_poland);
+  }
+
+  public function test_licence_information() {
+    $product = $this->load("onix_unlimited_book_sample_example.xml"); 
+    $this->assertTrue($product->unlimited_licence);
+
+    $product = $this->load("onix_epub_details_example.xml");
+    $this->assertFalse($product->unlimited_licence);
+    $this->assertEquals("20140307", $product->licence_limited_to_before_type_cast);
+    $this->assertEquals(array('2014', '03', '07'), $product->parsed_licence_limited_to);
+    $this->assertEquals(new DateTime("2014-03-07"), $product->licence_limited_to);
+  }
+
+  public function test_formats_and_protection() {
+    $product = $this->load("onix_epub_details_example.xml");
+    $this->assertEquals(array("EPUB", "MOBI"), $product->digital_formats);
+    $this->assertEquals("DRM", $product->technical_protection);
+  }
+
+  public function test_excerpt_info() {
+    $product = $this->load("onix_epub_details_example.xml");
+    $this->assertFalse($product->excerpt_info);
+
+    $product = $this->load("onix_prohibited_book_sample_example.xml");
+    $this->assertTrue($product->excerpt_info);
+    $this->assertFalse($product->excerpt_publishing_allowed);
+
+    $product = $this->load("onix_limited_book_sample_example.xml");
+    $this->assertTrue($product->excerpt_info);
+    $this->assertTrue($product->excerpt_publishing_allowed);
+    $this->assertTrue($product->excerpt_publishing_with_limit);
+    $this->assertEquals(10, $product->excerpt_limit_quantity);
+    $this->assertEquals("PERCENTAGE", $product->excerpt_limit_unit);
+
+
+    $product = $this->load("onix_unlimited_book_sample_example.xml");
+    $this->assertTrue($product->excerpt_info);
+    $this->assertTrue($product->excerpt_publishing_allowed);
+    $this->assertFalse($product->excerpt_publishing_with_limit);
+
+  }
 
   public function test_all_possible_tags() {
     $product = $this->load("all_possible_tags.xml");

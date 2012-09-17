@@ -76,6 +76,14 @@
     en: editor
     pl: redaktor
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole
+  onix_code: B15
+  const_name: EDITORIAL_COORDINATION
+  name:
+    en: editorial coordination by
+    pl: redaktor naukowy
+
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
   onix_code: B02
   const_name: REVISOR

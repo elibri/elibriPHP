@@ -6,6 +6,8 @@
   name:
     en: book
     pl: książka
+  digital: false
+  carrier: druk
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'EA'
@@ -13,34 +15,38 @@
   name:
     en: e-book
     pl: e-book
+  digital: true
+  carrier: plik
+
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
-  onix_code: 'AA'
-  const_name: AUDIO_RECORDING
+  onix_code: 'AJ'
+  const_name: AUDIO_DOWNLOADABLE_FILE
   name:
-    en: audio recording
-    pl: nagranie audio
+    en: audio recording file
+    pl: audiobook w formie pliku
+  digital: true
+  carrier: plik
 
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
-  onix_code: 'AB'
-  const_name: AUDIO_CASSETTE
-  name:
-    en: audio cassette
-    pl: kaseta magnetofonowa
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'AC'
   const_name: AUDIO_CD
   name:
     en: CD-audio
-    pl: audio CD
+    pl: audiobook na płycie CD
+  digital: false
+  carrier: CD
+
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'AI'
   const_name: AUDIO_DVD
   name:
     en: DVD-audio
-    pl: audio DVD
+    pl: audiobook na płycie DVD
+  digital: false
+  carrier: DVD
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'CA'
@@ -48,6 +54,9 @@
   name:
     en: sheet map
     pl: mapa
+  digital: false
+  carrier: mapa
+
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'CB'
@@ -55,6 +64,8 @@
   name:
     en: sheet map / folded
     pl: mapa składana
+  digital: false
+  carrier: mapa
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'CC'
@@ -62,6 +73,9 @@
   name:
     en: sheet map / flat
     pl: mapa płaska
+  digital: false
+  carrier: mapa
+
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'CD'
@@ -69,6 +83,8 @@
   name:
     en: sheet map / rolled
     pl: mapa w rolce
+  digital: false
+  carrier: mapa
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'CZ'
@@ -76,6 +92,9 @@
   name:
     en: other cartographic
     pl: inny format kartograficzny
+  digital: false
+  carrier: mapa
+
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'PC'
@@ -83,3 +102,5 @@
   name:
     en: calendar
     pl: kalendarz
+  digital: false
+  carrier: druk

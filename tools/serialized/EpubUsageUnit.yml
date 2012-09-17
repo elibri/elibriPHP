@@ -1,0 +1,15 @@
+#lista 147
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubUsageUnit
+  onix_code: '02'
+  const_name: CHARACTERS
+  name:
+    en: characters
+    pl: znaków
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubUsageUnit
+  onix_code: '05'
+  const_name: PERCENTAGE
+  name:
+    en: percentage
+    pl: procent

@@ -9,6 +9,44 @@
 
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictEpubTechnicalProtection extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! brak
+  const NONE = '00';
+
+  //! DRM
+  const DRM = '01';
+
+  //! watermark
+  const WATERMARK = '02';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('00', array('pl' => 'brak', 'en' => 'none'), 'NONE'),
+          new ElibriDictAtom('01', array('pl' => 'DRM', 'en' => 'DRM'), 'DRM'),
+          new ElibriDictAtom('02', array('pl' => 'watermark', 'en' => 'watermark'), 'WATERMARK'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEpubTechnicalProtection();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictResourceMode extends  ElibriDictElement {
 
   private static $instance;
@@ -47,11 +85,49 @@ class ElibriDictResourceMode extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictEpubUsageStatus extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! bez ograniczeń
+  const UNLIMITED = '01';
+
+  //! obowiązuje ograniczenie
+  const LIMITED = '02';
+
+  //! zabronione
+  const PROHIBITED = '03';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'bez ograniczeń', 'en' => 'unlimited'), 'UNLIMITED'),
+          new ElibriDictAtom('02', array('pl' => 'obowiązuje ograniczenie', 'en' => 'limited'), 'LIMITED'),
+          new ElibriDictAtom('03', array('pl' => 'zabronione', 'en' => 'prohibited'), 'PROHIBITED'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEpubUsageStatus();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictProductIDType extends  ElibriDictElement {
 
   private static $instance;
 
-  //! własnościowy
+  //! wewnętrzny identyfikator
   const PROPRIETARY = '01';
 
   //! EAN
@@ -63,7 +139,7 @@ class ElibriDictProductIDType extends  ElibriDictElement {
 
   protected function __construct() {
       parent::__construct(array(
-          new ElibriDictAtom('01', array('pl' => 'własnościowy', 'en' => 'proprietary'), 'PROPRIETARY'),
+          new ElibriDictAtom('01', array('pl' => 'wewnętrzny identyfikator', 'en' => 'proprietary'), 'PROPRIETARY'),
           new ElibriDictAtom('03', array('pl' => 'EAN', 'en' => 'EAN'), 'EAN'),
           new ElibriDictAtom('15', array('pl' => 'ISBN-13', 'en' => 'ISBN-13'), 'ISBN13'),
       ));
@@ -123,6 +199,40 @@ class ElibriDictDateFormat extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictEpubUsageUnit extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! znaków
+  const CHARACTERS = '02';
+
+  //! procent
+  const PERCENTAGE = '05';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('02', array('pl' => 'znaków', 'en' => 'characters'), 'CHARACTERS'),
+          new ElibriDictAtom('05', array('pl' => 'procent', 'en' => 'percentage'), 'PERCENTAGE'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEpubUsageUnit();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictResourceContentType extends  ElibriDictElement {
 
   private static $instance;
@@ -139,7 +249,7 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
   //! fragment książki czytany przez autora
   const AUTHOR_READING = '13';
 
-  //! fragment książki lub audiobook-a
+  //! fragment audiobook-a
   const SAMPLE_CONTENT = '15';
 
   //! recenzja
@@ -155,7 +265,7 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
           new ElibriDictAtom('02', array('pl' => 'okładka (tył)', 'en' => 'back cover'), 'BACK_COVER'),
           new ElibriDictAtom('11', array('pl' => 'wywiad z autorem', 'en' => 'author interview'), 'AUTHOR_INTERVIEW'),
           new ElibriDictAtom('13', array('pl' => 'fragment książki czytany przez autora', 'en' => 'author reading'), 'AUTHOR_READING'),
-          new ElibriDictAtom('15', array('pl' => 'fragment książki lub audiobook-a', 'en' => 'sample content'), 'SAMPLE_CONTENT'),
+          new ElibriDictAtom('15', array('pl' => 'fragment audiobook-a', 'en' => 'sample content'), 'SAMPLE_CONTENT'),
           new ElibriDictAtom('17', array('pl' => 'recenzja', 'en' => 'review'), 'REVIEW'),
           new ElibriDictAtom('24', array('pl' => 'mediapack', 'en' => 'press release'), 'PRESS_RELEASE'),
       ));
@@ -214,6 +324,9 @@ class ElibriDictContributorRole extends  ElibriDictElement {
   //! redaktor
   const EDITOR = 'B01';
 
+  //! redaktor naukowy
+  const EDITORIAL_COORDINATION = 'B15';
+
   //! korektor
   const REVISOR = 'B02';
 
@@ -240,6 +353,7 @@ class ElibriDictContributorRole extends  ElibriDictElement {
           new ElibriDictAtom('A36', array('pl' => 'projektant okładki', 'en' => 'cover designer'), 'COVER_DESIGNER'),
           new ElibriDictAtom('A40', array('pl' => 'tusz/kolor', 'en' => 'inked or colored by'), 'INKED_OR_COLORED_BY'),
           new ElibriDictAtom('B01', array('pl' => 'redaktor', 'en' => 'editor'), 'EDITOR'),
+          new ElibriDictAtom('B15', array('pl' => 'redaktor naukowy', 'en' => 'editorial coordination by'), 'EDITORIAL_COORDINATION'),
           new ElibriDictAtom('B02', array('pl' => 'korektor', 'en' => 'revisor'), 'REVISOR'),
           new ElibriDictAtom('B06', array('pl' => 'tłumacz', 'en' => 'translator'), 'TRANSLATOR'),
           new ElibriDictAtom('B11', array('pl' => 'redaktor naczelny', 'en' => 'editor-in-chief'), 'EDITOR_IN_CHIEF'),
@@ -430,6 +544,36 @@ class ElibriDictSalesRestrictionType extends  ElibriDictElement {
   protected static function getInstance() {
     if (empty(self::$instance)) {
        self::$instance = new ElibriDictSalesRestrictionType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictEpubUsageType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! udostępnij fragment przed kupnem
+  const PREVIEW = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'udostępnij fragment przed kupnem', 'en' => 'preview before purchase'), 'PREVIEW'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEpubUsageType();
     }
     return self::$instance;
   }
@@ -649,16 +793,13 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
   //! e-book
   const EBOOK = 'EA';
 
-  //! nagranie audio
-  const AUDIO_RECORDING = 'AA';
+  //! audiobook w formie pliku
+  const AUDIO_DOWNLOADABLE_FILE = 'AJ';
 
-  //! kaseta magnetofonowa
-  const AUDIO_CASSETTE = 'AB';
-
-  //! audio CD
+  //! audiobook na płycie CD
   const AUDIO_CD = 'AC';
 
-  //! audio DVD
+  //! audiobook na płycie DVD
   const AUDIO_DVD = 'AI';
 
   //! mapa
@@ -684,10 +825,9 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
       parent::__construct(array(
           new ElibriDictAtom('BA', array('pl' => 'książka', 'en' => 'book'), 'BOOK'),
           new ElibriDictAtom('EA', array('pl' => 'e-book', 'en' => 'e-book'), 'EBOOK'),
-          new ElibriDictAtom('AA', array('pl' => 'nagranie audio', 'en' => 'audio recording'), 'AUDIO_RECORDING'),
-          new ElibriDictAtom('AB', array('pl' => 'kaseta magnetofonowa', 'en' => 'audio cassette'), 'AUDIO_CASSETTE'),
-          new ElibriDictAtom('AC', array('pl' => 'audio CD', 'en' => 'CD-audio'), 'AUDIO_CD'),
-          new ElibriDictAtom('AI', array('pl' => 'audio DVD', 'en' => 'DVD-audio'), 'AUDIO_DVD'),
+          new ElibriDictAtom('AJ', array('pl' => 'audiobook w formie pliku', 'en' => 'audio recording file'), 'AUDIO_DOWNLOADABLE_FILE'),
+          new ElibriDictAtom('AC', array('pl' => 'audiobook na płycie CD', 'en' => 'CD-audio'), 'AUDIO_CD'),
+          new ElibriDictAtom('AI', array('pl' => 'audiobook na płycie DVD', 'en' => 'DVD-audio'), 'AUDIO_DVD'),
           new ElibriDictAtom('CA', array('pl' => 'mapa', 'en' => 'sheet map'), 'SHEET_MAP'),
           new ElibriDictAtom('CB', array('pl' => 'mapa składana', 'en' => 'sheet map / folded'), 'SHEET_MAP_FOLDED'),
           new ElibriDictAtom('CC', array('pl' => 'mapa płaska', 'en' => 'sheet map / flat'), 'SHEET_MAP_FLAT'),
@@ -993,6 +1133,44 @@ class ElibriDictProductRelationType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictProductFormDetail extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! EPUB
+  const EPUB = 'E101';
+
+  //! PDF
+  const PDF = 'E107';
+
+  //! Mobipocket
+  const MOBIPOCKET = 'E127';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('E101', array('pl' => 'EPUB', 'en' => 'EPUB'), 'EPUB'),
+          new ElibriDictAtom('E107', array('pl' => 'PDF', 'en' => 'PDF'), 'PDF'),
+          new ElibriDictAtom('E127', array('pl' => 'Mobipocket', 'en' => 'Mobipocket'), 'MOBIPOCKET'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictProductFormDetail();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictSupplierRole extends  ElibriDictElement {
 
   private static $instance;
@@ -1058,6 +1236,48 @@ class ElibriDictTitleElementLevel extends  ElibriDictElement {
   protected static function getInstance() {
     if (empty(self::$instance)) {
        self::$instance = new ElibriDictTitleElementLevel();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictContentSourceType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! media drukowane
+  const PRINTED_MEDIA = '01';
+
+  //! strona internetowa
+  const WEBSITE = '02';
+
+  //! radio
+  const RADIO = '03';
+
+  //! telewizja
+  const TV = '04';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'media drukowane', 'en' => 'printed media'), 'PRINTED_MEDIA'),
+          new ElibriDictAtom('02', array('pl' => 'strona internetowa', 'en' => 'website'), 'WEBSITE'),
+          new ElibriDictAtom('03', array('pl' => 'radio', 'en' => 'radio'), 'RADIO'),
+          new ElibriDictAtom('04', array('pl' => 'telewizja', 'en' => 'TV'), 'TV'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictContentSourceType();
     }
     return self::$instance;
   }

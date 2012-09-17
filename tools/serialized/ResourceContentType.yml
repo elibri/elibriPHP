@@ -33,7 +33,7 @@
   const_name: SAMPLE_CONTENT
   name:
     en: sample content
-    pl: fragment książki lub audiobook-a
+    pl: fragment audiobook-a
 
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType

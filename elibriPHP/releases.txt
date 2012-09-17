@@ -1,5 +1,9 @@
 /*! \page releases Historia wersji
 
+    \sectiin v4 Wersja 0.1.4 z dnia 17 września 2012
+    Rozszerzona informacja o produktach cyfrowych (zabezpieczenie, licencja, formaty plików, udostępnianie fragmentów). Dodatkowo dodane zostało pole
+    z informacją o mieście wydania oraz pole z isbn z myślnikami.
+
     \section v3 Wersja 0.1.3 z dnia 19 sierpnia 2012
     Dodany krótki opis przy produkcie
 
