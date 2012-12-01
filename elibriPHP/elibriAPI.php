@@ -8,7 +8,7 @@
 
 //! @brief Wyjątek - Nieznany błąd po stronie serwera
 //! @ingroup exceptions
-class ElibriUnknownDataAPIException extends Exception {
+class ElibriDataAPIUnknownException extends Exception {
     
   function __construct() {
     parent::__construct("Unknown Error", 9999);
@@ -55,7 +55,7 @@ class ElibriDataAPIInvalidAuthException extends Exception {
 
 //! @brief Wyjątek - Kolejka z danymi nie istnieje
 //! @ingroup exceptions
-class ElibriInvalidQueueException extends Exception {
+class ElibriDataAPIInvalidQueueException extends Exception {
   
   function __construct() {
     parent::__construct("Queue Does Not Exist", 1001);
@@ -182,7 +182,7 @@ class ElibriAPI {
     } else if ($response_code == 401) {
       throw new ElibriDataAPIInvalidAuthException(); 
     } else if (($response_code != 200) && ($response_code != 412)) {
-      throw new ElibriUnknownDataAPIException();
+      throw new ElibriDataAPIUnknownException();
     }
 
     $headers_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
@@ -202,7 +202,7 @@ class ElibriAPI {
       switch ($nr) {
         case '1002': throw new ElibriNoPoppedDataException(); break;
         case '1003': throw new ElibriInvalidDialectException(); break;
-        default: throw new ElibriUnknownDataAPIException(); break;
+        default: throw new ElibriDataAPIUnknownException(); break;
       }
     }
     
@@ -244,7 +244,7 @@ class ElibriAPI {
   function popQueue($queue, $count = 30, $testing = false) {
     global $xml;
     if (($queue != "meta") && ($queue != "stocks")) {
-      throw new ElibriInvalidQueueException();
+      throw new ElibriDataAPIInvalidQueueException();
     }
     $testing = (int) $testing;
     $query = "count=$count&amp;testing=$testing";
