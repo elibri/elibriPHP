@@ -27,7 +27,7 @@ class ElibriDataAPINotFoundException extends Exception {
 
 //! @brief Wyjątek - Nie posiadasz wystarczających praw dostępu
 //! @ingroup exceptions
-class ElibriForbiddenException extends Exception {
+class ElibriDataAPIForbiddenException extends Exception {
 
   function __construct() {
     parent::__construct("Forbidden", 403);
@@ -176,7 +176,7 @@ class ElibriAPI {
     if ($response_code == 404) {
       throw new ElibriDataAPINotFoundException();
     } else if ($response_code == 403) {
-      throw new ElibriForbiddenException();
+      throw new ElibriDataAPIForbiddenException();
     } else if ($response_code == 500) {
       throw new ElibriServerErrorException();
     } else if ($response_code == 401) {
