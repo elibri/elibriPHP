@@ -73,7 +73,7 @@ class ElibriDataAPINoPoppedDataException extends Exception {
 
 //! @brief Wyjątek - Nie został podany nagłówek X-eLibri-API-ONIX-dialect, albo jego wartość jest nieprawidłowa 
 //! @ingroup exceptions
-class ElibriInvalidDialectException extends Exception {
+class ElibriDataAPIInvalidDialectException extends Exception {
   
   function __construct() {
     parent::__construct("Invalid Onix Dialect", 1003);
@@ -201,7 +201,7 @@ class ElibriAPI {
       
       switch ($nr) {
         case '1002': throw new ElibriDataAPINoPoppedDataException(); break;
-        case '1003': throw new ElibriInvalidDialectException(); break;
+        case '1003': throw new ElibriDataAPIInvalidDialectException(); break;
         default: throw new ElibriDataAPIUnknownException(); break;
       }
     }
