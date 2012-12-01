@@ -82,7 +82,7 @@ class ElibriDataAPIInvalidDialectException extends Exception {
 
 //! @brief Wyjątek używany w przypadku wystąpienia błędu połączenia z serwerem
 //! @ingroup exceptions
-class ElibriAPIConnectionException extends Exception {
+class ElibriDataAPIConnectionException extends Exception {
   
   //! konstruktor wyjątku w przypadku błędu zwróconego przez curl-a
   function __construct($msg, $errno) {
@@ -170,7 +170,7 @@ class ElibriAPI {
 
     $curlResult = curl_exec($ch);
     if ($curlResult === FALSE) {
-      throw new ElibriAPIConnectionException (curl_error($ch), curl_errno($ch));
+      throw new ElibriDataAPIConnectionException (curl_error($ch), curl_errno($ch));
     }
     $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($response_code == 404) {
