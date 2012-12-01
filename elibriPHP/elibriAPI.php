@@ -17,7 +17,7 @@ class ElibriUnknownDataAPIException extends Exception {
 
 //! @brief Wyjątek - Ścieżka nie została znaleziona
 //! @ingroup exceptions
-class ElibriNotFoundException extends Exception {
+class ElibriDataAPINotFoundException extends Exception {
   
   function __construct() {
     parent::__construct("Not Found", 404);
@@ -174,7 +174,7 @@ class ElibriAPI {
     }
     $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($response_code == 404) {
-      throw new ElibriNotFoundException();
+      throw new ElibriDataAPINotFoundException();
     } else if ($response_code == 403) {
       throw new ElibriForbiddenException();
     } else if ($response_code == 500) {
