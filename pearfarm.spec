@@ -7,12 +7,12 @@ $spec = Pearfarm_PackageSpec::create(array(Pearfarm_PackageSpec::OPT_BASEDIR => 
              ->setDescription('Źródła do projektu znajdziesz pod adresem https://github.com/elibri/elibriPHP,
                                dokumentację pod adresem http://elibri.com.pl/system/doc/php/, 
                                kanał PEAR pod adresem http://elibri.com.pl/system/pear/')
-             ->setReleaseVersion('0.1.4')
+             ->setReleaseVersion('0.2.0')
              ->setReleaseStability('beta')
              ->setApiVersion('3.0.1')
              ->setApiStability('beta')
              ->setLicense(Pearfarm_PackageSpec::LICENSE_MIT)
-             ->setNotes('Dodany krótki opis produktu')
+             ->setNotes('Zmiana nazw klas wyjątków')
              ->addMaintainer('lead', 'Tomasz Meka', '', 'kontakt@elibri.com.pl')
              ->addFilesRegex("/elibriPHP\/.*php$/", $role= "php")
              ->addFilesRegex("/tests\//", $role= "test")

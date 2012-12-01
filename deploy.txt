@@ -1,15 +1,17 @@
+
 1. zmień wersję w pliku pearfarm.spec, dodaj opis nowego releasu
 2. wykonaj pearfarm build
 3. W katalogu głównym będzie plik elibriPHP-x.x.x.tgz
-4. wejdz do katalogu pear
-5. wykonaj pirum add . ../elibriPHP-x.x.x.tgz
+4. wejdz do katalogu ../pear
+5. wykonaj pirum add . ../elibriPHP-x.x.x.tgz (uwaga na kropkę w środku)
 5.1 zmień wersję w pliku elibriPHP/doc.txt, dodaj wpis w elibriPHP/releases.txt
 6. wykonaj cap deploy:doc
 7. wykonaj cap deploy:pear
 8. zrób finalnego commita
 9. wykasuj wygenerowany plik
-10. Stwórz odpowiedni tag w git-ie: git tag 0.1.1 HEAD
+10. Stwórz odpowiedni tag w git-ie: git tag 0.1.1 HEAD NIE: git tag -a 0.1.1 -m "version 0.1.1"
 11. git push
+12. git push --tags
 
 
 //zmiany w PackageSpec.php +639

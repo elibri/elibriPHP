@@ -74,11 +74,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="textblock"><h2><a class="anchor" id="intro_sec"></a>
 Wprowadzenie</h2>
 <p><a href="https://www.elibri.com.pl">eLibri</a> jest systemem stworzonym dla wydawnictw, które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek. Niniejsza biblioteka jest implementacją API udokumentowanego <a href="https://www.elibri.com.pl/doc/api">tutaj</a>.</p>
+<h2><a class="anchor" id="changes"></a>
+Zmiany pomiędzy wersją 0.1.4 a 0.2.0</h2>
+<p>Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href="https://elibri.com.pl/system/doc/php_watermarking/">modułem trasakcyjnym</a>, zmienione zostały nazwy klas reprezentujących wyjątki. Przedrostek Elibri został zamieniony na ElibriDataAPI:</p>
+<ul>
+<li>ElibriAPIConnectionException -&gt; <a class="el" href="classElibriDataAPIConnectionException.html" title="Wyjątek używany w przypadku wystąpienia błędu połączenia z serwerem.">ElibriDataAPIConnectionException</a></li>
+<li>ElibriInvalidDialectException -&gt; <a class="el" href="classElibriDataAPIInvalidDialectException.html" title="Wyjątek - Nie został podany nagłówek X-eLibri-API-ONIX-dialect, albo jego wartość jest nieprawidłowa...">ElibriDataAPIInvalidDialectException</a></li>
+<li>ElibriNoPoppedDataException -&gt; <a class="el" href="classElibriDataAPINoPoppedDataException.html" title="Wyjątek - Ostatnio nie pobierano żadnych danych.">ElibriDataAPINoPoppedDataException</a></li>
+<li>ElibriInvalidQueueException -&gt; <a class="el" href="classElibriDataAPIInvalidQueueException.html" title="Wyjątek - Kolejka z danymi nie istnieje.">ElibriDataAPIInvalidQueueException</a></li>
+<li>ElibriInvalidAuthException -&gt; <a class="el" href="classElibriDataAPIInvalidAuthException.html" title="Wyjątek - Nieprawidłowy login lub hasło.">ElibriDataAPIInvalidAuthException</a></li>
+<li>ElibriServerErrorException -&gt; <a class="el" href="classElibriDataAPIServerErrorException.html" title="Wyjątek po stronie serwera (Internal server error)">ElibriDataAPIServerErrorException</a></li>
+<li>ElibriForbiddenException -&gt; <a class="el" href="classElibriDataAPIForbiddenException.html" title="Wyjątek - Nie posiadasz wystarczających praw dostępu.">ElibriDataAPIForbiddenException</a></li>
+<li>ElibriNotFoundException -&gt; <a class="el" href="classElibriDataAPINotFoundException.html" title="Wyjątek - Ścieżka nie została znaleziona.">ElibriDataAPINotFoundException</a></li>
+<li>ElibriUnknownException -&gt; <a class="el" href="classElibriDataAPIUnknownException.html" title="Wyjątek - Nieznany błąd po stronie serwera.">ElibriDataAPIUnknownException</a></li>
+</ul>
 <h2><a class="anchor" id="install_sec"></a>
 Instalacja</h2>
 <p>Biblioteka jest dystrybuowana jako pakiet PEAR. Najpierw musisz zarejestrować kanał elibri: </p>
 <div class="fragment"><pre class="fragment">pear channel-discover elibri.com.pl/system/pear </pre></div><p>Następnie instalujesz pakiet poprzez: </p>
-<div class="fragment"><pre class="fragment">pear install channel://elibri.com.pl/system/pear/elibriPHP-0.1.4 </pre></div><p>Rozwój pakietu możesz śledzić na <a href="https://github.com/elibri/elibriPHP">githubie</a></p>
+<div class="fragment"><pre class="fragment">pear install channel://elibri.com.pl/system/pear/elibriPHP-0.2.0 </pre></div><p>Rozwój pakietu możesz śledzić na <a href="https://github.com/elibri/elibriPHP">githubie</a></p>
 <p>Jeśli używasz czytnika rss, to możesz zaabonować <a href="https://www.elibri.com.pl/system/pear/feed.xml">ten kanał</a>.</p>
 <h2><a class="anchor" id="usage_sec"></a>
 Użycie biblioteki</h2>

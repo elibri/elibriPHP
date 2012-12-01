@@ -1,6 +1,19 @@
 /*! \page releases Historia wersji
 
-    \sectiin v4 Wersja 0.1.4 z dnia 17 września 2012
+    \section v5 Wersja 0.2.0 z dnia 1. grudnia 2012
+    Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href='https://elibri.com.pl/system/doc/php_watermarking/'>modułem trasakcyjnym</a>,
+    zmienione zostały nazwy klas reprezentujących wyjątki. Przedrostek Elibri został zamieniony na ElibriDataAPI:
+     - ElibriAPIConnectionException -> ElibriDataAPIConnectionException
+     - ElibriInvalidDialectException -> ElibriDataAPIInvalidDialectException
+     - ElibriNoPoppedDataException -> ElibriDataAPINoPoppedDataException
+     - ElibriInvalidQueueException -> ElibriDataAPIInvalidQueueException
+     - ElibriInvalidAuthException -> ElibriDataAPIInvalidAuthException
+     - ElibriServerErrorException -> ElibriDataAPIServerErrorException
+     - ElibriForbiddenException -> ElibriDataAPIForbiddenException
+     - ElibriNotFoundException -> ElibriDataAPINotFoundException
+     - ElibriUnknownException -> ElibriDataAPIUnknownException
+
+    \section v4 Wersja 0.1.4 z dnia 17 września 2012
     Rozszerzona informacja o produktach cyfrowych (zabezpieczenie, licencja, formaty plików, udostępnianie fragmentów). Dodatkowo dodane zostało pole
     z informacją o mieście wydania oraz pole z isbn z myślnikami.
 

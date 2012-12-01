@@ -74,10 +74,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="textblock">Tutaj znajdują się klasy, struktury, unie i interfejsy wraz z ich krótkimi opisami:</div><table>
   <tr><td class="indexkey"><a class="el" href="classElibriAnnotatedObject.html">ElibriAnnotatedObject</a></td><td class="indexvalue">Klasa macierzysta dla obiektów, które przechowują informację o id w systemie eLibri i dacie stworzenia/ostatniej aktualizacji </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriAPI.html">ElibriAPI</a></td><td class="indexvalue"><a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.">ElibriAPI</a> abstrahuje wykorzystanie API udostępniane przez eLibri </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriAPIConnectionException.html">ElibriAPIConnectionException</a></td><td class="indexvalue">Wyjątek używany w przypadku wystąpienia błędu połączenia z serwerem </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriAudienceRange.html">ElibriAudienceRange</a></td><td class="indexvalue">Wiek czytelnika - od .. do </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriCollection.html">ElibriCollection</a></td><td class="indexvalue">Informacja o kolekcji - czyli jak gdyby serii, która jest częścią tytułu </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriContributor.html">ElibriContributor</a></td><td class="indexvalue">Klasa reprezentująca osoby tworzące książkę (autor, rysownik itd) </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIConnectionException.html">ElibriDataAPIConnectionException</a></td><td class="indexvalue">Wyjątek używany w przypadku wystąpienia błędu połączenia z serwerem </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIForbiddenException.html">ElibriDataAPIForbiddenException</a></td><td class="indexvalue">Wyjątek - Nie posiadasz wystarczających praw dostępu </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIInvalidAuthException.html">ElibriDataAPIInvalidAuthException</a></td><td class="indexvalue">Wyjątek - Nieprawidłowy login lub hasło </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIInvalidDialectException.html">ElibriDataAPIInvalidDialectException</a></td><td class="indexvalue">Wyjątek - Nie został podany nagłówek X-eLibri-API-ONIX-dialect, albo jego wartość jest nieprawidłowa </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIInvalidQueueException.html">ElibriDataAPIInvalidQueueException</a></td><td class="indexvalue">Wyjątek - Kolejka z danymi nie istnieje </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPINoPoppedDataException.html">ElibriDataAPINoPoppedDataException</a></td><td class="indexvalue">Wyjątek - Ostatnio nie pobierano żadnych danych </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPINotFoundException.html">ElibriDataAPINotFoundException</a></td><td class="indexvalue">Wyjątek - Ścieżka nie została znaleziona </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIServerErrorException.html">ElibriDataAPIServerErrorException</a></td><td class="indexvalue">Wyjątek po stronie serwera (Internal server error) </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classElibriDataAPIUnknownException.html">ElibriDataAPIUnknownException</a></td><td class="indexvalue">Wyjątek - Nieznany błąd po stronie serwera </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriDictAtom.html">ElibriDictAtom</a></td><td class="indexvalue">Klasa pomocnicza mapująca kod ONIX-a na String-a </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriDictAudienceRangePrecision.html">ElibriDictAudienceRangePrecision</a></td><td class="indexvalue">Słownik </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriDictAudienceRangeQualifier.html">ElibriDictAudienceRangeQualifier</a></td><td class="indexvalue">Słownik </td></tr>
@@ -118,16 +126,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <tr><td class="indexkey"><a class="el" href="classElibriDictTitleType.html">ElibriDictTitleType</a></td><td class="indexvalue">Słownik </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriDictUnnamedPersons.html">ElibriDictUnnamedPersons</a></td><td class="indexvalue">Słownik </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriExtent.html">ElibriExtent</a></td><td class="indexvalue">Dodatkowe wartości liczbowe opisujące produkt </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriForbiddenException.html">ElibriForbiddenException</a></td><td class="indexvalue">Wyjątek - Nie posiadasz wystarczających praw dostępu </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriHeader.html">ElibriHeader</a></td><td class="indexvalue">Klasa reprezentująca dane nagłówka ONIX </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriImprint.html">ElibriImprint</a></td><td class="indexvalue">Klasa reprezentująca nazwę imprintu </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriInvalidAuthException.html">ElibriInvalidAuthException</a></td><td class="indexvalue">Wyjątek - Nieprawidłowy login lub hasło </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriInvalidDialectException.html">ElibriInvalidDialectException</a></td><td class="indexvalue">Wyjątek - Nie został podany nagłówek X-eLibri-API-ONIX-dialect, albo jego wartość jest nieprawidłowa </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriInvalidQueueException.html">ElibriInvalidQueueException</a></td><td class="indexvalue">Wyjątek - Kolejka z danymi nie istnieje </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriLanguage.html">ElibriLanguage</a></td><td class="indexvalue">Język, w jakim jest napisana książka </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriMeasure.html">ElibriMeasure</a></td><td class="indexvalue">Klasa reprezentująca wymiary produktu </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriNoPoppedDataException.html">ElibriNoPoppedDataException</a></td><td class="indexvalue">Wyjątek - Ostatnio nie pobierano żadnych danych </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriNotFoundException.html">ElibriNotFoundException</a></td><td class="indexvalue">Wyjątek - Ścieżka nie została znaleziona </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriOnixMessage.html">ElibriOnixMessage</a></td><td class="indexvalue">Klasa abstrahująca wiadomość ONIX </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriPrice.html">ElibriPrice</a></td><td class="indexvalue">Klasa reprezentuje cenę książki w kanale dystrybucji </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriProduct.html">ElibriProduct</a></td><td class="indexvalue">Reprezentacja produktu </td></tr>
@@ -140,7 +142,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <tr><td class="indexkey"><a class="el" href="classElibriRelatedProduct.html">ElibriRelatedProduct</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriSalesRestriction.html">ElibriSalesRestriction</a></td><td class="indexvalue">Informacja o restrykcji w sprzedaży, np. dwutygodniowej wyłączności w empiku </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriSender.html">ElibriSender</a></td><td class="indexvalue">Klasa reprezentująca dane osoby wysyłającej z nagłówka ONIX </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriServerErrorException.html">ElibriServerErrorException</a></td><td class="indexvalue">Wyjątek po stronie serwera (Internal server error) </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriStockQuantityCoded.html">ElibriStockQuantityCoded</a></td><td class="indexvalue">Klasa reprezentująca informację o dostępnej ilości produktu </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriSubject.html">ElibriSubject</a></td><td class="indexvalue">Klasa abstrahująca kategorię, do której został przypisany produkt </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriSupplier.html">ElibriSupplier</a></td><td class="indexvalue">Klasa reprezentująca dostawcę </td></tr>
@@ -150,7 +151,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <tr><td class="indexkey"><a class="el" href="classElibriTextContent.html">ElibriTextContent</a></td><td class="indexvalue">Klasa reprezentuje teksty towarzyszące produktowi </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriTitleDetail.html">ElibriTitleDetail</a></td><td class="indexvalue">Klasa abstrahująca tytuł jeden z tytułów książki (tytuł właściwy, oryginalny, handlowy) </td></tr>
   <tr><td class="indexkey"><a class="el" href="classElibriTitleElement.html">ElibriTitleElement</a></td><td class="indexvalue">Klasa reprezentująca jeden poziom tytułu lub serii </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classElibriUnknownException.html">ElibriUnknownException</a></td><td class="indexvalue">Wyjątek - Nieznany błąd po stronie serwera </td></tr>
   <tr><td class="indexkey"><a class="el" href="classFirstNodeValue.html">FirstNodeValue</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
