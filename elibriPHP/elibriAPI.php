@@ -8,7 +8,7 @@
 
 //! @brief Wyjątek - Nieznany błąd po stronie serwera
 //! @ingroup exceptions
-class ElibriUnknownException extends Exception {
+class ElibriUnknownDataAPIException extends Exception {
     
   function __construct() {
     parent::__construct("Unknown Error", 9999);
@@ -182,7 +182,7 @@ class ElibriAPI {
     } else if ($response_code == 401) {
       throw new ElibriInvalidAuthException(); 
     } else if (($response_code != 200) && ($response_code != 412)) {
-      throw new ElibriUnknownException();
+      throw new ElibriUnknownDataAPIException();
     }
 
     $headers_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
@@ -202,7 +202,7 @@ class ElibriAPI {
       switch ($nr) {
         case '1002': throw new ElibriNoPoppedDataException(); break;
         case '1003': throw new ElibriInvalidDialectException(); break;
-        default: throw new ElibriUnknownException(); break;
+        default: throw new ElibriUnknownDataAPIException(); break;
       }
     }
     
