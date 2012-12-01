@@ -46,7 +46,7 @@ class ElibriDataAPIServerErrorException extends Exception {
 
 //! @brief Wyjątek - Nieprawidłowy login lub hasło
 //! @ingroup exceptions
-class ElibriInvalidAuthException extends Exception {
+class ElibriDataAPIInvalidAuthException extends Exception {
   
   function __construct() {
     parent::__construct("Invalid Login or Password", 1000);
@@ -180,7 +180,7 @@ class ElibriAPI {
     } else if ($response_code == 500) {
       throw new ElibriDataAPIServerErrorException();
     } else if ($response_code == 401) {
-      throw new ElibriInvalidAuthException(); 
+      throw new ElibriDataAPIInvalidAuthException(); 
     } else if (($response_code != 200) && ($response_code != 412)) {
       throw new ElibriUnknownDataAPIException();
     }
