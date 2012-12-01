@@ -64,7 +64,7 @@ class ElibriDataAPIInvalidQueueException extends Exception {
 
 //! @brief Wyjątek - Ostatnio nie pobierano żadnych danych
 //! @ingroup exceptions
-class ElibriNoPoppedDataException extends Exception {
+class ElibriDataAPINoPoppedDataException extends Exception {
   
   function __construct() {
     parent::__construct("No Recently Popped Data", 1002);
@@ -200,7 +200,7 @@ class ElibriAPI {
       $nr = $xml->getAttribute("id");
       
       switch ($nr) {
-        case '1002': throw new ElibriNoPoppedDataException(); break;
+        case '1002': throw new ElibriDataAPINoPoppedDataException(); break;
         case '1003': throw new ElibriInvalidDialectException(); break;
         default: throw new ElibriDataAPIUnknownException(); break;
       }
