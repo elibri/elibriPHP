@@ -37,7 +37,7 @@ class ElibriDataAPIForbiddenException extends Exception {
 
 //! @brief Wyjątek po stronie serwera (Internal server error)
 //! @ingroup exceptions
-class ElibriServerErrorException extends Exception {
+class ElibriDataAPIServerErrorException extends Exception {
 
   function __construct() {
     parent::__construct("Server Error", 500);
@@ -178,7 +178,7 @@ class ElibriAPI {
     } else if ($response_code == 403) {
       throw new ElibriDataAPIForbiddenException();
     } else if ($response_code == 500) {
-      throw new ElibriServerErrorException();
+      throw new ElibriDataAPIServerErrorException();
     } else if ($response_code == 401) {
       throw new ElibriInvalidAuthException(); 
     } else if (($response_code != 200) && ($response_code != 412)) {
