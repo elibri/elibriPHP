@@ -118,11 +118,12 @@ class ElibriAPI {
   const META_QUEUE = "meta";
   
   //! Kontruktor obiektu API
-  function __construct($login, $password, $host=NULL) {
+  function __construct($login, $password, $host=NULL, $uriPrefix=NULL) {
   
     $this->login = $login;
     $this->password = $password;
-    if (isset($_host)) $this->host = $host;
+    if (!is_null($host)) $this->host = $host;
+    if (!is_null($uriPrefix)) $this->uriPrefix = $uriPrefix;
     
   }
 
