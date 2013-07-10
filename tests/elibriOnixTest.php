@@ -5,11 +5,11 @@ require_once 'PHPUnit/Autoload.php';
 
 class ElibriDictTest extends PHPUnit_Framework_TestCase {
 
-   public function load($s, $idx = 0) {
-     $xml = file_get_contents(dirname(__FILE__) . "/xml/".$s);
-     $m = ElibriOnixMessage::parse($xml);
-     return $m->products[$idx];
-   }
+  public function load($s, $idx = 0) {
+    $xml = file_get_contents(dirname(__FILE__) . "/xml/".$s);
+    $m = ElibriOnixMessage::parse($xml);
+    return $m->products[$idx];
+  }
 
   public function test_audience_range() {
 
@@ -338,6 +338,28 @@ class ElibriDictTest extends PHPUnit_Framework_TestCase {
     $this->assertTrue($product->excerpt_publishing_allowed);
     $this->assertFalse($product->excerpt_publishing_with_limit);
 
+  }
+
+  public function test_files_informations() {
+    $product = $this->load("onix_ebook_with_files_example.xml");
+
+    $this->assertEquals(2, count($product->excerpt_infos));
+    $e = $product->excerpt_infos[0];
+
+    $this->assertEquals(2100230, $e->file_size);
+    $this->assertEquals("4b145ff46636b06f49225abdab70927f", $e->md5);
+    $this->assertEquals("epub_excerpt", $e->file_type);
+    $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $e->updated_at);
+    $this->assertEquals("https://www.elibri.com.pl/excerpt/767", $e->link);
+    $this->assertEquals(767, $e->id);
+
+    $this->assertEquals(2, count($product->file_infos));
+    $f = $product->file_infos[0];  
+    $this->assertEquals(4197382, $f->file_size);
+    $this->assertEquals("e9353ce40eaa677f8c5d666c2f8bbb3f", $f->md5);
+    $this->assertEquals("epub", $f->file_type);
+    $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $f->updated_at);
+    $this->assertEquals(765, $f->id);
   }
 
   public function test_all_possible_tags() {

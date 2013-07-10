@@ -434,6 +434,12 @@ class ElibriProduct {
   //! Jednostka miary, w którym wyrażona jest liczba w polu $excerpt_limit_quantity (w tej chwili CHARACTERS lub PERCENTAGE)
   public $excerpt_limit_unit;
 
+  //! Informacje o fragmentach (dotyczy produktów cyfrowych) - lista instancji ElibriExcerptInfo
+  public $excerpt_infos = array();
+
+  //! Informacje o plikach master (dotyczy produktów cyfrowych) - lista instancji ElibriFileInfo
+  public $file_infos = array();
+
   //! Lista identyfikatorów - patrz pola $ean, $isbn, $proprietary_identifiers
   private $identifiers = array();
 
@@ -508,6 +514,17 @@ class ElibriProduct {
       $supply = new ElibriSupplyDetail($xsupply);
       $this->supply_details[] = $supply;
     } 
+
+    foreach ($xml_fragment->getElementsByTagName("excerpt") as $node) {
+      $excerpt_info = new ElibriExcerptInfo($node);
+      $this->excerpt_infos[] = $excerpt_info;
+    }
+
+    foreach ($xml_fragment->getElementsByTagName("master") as $node) {
+      $file_info = new ElibriFileInfo($node);
+      $this->file_infos[] = $file_info;
+    }
+
   }
 
 
@@ -1302,6 +1319,64 @@ class ElibriSalesRestriction {
     $this->end_date_as_datetime = new DateTime(substr($this->end_date, 0, 4) . "-" . substr($this->end_date, 4, 2) . "-" . substr($this->end_date, 6, 2));
   }
 }
+
+
+//! Klasa reprezentująca informację o fragmencie utworu (produkty cyfrowe)
+class ElibriExcerptInfo {
+  //! wielkość pliku w bajtach
+  public $file_size; 
+
+  //! rodzaj pliku, przybiera następujące wartości: mobi_excerpt, epub_excerpt, pdf_excerpt, mp3_excerpt
+  public $file_type;
+
+  //! numeryczne id pliku w elibri
+  public $id;
+
+  //! md5 pliku
+  public $md5;
+
+  //! data ostatniej zmiany pliku
+  public $updated_at;
+
+  //! link do pliku
+  public $link;
+
+  function __construct($node) {
+     $this->file_size = $node->getAttribute("file_size");
+     $this->file_type = $node->getAttribute("file_type");
+     $this->id = $node->getAttribute("id");
+     $this->md5 = $node->getAttribute("md5");
+     $this->updated_at = new DateTime($node->getAttribute("updated_at"));
+     $this->link = $node->nodeValue;
+  }
+}
+
+//! Klasa reprezentująca informację o plikach master (produkty cyfrowe)
+class ElibriFileInfo {
+  //! wielkość pliku w bajtach
+  public $file_size;
+
+  //! rodzaj pliku, przybiera następujące wartości: mobi, epub, pdf, mp3_in_zip
+  public $file_type;
+
+  //! numeryczne id pliku w elibri
+  public $id;
+
+  //! md5 pliku
+  public $md5;
+
+  //! data ostatniej zmiany pliku
+  public $updated_at;
+
+  function __construct($node) {
+     $this->file_size = $node->getAttribute("file_size");
+     $this->file_type = $node->getAttribute("file_type");
+     $this->id = $node->getAttribute("id");
+     $this->md5 = $node->getAttribute("md5");
+     $this->updated_at = new DateTime($node->getAttribute("updated_at"));
+  }
+}
+
 
 class ElibriRelatedProduct {
     
