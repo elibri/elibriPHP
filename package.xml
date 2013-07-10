@@ -12,10 +12,10 @@
     <email>kontakt@elibri.com.pl</email>
     <active>yes</active>
   </lead>
-  <date>2012-12-01</date>
-  <time>14:47:21</time>
+  <date>2013-07-10</date>
+  <time>22:16:19</time>
   <version>
-    <release>0.2.0</release>
+    <release>0.2.1</release>
     <api>3.0.1</api>
   </version>
   <stability>
@@ -23,7 +23,7 @@
     <api>beta</api>
   </stability>
   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
-  <notes>Zmiana nazw klas wyjątków</notes>
+  <notes>Parsowanie informacji o plikach</notes>
   <contents>
     <dir name="/">
       <file name="elibriPHP.php" role="php" baseinstalldir="/" md5sum="e182fa18c56b11a1e0646dcf24933937"/>
@@ -31,7 +31,7 @@
         <file name="elibriAPI.php" role="php" md5sum="d4b8b6a08ff9638a4610eaa4847335b0"/>
         <file name="elibriDefinitions.php" role="php" md5sum="6279a1187eb0106599e5be6d9d7694c9"/>
         <file name="elibriDict.php" role="php" md5sum="accdb567e89455303db50a10c85d0fdd"/>
-        <file name="elibriOnix.php" role="php" md5sum="e6833f65c4cfbe03edda0a523803cc41"/>
+        <file name="elibriOnix.php" role="php" md5sum="10399a8b92f98da100b61e1781446016"/>
       </dir>
       <dir name="examples">
         <file name="get_products.php" role="php" md5sum="ec330d76637f87a24f234651463cb5e9"/>
@@ -280,7 +280,7 @@
         <file name="nav_h.png" role="doc" md5sum="a4442f1641379745a7253652ced4ca15"/>
         <file name="open.png" role="doc" md5sum="7edab25d4d2f756e5b01303c5417c9ad"/>
         <file name="pages.html" role="doc" md5sum="d63e53ba433bd33a7449720cc2eaa44b"/>
-        <file name="releases.html" role="doc" md5sum="84268984b73d4d243628867aacf19663"/>
+        <file name="releases.html" role="doc" md5sum="c8d0ef4fdd68a475d48fd6b7f59250b0"/>
         <dir name="search">
           <file name="all_24.html" role="doc" md5sum="60d6e88e32ba1269f732c0aa9e1fd080"/>
           <file name="all_5f.html" role="doc" md5sum="c764d9ce1377ba8153b31ba32e5de620"/>
@@ -359,8 +359,7 @@
       </dir>
       <dir name="tests">
         <file name="elibriDictTest.php" role="test" md5sum="aa0eca85a73c6ff55029177bf3c2af59"/>
-        <file name="elibriOnixTest.php" role="test" md5sum="861a777398833b39290cd27a361b48f6"/>
-        <file name="runAllTests" role="test" md5sum="9ef1d17c948c47f2b59b9bdd2bfe5152"/>
+        <file name="elibriOnixTest.php" role="test" md5sum="468efbf5c17fa5c5524ddb8655544729"/>
         <dir name="xml">
           <file name="all_possible_tags.xml" role="test" md5sum="dcdcc8e75bd0fdaec4c86db063d3b928"/>
           <file name="old_dialect.xml" role="test" md5sum="b90ff83c7aa3291d0379e0d29bb4d00d"/>
@@ -371,6 +370,7 @@
           <file name="onix_collective_work_example.xml" role="test" md5sum="b018c2c4ba242e41052233d8de0569c1"/>
           <file name="onix_contributors_example.xml" role="test" md5sum="aa90c686dbc14d87c93336dfca6fcfa1"/>
           <file name="onix_ebook_extent_example.xml" role="test" md5sum="92e91c6735fc63e469eefb4fccc4fb0c"/>
+          <file name="onix_ebook_with_files_example.xml" role="test" md5sum="a53c1055360e927ce761c1a8536a644d"/>
           <file name="onix_edition_example.xml" role="test" md5sum="08fa3e5aae6ca8a358c7eb35f480583c"/>
           <file name="onix_elibri_extensions_example.xml" role="test" md5sum="f0c38035b410e4897ce01e98d4226546"/>
           <file name="onix_epub_details_example.xml" role="test" md5sum="4a7e247e3727d54521b91660899c43de"/>

@@ -1,5 +1,9 @@
 /*! \page releases Historia wersji
 
+
+    \section v6 Wersja 0.2.1 z dnia 10 lipca 2013
+    Dodane parsowanie informacji o plikach w przypadku produktów cyfrowych.
+
     \section v5 Wersja 0.2.0 z dnia 1. grudnia 2012
     Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href='https://elibri.com.pl/system/doc/php_watermarking/'>modułem trasakcyjnym</a>,
     zmienione zostały nazwy klas reprezentujących wyjątki. Przedrostek Elibri został zamieniony na ElibriDataAPI:

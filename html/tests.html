@@ -79,11 +79,11 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
 
 <span class="keyword">class </span>ElibriDictTest <span class="keyword">extends</span> PHPUnit_Framework_TestCase {
 
-   <span class="keyword">public</span> function load($s, $idx = 0) {
-     $xml = file_get_contents(dirname(__FILE__) . <span class="stringliteral">&quot;/xml/&quot;</span>.$s);
-     $m = <a class="code" href="classElibriOnixMessage.html#ad8d21fe0a805a02819a92392053382a1" title="parsuje wiadomość ONIX">ElibriOnixMessage::parse</a>($xml);
-     <span class="keywordflow">return</span> $m-&gt;products[$idx];
-   }
+  <span class="keyword">public</span> function load($s, $idx = 0) {
+    $xml = file_get_contents(dirname(__FILE__) . <span class="stringliteral">&quot;/xml/&quot;</span>.$s);
+    $m = <a class="code" href="classElibriOnixMessage.html#ad8d21fe0a805a02819a92392053382a1" title="parsuje wiadomość ONIX">ElibriOnixMessage::parse</a>($xml);
+    <span class="keywordflow">return</span> $m-&gt;products[$idx];
+  }
 
   <span class="keyword">public</span> function test_audience_range() {
 
@@ -412,6 +412,28 @@ require_once <span class="stringliteral">&#39;PHPUnit/Autoload.php&#39;</span>;
     $this-&gt;assertTrue($product-&gt;excerpt_publishing_allowed);
     $this-&gt;assertFalse($product-&gt;excerpt_publishing_with_limit);
 
+  }
+
+  <span class="keyword">public</span> function test_files_informations() {
+    $product = $this-&gt;load(<span class="stringliteral">&quot;onix_ebook_with_files_example.xml&quot;</span>);
+
+    $this-&gt;assertEquals(2, count($product-&gt;excerpt_infos));
+    $e = $product-&gt;excerpt_infos[0];
+
+    $this-&gt;assertEquals(2100230, $e-&gt;file_size);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;4b145ff46636b06f49225abdab70927f&quot;</span>, $e-&gt;md5);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;epub_excerpt&quot;</span>, $e-&gt;file_type);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2012-12-30 15:18 +00:00&quot;</span>), $e-&gt;updated_at);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;https://www.elibri.com.pl/excerpt/767&quot;</span>, $e-&gt;link);
+    $this-&gt;assertEquals(767, $e-&gt;id);
+
+    $this-&gt;assertEquals(2, count($product-&gt;file_infos));
+    $f = $product-&gt;file_infos[0];  
+    $this-&gt;assertEquals(4197382, $f-&gt;file_size);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;e9353ce40eaa677f8c5d666c2f8bbb3f&quot;</span>, $f-&gt;md5);
+    $this-&gt;assertEquals(<span class="stringliteral">&quot;epub&quot;</span>, $f-&gt;file_type);
+    $this-&gt;assertEquals(<span class="keyword">new</span> DateTime(<span class="stringliteral">&quot;2012-12-30 15:18 +00:00&quot;</span>), $f-&gt;updated_at);
+    $this-&gt;assertEquals(765, $f-&gt;id);
   }
 
   <span class="keyword">public</span> function test_all_possible_tags() {
