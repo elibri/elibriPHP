@@ -745,7 +745,6 @@ class ElibriProduct {
     		$issn = FirstNodeValue::get($collection_identifier, "IDValue");
     		if ($issn) {
     			$this->issn_with_hyphens = $issn;
-    			$this->issn = str_replace('–-', '', $issn);
     			$this->issn = preg_replace('/[^0-9xX]/', '', $issn);
     			break;
     		}
