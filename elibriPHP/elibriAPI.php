@@ -93,7 +93,7 @@ class ElibriDataAPIConnectionException extends Exception {
 //! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri
 class ElibriAPI {
 
-  private $host = "https://elibri.com.pl";
+  private $host = "https://www.elibri.com.pl";
   private $login;
   private $password;
   private $uriPrefix = "/api/v1/";
