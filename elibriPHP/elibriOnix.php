@@ -241,6 +241,12 @@ class ElibriProduct {
   //! ISBN13 produktu (z myślnikami)
   public $isbn13_with_hyphens;
 
+  //! ISSN produktu (bez myślników), NULL jeżeli nie istnieje
+  public $issn;
+  
+  //! ISSN produktu (z myślnikami), NULL jeżeli nie istnieje 
+  public $issn_with_hyphens;
+  
   //! ilość stron
   public $number_of_pages;
   
@@ -730,7 +736,21 @@ class ElibriProduct {
     } else {
       $this->excerpt_info = False;
     }
-
+    
+    //issn
+    $collection_identifiers = $descriptive_detail->getElementsByTagName("CollectionIdentifier");
+    foreach ($collection_identifiers as $collection_identifier) {
+    	if (FirstNodeValue::get($collection_identifier, "CollectionIDType") == "02") {
+	    	//CollectionIDType == 02 oznacza, że w polu IDValue znajduje się ISSN
+    		$issn = FirstNodeValue::get($collection_identifier, "IDValue");
+    		if ($issn) {
+    			$this->issn_with_hyphens = $issn;
+    			$this->issn = preg_replace('/[^0-9xX]/', '', $issn);
+    			break;
+    		}
+    	}
+    }
+    
   }
 
   private function computeState() {
