@@ -20,3 +20,11 @@
   name:
     en: Mobipocket
     pl: Mobipocket
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
+  onix_code: 'A103'
+  const_name: MP3
+  name:
+    en: MP3
+    pl: MP3
+

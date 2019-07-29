@@ -7,7 +7,7 @@
       <ContactName>Tomasz Meka</ContactName>
       <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
     </Sender>
-    <SentDateTime>20111111</SentDateTime>
+    <SentDateTime>20190729</SentDateTime>
   </Header>
   <Product>
     <RecordReference>fdb8fa072be774d97a97</RecordReference>
@@ -28,34 +28,34 @@
       </TitleDetail>
     </DescriptiveDetail>
     <CollateralDetail>
-      <TextContent datestamp="20111204T1215" sourcename="textid:133">
+      <TextContent sourcename="textid:133" datestamp="20111204T1215">
         <TextType>04</TextType>
         <ContentAudience>00</ContentAudience>
         <Text>
-          <![CDATA[<p>1. Wprowadzenie</p> <p>2. Rozdział pierwszy</p> <p>[...]</p>]]>
+          <![CDATA[1. Wprowadzenie<br/>2. Rozdział pierwszy<br/>[...]]]>
         </Text>
       </TextContent>
-      <TextContent datestamp="20111204T1218" sourcename="textid:134">
+      <TextContent sourcename="textid:134" datestamp="20111204T1218">
         <TextType>07</TextType>
         <ContentAudience>00</ContentAudience>
         <Text sourcename="http://nakanapie.pl/books/420469/reviews/2892.odnalezc-swa-droge">
-          <![CDATA[<p>Recenzja książki</p> <p>[...]</p>]]>
+          <![CDATA[Recenzja książki<br/>[...]]]>
         </Text>
         <TextAuthor>Jan Kowalski</TextAuthor>
         <SourceTitle>nakanapie.pl</SourceTitle>
       </TextContent>
-      <TextContent datestamp="20111204T1225" sourcename="textid:135">
+      <TextContent sourcename="textid:135" datestamp="20111204T1225">
         <TextType>03</TextType>
         <ContentAudience>00</ContentAudience>
         <Text>
-          <![CDATA[<p>Opis książki</p> <p>[...]</p>]]>
+          <![CDATA[Opis książki<br/>[...]]]>
         </Text>
       </TextContent>
-      <TextContent datestamp="20111204T1235" sourcename="textid:136">
+      <TextContent sourcename="textid:136" datestamp="20111204T1235">
         <TextType>14</TextType>
         <ContentAudience>00</ContentAudience>
         <Text>
-          <![CDATA[<p>Fragment książki</p> <p>[...]</p>]]>
+          <![CDATA[Fragment książki<br/>[...]]]>
         </Text>
       </TextContent>
     </CollateralDetail>
@@ -69,6 +69,7 @@
         </PublisherIdentifier>
         <PublisherName>GREG</PublisherName>
       </Publisher>
+      <CityOfPublication>Warszawa</CityOfPublication>
       <PublishingStatus>04</PublishingStatus>
       <SalesRights>
         <SalesRightsType>01</SalesRightsType>
@@ -77,6 +78,30 @@
         </Territory>
       </SalesRights>
     </PublishingDetail>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL6782821670</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>GREG</SupplierName>
+        </Supplier>
+        <ProductAvailability>99</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceAmount>12.99</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>5</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+    <elibri:CoverPrice>12.99</elibri:CoverPrice>
+    <elibri:Vat>5</elibri:Vat>
     <elibri:preview_exists>false</elibri:preview_exists>
   </Product>
 </ONIXMessage>

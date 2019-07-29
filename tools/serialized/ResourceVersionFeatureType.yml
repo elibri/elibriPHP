@@ -1,0 +1,8 @@
+#lista 162
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceVersionFeatureType
+  onix_code: '01'
+  const_name: FILE_FORMAT
+  name:
+    en: file format
+    pl: format pliku

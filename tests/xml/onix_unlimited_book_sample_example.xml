@@ -7,7 +7,7 @@
       <ContactName>Tomasz Meka</ContactName>
       <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
     </Sender>
-    <SentDateTime>20111111</SentDateTime>
+    <SentDateTime>20190729</SentDateTime>
   </Header>
   <Product>
     <RecordReference>fdb8fa072be774d97a97</RecordReference>
@@ -41,6 +41,7 @@
         </PublisherIdentifier>
         <PublisherName>GREG</PublisherName>
       </Publisher>
+      <CityOfPublication>Warszawa</CityOfPublication>
       <PublishingStatus>04</PublishingStatus>
       <SalesRights>
         <SalesRightsType>01</SalesRightsType>
@@ -49,6 +50,30 @@
         </Territory>
       </SalesRights>
     </PublishingDetail>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL6782821670</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>GREG</SupplierName>
+        </Supplier>
+        <ProductAvailability>20</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceAmount>12.99</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>23</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+    <elibri:CoverPrice>12.99</elibri:CoverPrice>
+    <elibri:Vat>23</elibri:Vat>
     <elibri:preview_exists>false</elibri:preview_exists>
     <elibri:SaleNotRestricted/>
   </Product>

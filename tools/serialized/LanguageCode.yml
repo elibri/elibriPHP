@@ -69,7 +69,7 @@
   onix_code: dut
   name:
     en: Dutch
-    pl: niederlandzki; flamandzki
+    pl: niderlandzki; flamandzki
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: egy
   name:

@@ -1,0 +1,15 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Proximity
+  onix_code: '03'
+  const_name: EXACTLY
+  name:
+    en: Exactly
+    pl: dokładnie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Proximity
+  onix_code: '07'
+  const_name: MORE_THAN
+  name:
+    en: more than
+    pl: więcej niż

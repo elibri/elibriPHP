@@ -36,3 +36,10 @@
     en: short description
     pl: krótki opis (max. 350 znaków)
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::OtherTextType
+  onix_code: '16'
+  const_name: SHORT_COLLECTION_DESCRIPTION
+  name:
+    en: short collection description
+    pl: krótki opis cyklu (max. 350 znaków)
+

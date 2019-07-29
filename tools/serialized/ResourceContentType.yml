@@ -33,7 +33,7 @@
   const_name: SAMPLE_CONTENT
   name:
     en: sample content
-    pl: fragment audiobook-a
+    pl: fragment książki (plik mp3/jpg/png)
 
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
@@ -49,3 +49,11 @@
   name:
     en: press release
     pl: mediapack
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '29'
+  const_name: FULL_COVER
+  name:
+    en: full cover
+    pl: okładka w dużej rozdzielczości (CMYK)
+

@@ -18,3 +18,28 @@
   name:
     en: megabytes
     pl: megabajty
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
+  onix_code: '04'
+  const_name: HOURS
+  name:
+    en: hours
+    pl: godziny
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
+  onix_code: '16'
+  const_name: HHHMMSS
+  name:
+    en: Hours minutes seconds
+    pl: Godziny minuty sekundy
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
+  onix_code: '15'
+  const_name:  HHHMM
+  name:
+    en: Hours minutes
+    pl: Godziny minuty
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
+  onix_code: '14'
+  const_name: HHH
+  name:
+    en: hours
+    pl: godziny
+

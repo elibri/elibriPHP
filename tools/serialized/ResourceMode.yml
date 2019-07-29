@@ -18,3 +18,10 @@
   name:
     en: text
     pl: tekst
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceMode
+  onix_code: '06'
+  const_name: MULTI_MODE
+  name:
+    en: multi mode
+    pl: plik zip

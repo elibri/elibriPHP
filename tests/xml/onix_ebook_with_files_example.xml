@@ -7,7 +7,7 @@
       <ContactName>Tomasz Meka</ContactName>
       <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
     </Sender>
-    <SentDateTime>20130710</SentDateTime>
+    <SentDateTime>20190729</SentDateTime>
   </Header>
   <Product>
     <RecordReference>fdb8fa072be774d97a97</RecordReference>
@@ -27,6 +27,37 @@
         </TitleElement>
       </TitleDetail>
     </DescriptiveDetail>
+    <CollateralDetail>
+      <SupportingResource>
+        <ResourceContentType>15</ResourceContentType>
+        <ContentAudience>00</ContentAudience>
+        <ResourceMode>04</ResourceMode>
+        <ResourceVersion>
+          <ResourceForm>02</ResourceForm>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
+            <FeatureValue>E101</FeatureValue>
+          </ResourceVersionFeature>
+          <ResourceLink>https://www.elibri.com.pl/excerpt/767/4b145ff46636b06f49225abdab70927f/fragment.epub</ResourceLink>
+          <ContentDate>
+            <ContentDateRole>17</ContentDateRole>
+            <Date dateformat="00">20121230</Date>
+          </ContentDate>
+        </ResourceVersion>
+        <ResourceVersion>
+          <ResourceForm>02</ResourceForm>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
+            <FeatureValue>E127</FeatureValue>
+          </ResourceVersionFeature>
+          <ResourceLink>https://www.elibri.com.pl/excerpt/768/6f534ab6ab573845bb7ab221192aa86a/fragment.mobi</ResourceLink>
+          <ContentDate>
+            <ContentDateRole>17</ContentDateRole>
+            <Date dateformat="00">20121230</Date>
+          </ContentDate>
+        </ResourceVersion>
+      </SupportingResource>
+    </CollateralDetail>
     <PublishingDetail>
       <Publisher>
         <PublishingRole>01</PublishingRole>
@@ -46,6 +77,30 @@
         </Territory>
       </SalesRights>
     </PublishingDetail>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL6782821670</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>GREG</SupplierName>
+        </Supplier>
+        <ProductAvailability>20</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceAmount>12.99</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>23</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+    <elibri:CoverPrice>12.99</elibri:CoverPrice>
+    <elibri:Vat>23</elibri:Vat>
     <elibri:preview_exists>false</elibri:preview_exists>
     <elibri:SaleNotRestricted/>
     <elibri:excerpts>

@@ -1,9 +1,10 @@
 <?php
 
 require_once(dirname(__FILE__) . '/../elibriPHP.php');
-require_once('PHPUnit/Framework/TestCase.php');
 
-class ElibriDictTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class ElibriDictTest extends TestCase {
    
    public function testElibriDictionary() {
       $form = ElibriDictProductFormCode::byCode("BA");

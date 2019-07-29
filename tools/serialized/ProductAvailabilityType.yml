@@ -2,6 +2,13 @@
 
 --- 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
+  onix_code: '20'
+  const_name: AVAILABLE
+  name:
+    en: available
+    pl: dostępny
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
   onix_code: '21'
   const_name: IN_STOCK
   name:
@@ -13,3 +20,10 @@
   name:
     en: not available
     pl: niedostępne
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
+  onix_code: '99'
+  const_name: CONTACT_SUPPLIER
+  name:
+    en: Contact supplier
+    pl: skontaktuj się z dostawcą
+

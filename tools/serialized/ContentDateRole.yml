@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentDateRole
+  onix_code: '17'
+  const_name: LAST_UPDATED
+  name:
+    en: last updated
+    pl: data ostatniej aktualizacji
