@@ -1547,12 +1547,14 @@ class ElibriSupplyDetail {
     $this->product_availability_name = ElibriDictProductAvailabilityType::byCode($this->product_availability)->const_name;
         
     $xstock = $xml_fragment->getElementsByTagName("Stock")->item(0);
-
-    $this->quantity_coded = new ElibriStockQuantityCoded($xstock->getElementsByTagName("StockQuantityCoded"));
-        
-    if ($xstock->getElementsByTagName("OnHand")->length > 0) {
-      $this->on_hand = FirstNodeValue::get($xstock, "OnHand", true);
+	  
+    if ($xstock) {
+        $this->quantity_coded = new ElibriStockQuantityCoded($xstock->getElementsByTagName("StockQuantityCoded"));	    
+        if ($xstock->getElementsByTagName("OnHand")->length > 0) {
+          $this->on_hand = FirstNodeValue::get($xstock, "OnHand", true);
+        }       
     }
+
     $this->pack_quantity = FirstNodeValue::get($xml_fragment, "PackQuantity", true);
     $this->price = new ElibriPrice($xml_fragment->getElementsByTagName("Price")->item(0));
   }
