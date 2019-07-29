@@ -7,7 +7,7 @@
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
  * \section changes Zmiany pomiędzy wersją 0.1.4 a 0.2.0
- * Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href='https://elibri.com.pl/system/doc/php_watermarking/'>modułem trasakcyjnym</a>,
+ * Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href='https://www.elibri.com.pl/system/doc/php_watermarking/'>modułem trasakcyjnym</a>,
  * zmienione zostały nazwy klas reprezentujących wyjątki. Przedrostek Elibri został zamieniony na ElibriDataAPI:
  *  - ElibriAPIConnectionException -> ElibriDataAPIConnectionException
  *  - ElibriInvalidDialectException -> ElibriDataAPIInvalidDialectException
@@ -21,15 +21,7 @@
  *
  * \section install_sec Instalacja
  *
- * Biblioteka jest dystrybuowana jako pakiet PEAR. Najpierw musisz zarejestrować kanał elibri: 
- * \verbatim pear channel-discover elibri.com.pl/system/pear \endverbatim
- *
- * Następnie instalujesz pakiet poprzez:
- * \verbatim  pear install channel://elibri.com.pl/system/pear/elibriPHP-0.2.1 \endverbatim
- *
- * Rozwój pakietu możesz śledzić na <a href='https://github.com/elibri/elibriPHP'>githubie</a>
- *
- * Jeśli używasz czytnika rss, to możesz zaabonować <a href='https://www.elibri.com.pl/system/pear/feed.xml'>ten kanał</a>.
+ * Proszę instalować bibliotekę bezpośrednio ze źródeł z github-a.
  *
  * \section usage_sec Użycie biblioteki
  *
