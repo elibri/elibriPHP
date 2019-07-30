@@ -484,6 +484,9 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals("21", $sd->product_availability);
     $this->assertEquals(1000, $sd->on_hand);
+    $this->assertEquals(07, $sd->proximity);
+    $this->assertEquals("MORE_THAN", $sd->proximity_name);
+
     $this->assertEquals(7, $sd->pack_quantity);
 
     $pr = $sd->price;
@@ -493,9 +496,6 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(7, $pr->vat);
     $this->assertEquals("PLN", $pr->currency_code);
     $this->assertEquals("02", $pr->printed_on_product);
-
-    $sd = $product->supply_details[1];
-    $this->assertEquals("very few", $sd->quantity_coded->code);
   }
 
 }

@@ -342,6 +342,7 @@
         <ProductAvailability>21</ProductAvailability>
         <Stock>
           <OnHand>1000</OnHand>
+          <Proximity>07</Proximity>
         </Stock>
         <!-- Ile produktów dostawca umieszcza w paczce -->
         <PackQuantity>7</PackQuantity>
@@ -391,14 +392,6 @@
           21 - na stanie
           40 - niedostępne -->
         <ProductAvailability>21</ProductAvailability>
-        <Stock>
-          <!-- Nie znamy konkretnej ilości produktów na stanie -->
-          <StockQuantityCoded>
-            <!-- Zawsze 01 - Proprietary -->
-            <StockQuantityCodeType>01</StockQuantityCodeType>
-            <StockQuantityCode>very few</StockQuantityCode>
-          </StockQuantityCoded>
-        </Stock>
         <!-- Ile produktów dostawca umieszcza w paczce -->
         <PackQuantity>7</PackQuantity>
         <Price>

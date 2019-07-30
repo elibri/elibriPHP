@@ -1508,22 +1508,6 @@ class ElibriSupplier {
   }
 }
   
-//! Klasa reprezentująca informację o dostępnej ilości produktu
-class ElibriStockQuantityCoded {
-    
-  public $code_type;
-  public $code;
-
-  //! Konstruuj obiekt na bazie fragmentu xml-a
-  function __construct($xml_fragment) {
-    if ($xml_fragment->length > 0) {
-      $this->code_type = FirstNodeValue::get($xml_fragment->item(0), "StockQuantityCodeType");
-      $this->code = FirstNodeValue::get($xml_fragment->item(0), "StockQuantityCode");
-    }
-  }
-    
-} 
-  
 class ElibriSupplyDetail {
     
   public $relation_code;
@@ -1534,8 +1518,15 @@ class ElibriSupplyDetail {
   public $product_availability_name;
   public $pack_quantity;
   public $price;
+
+  //! Informacja o stanie magazynowym produktu
   public $on_hand;
-  public $quatity_coded;
+
+  //! Dokładność informacji o stanie magazynowym
+  public $proximity;
+
+  //! Dokładność informacje o stanie magazynowym w postaci tekstu
+  public $proximity_name;
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
@@ -1549,10 +1540,15 @@ class ElibriSupplyDetail {
     $xstock = $xml_fragment->getElementsByTagName("Stock")->item(0);
 	  
     if ($xstock) {
-        $this->quantity_coded = new ElibriStockQuantityCoded($xstock->getElementsByTagName("StockQuantityCoded"));	    
         if ($xstock->getElementsByTagName("OnHand")->length > 0) {
           $this->on_hand = FirstNodeValue::get($xstock, "OnHand", true);
-        }       
+        } 
+
+        if ($xstock->getElementsByTagName("Proximity")->length > 0) {
+          $this->proximity = FirstNodeValue::get($xstock, "Proximity", true);
+          $this->proximity_name = ElibriDictProximity::byCode($this->proximity)->const_name;
+        }
+
     }
 
     $this->pack_quantity = FirstNodeValue::get($xml_fragment, "PackQuantity", true);
