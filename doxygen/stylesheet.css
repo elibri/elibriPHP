@@ -371,4 +371,8 @@ span.SRScope {
 
 address {
   text-align: center;
+}
+
+.line {
+  white-space: pre;
 }  
