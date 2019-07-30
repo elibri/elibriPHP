@@ -386,6 +386,9 @@ class ElibriProduct {
   //! Lista kategorii, do których należy produkt - lista instancji  ElibriSubject
   public $subjects = array();
 
+  //! Lista kategorii Thema, do których należy produkt - lista instacji ElibriSubject
+  public $thema_subjects = array();
+
   //! Lista plików towarzyszących produktowi - patrz również $cover_cover, lista instancji  ElibriSupportingResource
   public $supporting_resources = array();
 
@@ -685,7 +688,11 @@ class ElibriProduct {
         
     //descriptive detail - subject
     foreach ($descriptive_detail->getElementsByTagName("Subject") as $xml_fragment) {
-      $this->subjects[] = new ElibriSubject($xml_fragment);
+      $subject = new ElibriSubject($xml_fragment);
+      $this->subjects[] = $subject;
+      if ($subject->is_thema) {
+        $this->thema_subjects[] = $subject;
+      }
     }
         
     //descriptive detail - audience range
@@ -1135,6 +1142,7 @@ class ElibriSubject {
   public $code;
   public $heading_text;
   public $main_subject;
+  public $is_thema;
  
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
@@ -1144,6 +1152,7 @@ class ElibriSubject {
     $this->scheme_version = FirstNodeValue::get($xml_fragment, "SubjectSchemeVersion");
     $this->code = FirstNodeValue::get($xml_fragment, "SubjectCode");
     $this->heading_text = FirstNodeValue::get($xml_fragment, "SubjectHeadingText");
+    $this->is_thema = (($this->scheme_identifier >= 93) && ($this->scheme_identifier <= 99));
   }
 }
  

@@ -362,6 +362,28 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(765, $f->id);
   }
 
+  public function test_thema() {
+    $product = $this->load("onix_subjects_example.xml");
+
+    $this->assertEquals(3, count($product->thema_subjects));
+
+    $s1 = $product->thema_subjects[0];
+
+    $this->assertEquals("JWCM", $s1->code);
+    $this->assertEquals("Społeczeństwo i nauki społeczne / Działania wojenne i obronność / Siły zbrojne / Lotnictwo wojskowe i wojna w powietrzu", $s1->heading_text);
+
+    $s2 = $product->thema_subjects[1];
+
+    $this->assertEquals("1DTP", $s2->code);
+    $this->assertEquals("Kwalifikatory geograficzne / Europa / Europa Wschodnia / Polska", $s2->heading_text);
+
+    $s3 = $product->thema_subjects[2];
+
+    $this->assertEquals("3MPBGH", $s3->code);
+    $this->assertEquals("Kwalifikatory chronologiczne / od ok. 1500 do dzisiaj / XX wiek (ok. 1900–1999) " . 
+                         "/ 1. poł. XX wieku (ok. 1900–1950) / Dwudziestolecie międzywojenne (ok. 1919–1939) / ok. 1920–1929", $s3->heading_text);
+  }
+
   public function test_all_possible_tags() {
     $product = $this->load("all_possible_tags.xml");
 
