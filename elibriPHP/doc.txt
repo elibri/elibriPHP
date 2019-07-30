@@ -6,28 +6,23 @@
  * które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek.
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
- * \section changes Zmiany pomiędzy wersją 0.1.4 a 0.2.0
- * Ze względu na konflikt nazwa klas pomiędzy tym modułem, a <a href='https://www.elibri.com.pl/system/doc/php_watermarking/'>modułem trasakcyjnym</a>,
- * zmienione zostały nazwy klas reprezentujących wyjątki. Przedrostek Elibri został zamieniony na ElibriDataAPI:
- *  - ElibriAPIConnectionException -> ElibriDataAPIConnectionException
- *  - ElibriInvalidDialectException -> ElibriDataAPIInvalidDialectException
- *  - ElibriNoPoppedDataException -> ElibriDataAPINoPoppedDataException
- *  - ElibriInvalidQueueException -> ElibriDataAPIInvalidQueueException
- *  - ElibriInvalidAuthException -> ElibriDataAPIInvalidAuthException
- *  - ElibriServerErrorException -> ElibriDataAPIServerErrorException
- *  - ElibriForbiddenException -> ElibriDataAPIForbiddenException
- *  - ElibriNotFoundException -> ElibriDataAPINotFoundException
- *  - ElibriUnknownException -> ElibriDataAPIUnknownException
+ * \section changes Lista zmian:
+ *
+ * \subsection c30072019 30 lipca 2019 roku
+ * 
+ * - Naprawione parsowanie SupplyDetails (dzięki uprzejmości Sebastiana Tatarczucha)
+ * - Dodane pole $proximity_name (wartości 'EXACTLY' albo 'MORE_THAN' - informują o dokładności wartości w polu $on_hand
+ * - Dodane pole $thema_subjects, które jest listą kategorii Thema
  *
  * \section install_sec Instalacja
  *
- * Proszę instalować bibliotekę bezpośrednio ze źródeł z github-a.
+ * Proszę instalować bibliotekę bezpośrednio ze źródeł z <a href='https://github.com/elibri/elibriPHP'>github-a.</a>
  *
  * \section usage_sec Użycie biblioteki
  *
  * Żeby używać API należy najpierw uzyskać login i hasło dostępowe. Proszę pisać w tym celu na adres kontakt@elibri.com.pl.
  *
- * Ogólne założenia API są opisane <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
+ * Ogólne założenia API są opisane <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>. Proszę też spojrzeć na poniższe przykłady.
  *
  * \section examples_sec Przykłady użycia
  * 
@@ -43,7 +38,8 @@
  *
  * \subsection example2 Przykład 2
  *
- * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły.
+ * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. 
+ * Wiadomość otrzymana z serwera to instancja ElibriOnixMessage, która zawiera listę produktów - ElibriProduct.
  * Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID
  * w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.
  *
@@ -56,7 +52,4 @@
  *
  * \include publisher_info.php
  *
- * \page tests Testy modułowe
- * W pliku tests/elibriOnixTest.php znajdują się testy modułowe:
- * \include ../tests/elibriOnixTest.php
  */

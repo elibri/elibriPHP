@@ -82,7 +82,7 @@
           print "Premiera: " . $product->premiere->format('d.m.Y') . "\n";
        }
    
-       foreach ($product->subjects as $subject) {
+       foreach ($product->thema_subjects as $subject) {
           print "Kategoria: {$subject->code} {$subject->heading_text}\n";
        }
     }
