@@ -1,0 +1,20 @@
+var NAVTREEINDEX1 =
+{
+"index.html#example1":[0,4,0],
+"index.html#example2":[0,4,1],
+"index.html#example3":[0,4,2],
+"index.html#examples_sec":[0,4],
+"index.html#install_sec":[0,2],
+"index.html#intro_sec":[0,0],
+"index.html#usage_sec":[0,3],
+"modules.html":[2],
+"pages.html":[],
+"releases.html":[1],
+"releases.html#v0":[1,6],
+"releases.html#v1":[1,5],
+"releases.html#v2":[1,4],
+"releases.html#v3":[1,3],
+"releases.html#v4":[1,2],
+"releases.html#v5":[1,1],
+"releases.html#v6":[1,0]
+};
