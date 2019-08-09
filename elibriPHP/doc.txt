@@ -8,6 +8,13 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c09082019 9 sierpień 2019 roku
+ *
+ * - informacja o cenie okładkowej i stawce VAT pobierana z elementu Price
+ * - informacja o poglądzie książki drukowanej jest pobierana teraz z SupportingResource
+ * - informacje o fragmentach cyfrowych książek są pobierane teraz z SupportingResource
+ * - informacja o końcu licencji na produkty cyfrowe jest pobierana z PublishingDetail
+ *
  * \subsection c30072019 30 lipca 2019 roku
  * 
  * - Naprawione parsowanie SupplyDetails (dzięki uprzejmości Sebastiana Tatarczucha)
