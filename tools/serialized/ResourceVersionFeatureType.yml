@@ -6,3 +6,18 @@
   name:
     en: file format
     pl: format pliku
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceVersionFeatureType
+  onix_code: '06'
+  const_name: MD5_HASH_VALUE
+  name:
+    en: md5 hash value
+    pl: wartość hasha md5
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceVersionFeatureType
+  onix_code: '07'
+  const_name: SIZE_IN_BYTES
+  name:
+    en: size in bytes
+    pl: rozmiar w bajtach
+

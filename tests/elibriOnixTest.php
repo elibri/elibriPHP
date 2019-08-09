@@ -79,8 +79,8 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals("miękka", $product->cover_type);
     $this->assertEquals(12.99, $product->cover_price);
     $this->assertEquals(5, $product->vat);
+    $this->assertEquals("PROMO 20", $product->additional_trade_information);
     $this->assertEquals("58.11.1", $product->pkwiu);
-    $this->assertTrue($product->preview_exists);
   }
 
   public function test_ebook_extent() {
@@ -146,7 +146,7 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals("fdb8fa072be774d97a97", $product->record_reference);
     $this->assertEquals("9788324799992", $product->isbn13);
-    $this->assertEquals("978-83-2478-888-2", $product->isbn13_with_hyphens);
+    $this->assertEquals($product->isbn13, $product->isbn13_with_hyphens);
     $this->assertEquals("9788324788882", $product->ean);
     $this->assertEquals($product->proprietary_identifiers, array("Olesiejuk" => "355006"));
   }
@@ -178,7 +178,7 @@ class ElibriDictTest extends TestCase {
   public function test_supporting_resources() {
     $product = $this->load("onix_supporting_resources_example.xml");
 
-    $this->assertEquals(2, count($product->supporting_resources));
+    $this->assertEquals(3, count($product->supporting_resources));
 
     $this->assertEquals($product->supporting_resources[0], $product->front_cover);
 
@@ -190,12 +190,15 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(new DateTime("2011-12-01 18:05"), $product->front_cover->datestamp);
     $this->assertEquals(667, $product->front_cover->id);
 
-
     $this->assertEquals("SAMPLE_CONTENT", $product->supporting_resources[1]->content_type_name);
     $this->assertEquals("TEXT", $product->supporting_resources[1]->mode_name);
     $this->assertEquals("DOWNLOADABLE_FILE", $product->supporting_resources[1]->form_name);
 
-    $this->assertFalse($product->preview_exists);
+    $this->assertEquals("WIDGET", $product->supporting_resources[2]->content_type_name);
+    $this->assertEquals("TEXT", $product->supporting_resources[2]->mode_name);
+    $this->assertEquals("EMBEDDABLE_APPLICATION", $product->supporting_resources[2]->form_name);
+
+    $this->assertTrue($product->preview_exists);
   }
 
 
@@ -350,7 +353,7 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals("4b145ff46636b06f49225abdab70927f", $e->md5);
     $this->assertEquals("epub_excerpt", $e->file_type);
     $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $e->updated_at);
-    $this->assertEquals("https://www.elibri.com.pl/excerpt/767", $e->link);
+    $this->assertEquals("https://www.elibri.com.pl/excerpt/767/4b145ff46636b06f49225abdab70927f/fragment.epub", $e->link);
     $this->assertEquals(767, $e->id);
 
     $this->assertEquals(2, count($product->file_infos));

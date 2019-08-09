@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ONIXMessage release="3.0" xmlns="http://ns.editeur.org/onix/3.0/reference" xmlns:elibri="http://elibri.com.pl/ns/extensions">
-  <elibri:Dialect>3.0.1</elibri:Dialect>
+<ONIXMessage release="3.0" xmlns="http://ns.editeur.org/onix/3.0/reference">
   <Header>
     <Sender>
       <SenderName>Elibri.com.pl</SenderName>
       <ContactName>Tomasz Meka</ContactName>
       <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
     </Sender>
-    <SentDateTime>20190729</SentDateTime>
+    <SentDateTime>20190809</SentDateTime>
   </Header>
   <Product>
     <RecordReference>fdb8fa072be774d97a97</RecordReference>
@@ -48,6 +47,19 @@
         <ResourceVersion>
           <ResourceForm>02</ResourceForm>
           <ResourceLink>http://elibri.com.pl/sciezka/do/pliku.pdf</ResourceLink>
+          <ContentDate>
+            <ContentDateRole>17</ContentDateRole>
+            <Date dateformat="00">20111201</Date>
+          </ContentDate>
+        </ResourceVersion>
+      </SupportingResource>
+      <SupportingResource>
+        <ResourceContentType>16</ResourceContentType>
+        <ContentAudience>00</ContentAudience>
+        <ResourceMode>04</ResourceMode>
+        <ResourceVersion>
+          <ResourceForm>03</ResourceForm>
+          <ResourceLink>https://p.elibri.com.pl/book.js?record_reference=1ae4dce3e24e9c874089</ResourceLink>
           <ContentDate>
             <ContentDateRole>17</ContentDateRole>
             <Date dateformat="00">20111201</Date>
@@ -96,8 +108,5 @@
         </Price>
       </SupplyDetail>
     </ProductSupply>
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <elibri:Vat>5</elibri:Vat>
-    <elibri:preview_exists>false</elibri:preview_exists>
   </Product>
 </ONIXMessage>

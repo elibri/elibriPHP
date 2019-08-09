@@ -72,9 +72,5 @@
         </Price>
       </SupplyDetail>
     </ProductSupply>
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <elibri:Vat>23</elibri:Vat>
-    <elibri:preview_exists>false</elibri:preview_exists>
-    <elibri:SaleNotRestricted/>
   </Product>
 </ONIXMessage>

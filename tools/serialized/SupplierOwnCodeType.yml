@@ -1,0 +1,8 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierOwnCodeType
+  onix_code: '01'
+  const_name: SUPPLIERS_SALES_CLASSIFICATION
+  name:
+    en: supplier’s sales classification
+    pl: klasyfikacja sprzedawcy

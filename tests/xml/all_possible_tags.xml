@@ -400,11 +400,11 @@
             01 - sugerowana cena detaliczna netto -->
           <PriceType>02</PriceType>
           <MinimumOrderQuantity>10</MinimumOrderQuantity>
-          <PriceAmount>14.99</PriceAmount>
+          <PriceAmount>12.99</PriceAmount>
           <Tax>
             <!-- VAT -->
             <TaxType>01</TaxType>
-            <TaxRatePercent>7</TaxRatePercent>
+            <TaxRatePercent>5</TaxRatePercent>
           </Tax>
           <CurrencyCode>PLN</CurrencyCode>
           <!-- Cena na okładce?
@@ -427,10 +427,6 @@
           twarda
           twarda z obwolutą -->
     <elibri:CoverType>miękka</elibri:CoverType>
-    <!-- Cena na okładce -->
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <!-- Vat w procentach -->
-    <elibri:Vat>5</elibri:Vat>
     <elibri:PKWiU>58.11.1</elibri:PKWiU>
   </Product>
 </ONIXMessage>

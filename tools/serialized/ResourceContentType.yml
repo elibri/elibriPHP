@@ -57,3 +57,10 @@
     en: full cover
     pl: okładka w dużej rozdzielczości (CMYK)
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '16'
+  const_name: WIDGET
+  name:
+    en: widget
+    pl: interaktywny podgląd produktu
+

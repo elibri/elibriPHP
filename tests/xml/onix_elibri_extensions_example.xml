@@ -56,6 +56,10 @@
           </SupplierIdentifier>
           <SupplierName>GREG</SupplierName>
         </Supplier>
+        <SupplierOwnCoding>
+          <SupplierCodeType>01</SupplierCodeType>
+          <SupplierCodeValue>PROMO 20</SupplierCodeValue>
+        </SupplierOwnCoding>
         <ProductAvailability>99</ProductAvailability>
         <Price>
           <PriceType>02</PriceType>
@@ -69,11 +73,6 @@
       </SupplyDetail>
     </ProductSupply>
     <elibri:CoverType>miękka</elibri:CoverType>
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <elibri:Vat>5</elibri:Vat>
     <elibri:PKWiU>58.11.1</elibri:PKWiU>
-    <elibri:AdditionalInfo>PROMO 20</elibri:AdditionalInfo>
-    <elibri:preview_exists>true</elibri:preview_exists>
-    <elibri:HyphenatedISBN>978-83-247-9999-2</elibri:HyphenatedISBN>
   </Product>
 </ONIXMessage>

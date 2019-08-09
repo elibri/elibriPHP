@@ -238,7 +238,7 @@ class ElibriProduct {
   //! ISBN13 produktu (bez myślników)
   public $isbn13;
 
-  //! ISBN13 produktu (z myślnikami)
+  //! ISBN13 produktu (depracated, wartość identyczna z polem isbn13)
   public $isbn13_with_hyphens;
 
   //! ISSN produktu (bez myślników), NULL jeżeli nie istnieje
@@ -376,6 +376,9 @@ class ElibriProduct {
 
   //! Informacja o dostępności produktów w sieci dystrybucji (lista instancji ElibriSupplyDetail)
   public $supply_details = array();
+
+  //! Dodatkowa klasyfikacja sprzedażowa używana przez wydawcę, w tej chwili wykorzystywana jedynie przez grupę Foksal
+  public $additional_trade_information;
   
   //! Lista twórców związanych z książką - lista instancji ElibriContributor
   public $contributors = array();
@@ -470,11 +473,8 @@ class ElibriProduct {
     $this->notification_type = FirstNodeValue::get($xml_fragment, "NotificationType");
     $this->deletion_text = FirstNodeValue::get($xml_fragment, "DeletionText");
     $this->cover_type = FirstNodeValue::get($xml_fragment, "CoverType");
-    $this->cover_price = FirstNodeValue::get($xml_fragment, "CoverPrice");
-    $this->vat = FirstNodeValue::get($xml_fragment, "Vat", true);
+
     $this->pkwiu = FirstNodeValue::get($xml_fragment, "PKWiU");
-    $this->isbn13_with_hyphens = FirstNodeValue::get($xml_fragment, "HyphenatedISBN");
-    $this->preview_exists = (FirstNodeValue::get($xml_fragment, "preview_exists") == "true");
     $this->city_of_publication = FirstNodeValue::get($xml_fragment, "CityOfPublication");
       
     //product identifiers
@@ -487,6 +487,8 @@ class ElibriProduct {
         $this->{strtolower($pid->identifier_type)} = $pid->value; //ean, isbn13
       }
     }
+
+    $this->isbn13_with_hyphens = $this->isbn13;
 
     //descriptive detail
     if ($xml_fragment->getElementsByTagName("DescriptiveDetail")->length > 0) {
@@ -515,18 +517,35 @@ class ElibriProduct {
 
     $this->computeState();      
 
-    $this->checkLicence($xml_fragment);
-
     //Supply detail
     $xsupplys = $xml_fragment->getElementsByTagName("SupplyDetail");
+
+    //get price and VAT
+    //if ($xsupplys->length > 0) {
+    //  $xsupply = $xsupplys->item(0);
+    //  if ($xsupply->getElementsByTagName("Price")->length > 0) {
+    //    $price = $xsupply->getElementsByTagName("Price")->item(0);
+    //    if ($price->getElementsByTagName("PriceType")->item(0)
+    //
+    //  }
+    //}
+
     foreach ($xsupplys as $xsupply) {
       $supply = new ElibriSupplyDetail($xsupply);
       $this->supply_details[] = $supply;
     } 
 
-    foreach ($xml_fragment->getElementsByTagName("excerpt") as $node) {
-      $excerpt_info = new ElibriExcerptInfo($node);
-      $this->excerpt_infos[] = $excerpt_info;
+    foreach ($this->supply_details as $supply) {
+      $price = $supply->price;
+
+      if ($price->type_name ==  "RRP_WITH_TAX") {
+        $this->cover_price = $price->amount;
+        $this->vat = $price->tax_rate_percent;
+      }
+
+      if ($supply->supplier_own_coding) {
+        $this->additional_trade_information = $supply->supplier_own_coding;
+      }
     }
 
     foreach ($xml_fragment->getElementsByTagName("master") as $node) {
@@ -534,19 +553,6 @@ class ElibriProduct {
       $this->file_infos[] = $file_info;
     }
 
-  }
-
-
-  private function checkLicence($xml_fragment) {
-    if ($xml_fragment->getElementsByTagName("SaleNotRestricted")->length > 0) {
-      $this->unlimited_licence = True;
-    } elseif ($xml_fragment->getElementsByTagName("SaleRestrictedTo")->length > 0) {
-      $this->unlimited_licence = False;
-      $this->licence_limited_to_before_type_cast = FirstNodeValue::get($xml_fragment, "SaleRestrictedTo");
-      $this->parsed_licence_limited_to = ElibriPublishingDate::parseDate($this->licence_limited_to_before_type_cast, 'YYYYMMDD');
-      $this->licence_limited_to =  new DateTime($this->parsed_licence_limited_to[0] . "-" . 
-                                                $this->parsed_licence_limited_to[1] . "-" . $this->parsed_licence_limited_to[2]);
-    }
   }
 
   private function parsePublishingDetail($publishing_node) {
@@ -565,15 +571,31 @@ class ElibriProduct {
 
     $this->publishing_status = $publishing_node->getElementsByTagName("PublishingStatus")->item(0)->nodeValue;
         
-    //publishing date
-    if ($publishing_node->getElementsByTagName("PublishingDate")->length > 0) {
-      $this->publishing_date = new ElibriPublishingDate($publishing_node->getElementsByTagName("PublishingDate")->item(0));
-      $this->parsed_publishing_date = $this->publishing_date->parsed;
-      if (count($this->parsed_publishing_date) == 3) {
-        $this->premiere = new DateTime($this->parsed_publishing_date[0] . "-" . $this->parsed_publishing_date[1] . "-" . $this->parsed_publishing_date[2]);
-      }
+    //publishing dates
+    foreach ($publishing_node->getElementsByTagName("PublishingDate") as $node) {
+       $role = FirstNodeValue::get($node, "PublishingDateRole");
+
+       if ($role == ElibriDictPublishingDateRole::PUBLICATION_DATE) {
+         $this->publishing_date = new ElibriPublishingDate($node);
+         $this->parsed_publishing_date = $this->publishing_date->parsed;
+         if (count($this->parsed_publishing_date) == 3) {
+            $this->premiere = new DateTime($this->parsed_publishing_date[0] . "-" . $this->parsed_publishing_date[1] . "-" . $this->parsed_publishing_date[2]);
+         }
+       } else if ($role == ElibriDictPublishingDateRole::OUT_OF_PRINT_DATE) {
+         $this->licence_limited_to_before_type_cast = FirstNodeValue::get($node, "Date");
+         $this->parsed_licence_limited_to = ElibriPublishingDate::parseDate($this->licence_limited_to_before_type_cast, 'YYYYMMDD');
+         $this->licence_limited_to =  new DateTime($this->parsed_licence_limited_to[0] . "-" .
+                                                   $this->parsed_licence_limited_to[1] . "-" . $this->parsed_licence_limited_to[2]);
+       }
     }
-        
+
+    if ($this->licence_limited_to) {
+      $this->unlimited_licence = False;
+    } else {
+      $this->unlimited_licence = True;
+    }
+
+
     //publishing det restrictions
     if ($publishing_node->getElementsByTagName("SalesRestriction")->length > 0) {
       $this->sales_restrictions_info = new ElibriSalesRestriction($publishing_node->getElementsByTagName("SalesRestriction")->item(0));
@@ -609,6 +631,15 @@ class ElibriProduct {
         $resource = new ElibriSupportingResource($xml_fragment);
         if ($resource->content_type == ElibriDictResourceContentType::FRONT_COVER) { 
           $this->front_cover = $resource;
+        } else if ($resource->content_type == ElibriDictResourceContentType::WIDGET) {
+          $this->preview_exists = True;
+        } else if ($resource->content_type == ElibriDictResourceContentType::SAMPLE_CONTENT) {
+          if (($this->product_form == ElibriDictProductFormCode::EBOOK) || ($this->product_form == ElibriDictProductFormCode::AUDIO_DOWNLOADABLE_FILE)) {
+            foreach ($xml_fragment->getElementsByTagName("ResourceVersion") as $node) {
+              $excerpt_info = new ElibriExcerptInfo($node);
+              $this->excerpt_infos[] = $excerpt_info;
+            }
+          }
         }
         $this->supporting_resources[] = $resource;
       }
@@ -1313,6 +1344,7 @@ class ElibriPublishingDate {
 
   public static function parseDate($date, $format) {
     switch ($format) {
+      case 'YYYYMMDDTHHMM': return array(substr($date, 0, 4), substr($date,4,2), substr($date, 6, 2), substr($date, 9, 2), substr($date, 11, 2));
       case 'YYYYMMDD': return array(substr($date, 0, 4), substr($date,4,2), substr($date, 6, 2)); 
       case 'YYYYMM': return array(substr($date, 0, 4), substr($date, 4, 2)); 
       case 'YYYY': return array(substr($date, 0, 4)); 
@@ -1371,12 +1403,30 @@ class ElibriExcerptInfo {
   public $link;
 
   function __construct($node) {
-     $this->file_size = $node->getAttribute("file_size");
-     $this->file_type = $node->getAttribute("file_type");
-     $this->id = $node->getAttribute("id");
-     $this->md5 = $node->getAttribute("md5");
-     $this->updated_at = new DateTime($node->getAttribute("updated_at"));
-     $this->link = $node->nodeValue;
+
+    foreach ($node->getElementsByTagName("ResourceVersionFeature") as $feature) {
+      $feature_type = $feature->getElementsByTagName("ResourceVersionFeatureType")->item(0)->nodeValue;
+      $feature_value = $feature->getElementsByTagName("FeatureValue")->item(0)->nodeValue;
+
+      if ($feature_type == ElibriDictResourceVersionFeatureType::MD5_HASH_VALUE) {
+        $this->md5 = $feature_value;
+      } else if ($feature_type == ElibriDictResourceVersionFeatureType::SIZE_IN_BYTES) {
+        $this->file_size = $feature_value;
+      }       
+    }
+
+    $this->link = $node->getElementsByTagName("ResourceLink")->item(0)->nodeValue;
+    $parts = explode(".", $this->link);
+    $this->file_type = end($parts) . "_excerpt";
+    $parts = explode("/", $this->link);
+    $this->id = $parts[4];
+
+    foreach ($node->getElementsbyTagName("ContentDate") as $daten) {
+      if ($daten->getElementsByTagName("ContentDateRole")->item(0)->nodeValue == ElibriDictContentDateRole::LAST_UPDATED) {
+       $date = ElibriPublishingDate::parseDate($node->getElementsByTagName("Date")->item(0)->nodeValue, 'YYYYMMDDTHHMM');
+       $this->updated_at = new DateTime($date[0] . "-" . $date[1] . "-" . $date[2] . " " . $date[3] . ":" . $date[4] . "  +00:00");
+      }
+    }
   }
 }
 
@@ -1522,6 +1572,7 @@ class ElibriSupplyDetail {
   public $relation_code;
   public $supplier;
   public $product_availability;
+  public $supplier_own_coding;
 
   //! Jedna z wartości ElibriDictProductAvailabilityType
   public $product_availability_name;
@@ -1539,12 +1590,16 @@ class ElibriSupplyDetail {
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
-    $supplier = new ElibriSupplier($xml_fragment->getElementsbyTagName("Supplier")->item(0));
+    $supplier = new ElibriSupplier($xml_fragment->getElementsByTagName("Supplier")->item(0));
 
     $this->supplier = $supplier;
         
     $this->product_availability = FirstNodeValue::get($xml_fragment, "ProductAvailability");
     $this->product_availability_name = ElibriDictProductAvailabilityType::byCode($this->product_availability)->const_name;
+
+    if ($xml_fragment->getElementsByTagName("SupplierOwnCoding")->length > 0) {
+      $this->supplier_own_coding = $xml_fragment->getElementsByTagName("SupplierOwnCoding")->item(0)->getElementsByTagName("SupplierCodeValue")->item(0)->nodeValue;
+    }
         
     $xstock = $xml_fragment->getElementsByTagName("Stock")->item(0);
 	  

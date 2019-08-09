@@ -6,3 +6,10 @@
   name:
     en: downloadable file
     pl: plik do pobrania
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceForm
+  onix_code: '03'
+  const_name: EMBEDDABLE_APPLICATION
+  name:
+    en: embeddable application
+    pl: skrypt do zintegrowania ze stroną internetową

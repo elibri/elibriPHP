@@ -18,3 +18,11 @@
   name:
     en: YYYY
     pl: RRRR
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::DateFormat
+  onix_code: '13'
+  const_name: YYYYMMDDTHHMM
+  name:
+    en: YYYYMMDDThhmm
+    pl: RRRRMMDDThhmm
+

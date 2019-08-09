@@ -7,7 +7,7 @@
       <ContactName>Tomasz Meka</ContactName>
       <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
     </Sender>
-    <SentDateTime>20190729</SentDateTime>
+    <SentDateTime>20190809</SentDateTime>
   </Header>
   <Product>
     <RecordReference>fdb8fa072be774d97a97</RecordReference>
@@ -38,10 +38,18 @@
             <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
             <FeatureValue>E101</FeatureValue>
           </ResourceVersionFeature>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>06</ResourceVersionFeatureType>
+            <FeatureValue>4b145ff46636b06f49225abdab70927f</FeatureValue>
+          </ResourceVersionFeature>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>07</ResourceVersionFeatureType>
+            <FeatureValue>2100230</FeatureValue>
+          </ResourceVersionFeature>
           <ResourceLink>https://www.elibri.com.pl/excerpt/767/4b145ff46636b06f49225abdab70927f/fragment.epub</ResourceLink>
           <ContentDate>
             <ContentDateRole>17</ContentDateRole>
-            <Date dateformat="00">20121230</Date>
+            <Date dateformat="13">20121230T1518Z</Date>
           </ContentDate>
         </ResourceVersion>
         <ResourceVersion>
@@ -50,10 +58,18 @@
             <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
             <FeatureValue>E127</FeatureValue>
           </ResourceVersionFeature>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>06</ResourceVersionFeatureType>
+            <FeatureValue>6f534ab6ab573845bb7ab221192aa86a</FeatureValue>
+          </ResourceVersionFeature>
+          <ResourceVersionFeature>
+            <ResourceVersionFeatureType>07</ResourceVersionFeatureType>
+            <FeatureValue>2101254</FeatureValue>
+          </ResourceVersionFeature>
           <ResourceLink>https://www.elibri.com.pl/excerpt/768/6f534ab6ab573845bb7ab221192aa86a/fragment.mobi</ResourceLink>
           <ContentDate>
             <ContentDateRole>17</ContentDateRole>
-            <Date dateformat="00">20121230</Date>
+            <Date dateformat="13">20121230T1600Z</Date>
           </ContentDate>
         </ResourceVersion>
       </SupportingResource>
@@ -99,14 +115,6 @@
         </Price>
       </SupplyDetail>
     </ProductSupply>
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <elibri:Vat>23</elibri:Vat>
-    <elibri:preview_exists>false</elibri:preview_exists>
-    <elibri:SaleNotRestricted/>
-    <elibri:excerpts>
-      <elibri:excerpt md5="4b145ff46636b06f49225abdab70927f" file_size="2100230" file_type="epub_excerpt" updated_at="2012-12-30T15:18:00+00:00" id="767">https://www.elibri.com.pl/excerpt/767</elibri:excerpt>
-      <elibri:excerpt md5="6f534ab6ab573845bb7ab221192aa86a" file_size="2101254" file_type="mobi_excerpt" updated_at="2012-12-30T15:16:00+00:00" id="768">https://www.elibri.com.pl/excerpt/768</elibri:excerpt>
-    </elibri:excerpts>
     <elibri:masters>
       <elibri:master id="765" md5="e9353ce40eaa677f8c5d666c2f8bbb3f" file_size="4197382" file_type="epub" updated_at="2012-12-30T15:18:00+00:00"/>
       <elibri:master id="766" md5="d2c75a26973a1888f241125717b166cf" file_size="5246982" file_type="mobi" updated_at="2012-12-30T15:16:00+00:00"/>

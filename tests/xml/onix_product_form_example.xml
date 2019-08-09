@@ -69,8 +69,5 @@
       </SupplyDetail>
     </ProductSupply>
     <elibri:CoverType>miękka</elibri:CoverType>
-    <elibri:CoverPrice>12.99</elibri:CoverPrice>
-    <elibri:Vat>5</elibri:Vat>
-    <elibri:preview_exists>false</elibri:preview_exists>
   </Product>
 </ONIXMessage>

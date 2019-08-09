@@ -405,6 +405,36 @@ class ElibriDictLanguageCode extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictSupplierOwnCodeType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! klasyfikacja sprzedawcy
+  const SUPPLIERS_SALES_CLASSIFICATION = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'klasyfikacja sprzedawcy', 'en' => 'supplier’s sales classification'), 'SUPPLIERS_SALES_CLASSIFICATION'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictSupplierOwnCodeType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictSupplierRole extends  ElibriDictElement {
 
   private static $instance;
@@ -842,10 +872,18 @@ class ElibriDictResourceVersionFeatureType extends  ElibriDictElement {
   //! format pliku
   const FILE_FORMAT = '01';
 
+  //! wartość hasha md5
+  const MD5_HASH_VALUE = '06';
+
+  //! rozmiar w bajtach
+  const SIZE_IN_BYTES = '07';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('01', array('pl' => 'format pliku', 'en' => 'file format'), 'FILE_FORMAT'),
+          new ElibriDictAtom('06', array('pl' => 'wartość hasha md5', 'en' => 'md5 hash value'), 'MD5_HASH_VALUE'),
+          new ElibriDictAtom('07', array('pl' => 'rozmiar w bajtach', 'en' => 'size in bytes'), 'SIZE_IN_BYTES'),
       ));
 
    }
@@ -1331,6 +1369,9 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
   //! okładka w dużej rozdzielczości (CMYK)
   const FULL_COVER = '29';
 
+  //! interaktywny podgląd produktu
+  const WIDGET = '16';
+
 
   protected function __construct() {
       parent::__construct(array(
@@ -1342,6 +1383,7 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
           new ElibriDictAtom('17', array('pl' => 'recenzja', 'en' => 'review'), 'REVIEW'),
           new ElibriDictAtom('24', array('pl' => 'mediapack', 'en' => 'press release'), 'PRESS_RELEASE'),
           new ElibriDictAtom('29', array('pl' => 'okładka w dużej rozdzielczości (CMYK)', 'en' => 'full cover'), 'FULL_COVER'),
+          new ElibriDictAtom('16', array('pl' => 'interaktywny podgląd produktu', 'en' => 'widget'), 'WIDGET'),
       ));
 
    }
@@ -1368,10 +1410,14 @@ class ElibriDictResourceForm extends  ElibriDictElement {
   //! plik do pobrania
   const DOWNLOADABLE_FILE = '02';
 
+  //! skrypt do zintegrowania ze stroną internetową
+  const EMBEDDABLE_APPLICATION = '03';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('02', array('pl' => 'plik do pobrania', 'en' => 'downloadable file'), 'DOWNLOADABLE_FILE'),
+          new ElibriDictAtom('03', array('pl' => 'skrypt do zintegrowania ze stroną internetową', 'en' => 'embeddable application'), 'EMBEDDABLE_APPLICATION'),
       ));
 
    }
@@ -1404,12 +1450,16 @@ class ElibriDictDateFormat extends  ElibriDictElement {
   //! RRRR
   const YYYY = '05';
 
+  //! RRRRMMDDThhmm
+  const YYYYMMDDTHHMM = '13';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('00', array('pl' => 'RRRRMMDD', 'en' => 'YYYYMMDD'), 'YYYYMMDD'),
           new ElibriDictAtom('01', array('pl' => 'RRRRMM', 'en' => 'YYYYMM'), 'YYYYMM'),
           new ElibriDictAtom('05', array('pl' => 'RRRR', 'en' => 'YYYY'), 'YYYY'),
+          new ElibriDictAtom('13', array('pl' => 'RRRRMMDDThhmm', 'en' => 'YYYYMMDDThhmm'), 'YYYYMMDDTHHMM'),
       ));
 
    }
