@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_24additional_5ftrade_5finformation',['$additional_trade_information',['../classElibriProduct.html#ac68cbaef7c72fd6db58d86149091c46d',1,'ElibriProduct']]],
   ['_24audience',['$audience',['../classElibriSupportingResource.html#acdc13181697969830484f7ad01af1d88',1,'ElibriSupportingResource']]],
   ['_24audience_5fname',['$audience_name',['../classElibriSupportingResource.html#a5d2146af7c327d07ecdbdd8c187df508',1,'ElibriSupportingResource']]],
   ['_24author',['$author',['../classElibriTextContent.html#a756e3a7fc04fb09e2410f52b49574d5f',1,'ElibriTextContent']]],

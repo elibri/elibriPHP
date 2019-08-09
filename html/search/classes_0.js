@@ -52,6 +52,7 @@ var searchData=
   ['elibridictresourceversionfeaturetype',['ElibriDictResourceVersionFeatureType',['../classElibriDictResourceVersionFeatureType.html',1,'']]],
   ['elibridictsalesrestrictiontype',['ElibriDictSalesRestrictionType',['../classElibriDictSalesRestrictionType.html',1,'']]],
   ['elibridictsubjectschemeidentifier',['ElibriDictSubjectSchemeIdentifier',['../classElibriDictSubjectSchemeIdentifier.html',1,'']]],
+  ['elibridictsupplierowncodetype',['ElibriDictSupplierOwnCodeType',['../classElibriDictSupplierOwnCodeType.html',1,'']]],
   ['elibridictsupplierrole',['ElibriDictSupplierRole',['../classElibriDictSupplierRole.html',1,'']]],
   ['elibridicttitleelementlevel',['ElibriDictTitleElementLevel',['../classElibriDictTitleElementLevel.html',1,'']]],
   ['elibridicttitletype',['ElibriDictTitleType',['../classElibriDictTitleType.html',1,'']]],

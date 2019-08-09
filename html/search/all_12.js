@@ -10,5 +10,7 @@ var searchData=
   ['short_5fcollection_5fdescription',['SHORT_COLLECTION_DESCRIPTION',['../classElibriDictOtherTextType.html#a94b6de0c318723a72fe62011b2cccb60',1,'ElibriDictOtherTextType']]],
   ['short_5fdescription',['SHORT_DESCRIPTION',['../classElibriDictOtherTextType.html#a319e9e312780bc92ad5a7ad86c8b9479',1,'ElibriDictOtherTextType']]],
   ['similar_5fproducts',['SIMILAR_PRODUCTS',['../classElibriDictProductRelationType.html#ad48b2b01871172b1a2b3c9c1a4ecd5d7',1,'ElibriDictProductRelationType']]],
-  ['stocks_5fqueue',['STOCKS_QUEUE',['../classElibriAPI.html#a177d27e53d3370251dff213e9be01d62',1,'ElibriAPI']]]
+  ['size_5fin_5fbytes',['SIZE_IN_BYTES',['../classElibriDictResourceVersionFeatureType.html#aa1d22d8c91fe665d26339218fd76f0ec',1,'ElibriDictResourceVersionFeatureType']]],
+  ['stocks_5fqueue',['STOCKS_QUEUE',['../classElibriAPI.html#a177d27e53d3370251dff213e9be01d62',1,'ElibriAPI']]],
+  ['suppliers_5fsales_5fclassification',['SUPPLIERS_SALES_CLASSIFICATION',['../classElibriDictSupplierOwnCodeType.html#a174d7c47fd36c75c8f0a6c0a3aae9f16',1,'ElibriDictSupplierOwnCodeType']]]
 ];
