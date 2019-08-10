@@ -14,6 +14,7 @@
  * - informacja o poglądzie książki drukowanej jest pobierana teraz z SupportingResource
  * - informacje o fragmentach cyfrowych książek są pobierane teraz z SupportingResource
  * - informacja o końcu licencji na produkty cyfrowe jest pobierana z PublishingDetail
+ * - w polu isbn13_with_hyphens jest teraz wartość isbn bez kresek, ponieważ pole <elibri:HyphenatedISBN> zostanie wkrótce usunięte
  *
  * \subsection c30072019 30 lipca 2019 roku
  * 
