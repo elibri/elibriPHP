@@ -523,6 +523,24 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals("02", $pr->printed_on_product);
   }
 
+  public function test_audiobook() {
+    $product = $this->load("audiobook.xml");
+    
+    $this->assertEquals(1, count($product->excerpt_infos));
+    $e = $product->excerpt_infos[0];
+
+    $this->assertEquals(2589928, $e->file_size);
+    $this->assertEquals("0bf20c528f323dd2a6d91627ccddf52e", $e->md5);
+    $this->assertEquals("mp3_excerpt", $e->file_type);
+    $this->assertEquals(new DateTime("2019-07-12 21:58 +00:00"), $e->updated_at);
+    $this->assertEquals("https://www.elibri.com.pl/excerpt/109048/0bf20c528f323dd2a6d91627ccddf52e/kwiaty-dla-algernona-fragment.mp3", $e->link);
+    $this->assertEquals(109048, $e->id);
+    
+    $this->assertEquals(524, $product->duration);
+    $this->assertEquals("AUDIO_DOWNLOADABLE_FILE", $product->product_form_name);
+
+  }
+
 }
 
 
