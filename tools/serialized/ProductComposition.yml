@@ -1,0 +1,8 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductComposition
+  onix_code: '00'
+  const_name: SINGLE_COMPONENT_RETAIL_PRODUCT
+  name:
+    en: Single-component retail product
+    pl: samodzielny produkt

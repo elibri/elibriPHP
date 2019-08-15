@@ -1,6 +1,7 @@
 var searchData=
 [
   ['unavailable',['UNAVAILABLE',['../classElibriDictPublishingStatusCode.html#a85365736aab2ea931463e514039fa856',1,'ElibriDictPublishingStatusCode']]],
+  ['unknow',['UNKNOW',['../classElibriDictPricePositionOnProduct.html#a4adacf4c9e164ab432720b4186e16b53',1,'ElibriDictPricePositionOnProduct']]],
   ['unlimited',['UNLIMITED',['../classElibriDictEpubUsageStatus.html#a35718cc7397e2a096a8e798c41f3fefc',1,'ElibriDictEpubUsageStatus']]],
   ['unnamed_5fpersons',['unnamed_persons',['../classElibriProduct.html#a78b5705bcd520091942e9c3c2e6c6435',1,'ElibriProduct']]],
   ['unrestricted',['UNRESTRICTED',['../classElibriDictContentAudience.html#ab078f974b99b5e63b75ef5032d65ec9e',1,'ElibriDictContentAudience']]],

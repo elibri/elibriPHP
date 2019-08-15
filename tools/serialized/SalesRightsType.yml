@@ -1,0 +1,8 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SalesRightsType
+  onix_code: '01'
+  const_name: FOR_SALE_WITH_EXLUSIVE_RIGHTS
+  name:
+    en: For sale with exclusive rights in the specified countries or territories
+    pl: Produkt dopuszczony do sprzedaży w wymienionych krajach lub terytoriach

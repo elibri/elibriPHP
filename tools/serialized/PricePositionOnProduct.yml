@@ -1,0 +1,10 @@
+
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PricePositionOnProduct
+  onix_code: '00'
+  const_name: UNKNOW
+  name:
+    en: unknow
+    pl: nieznana
+

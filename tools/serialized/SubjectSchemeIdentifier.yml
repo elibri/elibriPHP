@@ -6,3 +6,52 @@
   name:
     en: proprietary
     pl: własnościowy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '93'
+  const_name: THEMA
+  name:
+    en: Thema Category
+    pl: Kategoria Thema
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '94'
+  const_name: THEMA_PLACE_QUALIFIER
+  name:
+    en: Thema place qualifier
+    pl: Thema - kwantyfikator miejsca
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '95'
+  const_name: THEMA_LANGUAGE_QUALIFIER
+  name:
+    en: Thema language qualifier
+    pl: Thema - kwantyfikator języka
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '96'
+  const_name: THEMA_TIME_PERIOD_QUALIFIER
+  name:
+    en: Thema time period qualifier
+    pl: Thema - kwantyfikator czasowy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '97'
+  const_name: THEMA_EDUCATIONAL_PURPOSE_QUALIFIER
+  name:
+    en: Thema educational purpose qualifier
+    pl: Thema - kwantyfikator edukacyjny
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '98'
+  const_name: THEMA_SPECIAL_INTEREST_QUALIFIER
+  name:
+    en: Thema interest age / special interest qualifier
+    pl: Thema - kwantyfikator grupy docelowej
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '99'
+  const_name: THEMA_STYLE_QUALIFIER
+  name:
+    en: Thema style qualifier
+    pl: Thema - kwantyfikator stylu

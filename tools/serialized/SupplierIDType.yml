@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierIDType
+  onix_code: '23'
+  const_name: VAT_IDENTITY_NUMBER 
+  name:
+    en: VAT Identity number
+    pl: Numer NIP
