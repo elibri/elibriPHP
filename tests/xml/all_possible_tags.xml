@@ -81,6 +81,10 @@
         <Measurement>90.5</Measurement>
         <MeasureUnitCode>gr</MeasureUnitCode>
       </Measure>
+      <ProductClassification>
+        <ProductClassificationType>12</ProductClassificationType>
+        <ProductClassificationCode>58.11.1</ProductClassificationCode>
+      </ProductClassification>
       <Collection>
         <!-- Zawsze 10 - seria wydawnictwa -->
         <CollectionType>10</CollectionType>
@@ -427,6 +431,5 @@
           twarda
           twarda z obwolutą -->
     <elibri:CoverType>miękka</elibri:CoverType>
-    <elibri:PKWiU>58.11.1</elibri:PKWiU>
   </Product>
 </ONIXMessage>

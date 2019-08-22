@@ -474,7 +474,6 @@ class ElibriProduct {
     $this->deletion_text = FirstNodeValue::get($xml_fragment, "DeletionText");
     $this->cover_type = FirstNodeValue::get($xml_fragment, "CoverType");
 
-    $this->pkwiu = FirstNodeValue::get($xml_fragment, "PKWiU");
     $this->city_of_publication = FirstNodeValue::get($xml_fragment, "CityOfPublication");
       
     //product identifiers
@@ -655,6 +654,15 @@ class ElibriProduct {
       $msr = new ElibriMeasure($xml_fragment);
       $this->{strtolower($msr->type_name)} = $msr->measurement; //setting height, width, thickness, weight properties
     }
+
+    //PKWiU
+    foreach ($descriptive_detail->getElementsByTagName("ProductClassification") as $classification) {
+      $product_classification_type = FirstNodeValue::get($classification, "ProductClassificationType");
+      if ($product_classification_type == ElibriDictProductClassificationType::PKWIU) {
+        $this->pkwiu = FirstNodeValue::get($classification, "ProductClassificationCode");
+      }
+    }
+
 
     $colls = $descriptive_detail->getElementsByTagName("Collection");
     foreach ($colls as $coll) {

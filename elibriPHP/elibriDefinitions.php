@@ -1443,6 +1443,36 @@ class ElibriDictPricePrintedOnProduct extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictProductClassificationType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! Polska Klasyfikacja Wyrobów i Usług (2015)
+  const PKWIU = '12';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('12', array('pl' => 'Polska Klasyfikacja Wyrobów i Usług (2015)', 'en' => 'Polish Classification of Products and Services (2015)'), 'PKWIU'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictProductClassificationType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictEpubTechnicalProtection extends  ElibriDictElement {
 
   private static $instance;

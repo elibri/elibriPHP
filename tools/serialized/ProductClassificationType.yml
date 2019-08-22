@@ -1,0 +1,8 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductClassificationType
+  onix_code: '12'
+  const_name: PKWIU
+  name:
+    en: Polish Classification of Products and Services (2015)
+    pl: Polska Klasyfikacja Wyrobów i Usług (2015)

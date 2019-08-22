@@ -19,6 +19,10 @@
     <DescriptiveDetail>
       <ProductComposition>00</ProductComposition>
       <ProductForm>BA</ProductForm>
+      <ProductClassification>
+        <ProductClassificationType>12</ProductClassificationType>
+        <ProductClassificationCode>58.11.1</ProductClassificationCode>
+      </ProductClassification>
       <TitleDetail>
         <TitleType>01</TitleType>
         <TitleElement>
@@ -73,6 +77,5 @@
       </SupplyDetail>
     </ProductSupply>
     <elibri:CoverType>miękka</elibri:CoverType>
-    <elibri:PKWiU>58.11.1</elibri:PKWiU>
   </Product>
 </ONIXMessage>
