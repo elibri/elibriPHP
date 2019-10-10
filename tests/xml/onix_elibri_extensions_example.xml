@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ONIXMessage release="3.0" xmlns="http://ns.editeur.org/onix/3.0/reference" xmlns:elibri="http://elibri.com.pl/ns/extensions">
-  <elibri:Dialect>3.0.1</elibri:Dialect>
+<ONIXMessage release="3.0" xmlns="http://ns.editeur.org/onix/3.0/reference">
   <Header>
     <Sender>
       <SenderName>Elibri.com.pl</SenderName>
@@ -18,7 +17,8 @@
     </ProductIdentifier>
     <DescriptiveDetail>
       <ProductComposition>00</ProductComposition>
-      <ProductForm>BA</ProductForm>
+      <ProductForm>BB</ProductForm>
+      <ProductFormDetail>B501</ProductFormDetail>
       <ProductClassification>
         <ProductClassificationType>12</ProductClassificationType>
         <ProductClassificationCode>58.11.1</ProductClassificationCode>
@@ -76,6 +76,5 @@
         </Price>
       </SupplyDetail>
     </ProductSupply>
-    <elibri:CoverType>miękka</elibri:CoverType>
   </Product>
 </ONIXMessage>

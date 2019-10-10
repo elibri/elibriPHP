@@ -22,6 +22,36 @@ class FirstNodeValue {
   }
 }
 
+//! Odtwarzaj rodzaj okładki na podstawie product form i product from detail
+//! @ingroup private
+class CoverType {
+  public static function determine($product_form, $product_form_detail) {
+    if ($product_form == "BG") {
+      return "skórzana";
+    } else if ($product_form == "BF") {
+      return "gąbka";
+    } else if ($product_form == "BC") {
+      if ($product_form_detail == "B504") {
+        return "miękka ze skrzydełkami";
+      } else if ($product_form_detail == "B412") {
+        return "zintegrowana";
+      } else {
+        return "miękka";
+      }
+    } else if ($product_form == "BB") {
+      if ($product_form_detail == "B501") {
+        return "twarda z obwolutą";
+      } else if ($product_form_detail == "B415") {
+         return "twarda lakierowana";
+      } else if ($product_form_detail == "B413") {
+         return "plastikowa";
+      } else {
+         return "twarda";
+      }
+    }
+  }
+}
+
 //! Klasa abstrahująca wiadomość ONIX
 class ElibriOnixMessage {
   
@@ -647,6 +677,12 @@ class ElibriProduct {
   private function parseDescriptiveDetail($descriptive_detail) {
     $this->product_composition = FirstNodeValue::get($descriptive_detail, "ProductComposition");
     $this->product_form = FirstNodeValue::get($descriptive_detail, "ProductForm");
+    if (substr($this->product_form, 0, 1) == "B") {
+      if (!$this->cover_type) {
+        $this->cover_type = CoverType::determine($this->product_form, FirstNodeValue::get($descriptive_detail, "ProductFormDetail"));
+      }
+      $this->product_form = "BA";
+    }
     $this->product_form_name = ElibriDictProductFormCode::byCode($this->product_form)->const_name;
         
     //wymiary produktu
@@ -748,7 +784,7 @@ class ElibriProduct {
     }
 
     //formaty plików
-    if ($descriptive_detail->getElementsByTagName("ProductFormDetail")->length > 0) {
+    if ($this->product_form == "EA") {
       $this->digital_formats = array();
       foreach ($descriptive_detail->getElementsByTagName("ProductFormDetail") as $xml_fragment) {
          $code = $xml_fragment->nodeValue;

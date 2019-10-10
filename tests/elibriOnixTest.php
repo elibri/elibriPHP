@@ -76,7 +76,7 @@ class ElibriDictTest extends TestCase {
   public function test_elibri_extensions() {
     $product = $this->load("onix_elibri_extensions_example.xml");
 
-    $this->assertEquals("miękka", $product->cover_type);
+    $this->assertEquals("twarda z obwolutą", $product->cover_type);
     $this->assertEquals(12.99, $product->cover_price);
     $this->assertEquals(5, $product->vat);
     $this->assertEquals("PROMO 20", $product->additional_trade_information);
@@ -538,6 +538,7 @@ class ElibriDictTest extends TestCase {
     
     $this->assertEquals(524, $product->duration);
     $this->assertEquals("AUDIO_DOWNLOADABLE_FILE", $product->product_form_name);
+
 
   }
 
