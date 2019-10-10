@@ -1,11 +1,23 @@
 var searchData=
 [
-  ['radio',['RADIO',['../classElibriDictContentSourceType.html#a253b5adde9edc4a0285ba0c89b031371',1,'ElibriDictContentSourceType']]],
-  ['read_5fby',['READ_BY',['../classElibriDictContributorRole.html#af3c448b9e2267da8f54b38228cfcfafc',1,'ElibriDictContributorRole']]],
-  ['reading_5fage',['READING_AGE',['../classElibriDictAudienceRangeQualifier.html#aee5cda12715bd74d90f1cb222bfdfc2d',1,'ElibriDictAudienceRangeQualifier']]],
-  ['retailer_5fexclusive',['RETAILER_EXCLUSIVE',['../classElibriDictSalesRestrictionType.html#ab5a3dc43fec703f3b926f59b20f965eb',1,'ElibriDictSalesRestrictionType']]],
-  ['review',['REVIEW',['../classElibriDictOtherTextType.html#ae0d854965d30086832ffc105981f04dc',1,'ElibriDictOtherTextType\REVIEW()'],['../classElibriDictResourceContentType.html#a4c803f17782509dde574c0c6bad71196',1,'ElibriDictResourceContentType\REVIEW()']]],
-  ['revisor',['REVISOR',['../classElibriDictContributorRole.html#a43f2a7e5c6520c4afb981683b283d577',1,'ElibriDictContributorRole']]],
-  ['rrp_5fwith_5ftax',['RRP_WITH_TAX',['../classElibriDictPriceTypeCode.html#ab6db66d467b443ca4347bf8854f244ac',1,'ElibriDictPriceTypeCode']]],
-  ['rrp_5fwithout_5ftax',['RRP_WITHOUT_TAX',['../classElibriDictPriceTypeCode.html#a6e6a931f3e66aaa420c4d24068489874',1,'ElibriDictPriceTypeCode']]]
+  ['page_5fcount',['PAGE_COUNT',['../classElibriDictExtentType.html#a9fc3ead87a7d21d2ca0cc81682250489',1,'ElibriDictExtentType']]],
+  ['pages',['PAGES',['../classElibriDictExtentUnit.html#a920c728862145d47b2ddaac4aac686cc',1,'ElibriDictExtentUnit']]],
+  ['pdf',['PDF',['../classElibriDictProductFormDetail.html#a2549196289f87524a8ced7928109660f',1,'ElibriDictProductFormDetail']]],
+  ['percentage',['PERCENTAGE',['../classElibriDictEpubUsageUnit.html#a1c4f3b969a10db7a37ef43efb2e11dbd',1,'ElibriDictEpubUsageUnit']]],
+  ['photographer',['PHOTOGRAPHER',['../classElibriDictContributorRole.html#a0d6eb91deb8de8371df965a0199395e1',1,'ElibriDictContributorRole']]],
+  ['pkwiu',['PKWIU',['../classElibriDictProductClassificationType.html#ae943d3727cad222f43bc32f3aece87d0',1,'ElibriDictProductClassificationType']]],
+  ['pod_5fhardcover',['POD_HARDCOVER',['../classElibriDictProductFormCode.html#a3bd1bd5f2651c050c89e12e2ff4c3379',1,'ElibriDictProductFormCode']]],
+  ['pod_5fsoftcover',['POD_SOFTCOVER',['../classElibriDictProductFormCode.html#a003c5c9d6ae1651f8551079f026d8052',1,'ElibriDictProductFormCode']]],
+  ['preorder_5fembargo_5fdate',['PREORDER_EMBARGO_DATE',['../classElibriDictPublishingDateRole.html#ae825c402523faae3b62254f9f6db7a50',1,'ElibriDictPublishingDateRole']]],
+  ['press_5frelease',['PRESS_RELEASE',['../classElibriDictResourceContentType.html#a4c9d8e83b72d610674b73a33c2175417',1,'ElibriDictResourceContentType']]],
+  ['preview',['PREVIEW',['../classElibriDictEpubUsageType.html#abf1afaf9ff698c68d7be8202ebfdb2e3',1,'ElibriDictEpubUsageType']]],
+  ['printed_5fmedia',['PRINTED_MEDIA',['../classElibriDictContentSourceType.html#aafe4e0905243398478d2f3f3652dbe14',1,'ElibriDictContentSourceType']]],
+  ['product',['PRODUCT',['../classElibriDictTitleElementLevel.html#a4ac17ac13240e6b2c929cfefa1ac6a9c',1,'ElibriDictTitleElementLevel']]],
+  ['prohibited',['PROHIBITED',['../classElibriDictEpubUsageStatus.html#aa0dfb3a98434c6b2afcbdc405f51b565',1,'ElibriDictEpubUsageStatus']]],
+  ['proprietary',['PROPRIETARY',['../classElibriDictProductIDType.html#a60e64147dbe2db4f9ee03213b9cba7f8',1,'ElibriDictProductIDType\PROPRIETARY()'],['../classElibriDictSubjectSchemeIdentifier.html#abf2247be2ce23ba160bee28eb070eb5c',1,'ElibriDictSubjectSchemeIdentifier\PROPRIETARY()']]],
+  ['pub_5fexl_5fdist',['PUB_EXL_DIST',['../classElibriDictSupplierRole.html#abdb83ca3c8be25646c6bd5180e136793',1,'ElibriDictSupplierRole']]],
+  ['pub_5fnon_5fexl_5fdist',['PUB_NON_EXL_DIST',['../classElibriDictSupplierRole.html#a00fb5526d19c80fc2bbb40216735175a',1,'ElibriDictSupplierRole']]],
+  ['pub_5fto_5fret',['PUB_TO_RET',['../classElibriDictSupplierRole.html#a3b00564d0d4f7e78a27c52ddf91e2b85',1,'ElibriDictSupplierRole']]],
+  ['publication_5fdate',['PUBLICATION_DATE',['../classElibriDictPublishingDateRole.html#ab2b6990c7e92410a015e6f1eb28fbc88',1,'ElibriDictPublishingDateRole']]],
+  ['publisher_5fcollection',['PUBLISHER_COLLECTION',['../classElibriDictCollectionType.html#ac01e3134ee37d821cc725790878bb660',1,'ElibriDictCollectionType']]]
 ];

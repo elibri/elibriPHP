@@ -1,17 +1,12 @@
 var searchData=
 [
-  ['słowniki',['Słowniki',['../group__dictionaries.html',1,'']]],
-  ['sample_5fcontent',['SAMPLE_CONTENT',['../classElibriDictResourceContentType.html#a4289cbff59f884f96128445d464d72a6',1,'ElibriDictResourceContentType']]],
-  ['scenarist',['SCENARIST',['../classElibriDictContributorRole.html#a88fd8a4a35953cec431ef1ec2a7ddd05',1,'ElibriDictContributorRole']]],
-  ['sheet_5fmap',['SHEET_MAP',['../classElibriDictProductFormCode.html#a836d51e97731cd451125762fc73091b3',1,'ElibriDictProductFormCode']]],
-  ['sheet_5fmap_5fflat',['SHEET_MAP_FLAT',['../classElibriDictProductFormCode.html#a42b076237b0ee680f5f1ff12bee00be7',1,'ElibriDictProductFormCode']]],
-  ['sheet_5fmap_5ffolded',['SHEET_MAP_FOLDED',['../classElibriDictProductFormCode.html#aea2e5d6fe57cd543c65e9fdb8e2aba7e',1,'ElibriDictProductFormCode']]],
-  ['sheet_5fmap_5frolled',['SHEET_MAP_ROLLED',['../classElibriDictProductFormCode.html#a3da7e952b9f235f33c203bf0cb7b2192',1,'ElibriDictProductFormCode']]],
-  ['short_5fcollection_5fdescription',['SHORT_COLLECTION_DESCRIPTION',['../classElibriDictOtherTextType.html#a94b6de0c318723a72fe62011b2cccb60',1,'ElibriDictOtherTextType']]],
-  ['short_5fdescription',['SHORT_DESCRIPTION',['../classElibriDictOtherTextType.html#a319e9e312780bc92ad5a7ad86c8b9479',1,'ElibriDictOtherTextType']]],
-  ['similar_5fproducts',['SIMILAR_PRODUCTS',['../classElibriDictProductRelationType.html#ad48b2b01871172b1a2b3c9c1a4ecd5d7',1,'ElibriDictProductRelationType']]],
-  ['single_5fcomponent_5fretail_5fproduct',['SINGLE_COMPONENT_RETAIL_PRODUCT',['../classElibriDictProductComposition.html#ab28c4d398438584b250960fddd488e53',1,'ElibriDictProductComposition']]],
-  ['size_5fin_5fbytes',['SIZE_IN_BYTES',['../classElibriDictResourceVersionFeatureType.html#aa1d22d8c91fe665d26339218fd76f0ec',1,'ElibriDictResourceVersionFeatureType']]],
-  ['stocks_5fqueue',['STOCKS_QUEUE',['../classElibriAPI.html#a177d27e53d3370251dff213e9be01d62',1,'ElibriAPI']]],
-  ['suppliers_5fsales_5fclassification',['SUPPLIERS_SALES_CLASSIFICATION',['../classElibriDictSupplierOwnCodeType.html#a174d7c47fd36c75c8f0a6c0a3aae9f16',1,'ElibriDictSupplierOwnCodeType']]]
+  ['radio',['RADIO',['../classElibriDictContentSourceType.html#a253b5adde9edc4a0285ba0c89b031371',1,'ElibriDictContentSourceType']]],
+  ['read_5fby',['READ_BY',['../classElibriDictContributorRole.html#af3c448b9e2267da8f54b38228cfcfafc',1,'ElibriDictContributorRole']]],
+  ['reading_5fage',['READING_AGE',['../classElibriDictAudienceRangeQualifier.html#aee5cda12715bd74d90f1cb222bfdfc2d',1,'ElibriDictAudienceRangeQualifier']]],
+  ['refillall',['refillAll',['../classElibriAPI.html#a30a101e671fc23f49d4a7525123894bd',1,'ElibriAPI']]],
+  ['retailer_5fexclusive',['RETAILER_EXCLUSIVE',['../classElibriDictSalesRestrictionType.html#ab5a3dc43fec703f3b926f59b20f965eb',1,'ElibriDictSalesRestrictionType']]],
+  ['review',['REVIEW',['../classElibriDictOtherTextType.html#ae0d854965d30086832ffc105981f04dc',1,'ElibriDictOtherTextType\REVIEW()'],['../classElibriDictResourceContentType.html#a4c803f17782509dde574c0c6bad71196',1,'ElibriDictResourceContentType\REVIEW()']]],
+  ['revisor',['REVISOR',['../classElibriDictContributorRole.html#a43f2a7e5c6520c4afb981683b283d577',1,'ElibriDictContributorRole']]],
+  ['rrp_5fwith_5ftax',['RRP_WITH_TAX',['../classElibriDictPriceTypeCode.html#ab6db66d467b443ca4347bf8854f244ac',1,'ElibriDictPriceTypeCode']]],
+  ['rrp_5fwithout_5ftax',['RRP_WITHOUT_TAX',['../classElibriDictPriceTypeCode.html#a6e6a931f3e66aaa420c4d24068489874',1,'ElibriDictPriceTypeCode']]]
 ];

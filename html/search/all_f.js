@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['original_5ftitle',['ORIGINAL_TITLE',['../classElibriDictTitleType.html#a6367de613aec751a5de2bd49280873ef',1,'ElibriDictTitleType']]],
-  ['originator',['ORIGINATOR',['../classElibriDictContributorRole.html#af6a7e15f4891fb7a537685051bec583e',1,'ElibriDictContributorRole']]],
-  ['other_5fcartographic',['OTHER_CARTOGRAPHIC',['../classElibriDictProductFormCode.html#a8798b22e4853dc44356179c1e21bc788',1,'ElibriDictProductFormCode']]],
-  ['out_5fof_5fprint',['OUT_OF_PRINT',['../classElibriDictPublishingStatusCode.html#a661cda5675530419383c8cc3c7cf1d7c',1,'ElibriDictPublishingStatusCode']]],
-  ['out_5fof_5fprint_5fdate',['OUT_OF_PRINT_DATE',['../classElibriDictPublishingDateRole.html#a1e13b15e01eb36b68acce7de67fd076b',1,'ElibriDictPublishingDateRole']]]
+  ['no',['NO',['../classElibriDictPricePrintedOnProduct.html#a9ad2a9ba3e88afd9844d1d0a08331a5c',1,'ElibriDictPricePrintedOnProduct']]],
+  ['no_5fcontributors',['no_contributors',['../classElibriProduct.html#af26e7a8683e779d842db7ec5e8c87bdc',1,'ElibriProduct']]],
+  ['none',['NONE',['../classElibriDictEpubTechnicalProtection.html#a07f810c77a6a49f7a9277a3cb3d0bb6f',1,'ElibriDictEpubTechnicalProtection']]],
+  ['not_5favailable',['NOT_AVAILABLE',['../classElibriDictAvailability.html#ad7c6f600635178542bd5302dd9f6ad31',1,'ElibriDictAvailability\NOT_AVAILABLE()'],['../classElibriDictProductAvailabilityType.html#aa570e40f93aae92c89d77f528e645b66',1,'ElibriDictProductAvailabilityType\NOT_AVAILABLE()']]]
 ];
