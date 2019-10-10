@@ -117,8 +117,18 @@
   onix_code: 'ZE'
   const_name: GAME
   name:
-    en: board game / puzzle
-    pl: gra planszowa / puzzle
+    en: board game
+    pl: gra planszowa
+  digital: false
+  carrier: druk
+  mandatory_isbn: false
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'ZJ'
+  const_name: JIGSAW
+  name:
+    en: jigsaw
+    pl: puzzle
   digital: false
   carrier: druk
   mandatory_isbn: false

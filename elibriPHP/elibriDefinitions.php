@@ -1296,8 +1296,11 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
   //! kalendarz
   const CALENDAR = 'PC';
 
-  //! gra planszowa / puzzle
+  //! gra planszowa
   const GAME = 'ZE';
+
+  //! puzzle
+  const JIGSAW = 'ZJ';
 
   //! POD - okładka twarda
   const POD_HARDCOVER = 'PODH';
@@ -1319,7 +1322,8 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
           new ElibriDictAtom('CD', array('pl' => 'mapa w rolce', 'en' => 'sheet map / rolled'), 'SHEET_MAP_ROLLED'),
           new ElibriDictAtom('CZ', array('pl' => 'inny format kartograficzny', 'en' => 'other cartographic'), 'OTHER_CARTOGRAPHIC'),
           new ElibriDictAtom('PC', array('pl' => 'kalendarz', 'en' => 'calendar'), 'CALENDAR'),
-          new ElibriDictAtom('ZE', array('pl' => 'gra planszowa / puzzle', 'en' => 'board game / puzzle'), 'GAME'),
+          new ElibriDictAtom('ZE', array('pl' => 'gra planszowa', 'en' => 'board game'), 'GAME'),
+          new ElibriDictAtom('ZJ', array('pl' => 'puzzle', 'en' => 'jigsaw'), 'JIGSAW'),
           new ElibriDictAtom('PODH', array('pl' => 'POD - okładka twarda', 'en' => 'pod hardcover book'), 'POD_HARDCOVER'),
           new ElibriDictAtom('PODS', array('pl' => 'POD - okładka miękka', 'en' => 'pod softcover book'), 'POD_SOFTCOVER'),
       ));
