@@ -6,5 +6,6 @@ var searchData=
   ['collection',['COLLECTION',['../classElibriDictTitleElementLevel.html#adde157339a750d5b68bbde75a43f9eed',1,'ElibriDictTitleElementLevel']]],
   ['confirmed_5fon_5fpublication',['CONFIRMED_ON_PUBLICATION',['../classElibriDictNotificationType.html#a0664c3dd68414aa0d093836544a76209',1,'ElibriDictNotificationType']]],
   ['contact_5fsupplier',['CONTACT_SUPPLIER',['../classElibriDictProductAvailabilityType.html#a30cc8dc44a81a0f2c7c4ae9e73bf93f4',1,'ElibriDictProductAvailabilityType']]],
-  ['cover_5fdesigner',['COVER_DESIGNER',['../classElibriDictContributorRole.html#aefec2308a65637db5fc9448f13f465fb',1,'ElibriDictContributorRole']]]
+  ['cover_5fdesigner',['COVER_DESIGNER',['../classElibriDictContributorRole.html#aefec2308a65637db5fc9448f13f465fb',1,'ElibriDictContributorRole']]],
+  ['critical_5fedition',['CRITICAL_EDITION',['../classElibriDictEditionType.html#a0fc0b1cc16dd8f810810f91f4e12468c',1,'ElibriDictEditionType']]]
 ];

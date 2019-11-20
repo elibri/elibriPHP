@@ -30,6 +30,7 @@ var searchData=
   ['elibridictcontentsourcetype',['ElibriDictContentSourceType',['../classElibriDictContentSourceType.html',1,'']]],
   ['elibridictcontributorrole',['ElibriDictContributorRole',['../classElibriDictContributorRole.html',1,'']]],
   ['elibridictdateformat',['ElibriDictDateFormat',['../classElibriDictDateFormat.html',1,'']]],
+  ['elibridicteditiontype',['ElibriDictEditionType',['../classElibriDictEditionType.html',1,'']]],
   ['elibridictelement',['ElibriDictElement',['../classElibriDictElement.html',1,'']]],
   ['elibridictepubtechnicalprotection',['ElibriDictEpubTechnicalProtection',['../classElibriDictEpubTechnicalProtection.html',1,'']]],
   ['elibridictepubusagestatus',['ElibriDictEpubUsageStatus',['../classElibriDictEpubUsageStatus.html',1,'']]],
