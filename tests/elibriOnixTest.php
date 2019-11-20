@@ -70,6 +70,12 @@ class ElibriDictTest extends TestCase {
     $product = $this->load("onix_edition_example.xml");
 
     $this->assertEquals("wyd. 3, poprawione", $product->edition_statement);
+    
+    $this->assertEquals(ElibriDictEditionType::LARGE_TYPE_EDITION, $product->edition_type);
+    $this->assertEquals("LTE", $product->edition_type);
+
+    $this->assertEquals("LARGE_TYPE_EDITION", $product->edition_type_name);
+    $this->assertEquals("edycja z powiększoną czcionką", $product->edition_type_description);
   }
 
 

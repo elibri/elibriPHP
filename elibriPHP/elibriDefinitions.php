@@ -1127,6 +1127,48 @@ class ElibriDictContentAudience extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictEditionType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! edycja z powiększoną czcionką
+  const LARGE_TYPE_EDITION = 'LTE';
+
+  //! wydanie krytyczne (z komentarzem)
+  const CRITICAL_EDITION = 'CRI';
+
+  //! wydanie dwujęzyczne
+  const BILINGUAL_EDITION = 'BLL';
+
+  //! reprint
+  const FACSIMILE_EDITION = 'FAC';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('LTE', array('pl' => 'edycja z powiększoną czcionką', 'en' => 'large type edition'), 'LARGE_TYPE_EDITION'),
+          new ElibriDictAtom('CRI', array('pl' => 'wydanie krytyczne (z komentarzem)', 'en' => 'critial edition'), 'CRITICAL_EDITION'),
+          new ElibriDictAtom('BLL', array('pl' => 'wydanie dwujęzyczne', 'en' => 'bilingual edition'), 'BILINGUAL_EDITION'),
+          new ElibriDictAtom('FAC', array('pl' => 'reprint', 'en' => 'facsimile edition'), 'FACSIMILE_EDITION'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEditionType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictUnnamedPersons extends  ElibriDictElement {
 
   private static $instance;

@@ -283,6 +283,15 @@ class ElibriProduct {
   //! Numer wydania, jako string
   public $edition_statement;
 
+  //! Informacja o typie wydania (kod ONIX) - patrz ElibriDictProductType
+  public $edition_type;
+
+  //! Informacja o typie wydania jako string, np. 'LARGE_PRINT_EDITION'
+  public $edition_type_name;
+
+  //! Informacja o typie wydania opisowo, np. 'edycja z powiększoną czcionką'
+  public $edition_type_description;
+
   //! Liczba ilustracji
   public $number_of_illustrations;
 
@@ -743,6 +752,12 @@ class ElibriProduct {
         
     //descriptive detail - edition statement
     $this->edition_statement = FirstNodeValue::get($descriptive_detail, "EditionStatement");
+
+    $this->edition_type = FirstNodeValue::get($descriptive_detail, "EditionType");
+    if ($this->edition_type) {
+      $this->edition_type_name = ElibriDictEditionType::byCode($this->edition_type)->const_name;
+      $this->edition_type_description = ElibriDictEditionType::byCode($this->edition_type)->name["pl"];
+    }
         
     //descriptive details - langage
     foreach ($descriptive_detail->getElementsByTagName("Language") as $xml_fragment) {

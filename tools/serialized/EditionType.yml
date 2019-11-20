@@ -1,0 +1,34 @@
+
+--- 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'LTE'
+  const_name: LARGE_TYPE_EDITION
+  name:
+    en: large type edition
+    pl: edycja z powiększoną czcionką
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'CRI'
+  const_name: CRITICAL_EDITION
+  name:
+    en: critial edition
+    pl: wydanie krytyczne (z komentarzem)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'BLL'
+  const_name: BILINGUAL_EDITION
+  name:
+    en: bilingual edition
+    pl: wydanie dwujęzyczne
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'FAC'
+  const_name: FACSIMILE_EDITION
+  name:
+    en: facsimile edition
+    pl: reprint
+
+
+
+
