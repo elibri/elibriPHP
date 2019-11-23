@@ -9,6 +9,7 @@ var searchData=
   ['forthcoming',['FORTHCOMING',['../classElibriDictPublishingStatusCode.html#af26f37f4592f1e33bd06781c9c8090ed',1,'ElibriDictPublishingStatusCode']]],
   ['from',['FROM',['../classElibriDictAudienceRangePrecision.html#a75b10d5efd4e0baba31411a7b56120b4',1,'ElibriDictAudienceRangePrecision']]],
   ['front_5fcover',['FRONT_COVER',['../classElibriDictResourceContentType.html#afeb582aa82f5261ef1a62aec67a4b365',1,'ElibriDictResourceContentType']]],
+  ['front_5fcover_5f3d',['FRONT_COVER_3D',['../classElibriDictResourceContentType.html#a4a688b67a5f8323d3d086eee16450211',1,'ElibriDictResourceContentType']]],
   ['full_5fcover',['FULL_COVER',['../classElibriDictResourceContentType.html#a37dd92243ff47242a69b2894d7a1ecf9',1,'ElibriDictResourceContentType']]],
   ['full_5ftitle',['full_title',['../classElibriTitleElement.html#a5e4e13687b7504943ae6f08670637a77',1,'ElibriTitleElement\full_title()'],['../classElibriTitleDetail.html#afb915f2bed8a77f8dbea7ad505b80559',1,'ElibriTitleDetail\full_title()'],['../classElibriCollection.html#ab8f5a0bc4f00e023130b2ec15039b602',1,'ElibriCollection\full_title()']]]
 ];
