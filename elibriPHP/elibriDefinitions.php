@@ -1605,6 +1605,9 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
   //! okładka (tył)
   const BACK_COVER = '02';
 
+  //! okładka 3D
+  const FRONT_COVER_3D = '03';
+
   //! wywiad z autorem
   const AUTHOR_INTERVIEW = '11';
 
@@ -1631,6 +1634,7 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
       parent::__construct(array(
           new ElibriDictAtom('01', array('pl' => 'okładka (przód)', 'en' => 'front cover'), 'FRONT_COVER'),
           new ElibriDictAtom('02', array('pl' => 'okładka (tył)', 'en' => 'back cover'), 'BACK_COVER'),
+          new ElibriDictAtom('03', array('pl' => 'okładka 3D', 'en' => 'front cover 3D'), 'FRONT_COVER_3D'),
           new ElibriDictAtom('11', array('pl' => 'wywiad z autorem', 'en' => 'author interview'), 'AUTHOR_INTERVIEW'),
           new ElibriDictAtom('13', array('pl' => 'fragment książki czytany przez autora', 'en' => 'author reading'), 'AUTHOR_READING'),
           new ElibriDictAtom('15', array('pl' => 'fragment książki (plik mp3/jpg/png)', 'en' => 'sample content'), 'SAMPLE_CONTENT'),

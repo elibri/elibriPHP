@@ -15,6 +15,14 @@
     pl: okładka (tył)
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '03'
+  const_name: FRONT_COVER_3D
+  name:
+    en: front cover 3D
+    pl: okładka 3D
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
   onix_code: '11'
   const_name: AUTHOR_INTERVIEW
   name:
