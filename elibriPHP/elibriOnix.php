@@ -28,7 +28,7 @@ class CoverType {
   public static function determine($product_form, $product_form_detail) {
     if ($product_form == "BG") {
       return "skórzana";
-    } else if ($product_form == "BF") {
+    } else if ($product_form == "BP") {
       return "gąbka";
     } else if ($product_form == "BC") {
       if ($product_form_detail == "B504") {
