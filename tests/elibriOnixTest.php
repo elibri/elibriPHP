@@ -548,6 +548,15 @@ class ElibriDictTest extends TestCase {
 
   }
 
+  public function test_onix_with_unknow_dict_values() {
+    $product = $this->load("unknow_fields.xml");
+
+    #głównie chodzi o to, żeby parsowanie onix-a zakończyło się bez błędu
+    $this->assertEquals("AL", $product->product_form);
+
+
+  }
+
 }
 
 

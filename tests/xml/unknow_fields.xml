@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
+  <Header>
+    <Sender>
+      <SenderName>Elibri.com.pl</SenderName>
+      <ContactName>Tomasz Meka</ContactName>
+      <EmailAddress>kontakt@elibri.com.pl</EmailAddress>
+    </Sender>
+    <SentDateTime>20190815</SentDateTime>
+  </Header>
+  <Product>
+    <RecordReference>9a9248d4afcdb69d44ce</RecordReference>
+    <!--NotificationType: CONFIRMED_ON_PUBLICATION-->
+    <NotificationType>03</NotificationType>
+    <ProductIdentifier>
+      <!--ProductIDType: ISBN13-->
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9788380625952</IDValue>
+    </ProductIdentifier>
+    <ProductIdentifier>
+      <!--DOI -->
+      <ProductIDType>06</ProductIDType>
+      <IDValue>10.1159/000330840</IDValue>
+    </ProductIdentifier>
+
+    <DescriptiveDetail>
+      <ProductComposition>00</ProductComposition>
+      <!-- SDA CARD -->
+      <ProductForm>AL</ProductForm>
+      <TitleDetail>
+        <!--TitleType: DISTINCTIVE_TITLE--><TitleType>01</TitleType>
+        <TitleElement>
+          <!--TitleElementLevel: PRODUCT--><TitleElementLevel>01</TitleElementLevel>
+          <TitleText>Kwiaty dla Algernona</TitleText>
+        </TitleElement>
+      </TitleDetail>
+      <TitleDetail>
+        <!--TitleType: DISTRIBUTORS_TITLE--><TitleType>10</TitleType>
+        <TitleElement>
+          <!--TitleElementLevel: PRODUCT--><TitleElementLevel>01</TitleElementLevel>
+          <TitleText>KWIATY DLA ALGERNONA</TitleText>
+        </TitleElement>
+      </TitleDetail>
+      <Contributor sourcename="contributorid:221076" datestamp="20190614T0946">
+        <SequenceNumber>1</SequenceNumber>
+        <!-- Dancer -->
+        <ContributorRole>E02</ContributorRole>
+        <PersonName>Daniel Keyes</PersonName>
+        <NamesBeforeKey>Daniel</NamesBeforeKey>
+        <KeyNames>Keyes</KeyNames>
+      </Contributor>
+      <Language>
+        <!--language of subtitles-->
+        <LanguageRole>09</LanguageRole>
+        <!--LanguageCode: Polish-->
+        <LanguageCode>pol</LanguageCode>
+      </Language>
+      <Extent>
+        <ExtentType>13</ExtentType>
+        <ExtentValue>489</ExtentValue>
+        <ExtentUnit>02</ExtentUnit>
+      </Extent>
+    </DescriptiveDetail>
+    <CollateralDetail>
+      <TextContent sourcename="textid:122995" datestamp="20190614T0946">
+        <TextType>08</TextType>
+        <ContentAudience>00</ContentAudience>
+        <Text>
+          <![CDATA[test test test]]>
+        </Text>
+      </TextContent>
+      <SupportingResource sourcename="resourceid:139506" datestamp="20190628T1219">
+        <ResourceContentType>18</ResourceContentType>
+        <!--ContentAudience: UNRESTRICTED--><ContentAudience>00</ContentAudience>
+        <ResourceMode>06</ResourceMode>
+        <ResourceVersion>
+          <!--ResourceForm: DOWNLOADABLE_FILE--><ResourceForm>02</ResourceForm>
+          <ResourceLink>http://www.elibri.com.pl/system/product_attachments/production/000/139/506/original/f0664143/kwiaty_dla_algernona_okladka_mp3.jpg</ResourceLink>
+          <ContentDate>
+            <!--ContentDateRole: LAST_UPDATED--><ContentDateRole>17</ContentDateRole>
+            <Date dateformat="00">20190628</Date>
+          </ContentDate>
+        </ResourceVersion>
+      </SupportingResource>
+    </CollateralDetail>
+    <PublishingDetail>
+      <Publisher>
+        <PublishingRole>01</PublishingRole>
+        <PublisherIdentifier>
+          <PublisherIDType>01</PublisherIDType>
+          <IDTypeName>ElibriPublisherCode</IDTypeName>
+          <IDValue>17</IDValue>
+        </PublisherIdentifier>
+        <PublisherName>Rebis</PublisherName>
+      </Publisher>
+      <CityOfPublication>Poznań</CityOfPublication>
+      <PublishingStatus>04</PublishingStatus>
+      <PublishingDate>
+        <!--PublishingDateRole: PUBLICATION_DATE--><PublishingDateRole>01</PublishingDateRole>
+        <!--DateFormat: YYYYMMDD--><DateFormat>00</DateFormat>
+        <Date dateformat="00">20190724</Date>
+      </PublishingDate>
+      <SalesRights>
+        <SalesRightsType>01</SalesRightsType>
+        <Territory>
+          <RegionsIncluded>WORLD</RegionsIncluded>
+        </Territory>
+      </SalesRights>
+    </PublishingDetail>
+    <RelatedMaterial>
+      <RelatedProduct>
+        <ProductRelationCode>24</ProductRelationCode>
+        <ProductIdentifier>
+          <!--ProductIDType: PROPRIETARY--><ProductIDType>01</ProductIDType>
+          <IDTypeName>elibri</IDTypeName>
+          <IDValue>9be82a96d04d2ace41c9</IDValue>
+        </ProductIdentifier>
+      </RelatedProduct>
+      <RelatedProduct>
+        <ProductRelationCode>24</ProductRelationCode>
+        <ProductIdentifier>
+          <!--ProductIDType: PROPRIETARY--><ProductIDType>01</ProductIDType>
+          <IDTypeName>elibri</IDTypeName>
+          <IDValue>dc7c5f11116598b68463</IDValue>
+        </ProductIdentifier>
+      </RelatedProduct>
+      <RelatedProduct>
+        <ProductRelationCode>24</ProductRelationCode>
+        <ProductIdentifier>
+          <!--ProductIDType: PROPRIETARY--><ProductIDType>01</ProductIDType>
+          <IDTypeName>elibri</IDTypeName>
+          <IDValue>cd969a1053fad586ae1f</IDValue>
+        </ProductIdentifier>
+      </RelatedProduct>
+    </RelatedMaterial>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <!--SupplierRole: PUB_TO_RET--><SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL7790000847</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>Rebis</SupplierName>
+        </Supplier>
+        <ProductAvailability>20</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceAmount>34.9</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>23</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+  </Product>
+</ONIXMessage>

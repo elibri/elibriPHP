@@ -692,7 +692,9 @@ class ElibriProduct {
       }
       $this->product_form = "BA";
     }
-    $this->product_form_name = ElibriDictProductFormCode::byCode($this->product_form)->const_name;
+    if (ElibriDictProductFormCode::byCode($this->product_form)) {
+      $this->product_form_name = ElibriDictProductFormCode::byCode($this->product_form)->const_name;
+    }
         
     //wymiary produktu
     foreach ($descriptive_detail->getElementsByTagName("Measure") as $xml_fragment) {
@@ -754,7 +756,7 @@ class ElibriProduct {
     $this->edition_statement = FirstNodeValue::get($descriptive_detail, "EditionStatement");
 
     $this->edition_type = FirstNodeValue::get($descriptive_detail, "EditionType");
-    if ($this->edition_type) {
+    if (($this->edition_type) && ElibriDictEditionType::byCode($this->edition_type)) {
       $this->edition_type_name = ElibriDictEditionType::byCode($this->edition_type)->const_name;
       $this->edition_type_description = ElibriDictEditionType::byCode($this->edition_type)->name["pl"];
     }
@@ -804,12 +806,14 @@ class ElibriProduct {
       foreach ($descriptive_detail->getElementsByTagName("ProductFormDetail") as $xml_fragment) {
          $code = $xml_fragment->nodeValue;
          $atom = ElibriDictProductFormDetail::byCode($code);
-         $this->digital_formats[] = str_replace("MOBIPOCKET", "MOBI", $atom->const_name);
+         if ($atom) {
+           $this->digital_formats[] = str_replace("MOBIPOCKET", "MOBI", $atom->const_name);
+         }
       }
     }
     //zabezpiecznie
     $protection = FirstNodeValue::get($descriptive_detail, "EpubTechnicalProtection");
-    if ($protection) {
+    if ($protection && ElibriDictEpubTechnicalProtection::byCode($protection)) {
       $this->technical_protection = ElibriDictEpubTechnicalProtection::byCode($protection)->const_name;
     }
 
@@ -924,7 +928,9 @@ class ElibriProductIdentifier {
     $this->value = $xml_fragment->getElementsByTagName("IDValue")->item(0)->nodeValue;
     $this->proprietary = ($this->type == ElibriDictProductIDType::PROPRIETARY);
     $this->type_name = FirstNodeValue::get($xml_fragment, "IDTypeName");
-    $this->identifier_type = ElibriDictProductIDType::byCode($this->type)->const_name;
+    if (ElibriDictProductIDType::byCode($this->type)) {
+      $this->identifier_type = ElibriDictProductIDType::byCode($this->type)->const_name;
+    }
   }
 
 }
@@ -949,7 +955,9 @@ class ElibriMeasure {
     $this->type = $xml_fragment->getElementsByTagName("MeasureType")->item(0)->nodeValue;
     $this->measurement = intval($xml_fragment->getElementsByTagName("Measurement")->item(0)->nodeValue);
     $this->unit = $xml_fragment->getElementsByTagName("MeasureUnitCode")->item(0)->nodeValue;
-    $this->type_name = ElibriDictMeasureType::byCode($this->type)->const_name;
+    if (ElibriDictMeasureType::byCode($this->type)) {
+      $this->type_name = ElibriDictMeasureType::byCode($this->type)->const_name;
+    }
   }
 }
   
@@ -1016,7 +1024,9 @@ class ElibriTitleDetail {
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("TitleType")->item(0)->nodeValue;
-    $this->type_name = ElibriDictTitleType::byCode($this->type)->const_name;
+    if (ElibriDictTitleType::byCode($this->type)) {
+      $this->type_name = ElibriDictTitleType::byCode($this->type)->const_name;
+    }
     
     foreach ($xml_fragment->getElementsByTagName("TitleElement") as $title_element) {
       $this->elements[] = new ElibriTitleElement($title_element);
@@ -1096,7 +1106,9 @@ class ElibriCollection {
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("CollectionType")->item(0)->nodeValue;
     $this->title_detail = new ElibriTitleDetail($xml_fragment->getElementsByTagName("TitleDetail")->item(0));
-    $this->type_name = ElibriDictCollectionType::byCode($this->type)->const_name;
+    if (ElibriDictCollectionType::byCode($this->type)) {
+      $this->type_name = ElibriDictCollectionType::byCode($this->type)->const_name;
+    }
   }
 
 
@@ -1154,7 +1166,9 @@ class ElibriContributor extends ElibriAnnotatedObject {
 
     $this->number = FirstNodeValue::get($xml_fragment, "SequenceNumber");
     $this->role = FirstNodeValue::get($xml_fragment, "ContributorRole");
-    $this->role_name = ElibriDictContributorRole::byCode($this->role)->const_name;
+    if (ElibriDictContributorRole::byCode($this->role)) {
+      $this->role_name = ElibriDictContributorRole::byCode($this->role)->const_name;
+    }
     if ($this->role == ElibriDictContributorRole::TRANSLATOR) {
       $this->from_language = FirstNodeValue::get($xml_fragment, "FromLanguage");
     }
@@ -1188,7 +1202,9 @@ class ElibriLanguage {
   function __construct($xml_fragment) {
     $this->role = $xml_fragment->getElementsByTagName("LanguageRole")->item(0)->nodeValue;
     $this->code = $xml_fragment->getElementsByTagName("LanguageCode")->item(0)->nodeValue;
-    $this->role_name = ElibriDictLanguageRole::byCode($this->role)->const_name;
+    if (ElibriDictLanguageRole::byCode($this->role)) {
+      $this->role_name = ElibriDictLanguageRole::byCode($this->role)->const_name;
+    }
     $this->language = ElibriDictLanguageCode::byCode($this->code)->name["pl"];
   }
 }
@@ -1217,8 +1233,12 @@ class ElibriExtent {
     $this->value = FirstNodeValue::get($xml_fragment, "ExtentValue");
     $this->unit = FirstNodeValue::get($xml_fragment, "ExtentUnit");
 
-    $this->type_name = ElibriDictExtentType::byCode($this->type)->const_name;
-    $this->unit_name = ElibriDictExtentUnit::byCode($this->unit)->const_name;
+    if (ElibriDictExtentType::byCode($this->type)) {
+      $this->type_name = ElibriDictExtentType::byCode($this->type)->const_name;
+    }
+    if (ElibriDictExtentUnit::byCode($this->unit)) {
+      $this->unit_name = ElibriDictExtentUnit::byCode($this->unit)->const_name;
+    }
 
   }
 }
@@ -1267,9 +1287,13 @@ class ElibriAudienceRange {
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->qualifier = $xml_fragment->getElementsByTagName("AudienceRangeQualifier")->item(0)->nodeValue;
-    $this->qulifier_name = ElibriDictAudienceRangeQualifier::byCode($this->qualifier)->const_name;
+    if (ElibriDictAudienceRangeQualifier::byCode($this->qualifier)) {
+      $this->qulifier_name = ElibriDictAudienceRangeQualifier::byCode($this->qualifier)->const_name;
+    }
     $this->precision = $xml_fragment->getElementsByTagName("AudienceRangePrecision")->item(0)->nodeValue;
-    $this->precision_name = ElibriDictAudienceRangePrecision::byCode($this->precision)->const_name;
+    if (ElibriDictAudienceRangePrecision::byCode($this->precision)) {
+      $this->precision_name = ElibriDictAudienceRangePrecision::byCode($this->precision)->const_name;
+    }
     $this->value = $xml_fragment->getElementsByTagName("AudienceRangeValue")->item(0)->nodeValue;
   }
 }
@@ -1294,7 +1318,9 @@ class ElibriTextContent extends ElibriAnnotatedObject {
     parent::__construct($xml_fragment);
 
     $this->type = FirstNodeValue::get($xml_fragment, "TextType");
-    $this->type_name = ElibriDictOtherTextType::byCode($this->type)->const_name;
+    if (ElibriDictOtherTextType::byCode($this->type)) {
+      $this->type_name = ElibriDictOtherTextType::byCode($this->type)->const_name;
+    }
     $this->text = trim(FirstNodeValue::get($xml_fragment, "Text")); 
     $this->author = FirstNodeValue::get($xml_fragment, "TextAuthor");
   }
@@ -1335,13 +1361,25 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
     parent::__construct($xml_fragment);
 
     $this->content_type = $xml_fragment->getElementsByTagName("ResourceContentType")->item(0)->nodeValue;
-    $this->content_type_name = ElibriDictResourceContentType::byCode($this->content_type)->const_name;
+    if (ElibriDictResourceContentType::byCode($this->content_type)) {
+      $this->content_type_name = ElibriDictResourceContentType::byCode($this->content_type)->const_name;
+    }
+
     $this->audience = $xml_fragment->getElementsByTagName("ContentAudience")->item(0)->nodeValue;
-    $this->audience_name = ElibriDictContentAudience::byCode($this->audience)->const_name;
+    if (ElibriDictContentAudience::byCode($this->audience)) {
+      $this->audience_name = ElibriDictContentAudience::byCode($this->audience)->const_name;
+    }
+
     $this->mode = $xml_fragment->getElementsByTagName("ResourceMode")->item(0)->nodeValue;
-    $this->mode_name = ElibriDictResourceMode::byCode($this->mode)->const_name;
+    if (ElibriDictResourceMode::byCode($this->mode)) {
+      $this->mode_name = ElibriDictResourceMode::byCode($this->mode)->const_name;
+    }
+
     $this->form = $xml_fragment->getElementsByTagName("ResourceVersion")->item(0)->getElementsByTagName("ResourceForm")->item(0)->nodeValue;
-    $this->form_name = ElibriDictResourceForm::byCode($this->form)->const_name;
+    if (ElibriDictResourceForm::byCode($this->form)) {
+      $this->form_name = ElibriDictResourceForm::byCode($this->form)->const_name;
+    }
+
     $this->link = $xml_fragment->getElementsByTagName("ResourceVersion")->item(0)->getElementsByTagName("ResourceLink")->item(0)->nodeValue;
   }   
 }
@@ -1397,7 +1435,9 @@ class ElibriPublishingDate {
     $this->format = FirstNodeValue::get($xml_fragment, "DateFormat");
     $this->date = FirstNodeValue::get($xml_fragment, "Date");
 
-    $this->format_name = ElibriDictDateFormat::byCode($this->format)->const_name;
+    if (ElibriDictDateFormat::byCode($this->format)) {
+      $this->format_name = ElibriDictDateFormat::byCode($this->format)->const_name;
+    }
     $this->parsed =  ElibriPublishingDate::parseDate($this->date, $this->format_name);
   }
 
@@ -1433,7 +1473,9 @@ class ElibriSalesRestriction {
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("SalesRestrictionType")->item(0)->nodeValue;
-    $this->type_name = ElibriDictSalesRestrictionType::byCode($this->type)->const_name;
+    if (ElibriDictSalesRestrictionType::byCode($this->type)) {
+      $this->type_name = ElibriDictSalesRestrictionType::byCode($this->type)->const_name;
+    }
     $this->outlet_name = $xml_fragment->getElementsByTagName("SalesOutlet")->item(0)->getElementsByTagName("SalesOutletName")->item(0)->nodeValue;
     $this->end_date = $xml_fragment->getElementsByTagName("EndDate")->item(0)->nodeValue;
     $this->end_date_as_datetime = new DateTime(substr($this->end_date, 0, 4) . "-" . substr($this->end_date, 4, 2) . "-" . substr($this->end_date, 6, 2));
@@ -1558,7 +1600,9 @@ class ElibriPrice {
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = FirstNodeValue::get($xml_fragment, "PriceType");
-    $this->type_name = ElibriDictPriceTypeCode::byCode($this->type)->const_name;
+    if (ElibriDictPriceTypeCode::byCode($this->type)) {
+      $this->type_name = ElibriDictPriceTypeCode::byCode($this->type)->const_name;
+    }
     $this->minimum_order_quantity = FirstNodeValue::get($xml_fragment, "MinimumOrderQuantity", true);
     $this->amount = floatval($xml_fragment->getElementsByTagName("PriceAmount")->item(0)->nodeValue);
     $this->tax_type = intval($xml_fragment->getElementsByTagName("Tax")->item(0)->getElementsByTagName("TaxType")->item(0)->nodeValue);
@@ -1570,7 +1614,7 @@ class ElibriPrice {
 
     $this->currency_code = FirstNodeValue::get($xml_fragment, "CurrencyCode");
     $this->printed_on_product = FirstNodeValue::get($xml_fragment, "PrintedOnProduct");
-    if ($this->printed_on_product) {
+    if (($this->printed_on_product) && ElibriDictPricePrintedOnProduct::byCode($this->printed_on_product)) {
       $this->printed_on_product_name = ElibriDictPricePrintedOnProduct::byCode($this->printed_on_product)->const_name;
     }
 
@@ -1654,7 +1698,9 @@ class ElibriSupplyDetail {
     $this->supplier = $supplier;
         
     $this->product_availability = FirstNodeValue::get($xml_fragment, "ProductAvailability");
-    $this->product_availability_name = ElibriDictProductAvailabilityType::byCode($this->product_availability)->const_name;
+    if (ElibriDictProductAvailabilityType::byCode($this->product_availability)) {
+      $this->product_availability_name = ElibriDictProductAvailabilityType::byCode($this->product_availability)->const_name;
+    }
 
     if ($xml_fragment->getElementsByTagName("SupplierOwnCoding")->length > 0) {
       $this->supplier_own_coding = $xml_fragment->getElementsByTagName("SupplierOwnCoding")->item(0)->getElementsByTagName("SupplierCodeValue")->item(0)->nodeValue;
@@ -1669,7 +1715,9 @@ class ElibriSupplyDetail {
 
         if ($xstock->getElementsByTagName("Proximity")->length > 0) {
           $this->proximity = FirstNodeValue::get($xstock, "Proximity", true);
-          $this->proximity_name = ElibriDictProximity::byCode($this->proximity)->const_name;
+          if (ElibriDictProximity::byCode($this->proximity)) {
+            $this->proximity_name = ElibriDictProximity::byCode($this->proximity)->const_name;
+          }
         }
 
     }
