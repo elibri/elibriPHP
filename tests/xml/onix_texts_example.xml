@@ -56,7 +56,16 @@
         <Text>
           <![CDATA[Fragment książki<br/>[...]]]>
         </Text>
+      <TextContent sourcename="textid:137" datestamp="20111204T1235">
+        <TextType>03</TextType>
+        <ContentAudience>04</ContentAudience>
+        <Text>
+          <![CDATA[Opis książki dla bibliotekarzy[...]]]>
+        </Text>
       </TextContent>
+      </TextContent>
+
+
     </CollateralDetail>
     <PublishingDetail>
       <Publisher>

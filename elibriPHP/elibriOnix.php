@@ -670,12 +670,14 @@ class ElibriProduct {
   private function parseCollateralDetail($collateral_node) {
      foreach ($collateral_node->getElementsByTagName("TextContent") as $xml_fragment) {
         $textcontent = new ElibriTextContent($xml_fragment);
-        switch ($textcontent->type) {
-          case ElibriDictOtherTextType::TABLE_OF_CONTENTS: $this->table_of_contents = $textcontent; break;
-          case ElibriDictOtherTextType::MAIN_DESCRIPTION: $this->description = $textcontent; break;
-          case ElibriDictOtherTextType::SHORT_DESCRIPTION: $this->short_description = $textcontent; break;
-          case ElibriDictOtherTextType::REVIEW: $this->reviews[] = $textcontent; break;
-          case ElibriDictOtherTextType::EXCERPT: $this->excerpts[] = $textcontent; break;
+        if ($textcontent->audience == ElibriDictContentAudience::UNRESTRICTED) {
+          switch ($textcontent->type) {
+            case ElibriDictOtherTextType::TABLE_OF_CONTENTS: $this->table_of_contents = $textcontent; break;
+            case ElibriDictOtherTextType::MAIN_DESCRIPTION: $this->description = $textcontent; break;
+            case ElibriDictOtherTextType::SHORT_DESCRIPTION: $this->short_description = $textcontent; break;
+            case ElibriDictOtherTextType::REVIEW: $this->reviews[] = $textcontent; break;
+            case ElibriDictOtherTextType::EXCERPT: $this->excerpts[] = $textcontent; break;
+          }
         }
         $this->text_contents[] = $textcontent;
       }
@@ -1337,6 +1339,9 @@ class ElibriAudienceRange {
 //! @brief Klasa reprezentuje teksty towarzyszące produktowi
 class ElibriTextContent extends ElibriAnnotatedObject {
     
+  //! ograniczenia w rozpowszechnianiu (kod ONIX) - w tej chwili '00' (bez ograniczeń) lub '04' (dla bibliotekarzy) - patrz ElibriDictContentAudience
+  public $audience;
+
   //! rodzaj tekstu (kod ONIX) - patrz ElibriDictOtherTextType
   public $type;
 
@@ -1349,6 +1354,9 @@ class ElibriTextContent extends ElibriAnnotatedObject {
   //! rodzaj tekstu jako string, np. 'MAIN_DESCRIPTION'
   public $type_name;
 
+  //! np. 'UNRESTRICTED', 'LIBRARIANS'
+  public $audience_name;
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     parent::__construct($xml_fragment);
@@ -1359,6 +1367,11 @@ class ElibriTextContent extends ElibriAnnotatedObject {
     }
     $this->text = trim(FirstNodeValue::get($xml_fragment, "Text")); 
     $this->author = FirstNodeValue::get($xml_fragment, "TextAuthor");
+
+    $this->audience = $xml_fragment->getElementsByTagName("ContentAudience")->item(0)->nodeValue;
+    if (ElibriDictContentAudience::byCode($this->audience)) {
+      $this->audience_name = ElibriDictContentAudience::byCode($this->audience)->const_name;
+    }
   }
 }
   
@@ -1368,7 +1381,7 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
   //! rodzaj zawartości (kod ONIX) - patrz ElibriDictResourceContentType
   public $content_type;
 
-  //! ograniczenia w rozpowszechnianiu - w tej chwili tylko '00' - bez ograniczeń (kod ONIX) - patrz ElibriDictContentAudience
+  //! ograniczenia w rozpowszechnianiu (kod ONIX) - w tej chwili '00' (bez ograniczeń) lub '04' (dla bibliotekarzy) - patrz ElibriDictContentAudience
   public $audience;
 
   //! typ zawartości: audio, tekst, obrazek (kod ONIX) - patrz ElibriDictResourceMode
@@ -1383,7 +1396,7 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
   //! rodzaj zawartości - jako string, np. 'FRONT_COVER'
   public $content_type_name;
 
-  //! w tej chwili zawsze 'UNRESTRICTED'
+  //! np. 'UNRESTRICTED', 'LIBRARIANS'
   public $audience_name;
 
   //! rodzaj zawartości jako string, np. 'AUDIO'

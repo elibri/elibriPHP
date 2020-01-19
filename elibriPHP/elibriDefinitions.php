@@ -1151,10 +1151,14 @@ class ElibriDictContentAudience extends  ElibriDictElement {
   //! brak ograniczeń
   const UNRESTRICTED = '00';
 
+  //! dla bibliotekarzy
+  const LIBRARIANS = '04';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('00', array('pl' => 'brak ograniczeń', 'en' => 'unrestricted'), 'UNRESTRICTED'),
+          new ElibriDictAtom('04', array('pl' => 'dla bibliotekarzy', 'en' => 'librarians'), 'LIBRARIANS'),
       ));
 
    }

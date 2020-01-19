@@ -12,6 +12,7 @@
  *
  * - parsowanie informacji związanych z grami planszowymi i puzzle: nowe pola doyczące ilości elementów, czasu gry oraz ilości graczy
  * - nowy kod dla plików dołączanych do opisu produktu ($supporting_resources) - ElibriDictResourceContentType::RULES_OR_INSTRUCTIONS
+ * - pola table_of_contents, description, short_description, reviews, excerpts mogą zawierać tylko teksty, dla których ContentAudience jest UNRESTRICTED
  *
  * \subsection c09082019 9 sierpień 2019 roku
  *

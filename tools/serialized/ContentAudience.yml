@@ -6,3 +6,12 @@
   name:
     en: unrestricted
     pl: brak ograniczeń
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContentAudience
+  onix_code: '04'
+  const_name: LIBRARIANS
+  name:
+    en: librarians
+    pl: dla bibliotekarzy
+
+
