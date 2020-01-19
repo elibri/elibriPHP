@@ -8,5 +8,6 @@ var searchData=
   ['large_5ftype_5fedition',['LARGE_TYPE_EDITION',['../classElibriDictEditionType.html#a6a9dfd223498c3b6ca7b99b09b7935de',1,'ElibriDictEditionType']]],
   ['last_5fupdated',['LAST_UPDATED',['../classElibriDictContentDateRole.html#aec750313a049d9daa32ab797d2db6d9f',1,'ElibriDictContentDateRole']]],
   ['lastpopqueue',['lastPopQueue',['../classElibriAPI.html#a0f86aaa747d4104a03fe85fe5e445ba8',1,'ElibriAPI']]],
+  ['librarians',['LIBRARIANS',['../classElibriDictContentAudience.html#a74a208c72d2823ea05f08859afa9529e',1,'ElibriDictContentAudience']]],
   ['limited',['LIMITED',['../classElibriDictEpubUsageStatus.html#af692b6a16440429f2a0f6abc44ec591c',1,'ElibriDictEpubUsageStatus']]]
 ];

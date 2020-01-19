@@ -1,8 +1,8 @@
 var searchData=
 [
   ['_24additional_5ftrade_5finformation',['$additional_trade_information',['../classElibriProduct.html#ac68cbaef7c72fd6db58d86149091c46d',1,'ElibriProduct']]],
-  ['_24audience',['$audience',['../classElibriSupportingResource.html#acdc13181697969830484f7ad01af1d88',1,'ElibriSupportingResource']]],
-  ['_24audience_5fname',['$audience_name',['../classElibriSupportingResource.html#a5d2146af7c327d07ecdbdd8c187df508',1,'ElibriSupportingResource']]],
+  ['_24audience',['$audience',['../classElibriTextContent.html#a293d27f542a0511555dd816abb3e3471',1,'ElibriTextContent\$audience()'],['../classElibriSupportingResource.html#acdc13181697969830484f7ad01af1d88',1,'ElibriSupportingResource\$audience()']]],
+  ['_24audience_5fname',['$audience_name',['../classElibriTextContent.html#a687ad222633535d6a56f6310dae42fa6',1,'ElibriTextContent\$audience_name()'],['../classElibriSupportingResource.html#a5d2146af7c327d07ecdbdd8c187df508',1,'ElibriSupportingResource\$audience_name()']]],
   ['_24author',['$author',['../classElibriTextContent.html#a756e3a7fc04fb09e2410f52b49574d5f',1,'ElibriTextContent']]],
   ['_24biographical_5fnote',['$biographical_note',['../classElibriContributor.html#a4a12aa91a788ece076f2020e3749ce0d',1,'ElibriContributor']]],
   ['_24city',['$city',['../classElibriPublisherInfo.html#ae3bf8492f76a1492d92c19c33ea81833',1,'ElibriPublisherInfo']]],
