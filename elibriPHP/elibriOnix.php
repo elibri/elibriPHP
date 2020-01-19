@@ -401,6 +401,22 @@ class ElibriProduct {
 
   //! flaga bool, czy dla produktu istnieje podgląd
   public $preview_exists;
+
+  //! ilość elementów (puzzle, gry planszowe)      
+  public $number_of_pieces;
+
+  //! min. ilość graczy - gry planszowe
+  public $players_number_from;
+
+  //! max. ilość graczy - gry planszowe
+  public $players_number_to;
+
+  //! min. czas gry - gry planszowe
+  public $playing_time_from;
+
+  //! max. czas gry - gry planszowe
+  public $playing_time_to;
+
   
   //! \brief status wydawniczy - wartość String - jedna z: 'announced', 'preorder', 'published', 'out_of_print' 
   //! \details 
@@ -694,6 +710,26 @@ class ElibriProduct {
     }
     if (ElibriDictProductFormCode::byCode($this->product_form)) {
       $this->product_form_name = ElibriDictProductFormCode::byCode($this->product_form)->const_name;
+    }
+
+    //ProductFormFeautures - liczba graczy, czas gry itd.
+    foreach ($descriptive_detail->getElementsByTagName("ProductFormFeature") as $feature) {
+      $feature_type = FirstNodeValue::get($feature, "ProductFormFeatureType");
+      $feature_value = explode("-", (FirstNodeValue::get($feature, "ProductFormFeatureValue") ?? FirstNodeValue::get($feature, "ProductFormFeatureDescription")));
+
+      if ($feature_type == ElibriDictProductFormFeatureType::NUMBER_OF_GAME_PIECES) {
+        $this->number_of_pieces = $feature_value[0];
+      } else if ($feature_type == ElibriDictProductFormFeatureType::GAME_PLAYERS) {
+        $this->players_number_from = $feature_value[0];
+        if (count($feature_value) > 1) {
+          $this->players_number_to = explode(" ", $feature_value[1])[0];
+        }
+      } else if ($feature_type == ElibriDictProductFormFeatureType::GAME_PLAY_TIME) { 
+        $this->playing_time_from = $feature_value[0];
+        if (count($feature_value) > 1) {
+          $this->playing_time_to = explode(" ", $feature_value[1])[0];
+        }
+      }
     }
         
     //wymiary produktu

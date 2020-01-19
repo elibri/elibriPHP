@@ -201,6 +201,13 @@
   name:
     en: Portuguese  
     pl: portugalski
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: qlk
+  name:
+    en: Lemko
+    pl: łemkowski
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
   onix_code: rum
   name:

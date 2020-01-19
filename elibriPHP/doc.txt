@@ -8,6 +8,11 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c19012020 19 stycznia 2020 roku
+ *
+ * - parsowanie informacji związanych z grami planszowymi i puzzle: nowe pola doyczące ilości elementów, czasu gry oraz ilości graczy
+ * - nowy kod dla plików dołączanych do opisu produktu ($supporting_resources) - ElibriDictResourceContentType::RULES_OR_INSTRUCTIONS
+ *
  * \subsection c09082019 9 sierpień 2019 roku
  *
  * - informacja o cenie okładkowej i stawce VAT pobierana z elementu Price

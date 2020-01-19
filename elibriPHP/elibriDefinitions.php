@@ -343,6 +343,44 @@ class ElibriDictProductComposition extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictProductFormFeatureType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! Ilość elementów
+  const NUMBER_OF_GAME_PIECES = '22';
+
+  //! liczba graczy
+  const GAME_PLAYERS = '23';
+
+  //! Czas gry
+  const GAME_PLAY_TIME = '24';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('22', array('pl' => 'Ilość elementów', 'en' => 'Number of game pieces'), 'NUMBER_OF_GAME_PIECES'),
+          new ElibriDictAtom('23', array('pl' => 'liczba graczy', 'en' => 'Game players'), 'GAME_PLAYERS'),
+          new ElibriDictAtom('24', array('pl' => 'Czas gry', 'en' => 'Game play time'), 'GAME_PLAY_TIME'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictProductFormFeatureType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictTaxType extends  ElibriDictElement {
 
   private static $instance;
@@ -454,6 +492,7 @@ class ElibriDictLanguageCode extends  ElibriDictElement {
           new ElibriDictAtom('per', array('pl' => 'perski', 'en' => 'Persian'), NULL),
           new ElibriDictAtom('pol', array('pl' => 'polski', 'en' => 'Polish'), NULL),
           new ElibriDictAtom('por', array('pl' => 'portugalski', 'en' => 'Portuguese'), NULL),
+          new ElibriDictAtom('qlk', array('pl' => 'łemkowski', 'en' => 'Lemko'), NULL),
           new ElibriDictAtom('rum', array('pl' => 'rumuński', 'en' => 'Romanian'), NULL),
           new ElibriDictAtom('rus', array('pl' => 'rosyjski', 'en' => 'Russian'), NULL),
           new ElibriDictAtom('slo', array('pl' => 'słowacki', 'en' => 'Slovak'), NULL),
@@ -1034,6 +1073,12 @@ class ElibriDictLanguageRole extends  ElibriDictElement {
   //! język streszczenia
   const LANGUAGE_OF_ABSTRACTS = '03';
 
+  //! język oryginalny (wydanie wielojęzyczne)
+  const ORIGINAL_LANGUAGE_IN_MULTILANGUAGE_EDITION = '06';
+
+  //! język tłumaczenia (wydanie wielojęzyczne)
+  const TRANSLATED_LANGUAGE_IN_MULTILANGUAGE_EDITION = '07';
+
   //! język ścieżki audio (CD/DVD)
   const LANGUAGE_OF_AUDIO_TRACK = '08';
 
@@ -1046,6 +1091,8 @@ class ElibriDictLanguageRole extends  ElibriDictElement {
           new ElibriDictAtom('01', array('pl' => 'język tekstu', 'en' => 'language of text'), 'LANGUAGE_OF_TEXT'),
           new ElibriDictAtom('02', array('pl' => 'język oryginału', 'en' => 'language of original'), 'LANGUAGE_OF_ORIGINAL'),
           new ElibriDictAtom('03', array('pl' => 'język streszczenia', 'en' => 'language of abstracts'), 'LANGUAGE_OF_ABSTRACTS'),
+          new ElibriDictAtom('06', array('pl' => 'język oryginalny (wydanie wielojęzyczne)', 'en' => 'original language (multilanguage edition)'), 'ORIGINAL_LANGUAGE_IN_MULTILANGUAGE_EDITION'),
+          new ElibriDictAtom('07', array('pl' => 'język tłumaczenia (wydanie wielojęzyczne)', 'en' => 'translated language (multilanguage edition)'), 'TRANSLATED_LANGUAGE_IN_MULTILANGUAGE_EDITION'),
           new ElibriDictAtom('08', array('pl' => 'język ścieżki audio (CD/DVD)', 'en' => 'language of audio track (CD/DVD)'), 'LANGUAGE_OF_AUDIO_TRACK'),
           new ElibriDictAtom('09', array('pl' => 'język napisów (CD/DVD)', 'en' => 'language of subtitles(CD/DVD)'), 'LANGUAGE_OF_SUBTITLES'),
       ));
@@ -1629,6 +1676,9 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
   //! interaktywny podgląd produktu
   const WIDGET = '16';
 
+  //! zasady lub instrukcje gry
+  const RULES_OR_INSTRUCTIONS = '46';
+
 
   protected function __construct() {
       parent::__construct(array(
@@ -1642,6 +1692,7 @@ class ElibriDictResourceContentType extends  ElibriDictElement {
           new ElibriDictAtom('24', array('pl' => 'mediapack', 'en' => 'press release'), 'PRESS_RELEASE'),
           new ElibriDictAtom('29', array('pl' => 'okładka w dużej rozdzielczości (CMYK)', 'en' => 'full cover'), 'FULL_COVER'),
           new ElibriDictAtom('16', array('pl' => 'interaktywny podgląd produktu', 'en' => 'widget'), 'WIDGET'),
+          new ElibriDictAtom('46', array('pl' => 'zasady lub instrukcje gry', 'en' => 'rules or instructions'), 'RULES_OR_INSTRUCTIONS'),
       ));
 
    }

@@ -1,0 +1,22 @@
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormFeatureType
+  onix_code: '22'
+  const_name: NUMBER_OF_GAME_PIECES
+  name:
+    en: Number of game pieces
+    pl: Ilość elementów
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormFeatureType
+  onix_code: '23'
+  const_name: GAME_PLAYERS
+  name:
+    en: Game players
+    pl: liczba graczy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormFeatureType
+  onix_code: '24'
+  const_name: GAME_PLAY_TIME
+  name:
+    en: Game play time
+    pl: Czas gry
+

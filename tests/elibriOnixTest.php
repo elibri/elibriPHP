@@ -544,8 +544,21 @@ class ElibriDictTest extends TestCase {
     
     $this->assertEquals(524, $product->duration);
     $this->assertEquals("AUDIO_DOWNLOADABLE_FILE", $product->product_form_name);
+  }
 
+  public function test_puzzle_extra_attributes() {
+    $product = $this->load("onix_puzzle_example.xml");
 
+    $this->assertEquals(25, $product->number_of_pieces);
+  }
+
+  public function test_board_game_extra_attributes() {
+    $product = $this->load("onix_board_game_example.xml");
+
+    $this->assertEquals(2, $product->players_number_from);
+    $this->assertEquals(5, $product->players_number_to);
+    $this->assertEquals(20, $product->playing_time_from);
+    $this->assertNull($product->playing_time_to);
   }
 
   public function test_onix_with_unknow_dict_values() {

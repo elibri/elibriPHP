@@ -72,3 +72,10 @@
     en: widget
     pl: interaktywny podgląd produktu
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceContentType
+  onix_code: '46'
+  const_name: RULES_OR_INSTRUCTIONS
+  name:
+    en: rules or instructions
+    pl: zasady lub instrukcje gry
+

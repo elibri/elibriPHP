@@ -22,6 +22,21 @@
     pl: język streszczenia
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '06'
+  const_name: ORIGINAL_LANGUAGE_IN_MULTILANGUAGE_EDITION
+  name:
+    en: original language (multilanguage edition)
+    pl: język oryginalny (wydanie wielojęzyczne) 
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
+  onix_code: '07'
+  const_name: TRANSLATED_LANGUAGE_IN_MULTILANGUAGE_EDITION
+  name:
+    en: translated language (multilanguage edition)
+    pl: język tłumaczenia (wydanie wielojęzyczne) 
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageRole
   onix_code: '08'
   const_name: LANGUAGE_OF_AUDIO_TRACK
   name:
