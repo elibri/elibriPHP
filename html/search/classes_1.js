@@ -45,6 +45,7 @@ var searchData=
   ['elibridictproductcomposition',['ElibriDictProductComposition',['../classElibriDictProductComposition.html',1,'']]],
   ['elibridictproductformcode',['ElibriDictProductFormCode',['../classElibriDictProductFormCode.html',1,'']]],
   ['elibridictproductformdetail',['ElibriDictProductFormDetail',['../classElibriDictProductFormDetail.html',1,'']]],
+  ['elibridictproductformfeaturetype',['ElibriDictProductFormFeatureType',['../classElibriDictProductFormFeatureType.html',1,'']]],
   ['elibridictproductidtype',['ElibriDictProductIDType',['../classElibriDictProductIDType.html',1,'']]],
   ['elibridictproductrelationtype',['ElibriDictProductRelationType',['../classElibriDictProductRelationType.html',1,'']]],
   ['elibridictproximity',['ElibriDictProximity',['../classElibriDictProximity.html',1,'']]],

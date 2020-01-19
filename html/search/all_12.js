@@ -8,5 +8,6 @@ var searchData=
   ['review',['REVIEW',['../classElibriDictOtherTextType.html#ae0d854965d30086832ffc105981f04dc',1,'ElibriDictOtherTextType\REVIEW()'],['../classElibriDictResourceContentType.html#a4c803f17782509dde574c0c6bad71196',1,'ElibriDictResourceContentType\REVIEW()']]],
   ['revisor',['REVISOR',['../classElibriDictContributorRole.html#a43f2a7e5c6520c4afb981683b283d577',1,'ElibriDictContributorRole']]],
   ['rrp_5fwith_5ftax',['RRP_WITH_TAX',['../classElibriDictPriceTypeCode.html#ab6db66d467b443ca4347bf8854f244ac',1,'ElibriDictPriceTypeCode']]],
-  ['rrp_5fwithout_5ftax',['RRP_WITHOUT_TAX',['../classElibriDictPriceTypeCode.html#a6e6a931f3e66aaa420c4d24068489874',1,'ElibriDictPriceTypeCode']]]
+  ['rrp_5fwithout_5ftax',['RRP_WITHOUT_TAX',['../classElibriDictPriceTypeCode.html#a6e6a931f3e66aaa420c4d24068489874',1,'ElibriDictPriceTypeCode']]],
+  ['rules_5for_5finstructions',['RULES_OR_INSTRUCTIONS',['../classElibriDictResourceContentType.html#a8fa8db6ad4b7d154cba739de2effe826',1,'ElibriDictResourceContentType']]]
 ];

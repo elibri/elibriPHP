@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['original_5flanguage_5fin_5fmultilanguage_5fedition',['ORIGINAL_LANGUAGE_IN_MULTILANGUAGE_EDITION',['../classElibriDictLanguageRole.html#a423133a24e1e0b171a938699a4313c6d',1,'ElibriDictLanguageRole']]],
   ['original_5ftitle',['ORIGINAL_TITLE',['../classElibriDictTitleType.html#a6367de613aec751a5de2bd49280873ef',1,'ElibriDictTitleType']]],
   ['originator',['ORIGINATOR',['../classElibriDictContributorRole.html#af6a7e15f4891fb7a537685051bec583e',1,'ElibriDictContributorRole']]],
   ['other_5fcartographic',['OTHER_CARTOGRAPHIC',['../classElibriDictProductFormCode.html#a8798b22e4853dc44356179c1e21bc788',1,'ElibriDictProductFormCode']]],

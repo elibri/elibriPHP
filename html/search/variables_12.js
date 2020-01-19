@@ -11,6 +11,7 @@ var searchData=
   ['thema_5ftime_5fperiod_5fqualifier',['THEMA_TIME_PERIOD_QUALIFIER',['../classElibriDictSubjectSchemeIdentifier.html#a3e8b4b2192eefa19d076c79f6e48abd2',1,'ElibriDictSubjectSchemeIdentifier']]],
   ['thickness',['THICKNESS',['../classElibriDictMeasureType.html#a5541acae1aff7730d8cdc190a02ccfa7',1,'ElibriDictMeasureType']]],
   ['to',['TO',['../classElibriDictAudienceRangePrecision.html#ad9ca3d0e176dfab3548e78de4801fb74',1,'ElibriDictAudienceRangePrecision']]],
+  ['translated_5flanguage_5fin_5fmultilanguage_5fedition',['TRANSLATED_LANGUAGE_IN_MULTILANGUAGE_EDITION',['../classElibriDictLanguageRole.html#ab720597308b6506986820ef8b94baf54',1,'ElibriDictLanguageRole']]],
   ['translator',['TRANSLATOR',['../classElibriDictContributorRole.html#a145d0f825d8fe617e8953bd2211e2d37',1,'ElibriDictContributorRole']]],
   ['tv',['TV',['../classElibriDictContentSourceType.html#a3b6956a4ad438e844b0003840b3438da',1,'ElibriDictContentSourceType']]]
 ];
