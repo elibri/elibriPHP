@@ -8,6 +8,10 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c20012020 19 stycznia 2020 roku
+ *
+ * - nowe kody dla form produktów: figurka (ZB), zabawka - pluszak (ZC), zabawka edukacyjna (ZD)
+ *
  * \subsection c19012020 19 stycznia 2020 roku
  *
  * - parsowanie informacji związanych z grami planszowymi i puzzle: nowe pola doyczące ilości elementów, czasu gry oraz ilości graczy

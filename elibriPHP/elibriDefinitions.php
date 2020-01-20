@@ -1395,6 +1395,15 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
   //! puzzle
   const JIGSAW = 'ZJ';
 
+  //! figurka
+  const FIGURE = 'ZB';
+
+  //! zabawka - pluszak
+  const PLUSH_TOY = 'ZC';
+
+  //! zabawka (również edukacyjna)
+  const TOY = 'ZD';
+
   //! POD - okładka twarda
   const POD_HARDCOVER = 'PODH';
 
@@ -1417,6 +1426,9 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
           new ElibriDictAtom('PC', array('pl' => 'kalendarz', 'en' => 'calendar'), 'CALENDAR'),
           new ElibriDictAtom('ZE', array('pl' => 'gra planszowa', 'en' => 'board game'), 'GAME'),
           new ElibriDictAtom('ZJ', array('pl' => 'puzzle', 'en' => 'jigsaw'), 'JIGSAW'),
+          new ElibriDictAtom('ZB', array('pl' => 'figurka', 'en' => 'doll or figure'), 'FIGURE'),
+          new ElibriDictAtom('ZC', array('pl' => 'zabawka - pluszak', 'en' => 'plush toy'), 'PLUSH_TOY'),
+          new ElibriDictAtom('ZD', array('pl' => 'zabawka (również edukacyjna)', 'en' => 'toy'), 'TOY'),
           new ElibriDictAtom('PODH', array('pl' => 'POD - okładka twarda', 'en' => 'pod hardcover book'), 'POD_HARDCOVER'),
           new ElibriDictAtom('PODS', array('pl' => 'POD - okładka miękka', 'en' => 'pod softcover book'), 'POD_SOFTCOVER'),
       ));

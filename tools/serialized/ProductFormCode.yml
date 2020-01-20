@@ -134,6 +134,36 @@
   mandatory_isbn: false
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'ZB'
+  const_name: FIGURE
+  name:
+    en: doll or figure
+    pl: figurka
+  digital: false
+  carrier: druk
+  mandatory_isbn: false
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'ZC'
+  const_name: PLUSH_TOY
+  name:
+    en: plush toy
+    pl: zabawka - pluszak
+  digital: false
+  carrier: druk
+  mandatory_isbn: false
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'ZD'
+  const_name: TOY
+  name:
+    en: toy
+    pl: zabawka (również edukacyjna)
+  digital: false
+  carrier: druk
+  mandatory_isbn: false
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'PODH'
   const_name: POD_HARDCOVER
   name:
