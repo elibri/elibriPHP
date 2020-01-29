@@ -6,6 +6,7 @@ var searchData=
   ['percentage',['PERCENTAGE',['../classElibriDictEpubUsageUnit.html#a1c4f3b969a10db7a37ef43efb2e11dbd',1,'ElibriDictEpubUsageUnit']]],
   ['photographer',['PHOTOGRAPHER',['../classElibriDictContributorRole.html#a0d6eb91deb8de8371df965a0199395e1',1,'ElibriDictContributorRole']]],
   ['pkwiu',['PKWIU',['../classElibriDictProductClassificationType.html#ae943d3727cad222f43bc32f3aece87d0',1,'ElibriDictProductClassificationType']]],
+  ['plush_5ftoy',['PLUSH_TOY',['../classElibriDictProductFormCode.html#abeae2d1d0121072c55936fa94497e204',1,'ElibriDictProductFormCode']]],
   ['pod_5fhardcover',['POD_HARDCOVER',['../classElibriDictProductFormCode.html#a3bd1bd5f2651c050c89e12e2ff4c3379',1,'ElibriDictProductFormCode']]],
   ['pod_5fsoftcover',['POD_SOFTCOVER',['../classElibriDictProductFormCode.html#a003c5c9d6ae1651f8551079f026d8052',1,'ElibriDictProductFormCode']]],
   ['preorder_5fembargo_5fdate',['PREORDER_EMBARGO_DATE',['../classElibriDictPublishingDateRole.html#ae825c402523faae3b62254f9f6db7a50',1,'ElibriDictPublishingDateRole']]],

@@ -2,6 +2,7 @@ var searchData=
 [
   ['facsimile_5fedition',['FACSIMILE_EDITION',['../classElibriDictEditionType.html#ab354dfef2e1ea1a089f2edcf9dc5ad61',1,'ElibriDictEditionType']]],
   ['facsimiles',['FACSIMILES',['../classElibriDictProductRelationType.html#a8815283744c610bafd792ddaffb9ccc2',1,'ElibriDictProductRelationType']]],
+  ['figure',['FIGURE',['../classElibriDictProductFormCode.html#a740e1d510a692b864e8461d71228077c',1,'ElibriDictProductFormCode']]],
   ['file_5fformat',['FILE_FORMAT',['../classElibriDictResourceVersionFeatureType.html#add8981026428a28c8e06c0d950f264fb',1,'ElibriDictResourceVersionFeatureType']]],
   ['file_5fsize',['FILE_SIZE',['../classElibriDictExtentType.html#a5f227321c5c6c340c5583fa7a696388c',1,'ElibriDictExtentType']]],
   ['for_5fsale_5fwith_5fexlusive_5frights',['FOR_SALE_WITH_EXLUSIVE_RIGHTS',['../classElibriDictSalesRightsType.html#ab2cc8c654128a3ea1d70999d5e5efc49',1,'ElibriDictSalesRightsType']]],
