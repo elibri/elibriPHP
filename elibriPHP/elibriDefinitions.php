@@ -1851,6 +1851,9 @@ class ElibriDictContributorRole extends  ElibriDictElement {
   //! scenarzysta
   const SCENARIST = 'A03';
 
+  //! kompozytor
+  const COMPOSER = 'A06';
+
   //! pomysłodawca
   const ORIGINATOR = 'A10';
 
@@ -1896,6 +1899,7 @@ class ElibriDictContributorRole extends  ElibriDictElement {
           new ElibriDictAtom('A01', array('pl' => 'autor', 'en' => 'author'), 'AUTHOR'),
           new ElibriDictAtom('A02', array('pl' => 'współautor', 'en' => 'ghostwriter'), 'GHOSTWRITER'),
           new ElibriDictAtom('A03', array('pl' => 'scenarzysta', 'en' => 'scenarist'), 'SCENARIST'),
+          new ElibriDictAtom('A06', array('pl' => 'kompozytor', 'en' => 'composer'), 'COMPOSER'),
           new ElibriDictAtom('A10', array('pl' => 'pomysłodawca', 'en' => 'originator'), 'ORIGINATOR'),
           new ElibriDictAtom('A12', array('pl' => 'ilustrator', 'en' => 'illustrator'), 'ILLUSTRATOR'),
           new ElibriDictAtom('A13', array('pl' => 'fotograf', 'en' => 'photographer'), 'PHOTOGRAPHER'),

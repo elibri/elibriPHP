@@ -20,6 +20,13 @@
     en: scenarist
     pl: scenarzysta
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole
+  onix_code: A06
+  const_name: COMPOSER
+  name:
+    en: composer
+    pl: kompozytor
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ContributorRole 
   onix_code: A10
   const_name: ORIGINATOR

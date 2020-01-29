@@ -8,6 +8,10 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c29012020 29 stycznia 2020 roku
+ *
+ * - dodany kod A06 dla kompozytora (ContributorRole)
+ *
  * \subsection c20012020 19 stycznia 2020 roku
  *
  * - nowe kody dla form produktów: figurka (ZB), zabawka - pluszak (ZC), zabawka edukacyjna (ZD)
