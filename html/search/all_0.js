@@ -61,6 +61,7 @@ var searchData=
   ['_24issn',['$issn',['../classElibriProduct.html#ac743a2cfc3cba17fec9ebb08dfe4d252',1,'ElibriProduct']]],
   ['_24issn_5fwith_5fhyphens',['$issn_with_hyphens',['../classElibriProduct.html#a151d3d22bbd6a7806b718f417818050f',1,'ElibriProduct']]],
   ['_24key_5fnames',['$key_names',['../classElibriContributor.html#aa26f7ecd1c2e368157a1a0fd55091144',1,'ElibriContributor']]],
+  ['_24keywords',['$keywords',['../classElibriProduct.html#a3533000775d63fe75496c17e1c0f7a81',1,'ElibriProduct']]],
   ['_24language',['$language',['../classElibriLanguage.html#a5db6780cf9790c13483ea52bfcfdbda3',1,'ElibriLanguage']]],
   ['_24languages',['$languages',['../classElibriProduct.html#a73d113a4fd6b6a05efc03bdc84fdac34',1,'ElibriProduct']]],
   ['_24level',['$level',['../classElibriTitleElement.html#a884167ffed03d1bec90e4d2074d041d8',1,'ElibriTitleElement']]],

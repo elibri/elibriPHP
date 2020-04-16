@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['original_5flanguage_5fin_5fmultilanguage_5fedition',['ORIGINAL_LANGUAGE_IN_MULTILANGUAGE_EDITION',['../classElibriDictLanguageRole.html#a423133a24e1e0b171a938699a4313c6d',1,'ElibriDictLanguageRole']]],
-  ['original_5ftitle',['ORIGINAL_TITLE',['../classElibriDictTitleType.html#a6367de613aec751a5de2bd49280873ef',1,'ElibriDictTitleType']]],
-  ['originator',['ORIGINATOR',['../classElibriDictContributorRole.html#af6a7e15f4891fb7a537685051bec583e',1,'ElibriDictContributorRole']]],
-  ['other_5fcartographic',['OTHER_CARTOGRAPHIC',['../classElibriDictProductFormCode.html#a8798b22e4853dc44356179c1e21bc788',1,'ElibriDictProductFormCode']]],
-  ['out_5fof_5fprint',['OUT_OF_PRINT',['../classElibriDictPublishingStatusCode.html#a661cda5675530419383c8cc3c7cf1d7c',1,'ElibriDictPublishingStatusCode']]],
-  ['out_5fof_5fprint_5fdate',['OUT_OF_PRINT_DATE',['../classElibriDictPublishingDateRole.html#a1e13b15e01eb36b68acce7de67fd076b',1,'ElibriDictPublishingDateRole']]]
+  ['no',['NO',['../classElibriDictPricePrintedOnProduct.html#a9ad2a9ba3e88afd9844d1d0a08331a5c',1,'ElibriDictPricePrintedOnProduct']]],
+  ['none',['NONE',['../classElibriDictEpubTechnicalProtection.html#a07f810c77a6a49f7a9277a3cb3d0bb6f',1,'ElibriDictEpubTechnicalProtection']]],
+  ['not_5favailable',['NOT_AVAILABLE',['../classElibriDictAvailability.html#ad7c6f600635178542bd5302dd9f6ad31',1,'ElibriDictAvailability\NOT_AVAILABLE()'],['../classElibriDictProductAvailabilityType.html#aa570e40f93aae92c89d77f528e645b66',1,'ElibriDictProductAvailabilityType\NOT_AVAILABLE()']]],
+  ['number_5fof_5fgame_5fpieces',['NUMBER_OF_GAME_PIECES',['../classElibriDictProductFormFeatureType.html#a21d076eb7a3fcd488cad07aca789addc',1,'ElibriDictProductFormFeatureType']]]
 ];
