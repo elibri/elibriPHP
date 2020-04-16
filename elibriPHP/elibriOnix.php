@@ -444,6 +444,9 @@ class ElibriProduct {
   //! Lista kategorii, do których należy produkt - lista instancji  ElibriSubject
   public $subjects = array();
 
+  //! Lista słów kluczowych (tagów)
+  public $keywords = array();
+
   //! Lista kategorii Thema, do których należy produkt - lista instacji ElibriSubject
   public $thema_subjects = array();
 
@@ -822,6 +825,8 @@ class ElibriProduct {
       $this->subjects[] = $subject;
       if ($subject->is_thema) {
         $this->thema_subjects[] = $subject;
+      } else if ($subject->is_keyword) {
+        $this->keywords = explode("; ", $subject->heading_text);
       }
     }
         
@@ -1291,6 +1296,7 @@ class ElibriSubject {
   public $heading_text;
   public $main_subject;
   public $is_thema;
+  public $is_keyword;
  
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
@@ -1301,6 +1307,7 @@ class ElibriSubject {
     $this->code = FirstNodeValue::get($xml_fragment, "SubjectCode");
     $this->heading_text = FirstNodeValue::get($xml_fragment, "SubjectHeadingText");
     $this->is_thema = (($this->scheme_identifier >= 93) && ($this->scheme_identifier <= 99));
+    $this->is_keyword = ($this->scheme_identifier == ElibriDictSubjectSchemeIdentifier::KEYWORDS);
   }
 }
  

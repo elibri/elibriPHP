@@ -391,6 +391,8 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals("3MPBGH", $s3->code);
     $this->assertEquals("Kwalifikatory chronologiczne / od ok. 1500 do dzisiaj / XX wiek (ok. 1900–1999) " . 
                          "/ 1. poł. XX wieku (ok. 1900–1950) / Dwudziestolecie międzywojenne (ok. 1919–1939) / ok. 1920–1929", $s3->heading_text);
+
+    $this->assertEquals(array("wojna", "Europa wschodnia"), $product->keywords);
   }
 
   public function test_all_possible_tags() {

@@ -968,6 +968,9 @@ class ElibriDictSubjectSchemeIdentifier extends  ElibriDictElement {
 
   private static $instance;
 
+  //! słowa kluczowe
+  const KEYWORDS = '20';
+
   //! własnościowy
   const PROPRIETARY = '24';
 
@@ -995,6 +998,7 @@ class ElibriDictSubjectSchemeIdentifier extends  ElibriDictElement {
 
   protected function __construct() {
       parent::__construct(array(
+          new ElibriDictAtom('20', array('pl' => 'słowa kluczowe', 'en' => 'keywords'), 'KEYWORDS'),
           new ElibriDictAtom('24', array('pl' => 'własnościowy', 'en' => 'proprietary'), 'PROPRIETARY'),
           new ElibriDictAtom('93', array('pl' => 'Kategoria Thema', 'en' => 'Thema Category'), 'THEMA'),
           new ElibriDictAtom('94', array('pl' => 'Thema - kwantyfikator miejsca', 'en' => 'Thema place qualifier'), 'THEMA_PLACE_QUALIFIER'),

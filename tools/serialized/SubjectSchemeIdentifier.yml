@@ -1,6 +1,14 @@
 
 --- 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
+  onix_code: '20'
+  const_name: KEYWORDS
+  name:
+    en: keywords
+    pl: słowa kluczowe
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SubjectSchemeIdentifier
   onix_code: '24'
   const_name: PROPRIETARY
   name:
