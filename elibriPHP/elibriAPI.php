@@ -249,9 +249,9 @@ class ElibriAPI {
     $testing = (int) $testing;
     $query = "count=$count&amp;testing=$testing";
     $data = $this->request($this->_Q_POP, $this->_POST, $queue, $query);
-    $headers = $data[0];
+    $headers = array_change_key_case($data[0], CASE_LOWER);
     $source = $data[1];
-    if ($headers["X-eLibri-API-pop-products-count"] == 0) {
+    if ($headers["x-elibri-api-pop-products-count"] == 0) {
       return NULL;
     } else {
       $xml =  "$source\n\n\n";
