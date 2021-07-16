@@ -7,6 +7,7 @@ var searchData=
   ['_24biographical_5fnote',['$biographical_note',['../classElibriContributor.html#a4a12aa91a788ece076f2020e3749ce0d',1,'ElibriContributor']]],
   ['_24city',['$city',['../classElibriPublisherInfo.html#ae3bf8492f76a1492d92c19c33ea81833',1,'ElibriPublisherInfo']]],
   ['_24city_5fof_5fpublication',['$city_of_publication',['../classElibriProduct.html#a38e9b5798b1c78a7f2b88560e7fd0a88',1,'ElibriProduct']]],
+  ['_24cn_5fcode',['$cn_code',['../classElibriProduct.html#a9434d53956f9ccece39763fd23731a37',1,'ElibriProduct']]],
   ['_24code',['$code',['../classElibriLanguage.html#a4ea5866a079a9bf03a87c4049e2d57c7',1,'ElibriLanguage']]],
   ['_24collection_5fpart',['$collection_part',['../classElibriProduct.html#a540ab2abf5685b42904e7bce567f0e53',1,'ElibriProduct']]],
   ['_24collection_5ftitle',['$collection_title',['../classElibriProduct.html#acb40cc23fe092470fc5cf784363aa64d',1,'ElibriProduct']]],
