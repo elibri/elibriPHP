@@ -39,6 +39,36 @@ class ElibriDictAudienceRangeQualifier extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictResourceIDType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! wewnętrzny identyfikator
+  const PROPRIETARY = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'wewnętrzny identyfikator', 'en' => 'proprietary'), 'PROPRIETARY'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictResourceIDType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictNotificationType extends  ElibriDictElement {
 
   private static $instance;
@@ -1356,6 +1386,40 @@ class ElibriDictResourceMode extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictResourceFileFeatureType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! md5
+  const MD5 = '06';
+
+  //! dokładny rozmiar pliku
+  const EXACT_FILE_SIZE = '07';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('06', array('pl' => 'md5', 'en' => 'md5'), 'MD5'),
+          new ElibriDictAtom('07', array('pl' => 'dokładny rozmiar pliku', 'en' => 'exact file size'), 'EXACT_FILE_SIZE'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictResourceFileFeatureType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictProductFormCode extends  ElibriDictElement {
 
   private static $instance;
@@ -1560,12 +1624,16 @@ class ElibriDictProductClassificationType extends  ElibriDictElement {
 
   private static $instance;
 
+  //! System WCO
+  const CN = '01';
+
   //! Polska Klasyfikacja Wyrobów i Usług (2015)
   const PKWIU = '12';
 
 
   protected function __construct() {
       parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'System WCO', 'en' => 'WCO Harmonized System'), 'CN'),
           new ElibriDictAtom('12', array('pl' => 'Polska Klasyfikacja Wyrobów i Usług (2015)', 'en' => 'Polish Classification of Products and Services (2015)'), 'PKWIU'),
       ));
 

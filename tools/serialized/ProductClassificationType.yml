@@ -1,5 +1,12 @@
 
---- 
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductClassificationType
+  onix_code: '01'
+  const_name: CN
+  name:
+    en: WCO Harmonized System
+    pl: System WCO
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductClassificationType
   onix_code: '12'
   const_name: PKWIU

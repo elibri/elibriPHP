@@ -54,7 +54,7 @@ class CoverType {
 
 //! Klasa abstrahująca wiadomość ONIX
 class ElibriOnixMessage {
-  
+
   //! Wewnętrzny numer wersji używanego XML-a
   public $elibri_dialect;
 
@@ -66,23 +66,23 @@ class ElibriOnixMessage {
 
   //! @brief parsuje wiadomość ONIX
   //! @param String $source wiadomość ONIX
-  //! @return instancję ElibriOnixMessage 
+  //! @return instancję ElibriOnixMessage
   public static function parse($source) {
     $doc = new DOMDocument();
     $doc->loadXML($source);
-    
+
     $message = new ElibriOnixMessage();
     $message->elibri_dialect = FirstNodeValue::get($doc, "Dialect");
-    
+
     $xheader = $doc->getElementsByTagName("Header");
     if ($xheader->length == 1) {
       $message->header = new ElibriHeader($xheader);
     }
-    
+
     foreach ($doc->getElementsByTagName("Product") as $xml_fragment) {
       $message->products[] = new ElibriProduct($xml_fragment);
     }
-  
+
     return $message;
   }
 
@@ -91,20 +91,20 @@ class ElibriOnixMessage {
 
 //! Informacja o wydawnictwie
 class ElibriPublisherInfo {
-  
+
   //! wewnętrzne Id wydawnictwo w eLibri
   public $publisher_id;
 
   //! nazwa wydawnictwa
   public $name;
 
-  //! liczba produktów 
+  //! liczba produktów
   public $products_count;
 
   //! nazwa firmy
   public $company_name;
 
-  //! NIP 
+  //! NIP
   public $nip;
 
   //! ulica i numer domu
@@ -126,11 +126,11 @@ class ElibriPublisherInfo {
   public $www;
 
   //! adres E-mail wydawnictwa
-  public $email; 
+  public $email;
 
 
   //! parsowanie xml-a zwróconego przez ElibriAPI::getPublishersList()
-  public static function parse($source) {  
+  public static function parse($source) {
     $result = new SimpleXMLElement($source);
     $publishers = array();
     foreach ($result->publisher as $v) {
@@ -157,15 +157,15 @@ class ElibriPublisherInfo {
 }
 
 
-//! Klasa abstrahuje informację o jednym produkcie, zwracane przez ElibriAPI::getPublisherProducts 
+//! Klasa abstrahuje informację o jednym produkcie, zwracane przez ElibriAPI::getPublisherProducts
 class ElibriPublisherProduct {
 
-  //! Tytuł produktu 
+  //! Tytuł produktu
   public $title;
 
   //! RecordReference produktu
   public $record_reference;
-  
+
   //! Parsuj informację zwracaną przez ElibriAPI::getPublisherProducts
   public static function parse($source) {
     $result = new SimpleXMLElement($source);
@@ -192,7 +192,7 @@ class ElibriQueue {
   public $name;
 
   //! liczba produktów w kolejce
-  public $product_count;  
+  public $product_count;
 
   //! prosty konstruktor
   function __construct($xml_fragment) {
@@ -240,13 +240,13 @@ class ElibriAnnotatedObject {
 
 //! Reprezentacja produktu
 class ElibriProduct {
-  
+
   //! fizyczna forma produktu (kod ONIX) - patrz ElibriDictProductFormCode
   public $product_form;
-  
+
   //! fizyczna forma produktu jako String, np. 'BOOK' - patrz ElibriDictProductFormCode
   public $product_form_name;
-  
+
   //! informacja, czy produkt jest pakietem. W tej chwili tylko wartość '00' - produkt samodzielny
   public $product_composition;
 
@@ -273,13 +273,13 @@ class ElibriProduct {
 
   //! ISSN produktu (bez myślników), NULL jeżeli nie istnieje
   public $issn;
-  
-  //! ISSN produktu (z myślnikami), NULL jeżeli nie istnieje 
+
+  //! ISSN produktu (z myślnikami), NULL jeżeli nie istnieje
   public $issn_with_hyphens;
-  
+
   //! ilość stron
   public $number_of_pages;
-  
+
   //! Numer wydania, jako string
   public $edition_statement;
 
@@ -318,7 +318,7 @@ class ElibriProduct {
 
   //! zalecany minimalny wiek czytelnika
   public $reading_age_from;
-  
+
   //! zalecany maksymalny wiek czytelnika
   public $reading_age_to;
 
@@ -367,26 +367,26 @@ class ElibriProduct {
   //! tytuł handlowy
   public $trade_title;
 
-  //! @brief Informacja o dacie wydania w postaci listy wartości. Może być pusta, albo zawiera tylko rok, albo rok i miesiąc, albo rok, miesiąc i dzień wydania, 
+  //! @brief Informacja o dacie wydania w postaci listy wartości. Może być pusta, albo zawiera tylko rok, albo rok i miesiąc, albo rok, miesiąc i dzień wydania,
   //! w zależności od posiadanych informacji. Uwzględnia datę końca wyłączności, tzn. jeśli produkt jest sprzedawany na wyłączność przez jakiś czas, to
   //! ta data uwzględia ten okres i jest równa końcowi okresu wyłączności
   public $parsed_publishing_date = array();
- 
+
   //! Data premiery - instancja ElibriPublishingDate. Nie uwzględnia wyłączności sprzedaży
   public $publishing_date;
 
-  //! Jeśli $parsed_publishing_date składa się z trzech elementów (czyli ma informację o dokładnej dacie), to pole $premiere 
+  //! Jeśli $parsed_publishing_date składa się z trzech elementów (czyli ma informację o dokładnej dacie), to pole $premiere
   //! reprezentuje tą informację w postaci instancji DateTime
   public $premiere;
 
-  //! RecordReference - jednoznaczny identyfikator książki, jedyny, który ma gwarancje niezmienności 
+  //! RecordReference - jednoznaczny identyfikator książki, jedyny, który ma gwarancje niezmienności
   public $record_reference;
 
   public $notification_type;
 
   //! w wyjątkowej sytuacji, gdy rekord zostanie wykasowany, w tym polu znajdzie się informacja o przyczynie usunięcia rekordu
   public $deletion_text;
-  
+
   //! rodzaj okładki, np. twarda
   public $cover_type;
 
@@ -399,10 +399,16 @@ class ElibriProduct {
   //! symbol PKWiU
   public $pkwiu;
 
+  //! kod CN
+  public $cn_code;
+
+  //kraj produkcji
+  public $country_of_manufacture;
+
   //! flaga bool, czy dla produktu istnieje podgląd
   public $preview_exists;
 
-  //! ilość elementów (puzzle, gry planszowe)      
+  //! ilość elementów (puzzle, gry planszowe)
   public $number_of_pieces;
 
   //! min. ilość graczy - gry planszowe
@@ -417,15 +423,15 @@ class ElibriProduct {
   //! max. czas gry - gry planszowe
   public $playing_time_to;
 
-  
-  //! \brief status wydawniczy - wartość String - jedna z: 'announced', 'preorder', 'published', 'out_of_print' 
-  //! \details 
+
+  //! \brief status wydawniczy - wartość String - jedna z: 'announced', 'preorder', 'published', 'out_of_print'
+  //! \details
   //! \li 'announced' - informacja o produkcie jest szczątkowa, ale wydawnictwo zdecydowało się ją opublikować. Można taką informację umieścić w dziale zapowiedzi.
   //! \li 'preorder' - dane o rekordzie są kompletne. Jeśli masz zaufanie do wydawcy, to możesz uruchamiać przedsprzedaż
   //! \li 'published' - książka została opublikowana
-  //! \li 'out_of_print' - wydawca wyraził przekonanie, że nakład książki jest wyczerpany, choć w dalszym ciągu książka może być dostępna w hurcie 
+  //! \li 'out_of_print' - wydawca wyraził przekonanie, że nakład książki jest wyczerpany, choć w dalszym ciągu książka może być dostępna w hurcie
   public $current_state;
-  
+
   //! Produkty o identycznej treści, ale innej formie fizycznej (lista instancji ElibriRelatedProduct)
   public $related_products = array();
 
@@ -434,7 +440,7 @@ class ElibriProduct {
 
   //! Dodatkowa klasyfikacja sprzedażowa używana przez wydawcę, w tej chwili wykorzystywana jedynie przez grupę Foksal
   public $additional_trade_information;
-  
+
   //! Lista twórców związanych z książką - lista instancji ElibriContributor
   public $contributors = array();
 
@@ -485,10 +491,10 @@ class ElibriProduct {
 
   //! Dostępne formaty elektronicznych produktów (lista z wyborem wartości: MOBI, EPUB, PDF, MP3)
   public $digital_formats;
- 
+
   //! Sposób zabezpieczenia pliku (tylko elektroniczne produktu). Możliwe wartości: WATERMARK, DRM, NONE
   public $technical_protection;
- 
+
   //! Czy istnieje informacja o możliwości udostępnienia fragmentu książki (tylko produkty elektroniczne - flaga bool)
   public $excerpt_info;
 
@@ -522,7 +528,7 @@ class ElibriProduct {
   //! Wiek czytelnika - partz pola $reading_age_from i $reading_age_to
   private $audience_ranges = array();
 
-  //! Lista wszystkich tekstów towarzyszących produktowi - patrz  $table_of_contents, $description, $short_description, $reviews, $excerpts 
+  //! Lista wszystkich tekstów towarzyszących produktowi - patrz  $table_of_contents, $description, $short_description, $reviews, $excerpts
   private $text_contents = array();
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
@@ -533,7 +539,7 @@ class ElibriProduct {
     $this->cover_type = FirstNodeValue::get($xml_fragment, "CoverType");
 
     $this->city_of_publication = FirstNodeValue::get($xml_fragment, "CityOfPublication");
-      
+
     //product identifiers
     foreach ($xml_fragment->getElementsByTagName("ProductIdentifier") as $product_identifier_element) {
       $pid = new ElibriProductIdentifier($product_identifier_element);
@@ -550,29 +556,29 @@ class ElibriProduct {
     //descriptive detail
     if ($xml_fragment->getElementsByTagName("DescriptiveDetail")->length > 0) {
       $this->parseDescriptiveDetail($xml_fragment->getElementsByTagName("DescriptiveDetail")->item(0));
-    } 
-      
+    }
+
     //collateral
     if ($xml_fragment->getElementsByTagName("CollateralDetail")->length > 0) {
       $this->parseCollateralDetail($xml_fragment->getElementsByTagName("CollateralDetail")->item(0));
-    } 
-      
+    }
+
     //publishing detail
     if ($xml_fragment->getElementsByTagName("PublishingDetail")->length > 0) {
       $this->parsePublishingDetail($xml_fragment->getElementsByTagName("PublishingDetail")->item(0));
     }
-      
+
     //related material
     if ($xml_fragment->getElementsByTagName("RelatedMaterial")->length>0) {
       $xrelated = $xml_fragment->getElementsByTagName("RelatedMaterial")->item(0);
-        
+
       //related material products
       foreach ($xrelated->getElementsByTagName("RelatedProduct") as $xrelated) {
         $this->related_products[] = new ElibriRelatedProduct($xrelated);
       }
-    } 
+    }
 
-    $this->computeState();      
+    $this->computeState();
 
     //Supply detail
     $xsupplys = $xml_fragment->getElementsByTagName("SupplyDetail");
@@ -590,7 +596,7 @@ class ElibriProduct {
     foreach ($xsupplys as $xsupply) {
       $supply = new ElibriSupplyDetail($xsupply);
       $this->supply_details[] = $supply;
-    } 
+    }
 
     foreach ($this->supply_details as $supply) {
       $price = $supply->price;
@@ -605,7 +611,7 @@ class ElibriProduct {
       }
     }
 
-    foreach ($xml_fragment->getElementsByTagName("master") as $node) {
+    foreach ($xml_fragment->getElementsByTagName("BodyResource") as $node) {
       $file_info = new ElibriFileInfo($node);
       $this->file_infos[] = $file_info;
     }
@@ -627,7 +633,7 @@ class ElibriProduct {
     }
 
     $this->publishing_status = $publishing_node->getElementsByTagName("PublishingStatus")->item(0)->nodeValue;
-        
+
     //publishing dates
     foreach ($publishing_node->getElementsByTagName("PublishingDate") as $node) {
        $role = FirstNodeValue::get($node, "PublishingDateRole");
@@ -684,11 +690,11 @@ class ElibriProduct {
         }
         $this->text_contents[] = $textcontent;
       }
-            
+
       //supporting resources
       foreach ($collateral_node->getElementsByTagName("SupportingResource") as $xml_fragment) {
         $resource = new ElibriSupportingResource($xml_fragment);
-        if ($resource->content_type == ElibriDictResourceContentType::FRONT_COVER) { 
+        if ($resource->content_type == ElibriDictResourceContentType::FRONT_COVER) {
           $this->front_cover = $resource;
         } else if ($resource->content_type == ElibriDictResourceContentType::WIDGET) {
           $this->preview_exists = True;
@@ -703,7 +709,7 @@ class ElibriProduct {
         $this->supporting_resources[] = $resource;
       }
   }
-  
+
   private function parseDescriptiveDetail($descriptive_detail) {
     $this->product_composition = FirstNodeValue::get($descriptive_detail, "ProductComposition");
     $this->product_form = FirstNodeValue::get($descriptive_detail, "ProductForm");
@@ -729,26 +735,33 @@ class ElibriProduct {
         if (count($feature_value) > 1) {
           $this->players_number_to = explode(" ", $feature_value[1])[0];
         }
-      } else if ($feature_type == ElibriDictProductFormFeatureType::GAME_PLAY_TIME) { 
+      } else if ($feature_type == ElibriDictProductFormFeatureType::GAME_PLAY_TIME) {
         $this->playing_time_from = $feature_value[0];
         if (count($feature_value) > 1) {
           $this->playing_time_to = explode(" ", $feature_value[1])[0];
         }
       }
     }
-        
+
     //wymiary produktu
     foreach ($descriptive_detail->getElementsByTagName("Measure") as $xml_fragment) {
       $msr = new ElibriMeasure($xml_fragment);
       $this->{strtolower($msr->type_name)} = $msr->measurement; //setting height, width, thickness, weight properties
     }
 
-    //PKWiU
+    //PKWiU + CN
     foreach ($descriptive_detail->getElementsByTagName("ProductClassification") as $classification) {
       $product_classification_type = FirstNodeValue::get($classification, "ProductClassificationType");
       if ($product_classification_type == ElibriDictProductClassificationType::PKWIU) {
         $this->pkwiu = FirstNodeValue::get($classification, "ProductClassificationCode");
+      } else if ($product_classification_type == ElibriDictProductClassificationType::CN) {
+        $this->cn_code = FirstNodeValue::get($classification, "ProductClassificationCode");
       }
+    }
+
+    //country of manufacture
+    if ($descriptive_detail->getElementsByTagName("CountryOfManufacture")->length > 0) {
+      $this->country_of_manufacture = $descriptive_detail->getElementsByTagName("CountryOfManufacture")->item(0)->nodeValue;
     }
 
 
@@ -760,7 +773,7 @@ class ElibriProduct {
       $this->series[] = array($tDet->elements[0]->title, $tDet->elements[0]->part_number);
       $this->series_names[] = $tDet->elements[0]->title;
     }
-        
+
     //titles
     foreach ($descriptive_detail->childNodes as $xml_fragment) {
       if ($xml_fragment instanceof DOMElement && $xml_fragment->tagName == "TitleDetail") { //find only immediatly children
@@ -792,7 +805,7 @@ class ElibriProduct {
     foreach ($descriptive_detail->getElementsByTagName("Contributor") as $xml_fragment) {
       $this->contributors[] = new ElibriContributor($xml_fragment);
     }
-        
+
     //descriptive detail - edition statement
     $this->edition_statement = FirstNodeValue::get($descriptive_detail, "EditionStatement");
 
@@ -801,12 +814,12 @@ class ElibriProduct {
       $this->edition_type_name = ElibriDictEditionType::byCode($this->edition_type)->const_name;
       $this->edition_type_description = ElibriDictEditionType::byCode($this->edition_type)->name["pl"];
     }
-        
+
     //descriptive details - langage
     foreach ($descriptive_detail->getElementsByTagName("Language") as $xml_fragment) {
       $this->languages[] = new ElibriLanguage($xml_fragment);
     }
-        
+
     //descriptive detail - extent
     foreach ($descriptive_detail->getElementsByTagName("Extent") as $xml_fragment) {
       $extent = new ElibriExtent($xml_fragment);
@@ -818,7 +831,7 @@ class ElibriProduct {
 
     //descriptive detail - number of illustrations
     $this->number_of_illustrations = FirstNodeValue::get($descriptive_detail, "NumberOfIllustrations");
-        
+
     //descriptive detail - subject
     foreach ($descriptive_detail->getElementsByTagName("Subject") as $xml_fragment) {
       $subject = new ElibriSubject($xml_fragment);
@@ -829,7 +842,7 @@ class ElibriProduct {
         $this->keywords = explode("; ", $subject->heading_text);
       }
     }
-        
+
     //descriptive detail - audience range
     foreach ($descriptive_detail->getElementsByTagName("AudienceRange") as $xml_fragment) {
        $audience = new ElibriAudienceRange($xml_fragment);
@@ -865,7 +878,7 @@ class ElibriProduct {
       $this->excerpt_info = True;
       $status = FirstNodeValue::get($descriptive_detail, "EpubUsageStatus");
       if ($status == ElibriDictEpubUsageStatus::PROHIBITED) {
-        $this->excerpt_publishing_allowed = False;   
+        $this->excerpt_publishing_allowed = False;
       } else {
         $this->excerpt_publishing_allowed = True;
         if ($status == ElibriDictEpubUsageStatus::LIMITED) {
@@ -880,7 +893,7 @@ class ElibriProduct {
     } else {
       $this->excerpt_info = False;
     }
-    
+
     //issn
     $collection_identifiers = $descriptive_detail->getElementsByTagName("CollectionIdentifier");
     foreach ($collection_identifiers as $collection_identifier) {
@@ -894,7 +907,7 @@ class ElibriProduct {
     		}
     	}
     }
-    
+
   }
 
   private function computeState() {
@@ -915,13 +928,13 @@ class ElibriProduct {
   function no_contributors() {
    return  (count($this->contributors) == 0);
   }
-  
+
 
   //! Jeśli autorzy nie są wymienieni z nazwisko, to zwróć true (praca zbiorowa)
   function unnamed_persons() {
     return (count($this->contributors) && (isset($this->contributors[0]->unnamed_persons)));
   }
-  
+
   function translators() {
 
     $res = array();
@@ -934,14 +947,14 @@ class ElibriProduct {
 
 
   function authors() {
-    
+
     $res = array();
-    if ($this->unnamed_persons()) $res[] = "praca zbiorowa"; 
+    if ($this->unnamed_persons()) $res[] = "praca zbiorowa";
     else {
       foreach ($this->contributors as $c)
         if ($c->role == ElibriDictContributorRole::AUTHOR) $res[] = $c->person_name;
     }
-    
+
     return $res;
   }
 }
@@ -949,7 +962,7 @@ class ElibriProduct {
 
 //! Identyfikator produktu (ISBN, EAN, numer produktu w hurtowniach)
 class ElibriProductIdentifier {
-  
+
   //! rodzaj identyfikatora (kod ONIX) - patrz ElibriDictProductIDType
   public $type;
 
@@ -964,7 +977,7 @@ class ElibriProductIdentifier {
 
   //! Flaga bool, czy jest to identyfikator hurtowni
   public $proprietary;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("ProductIDType")->item(0)->nodeValue;
@@ -980,7 +993,7 @@ class ElibriProductIdentifier {
 //! @brief Klasa reprezentująca wymiary produktu
 //! @ingroup private
 class ElibriMeasure {
-    
+
   //! kategoria wymiaru (kod ONIX) - patrz ElibriDictMeasureType
   public $type;
 
@@ -1003,7 +1016,7 @@ class ElibriMeasure {
     }
   }
 }
-  
+
 //! Klasa reprezentująca jeden poziom tytułu lub serii
 class ElibriTitleElement {
 
@@ -1018,7 +1031,7 @@ class ElibriTitleElement {
 
   //! podtytuł
   public $subtitle;
- 
+
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
@@ -1027,20 +1040,20 @@ class ElibriTitleElement {
     $this->part_number = FirstNodeValue::get($xml_fragment, "PartNumber");
     $this->subtitle = FirstNodeValue::get($xml_fragment, "Subtitle");
   }
-  
+
   //! Pełna treść tytułu
   function full_title() {
     $res=$this->title;
-      
+
     if (isset($this->subtitle)) {
       if (substr($res,strlen($res)-1, 1) != ".") {
         $res .= ".";
       }
       $res .= " " . $this->subtitle;
-    } 
-       
+    }
+
     if (isset($this->part_number)) {
-      if (is_numeric($this->part_number)) { 
+      if (is_numeric($this->part_number)) {
         $pn = "#".$this->part_number;
       } else {
         $pn = $this->part_number;
@@ -1048,13 +1061,13 @@ class ElibriTitleElement {
       $res .= " (".$pn.")";
      }
     return $res;
-       
+
   }
 }
-  
+
 //! klasa abstrahująca tytuł jeden z tytułów książki (tytuł właściwy, oryginalny, handlowy)
 class ElibriTitleDetail {
-    
+
   //! typ tytułu (kod ONIX) - patrz ElibriDictTitleType
   public $type;
 
@@ -1063,14 +1076,14 @@ class ElibriTitleDetail {
 
   //! typ tytułu jako String - 'DISTINCTIVE_TITLE', 'ORIGINAL_TITLE', 'DISTRIBUTORS_TITLE'
   public $type_name;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("TitleType")->item(0)->nodeValue;
     if (ElibriDictTitleType::byCode($this->type)) {
       $this->type_name = ElibriDictTitleType::byCode($this->type)->const_name;
     }
-    
+
     foreach ($xml_fragment->getElementsByTagName("TitleElement") as $title_element) {
       $this->elements[] = new ElibriTitleElement($title_element);
      }
@@ -1082,10 +1095,10 @@ class ElibriTitleDetail {
   function full_title() {
     $res = "";
     $clt = $this->collection_level_title();
-    if (isset($clt)) { 
+    if (isset($clt)) {
       $res .= $clt;
     }
-      
+
     $plt = $this->product_level_title();
     if (isset($plt)) {
       if ($res != "") {
@@ -1099,7 +1112,7 @@ class ElibriTitleDetail {
     }
     return $res;
   }
-    
+
   //! @brief instancja tytułu - na poziomie produktu
   //! @return instancja ElibriTitleElement albo NULL
   function product_level() {
@@ -1108,14 +1121,14 @@ class ElibriTitleDetail {
     }
     return NULL;
   }
-   
+
   //! @brief pełen tytuł z poziomu produktu
   //! @return String albo NULL, jeśli brakuje danych
   function product_level_title() {
     $cl = $this->product_level();
     if (isset($cl)) return $cl->full_title(); else return NULL;
   }
-    
+
   //! @brief instancja tytułu - poziom kolekcji
   //! @return instancja ElibriTitleElement albo NULL
   function collection_level() {
@@ -1124,7 +1137,7 @@ class ElibriTitleDetail {
     }
     return NULL;
   }
-    
+
   //! @brief pełen tytuł z poziomu kolekcji
   //! @return String albo NULL, jeśli brakuje tytułu na poziomie kolekcji
   function collection_level_title() {
@@ -1135,8 +1148,8 @@ class ElibriTitleDetail {
 
 //! Informacja o kolekcji - czyli jak gdyby serii, która jest częścią tytułu
 class ElibriCollection {
-  
-  //! zawsze '10' - patrz ElibriDictCollectionType   
+
+  //! zawsze '10' - patrz ElibriDictCollectionType
   public $type;
 
   //! instance ElibriTitleDetail
@@ -1144,7 +1157,7 @@ class ElibriCollection {
 
   //! zawsze 'PUBLISHER_COLLECTION'
   public $type_name;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("CollectionType")->item(0)->nodeValue;
@@ -1162,10 +1175,10 @@ class ElibriCollection {
     }
   }
 }
-  
+
 //! Klasa reprezentująca osoby tworzące książkę (autor, rysownik itd)
 class ElibriContributor extends ElibriAnnotatedObject {
-    
+
   //! numer kolejny
   public $number;
 
@@ -1198,7 +1211,7 @@ class ElibriContributor extends ElibriAnnotatedObject {
 
   //! true, jeśli praca zbiorowa
   public $unnamed_persons;
-  
+
   //! rola w postaci Stringa - np. 'AUTHOR'
   public $role_name;
 
@@ -1225,13 +1238,13 @@ class ElibriContributor extends ElibriAnnotatedObject {
     $this->unnamed_persons = FirstNodeValue::get($xml_fragment, "UnnamedPersons");
   }
 }
- 
-//! Język, w jakim jest napisana książka 
+
+//! Język, w jakim jest napisana książka
 class ElibriLanguage {
-    
+
   //! kontekst, w jakim występuje informacja o języku (kod ONIX) - patrz  ElibriDictLanguageRole
   public $role;
-  
+
   //! kod języka
   public $code;
 
@@ -1254,7 +1267,7 @@ class ElibriLanguage {
 
 //! Dodatkowe wartości liczbowe opisujące produkt
 class ElibriExtent {
-    
+
   //! rodzaj wartości (kod ONIX) - patrz ElibriDictExtentType
   public $type;
 
@@ -1263,13 +1276,13 @@ class ElibriExtent {
 
   //! jednostka, w której jest wyrażona watość (kod ONIX) - patrz ElibriDictExtentUnit
   public $unit;
-   
-  //! rodzaj wartości jako String, np. 'PAGE_COUNT' 
+
+  //! rodzaj wartości jako String, np. 'PAGE_COUNT'
   public $type_name;
 
   //! jednostka, jako String, np. 'PAGES'
   public $unit_name;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = FirstNodeValue::get($xml_fragment, "ExtentType");
@@ -1288,7 +1301,7 @@ class ElibriExtent {
 
 //! Klasa abstrahująca kategorię, do której został przypisany produkt
 class ElibriSubject {
-    
+
   public $scheme_identifier;
   public $scheme_name;
   public $scheme_version;
@@ -1297,7 +1310,7 @@ class ElibriSubject {
   public $main_subject;
   public $is_thema;
   public $is_keyword;
- 
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->main_subject = FirstNodeValue::get($xml_fragment, "MainSubject");
@@ -1310,10 +1323,10 @@ class ElibriSubject {
     $this->is_keyword = ($this->scheme_identifier == ElibriDictSubjectSchemeIdentifier::KEYWORDS);
   }
 }
- 
+
 //! Wiek czytelnika - od .. do
 class ElibriAudienceRange {
-    
+
   //! Tylko '18' - wiek czytelnika (kod ONIX) - patrz ElibriDictAudienceRangeQualifier
   public $qualifier;
 
@@ -1322,13 +1335,13 @@ class ElibriAudienceRange {
 
   //! wartość (wiek)
   public $value;
- 
+
   //! stała - tylko 'READING_AGE'
   public $precision_name;
 
   //! stała: 'FROM' albo 'TO'
   public $qulifier_name;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->qualifier = $xml_fragment->getElementsByTagName("AudienceRangeQualifier")->item(0)->nodeValue;
@@ -1345,7 +1358,7 @@ class ElibriAudienceRange {
 
 //! @brief Klasa reprezentuje teksty towarzyszące produktowi
 class ElibriTextContent extends ElibriAnnotatedObject {
-    
+
   //! ograniczenia w rozpowszechnianiu (kod ONIX) - w tej chwili '00' (bez ograniczeń) lub '04' (dla bibliotekarzy) - patrz ElibriDictContentAudience
   public $audience;
 
@@ -1372,7 +1385,7 @@ class ElibriTextContent extends ElibriAnnotatedObject {
     if (ElibriDictOtherTextType::byCode($this->type)) {
       $this->type_name = ElibriDictOtherTextType::byCode($this->type)->const_name;
     }
-    $this->text = trim(FirstNodeValue::get($xml_fragment, "Text")); 
+    $this->text = trim(FirstNodeValue::get($xml_fragment, "Text"));
     $this->author = FirstNodeValue::get($xml_fragment, "TextAuthor");
 
     $this->audience = $xml_fragment->getElementsByTagName("ContentAudience")->item(0)->nodeValue;
@@ -1381,7 +1394,7 @@ class ElibriTextContent extends ElibriAnnotatedObject {
     }
   }
 }
-  
+
 //! @brief Klasa reprezentuje pliki dołączone do produktu, np. okładka
 class ElibriSupportingResource extends ElibriAnnotatedObject {
 
@@ -1399,7 +1412,7 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
 
   //! URL z plikiem - do ściągnięcia
   public $link;
-   
+
   //! rodzaj zawartości - jako string, np. 'FRONT_COVER'
   public $content_type_name;
 
@@ -1411,7 +1424,7 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
 
   //! zawsze 'DOWNLOADABLE_FILE'
   public $form_name;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     parent::__construct($xml_fragment);
@@ -1437,9 +1450,9 @@ class ElibriSupportingResource extends ElibriAnnotatedObject {
     }
 
     $this->link = $xml_fragment->getElementsByTagName("ResourceVersion")->item(0)->getElementsByTagName("ResourceLink")->item(0)->nodeValue;
-  }   
+  }
 }
-  
+
 //! Klasa reprezentująca nazwę imprintu
 class ElibriImprint {
 
@@ -1451,13 +1464,13 @@ class ElibriImprint {
     $this->name = FirstNodeValue::get($xml_fragment, "ImprintName");
   }
 }
-  
+
 //! Klasa reprezentująca nazwę wydawnictwa
 class ElibriPublisher {
-    
+
   //! rola wydawnictwa - w tej chwili tylko '01' - główny wydawca (kod ONIX)
   public $role;
- 
+
   //! nazwa wydawnictwa
   public $name;
 
@@ -1475,13 +1488,13 @@ class ElibriPublisher {
     }
   }
 }
-  
+
 class ElibriPublishingDate {
-   
+
   public $role;
   public $format;
   public $date;
-    
+
   public $format_name;
   public $parsed;
 
@@ -1500,9 +1513,9 @@ class ElibriPublishingDate {
   public static function parseDate($date, $format) {
     switch ($format) {
       case 'YYYYMMDDTHHMM': return array(substr($date, 0, 4), substr($date,4,2), substr($date, 6, 2), substr($date, 9, 2), substr($date, 11, 2));
-      case 'YYYYMMDD': return array(substr($date, 0, 4), substr($date,4,2), substr($date, 6, 2)); 
-      case 'YYYYMM': return array(substr($date, 0, 4), substr($date, 4, 2)); 
-      case 'YYYY': return array(substr($date, 0, 4)); 
+      case 'YYYYMMDD': return array(substr($date, 0, 4), substr($date,4,2), substr($date, 6, 2));
+      case 'YYYYMM': return array(substr($date, 0, 4), substr($date, 4, 2));
+      case 'YYYY': return array(substr($date, 0, 4));
     }
   }
 
@@ -1510,7 +1523,7 @@ class ElibriPublishingDate {
 
 //! Informacja o restrykcji w sprzedaży, np. dwutygodniowej wyłączności w empiku
 class ElibriSalesRestriction {
- 
+
   //! Rodzaj wyłączności (kod ONIX) - patrz ElibriDictSalesRestrictionType (zawsze RETAILER_EXCLUSIVE = '04')
   public $type;
 
@@ -1523,9 +1536,9 @@ class ElibriSalesRestriction {
   //! Data końca wyłączności, jako instancja DateTime
   public $end_date_as_datetime;
 
-  //! Rodzaj wyłączności jako String - zawsze RETAILER_EXCLUSIVE 
+  //! Rodzaj wyłączności jako String - zawsze RETAILER_EXCLUSIVE
   public $type_name;
- 
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("SalesRestrictionType")->item(0)->nodeValue;
@@ -1542,7 +1555,7 @@ class ElibriSalesRestriction {
 //! Klasa reprezentująca informację o fragmencie utworu (produkty cyfrowe)
 class ElibriExcerptInfo {
   //! wielkość pliku w bajtach
-  public $file_size; 
+  public $file_size;
 
   //! rodzaj pliku, przybiera następujące wartości: mobi_excerpt, epub_excerpt, pdf_excerpt, mp3_excerpt
   public $file_type;
@@ -1569,7 +1582,7 @@ class ElibriExcerptInfo {
         $this->md5 = $feature_value;
       } else if ($feature_type == ElibriDictResourceVersionFeatureType::SIZE_IN_BYTES) {
         $this->file_size = $feature_value;
-      }       
+      }
     }
 
     $this->link = $node->getElementsByTagName("ResourceLink")->item(0)->nodeValue;
@@ -1605,17 +1618,46 @@ class ElibriFileInfo {
   public $updated_at;
 
   function __construct($node) {
-     $this->file_size = $node->getAttribute("file_size");
-     $this->file_type = $node->getAttribute("file_type");
-     $this->id = $node->getAttribute("id");
-     $this->md5 = $node->getAttribute("md5");
-     $this->updated_at = new DateTime($node->getAttribute("updated_at"));
+
+    if ($node->getElementsByTagName("ResourceFileLink")->length > 0) {
+      $ext = pathinfo($node->getElementsByTagName("ResourceFileLink")->item(0)->nodeValue, PATHINFO_EXTENSION);
+      if ($ext == "zip") {
+        $this->file_type == "mp3_in_zip";
+      } else {
+        $this->file_type = $ext;
+      }
+    }
+
+    foreach ($node->getElementsByTagName("ResourceFileFeature") as $feature) {
+      $feature_type = $feature->getElementsByTagName("ResourceFileFeatureType")->item(0)->nodeValue;
+      $feature_value = $feature->getElementsByTagName("ResourceFileFeatureValue")->item(0)->nodeValue;
+
+      if ($feature_type == ElibriDictResourceFileFeatureType::MD5) {
+        $this->md5 = $feature_value;
+      } else if ($feature_type == ElibriDictResourceFileFeatureType::EXACT_FILE_SIZE) {
+        $this->file_size = $feature_value;
+      }
+    }
+
+    foreach ($node->getElementsbyTagName("ResourceIdentifier") as $daten) {
+      if ($daten->getElementsByTagName("ResourceIDType")->item(0)->nodeValue == ElibriDictResourceIDType::PROPRIETARY) {
+        $this->id = $node->getElementsByTagName("IDValue")->item(0)->nodeValue;
+      }
+    }
+
+    foreach ($node->getElementsbyTagName("ResourceFileDate") as $daten) {
+      if ($daten->getElementsByTagName("ResourceFileDateRole")->item(0)->nodeValue == ElibriDictContentDateRole::LAST_UPDATED) {
+       $date = ElibriPublishingDate::parseDate($node->getElementsByTagName("Date")->item(0)->nodeValue, 'YYYYMMDDTHHMM');
+       $this->updated_at = new DateTime($date[0] . "-" . $date[1] . "-" . $date[2] . " " . $date[3] . ":" . $date[4] . "  +00:00");
+      }
+    }
+
   }
 }
 
 
 class ElibriRelatedProduct {
-    
+
   public $relation_code;
   public $identifiers = array();
   public $isbn13;
@@ -1637,10 +1679,10 @@ class ElibriRelatedProduct {
     }
   }
 }
- 
-//! Klasa reprezentuje cenę książki w kanale dystrybucji 
+
+//! Klasa reprezentuje cenę książki w kanale dystrybucji
 class ElibriPrice {
-    
+
   public $type;
   public $type_name;
   public $minimum_order_quantity;
@@ -1652,7 +1694,7 @@ class ElibriPrice {
   public $tax_type;
   public $tax_rate_percent;
   public $vat;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = FirstNodeValue::get($xml_fragment, "PriceType");
@@ -1676,11 +1718,11 @@ class ElibriPrice {
 
   }
 }
-  
 
-//! Klasa reprezentująca identyfikator dostawcy 
+
+//! Klasa reprezentująca identyfikator dostawcy
 class ElibriSupplierIdentifier {
-  
+
   public $type;
   public $type_name;
   public $value;
@@ -1691,26 +1733,26 @@ class ElibriSupplierIdentifier {
     $this->type_name = FirstNodeValue::get($xml_fragment, "IDTypeName");
     $this->value = FirstNodeValue::get($xml_fragment, "IDValue");
   }
-} 
-  
+}
+
 //! Klasa reprezentująca dostawcę
 class ElibriSupplier {
-    
+
   public $role;
   public $identifiers = array();
   public $name;
   public $telephone_numer;
   public $email_address;
   public $website;
-    
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->role = FirstNodeValue::get($xml_fragment, "SupplierRole");
-        
+
     foreach ($xml_fragment->getElementsByTagName("SupplierIdentifier") as $xsupid) {
       $this->identifiers[] = new ElibriSupplierIdentifier($xsupid);
     }
-        
+
     $this->name =  FirstNodeValue::get($xml_fragment, "SupplierName");
     $this->telephone_number = FirstNodeValue::get($xml_fragment, "TelephoneNumber");
     $this->email_address =  FirstNodeValue::get($xml_fragment, "EmailAddress");
@@ -1725,9 +1767,9 @@ class ElibriSupplier {
     return NULL;
   }
 }
-  
+
 class ElibriSupplyDetail {
-    
+
   public $relation_code;
   public $supplier;
   public $product_availability;
@@ -1752,7 +1794,7 @@ class ElibriSupplyDetail {
     $supplier = new ElibriSupplier($xml_fragment->getElementsByTagName("Supplier")->item(0));
 
     $this->supplier = $supplier;
-        
+
     $this->product_availability = FirstNodeValue::get($xml_fragment, "ProductAvailability");
     if (ElibriDictProductAvailabilityType::byCode($this->product_availability)) {
       $this->product_availability_name = ElibriDictProductAvailabilityType::byCode($this->product_availability)->const_name;
@@ -1761,13 +1803,13 @@ class ElibriSupplyDetail {
     if ($xml_fragment->getElementsByTagName("SupplierOwnCoding")->length > 0) {
       $this->supplier_own_coding = $xml_fragment->getElementsByTagName("SupplierOwnCoding")->item(0)->getElementsByTagName("SupplierCodeValue")->item(0)->nodeValue;
     }
-        
+
     $xstock = $xml_fragment->getElementsByTagName("Stock")->item(0);
-	  
+
     if ($xstock) {
         if ($xstock->getElementsByTagName("OnHand")->length > 0) {
           $this->on_hand = FirstNodeValue::get($xstock, "OnHand", true);
-        } 
+        }
 
         if ($xstock->getElementsByTagName("Proximity")->length > 0) {
           $this->proximity = FirstNodeValue::get($xstock, "Proximity", true);
@@ -1785,13 +1827,13 @@ class ElibriSupplyDetail {
 
 //! Klasa reprezentująca dane osoby wysyłającej z nagłówka ONIX
 class ElibriSender {
-    
-  //! Nadawca wiadomości 
+
+  //! Nadawca wiadomości
   public $sender_name;
 
   //! Osoba kontaktowa
   public $contact_name;
-  
+
   //! E-mail kontaktowy
   public $email_address;
 
@@ -1801,12 +1843,12 @@ class ElibriSender {
     $this->contact_name = FirstNodeValue::get($xml_fragment, "ContactName");
     $this->email_address = FirstNodeValue::get($xml_fragment, "EmailAddress");
   }
-    
+
 }
 
 //! Klasa reprezentująca dane nagłówka ONIX
 class ElibriHeader {
-    
+
   //! Data i czas wygenerowania wiadomości
   public $sent_date_time;
 
@@ -1819,5 +1861,5 @@ class ElibriHeader {
     $this->sent_date_time = FirstNodeValue::get($xml_fragment->item(0), "SentDateTime");
   }
 }
-  
+
 ?>

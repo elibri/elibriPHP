@@ -1,0 +1,15 @@
+#lista 253
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceFileFeatureType
+  onix_code: '06'
+  const_name: MD5
+  name:
+    en: md5
+    pl: md5
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ResourceFileFeatureType
+  onix_code: '07'
+  const_name: EXACT_FILE_SIZE
+  name:
+    en: exact file size
+    pl: dokładny rozmiar pliku

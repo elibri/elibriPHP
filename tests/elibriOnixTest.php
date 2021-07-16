@@ -70,7 +70,7 @@ class ElibriDictTest extends TestCase {
     $product = $this->load("onix_edition_example.xml");
 
     $this->assertEquals("wyd. 3, poprawione", $product->edition_statement);
-    
+
     $this->assertEquals(ElibriDictEditionType::LARGE_TYPE_EDITION, $product->edition_type);
     $this->assertEquals("LTE", $product->edition_type);
 
@@ -171,7 +171,7 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals("9788324799992", $product->isbn13);
     $this->assertEquals(NULL, $product->ean);
-   
+
     $this->assertEquals($product->series_names, array("Lektury szkolne", "Dla Bystrzaków"));
 
     $this->assertEquals("Lektury szkolne", $product->series[0][0]);
@@ -222,7 +222,7 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(1, count($product->reviews));
     $this->assertEquals("Recenzja książki<br/>[...]", $product->reviews[0]->text);
     $this->assertEquals("Jan Kowalski", $product->reviews[0]->author);
-   
+
     $this->assertEquals("20111204T1218", $product->reviews[0]->datestamp_before_type_cast);
     $this->assertEquals(new DateTime("2011-12-04 12:18"), $product->reviews[0]->datestamp);
     $this->assertEquals(134, $product->reviews[0]->id);
@@ -310,7 +310,7 @@ class ElibriDictTest extends TestCase {
   }
 
   public function test_licence_information() {
-    $product = $this->load("onix_unlimited_book_sample_example.xml"); 
+    $product = $this->load("onix_unlimited_book_sample_example.xml");
     $this->assertTrue($product->unlimited_licence);
 
     $product = $this->load("onix_epub_details_example.xml");
@@ -362,13 +362,31 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals("https://www.elibri.com.pl/excerpt/767/4b145ff46636b06f49225abdab70927f/fragment.epub", $e->link);
     $this->assertEquals(767, $e->id);
 
+    $e = $product->excerpt_infos[1];
+
+    $this->assertEquals(2100244, $e->file_size);
+    $this->assertEquals("3b452923564374efebc5bfe1059f5fd2", $e->md5);
+    $this->assertEquals("mobi_excerpt", $e->file_type);
+    $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $e->updated_at);
+    $this->assertEquals("https://www.elibri.com.pl/excerpt/768/3b452923564374efebc5bfe1059f5fd2/fragment.mobi", $e->link);
+    $this->assertEquals(768, $e->id);
+
+
     $this->assertEquals(2, count($product->file_infos));
-    $f = $product->file_infos[0];  
+
+    $f = $product->file_infos[0];
     $this->assertEquals(4197382, $f->file_size);
     $this->assertEquals("e9353ce40eaa677f8c5d666c2f8bbb3f", $f->md5);
     $this->assertEquals("epub", $f->file_type);
     $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $f->updated_at);
     $this->assertEquals(765, $f->id);
+
+    $f = $product->file_infos[1];
+    $this->assertEquals(9197012, $f->file_size);
+    $this->assertEquals("ff353ce40eaa677f8c5d666c2f8bbb00", $f->md5);
+    $this->assertEquals("mobi", $f->file_type);
+    $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $f->updated_at);
+    $this->assertEquals(766, $f->id);
   }
 
   public function test_thema() {
@@ -389,7 +407,7 @@ class ElibriDictTest extends TestCase {
     $s3 = $product->thema_subjects[2];
 
     $this->assertEquals("3MPBGH", $s3->code);
-    $this->assertEquals("Kwalifikatory chronologiczne / od ok. 1500 do dzisiaj / XX wiek (ok. 1900–1999) " . 
+    $this->assertEquals("Kwalifikatory chronologiczne / od ok. 1500 do dzisiaj / XX wiek (ok. 1900–1999) " .
                          "/ 1. poł. XX wieku (ok. 1900–1950) / Dwudziestolecie międzywojenne (ok. 1919–1939) / ok. 1920–1929", $s3->heading_text);
 
     $this->assertEquals(array("wojna", "Europa wschodnia"), $product->keywords);
@@ -533,7 +551,7 @@ class ElibriDictTest extends TestCase {
 
   public function test_audiobook() {
     $product = $this->load("audiobook.xml");
-    
+
     $this->assertEquals(1, count($product->excerpt_infos));
     $e = $product->excerpt_infos[0];
 
@@ -543,7 +561,7 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(new DateTime("2019-07-12 21:58 +00:00"), $e->updated_at);
     $this->assertEquals("https://www.elibri.com.pl/excerpt/109048/0bf20c528f323dd2a6d91627ccddf52e/kwiaty-dla-algernona-fragment.mp3", $e->link);
     $this->assertEquals(109048, $e->id);
-    
+
     $this->assertEquals(524, $product->duration);
     $this->assertEquals("AUDIO_DOWNLOADABLE_FILE", $product->product_form_name);
   }
@@ -568,8 +586,13 @@ class ElibriDictTest extends TestCase {
 
     #głównie chodzi o to, żeby parsowanie onix-a zakończyło się bez błędu
     $this->assertEquals("AL", $product->product_form);
+  }
 
+  public function test_onix_with_classification_and_production_country() {
+    $product = $this->load("onix_cn_production_country_example.xml");
 
+    $this->assertEquals("4901", $product->cn_code);
+    $this->assertEquals("DE", $product->country_of_manufacture);
   }
 
 }
