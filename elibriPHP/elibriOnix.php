@@ -1501,13 +1501,15 @@ class ElibriPublishingDate {
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->role = FirstNodeValue::get($xml_fragment, "PublishingDateRole");
-    $this->format = FirstNodeValue::get($xml_fragment, "DateFormat");
-    $this->date = FirstNodeValue::get($xml_fragment, "Date");
-
-    if (ElibriDictDateFormat::byCode($this->format)) {
-      $this->format_name = ElibriDictDateFormat::byCode($this->format)->const_name;
+    $date_elements = $xml_fragment->getElementsByTagName("Date");
+    if ($date_elements->length > 0) {
+      $this->format = $date_elements->item(0)->getAttribute("dateformat");
+      $this->date = $date_elements->item(0)->nodeValue;
+      if (ElibriDictDateFormat::byCode($this->format)) {
+        $this->format_name = ElibriDictDateFormat::byCode($this->format)->const_name;
+      }
+      $this->parsed =  ElibriPublishingDate::parseDate($this->date, $this->format_name);
     }
-    $this->parsed =  ElibriPublishingDate::parseDate($this->date, $this->format_name);
   }
 
   public static function parseDate($date, $format) {

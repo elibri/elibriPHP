@@ -382,8 +382,8 @@ class ElibriDictTest extends TestCase {
     $this->assertEquals(765, $f->id);
 
     $f = $product->file_infos[1];
-    $this->assertEquals(9197012, $f->file_size);
-    $this->assertEquals("ff353ce40eaa677f8c5d666c2f8bbb00", $f->md5);
+    $this->assertEquals(9177122, $f->file_size);
+    $this->assertEquals("44452923564374efebc5bfe1059f5fb8", $f->md5);
     $this->assertEquals("mobi", $f->file_type);
     $this->assertEquals(new DateTime("2012-12-30 15:18 +00:00"), $f->updated_at);
     $this->assertEquals(766, $f->id);

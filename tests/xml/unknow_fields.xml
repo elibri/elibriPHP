@@ -97,7 +97,6 @@
       <PublishingStatus>04</PublishingStatus>
       <PublishingDate>
         <!--PublishingDateRole: PUBLICATION_DATE--><PublishingDateRole>01</PublishingDateRole>
-        <!--DateFormat: YYYYMMDD--><DateFormat>00</DateFormat>
         <Date dateformat="00">20190724</Date>
       </PublishingDate>
       <SalesRights>
