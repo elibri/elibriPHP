@@ -8,6 +8,7 @@ var searchData=
   ['for_5fsale_5fwith_5fexlusive_5frights',['FOR_SALE_WITH_EXLUSIVE_RIGHTS',['../classElibriDictSalesRightsType.html#ab2cc8c654128a3ea1d70999d5e5efc49',1,'ElibriDictSalesRightsType']]],
   ['forthcoming',['FORTHCOMING',['../classElibriDictPublishingStatusCode.html#af26f37f4592f1e33bd06781c9c8090ed',1,'ElibriDictPublishingStatusCode']]],
   ['from',['FROM',['../classElibriDictAudienceRangePrecision.html#a75b10d5efd4e0baba31411a7b56120b4',1,'ElibriDictAudienceRangePrecision']]],
+  ['from_5fdate',['FROM_DATE',['../classElibriDictPriceDateRole.html#a59b0955a406b36032c8f1e2771c60f61',1,'ElibriDictPriceDateRole']]],
   ['front_5fcover',['FRONT_COVER',['../classElibriDictResourceContentType.html#afeb582aa82f5261ef1a62aec67a4b365',1,'ElibriDictResourceContentType']]],
   ['front_5fcover_5f3d',['FRONT_COVER_3D',['../classElibriDictResourceContentType.html#a4a688b67a5f8323d3d086eee16450211',1,'ElibriDictResourceContentType']]],
   ['full_5fcover',['FULL_COVER',['../classElibriDictResourceContentType.html#a37dd92243ff47242a69b2894d7a1ecf9',1,'ElibriDictResourceContentType']]]

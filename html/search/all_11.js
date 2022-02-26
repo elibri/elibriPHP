@@ -20,8 +20,6 @@ var searchData=
   ['product_5flevel_5ftitle',['product_level_title',['../classElibriTitleDetail.html#a3eedea93e5fae3ed2ef84260604afa54',1,'ElibriTitleDetail']]],
   ['prohibited',['PROHIBITED',['../classElibriDictEpubUsageStatus.html#aa0dfb3a98434c6b2afcbdc405f51b565',1,'ElibriDictEpubUsageStatus']]],
   ['proprietary',['PROPRIETARY',['../classElibriDictResourceIDType.html#aa5d514f7d4e7285e577109508fae4cd9',1,'ElibriDictResourceIDType\PROPRIETARY()'],['../classElibriDictProductIDType.html#a60e64147dbe2db4f9ee03213b9cba7f8',1,'ElibriDictProductIDType\PROPRIETARY()'],['../classElibriDictSubjectSchemeIdentifier.html#abf2247be2ce23ba160bee28eb070eb5c',1,'ElibriDictSubjectSchemeIdentifier\PROPRIETARY()']]],
-  ['pub_5fexl_5fdist',['PUB_EXL_DIST',['../classElibriDictSupplierRole.html#abdb83ca3c8be25646c6bd5180e136793',1,'ElibriDictSupplierRole']]],
-  ['pub_5fnon_5fexl_5fdist',['PUB_NON_EXL_DIST',['../classElibriDictSupplierRole.html#a00fb5526d19c80fc2bbb40216735175a',1,'ElibriDictSupplierRole']]],
   ['pub_5fto_5fret',['PUB_TO_RET',['../classElibriDictSupplierRole.html#a3b00564d0d4f7e78a27c52ddf91e2b85',1,'ElibriDictSupplierRole']]],
   ['publication_5fdate',['PUBLICATION_DATE',['../classElibriDictPublishingDateRole.html#ab2b6990c7e92410a015e6f1eb28fbc88',1,'ElibriDictPublishingDateRole']]],
   ['publisher_5fcollection',['PUBLISHER_COLLECTION',['../classElibriDictCollectionType.html#ac01e3134ee37d821cc725790878bb660',1,'ElibriDictCollectionType']]]

@@ -43,6 +43,7 @@ var searchData=
   ['elibridictmeasuretype',['ElibriDictMeasureType',['../classElibriDictMeasureType.html',1,'']]],
   ['elibridictnotificationtype',['ElibriDictNotificationType',['../classElibriDictNotificationType.html',1,'']]],
   ['elibridictothertexttype',['ElibriDictOtherTextType',['../classElibriDictOtherTextType.html',1,'']]],
+  ['elibridictpricedaterole',['ElibriDictPriceDateRole',['../classElibriDictPriceDateRole.html',1,'']]],
   ['elibridictpricepositiononproduct',['ElibriDictPricePositionOnProduct',['../classElibriDictPricePositionOnProduct.html',1,'']]],
   ['elibridictpriceprintedonproduct',['ElibriDictPricePrintedOnProduct',['../classElibriDictPricePrintedOnProduct.html',1,'']]],
   ['elibridictpricetypecode',['ElibriDictPriceTypeCode',['../classElibriDictPriceTypeCode.html',1,'']]],
