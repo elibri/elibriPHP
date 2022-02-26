@@ -1,13 +1,6 @@
 #lista 51
 
---- 
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductRelationType
-  onix_code: '23'
-  const_name: SIMILAR_PRODUCTS
-  name:
-    en: products are similar
-    pl: produkty są podobne (mogą zainteresować klienta)
-
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductRelationType
   onix_code: '24'
   const_name: FACSIMILES

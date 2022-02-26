@@ -323,7 +323,7 @@ class ElibriDictTest extends TestCase {
   public function test_formats_and_protection() {
     $product = $this->load("onix_epub_details_example.xml");
     $this->assertEquals(array("EPUB", "MOBI"), $product->digital_formats);
-    $this->assertEquals("DRM", $product->technical_protection);
+    $this->assertEquals("WATERMARK", $product->technical_protection);
   }
 
   public function test_excerpt_info() {
@@ -418,6 +418,10 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals("miękka", $product->cover_type);
     $this->assertEquals(12.99, $product->cover_price);
+    $this->assertNull($product->currrent_price_until);
+    $this->assertNull($product->future_cover_price);
+    $this->assertNull($product->future_price_from);
+
     $this->assertEquals(5, $product->vat);
     $this->assertEquals("58.11.1", $product->pkwiu);
 
@@ -540,7 +544,7 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals(7, $sd->pack_quantity);
 
-    $pr = $sd->price;
+    $pr = $sd->prices[0];
     $this->assertEquals("02", $pr->type);
     $this->assertEquals(20, $pr->minimum_order_quantity);
     $this->assertEquals(12.99, $pr->amount);
@@ -593,6 +597,19 @@ class ElibriDictTest extends TestCase {
 
     $this->assertEquals("4901", $product->cn_code);
     $this->assertEquals("DE", $product->country_of_manufacture);
+  }
+
+  public function test_future_price_change() {
+
+    $product = $this->load("onix_future_price_change_example.xml");
+    $this->assertEquals(12.99, $product->cover_price);
+    $this->assertEquals(new DateTime("2022-03-31"), $product->currrent_price_until);
+
+    $this->assertEquals(13.99, $product->future_cover_price);
+    $this->assertEquals(new DateTime("2022-04-01"), $product->future_price_from);
+
+
+
   }
 
 }

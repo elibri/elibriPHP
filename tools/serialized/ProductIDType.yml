@@ -20,4 +20,10 @@
     en: ISBN-13
     pl: ISBN-13
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductIDType
+  onix_code: '06'
+  const_name: DOI
+  name:
+    en: DOI
+    pl: DOI
 

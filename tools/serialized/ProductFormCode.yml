@@ -182,3 +182,13 @@
   digital: false
   carrier: druk
   mandatory_isbn: true
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
+  onix_code: 'OPEN_ACCESS'
+  const_name: OPEN_ACCESS
+  name:
+    en: e-book open access
+    pl: e-book open access
+  digital: false
+  carrier: plik
+  mandatory_isbn: true

@@ -1,19 +1,5 @@
 
---- 
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubTechnicalProtection
-  onix_code: '00'
-  const_name: NONE
-  name:
-    en: none
-    pl: brak
-
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubTechnicalProtection
-  onix_code: '01'
-  const_name: DRM
-  name:
-    en: DRM
-    pl: DRM
-
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubTechnicalProtection
   onix_code: '02'
   const_name: WATERMARK

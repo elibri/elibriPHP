@@ -1,44 +1,51 @@
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '03'
   const_name: PAGES
+  onix_doc: true
   name:
     en: pages
     pl: strony
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '05'
   const_name: MINUTES
+  onix_doc: true
   name:
     en: minutes
     pl: minuty
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '19'
   const_name: MEGABYTES
+  onix_doc: true
   name:
     en: megabytes
     pl: megabajty
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '04'
   const_name: HOURS
+  onix_doc: false
   name:
     en: hours
     pl: godziny
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '16'
   const_name: HHHMMSS
+  onix_doc: false
   name:
     en: Hours minutes seconds
     pl: Godziny minuty sekundy
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '15'
   const_name:  HHHMM
+  onix_doc: false
   name:
     en: Hours minutes
     pl: Godziny minuty
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '14'
   const_name: HHH
+  onix_doc: false
   name:
     en: hours
     pl: godziny

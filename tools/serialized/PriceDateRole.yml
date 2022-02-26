@@ -1,0 +1,17 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceDateRole
+  onix_code: '14'
+  const_name: FROM_DATE
+  name:
+    en: from date
+    pl: data od
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceDateRole
+  onix_code: '15'
+  const_name: UNTIL_DATE
+  name:
+    en: until date
+    pl: data do
+
+

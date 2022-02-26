@@ -393,6 +393,15 @@ class ElibriProduct {
   //! cena okładkowa
   public $cover_price;
 
+  //! do kiedy będzie obowiązywać dotychczasowa cena
+  public $currrent_price_until;
+
+  //! przyszła, zapowiedziana cena okładkowa
+  public $future_cover_price;
+
+  //! od kiedy będzie obowiązywać nowa cena okładkowa
+  public $future_price_from;
+
   //! stawka VAT
   public $vat;
 
@@ -599,11 +608,22 @@ class ElibriProduct {
     }
 
     foreach ($this->supply_details as $supply) {
-      $price = $supply->price;
 
-      if ($price->type_name ==  "RRP_WITH_TAX") {
-        $this->cover_price = $price->amount;
-        $this->vat = $price->tax_rate_percent;
+      foreach($supply->prices as $price) {
+        if ($price->type_name ==  "RRP_WITH_TAX") {
+
+          if ($price->price_date_type == ElibriDictPriceDateRole::UNTIL_DATE) {
+            $this->cover_price = $price->amount;
+            $this->currrent_price_until = $price->price_date_value;
+          } else if ($price->price_date_type == ElibriDictPriceDateRole::FROM_DATE) {
+            $this->future_cover_price = $price->amount;
+            $this->future_price_from = $price->price_date_value;
+          } else {
+            $this->cover_price = $price->amount;
+          }
+
+          $this->vat = $price->tax_rate_percent;
+        }
       }
 
       if ($supply->supplier_own_coding) {
@@ -1696,6 +1716,8 @@ class ElibriPrice {
   public $tax_type;
   public $tax_rate_percent;
   public $vat;
+  public $price_date_type;
+  public $price_date_value;
 
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
@@ -1705,6 +1727,13 @@ class ElibriPrice {
     }
     $this->minimum_order_quantity = FirstNodeValue::get($xml_fragment, "MinimumOrderQuantity", true);
     $this->amount = floatval($xml_fragment->getElementsByTagName("PriceAmount")->item(0)->nodeValue);
+    if ($xml_fragment->getElementsByTagName("PriceDate")->length > 0) {
+      $price_date = $xml_fragment->getElementsByTagName("PriceDate")->item(0);
+      $this->price_date_type = FirstNodeValue::get($price_date, "PriceDateRole");
+      $date_value = ElibriPublishingDate::parseDate(FirstNodeValue::get($price_date, "Date"), 'YYYYMMDD');
+      $this->price_date_value = new DateTime($date_value[0] . "-" . $date_value[1] . "-" . $date_value[2]);
+    }
+
     $this->tax_type = intval($xml_fragment->getElementsByTagName("Tax")->item(0)->getElementsByTagName("TaxType")->item(0)->nodeValue);
     $this->tax_rate_percent = intval($xml_fragment->getElementsByTagName("Tax")->item(0)->getElementsByTagName("TaxRatePercent")->item(0)->nodeValue);
 
@@ -1780,7 +1809,7 @@ class ElibriSupplyDetail {
   //! Jedna z wartości ElibriDictProductAvailabilityType
   public $product_availability_name;
   public $pack_quantity;
-  public $price;
+  public $prices;
 
   //! Informacja o stanie magazynowym produktu
   public $on_hand;
@@ -1823,7 +1852,10 @@ class ElibriSupplyDetail {
     }
 
     $this->pack_quantity = FirstNodeValue::get($xml_fragment, "PackQuantity", true);
-    $this->price = new ElibriPrice($xml_fragment->getElementsByTagName("Price")->item(0));
+
+    foreach ($xml_fragment->getElementsByTagName("Price") as $elem) {
+      $this->prices[] = new ElibriPrice($elem);
+    }
   }
 }
 
