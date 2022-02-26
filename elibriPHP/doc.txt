@@ -8,6 +8,10 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c26022022 26 luty 2022 roku
+ *
+ * - dodanie informacji o zapowiedzianych zmianach cen: $currrent_price_until,  $future_cover_price, $future_price_from
+ *
  * \subsection c16042020 16 kwiecień 2020 roku
  *
  * - dodane pole $keywords zawierające listę słów kluczowych (tagów) dodanych przez wydawce.
@@ -35,7 +39,7 @@
  * - w polu isbn13_with_hyphens jest teraz wartość isbn bez kresek, ponieważ pole <elibri:HyphenatedISBN> zostanie wkrótce usunięte
  *
  * \subsection c30072019 30 lipca 2019 roku
- * 
+ *
  * - Naprawione parsowanie SupplyDetails (dzięki uprzejmości Sebastiana Tatarczucha)
  * - Dodane pole $proximity_name (wartości 'EXACTLY' albo 'MORE_THAN' - informują o dokładności wartości w polu $on_hand
  * - Dodane pole $thema_subjects, które jest listą kategorii Thema
@@ -51,12 +55,12 @@
  * Ogólne założenia API są opisane <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>. Proszę też spojrzeć na poniższe przykłady.
  *
  * \section examples_sec Przykłady użycia
- * 
+ *
  * Użycie biblioteki jest bardzo proste. W poniższych przykładach zakładamy, że login i hasło są przechowywane jako zmienne środowiskowe
  * ELIBRI_API_LOGIN i ELIBRI_API_PASSWORD. Wszystkie przykłady można znaleźć w katalogu examples
- * 
+ *
  * \subsection example1 Przykład 1
- * 
+ *
  * W poniższym przykładzie instancjujemy obiekt klasy ElibriAPI oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących
  * w każdej z kolejek. Podczas połączenia może wystąpić jeden z @link exceptions wyjątków @endlink
  *
@@ -64,7 +68,7 @@
  *
  * \subsection example2 Przykład 2
  *
- * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. 
+ * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły.
  * Wiadomość otrzymana z serwera to instancja ElibriOnixMessage, która zawiera listę produktów - ElibriProduct.
  * Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID
  * w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.
@@ -72,8 +76,8 @@
  * \include get_products.php
  *
  * \subsection example3 Przykład 3
- * 
- * Poniżej pobieramy listę wszystkich wydawnictw dostępnych w systemie, po czym drukowana jest informacja o pierwszym wydawnictwie, 
+ *
+ * Poniżej pobieramy listę wszystkich wydawnictw dostępnych w systemie, po czym drukowana jest informacja o pierwszym wydawnictwie,
  * i pobierane dane pierwszej książki tego wydawnictwa.
  *
  * \include publisher_info.php
