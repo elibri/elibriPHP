@@ -7,6 +7,10 @@
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
  * \section changes Lista zmian:
+ * 
+ * \subsection c05022023 5 luty 2023 roku
+ *
+ * - dodanie języka śląskiego do listy języków
  *
  * \subsection c26022022 26 luty 2022 roku
  *

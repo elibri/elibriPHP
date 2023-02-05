@@ -335,3 +335,10 @@
   name:
     en: Sanskrit
     pl: sanskryt
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: szl
+  name:
+    en: Silesian
+    pl: śląski
+
