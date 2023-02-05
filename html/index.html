@@ -6,9 +6,9 @@
         <!-- For Mobile Devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-        <meta name="generator" content="Doxygen 1.8.13"/>
+        <meta name="generator" content="Doxygen 1.9.1"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri: Biblioteka do obsługi API eLibri</title>
+        <title>Moduł &nbsp; PHP &nbsp; dla &nbsp; API &nbsp; elibri: Biblioteka do obsługi API eLibri</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Moduł&nbsp;PHP&nbsp;dla&nbsp;API&nbsp;elibri </a>
+                    <a class="navbar-brand">Moduł &nbsp; PHP &nbsp; dla &nbsp; API &nbsp; elibri </a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">Strona główna</a></li>
@@ -52,18 +52,21 @@
                         <div class="col-sm-12 panel " style="padding-bottom: 15px;">
                             <div style="margin-bottom: 15px;">
 <!-- end header part -->
-<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
 <script type="text/javascript">
-var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Szukaj');
   $(document).ready(function() { init_search(); });
 });
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
@@ -80,7 +83,7 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
 <div class="title">Biblioteka do obsługi API eLibri </div>  </div>
 </div><!--header-->
@@ -90,6 +93,11 @@ Wprowadzenie</h1>
 <p><a href="https://www.elibri.com.pl">eLibri</a> jest systemem stworzonym dla wydawnictw, które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek. Niniejsza biblioteka jest implementacją API udokumentowanego <a href="https://www.elibri.com.pl/doc/api">tutaj</a>.</p>
 <h1><a class="anchor" id="changes"></a>
 Lista zmian:</h1>
+<h2><a class="anchor" id="c05022023"></a>
+5 luty 2023 roku</h2>
+<ul>
+<li>dodanie języka śląskiego do listy języków</li>
+</ul>
 <h2><a class="anchor" id="c26022022"></a>
 26 luty 2022 roku</h2>
 <ul>
@@ -114,7 +122,7 @@ Lista zmian:</h1>
 19 stycznia 2020 roku</h2>
 <ul>
 <li>parsowanie informacji związanych z grami planszowymi i puzzle: nowe pola doyczące ilości elementów, czasu gry oraz ilości graczy</li>
-<li>nowy kod dla plików dołączanych do opisu produktu ($supporting_resources) - <a class="el" href="classElibriDictResourceContentType.html#a8fa8db6ad4b7d154cba739de2effe826" title="zasady lub instrukcje gry ">ElibriDictResourceContentType::RULES_OR_INSTRUCTIONS</a></li>
+<li>nowy kod dla plików dołączanych do opisu produktu ($supporting_resources) - <a class="el" href="classElibriDictResourceContentType.html#a8fa8db6ad4b7d154cba739de2effe826" title="zasady lub instrukcje gry">ElibriDictResourceContentType::RULES_OR_INSTRUCTIONS</a></li>
 <li>pola table_of_contents, description, short_description, reviews, excerpts mogą zawierać tylko teksty, dla których ContentAudience jest UNRESTRICTED</li>
 </ul>
 <h2><a class="anchor" id="c09082019"></a>
@@ -124,7 +132,7 @@ Lista zmian:</h1>
 <li>informacja o poglądzie książki drukowanej jest pobierana teraz z SupportingResource</li>
 <li>informacje o fragmentach cyfrowych książek są pobierane teraz z SupportingResource</li>
 <li>informacja o końcu licencji na produkty cyfrowe jest pobierana z PublishingDetail</li>
-<li>w polu isbn13_with_hyphens jest teraz wartość isbn bez kresek, ponieważ pole &lt;elibri:HyphenatedISBN&gt; zostanie wkrótce usunięte</li>
+<li>w polu isbn13_with_hyphens jest teraz wartość&#160;isbn bez kresek, ponieważ pole &lt;elibri:HyphenatedISBN&gt; zostanie wkrótce usunięte</li>
 </ul>
 <h2><a class="anchor" id="c30072019"></a>
 30 lipca 2019 roku</h2>
@@ -135,24 +143,188 @@ Lista zmian:</h1>
 </ul>
 <h1><a class="anchor" id="install_sec"></a>
 Instalacja</h1>
-<p>Proszę instalować bibliotekę bezpośrednio ze źródeł z <a href="https://github.com/elibri/elibriPHP">github-a.</a></p>
+<p>Proszę instalować bibliotekę bezpośrednio ze źródeł&#160;z <a href="https://github.com/elibri/elibriPHP">github-a.</a></p>
 <h1><a class="anchor" id="usage_sec"></a>
 Użycie biblioteki</h1>
 <p>Żeby używać API należy najpierw uzyskać login i hasło dostępowe. Proszę pisać w tym celu na adres <a href="#" onclick="location.href='mai'+'lto:'+'kon'+'ta'+'kt@'+'el'+'ibr'+'i.'+'com'+'.p'+'l'; return false;">konta<span style="display: none;">.nosp@m.</span>kt@e<span style="display: none;">.nosp@m.</span>libri<span style="display: none;">.nosp@m.</span>.com<span style="display: none;">.nosp@m.</span>.pl</a>.</p>
-<p>Ogólne założenia API są opisane <a href="https://www.elibri.com.pl/doc/api">tutaj</a>. Proszę też spojrzeć na poniższe przykłady.</p>
+<p>Ogólne założenia API są opisane <a href="https://www.elibri.com.pl/doc/api">tutaj</a>. Proszę też&#160;spojrzeć na poniższe przykłady.</p>
 <h1><a class="anchor" id="examples_sec"></a>
 Przykłady użycia</h1>
 <p>Użycie biblioteki jest bardzo proste. W poniższych przykładach zakładamy, że login i hasło są przechowywane jako zmienne środowiskowe ELIBRI_API_LOGIN i ELIBRI_API_PASSWORD. Wszystkie przykłady można znaleźć w katalogu examples</p>
 <h2><a class="anchor" id="example1"></a>
 Przykład 1</h2>
-<p>W poniższym przykładzie instancjujemy obiekt klasy <a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri. ">ElibriAPI</a> oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących w każdej z kolejek. Podczas połączenia może wystąpić jeden z <a class="el" href="group__exceptions.html">wyjątków </a></p>
-<div class="fragment"><div class="line">&lt;?php</div><div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div><div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div><div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div><div class="line">  } <span class="keywordflow">else</span> {</div><div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div><div class="line">  }</div><div class="line"></div><div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div><div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div><div class="line"></div><div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div><div class="line"></div><div class="line">  $queues_list = $api-&gt;getQueues();</div><div class="line"></div><div class="line">  <span class="keywordflow">foreach</span> ($queues_list as $queue) {</div><div class="line">    print <span class="stringliteral">&quot;Kolejka {$queue-&gt;name} =&gt; {$queue-&gt;product_count} produktów\n&quot;</span>;</div><div class="line">  }</div><div class="line"></div><div class="line"></div><div class="line">?&gt;</div></div><!-- fragment --><h2><a class="anchor" id="example2"></a>
+<p>W poniższym przykładzie instancjujemy obiekt klasy <a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.">ElibriAPI</a> oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących w każdej z kolejek. Podczas połączenia może wystąpić jeden z <a class="el" href="group__exceptions.html">wyjątków </a></p>
+<div class="fragment"><div class="line">&lt;?php</div>
+<div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div>
+<div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div>
+<div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div>
+<div class="line">  } <span class="keywordflow">else</span> {</div>
+<div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div>
+<div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div>
+<div class="line"> </div>
+<div class="line">  $queues_list = $api-&gt;getQueues();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">foreach</span> ($queues_list as $queue) {</div>
+<div class="line">    print <span class="stringliteral">&quot;Kolejka {$queue-&gt;name} =&gt; {$queue-&gt;product_count} produktów\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">?&gt;</div>
+<div class="ttc" id="aclassElibriAPI_html"><div class="ttname"><a href="classElibriAPI.html">ElibriAPI</a></div><div class="ttdoc">ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.</div><div class="ttdef"><b>Definition:</b> elibriAPI.php:94</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="example2"></a>
 Przykład 2</h2>
-<p>Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. Wiadomość otrzymana z serwera to instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX. ">ElibriOnixMessage</a>, która zawiera listę produktów - <a class="el" href="classElibriProduct.html" title="Reprezentacja produktu. ">ElibriProduct</a>. Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.</p>
-<div class="fragment"><div class="line">&lt;?php</div><div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div><div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div><div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div><div class="line">  } <span class="keywordflow">else</span> {</div><div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div><div class="line">  }</div><div class="line"> </div><div class="line">  <span class="keyword">function</span> print_info($product, $label, $field) {</div><div class="line">    <span class="keywordflow">if</span> ($product-&gt;$field) {</div><div class="line">      print <span class="stringliteral">&quot;$label: {$product-&gt;$field}\n&quot;</span>;</div><div class="line">    }</div><div class="line">  }</div><div class="line"></div><div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div><div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div><div class="line"></div><div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div><div class="line"></div><div class="line">  <span class="comment">//opcjonalnie - zapełnij kolejkę wszystkimi dostępnymi danymi</span></div><div class="line">  <span class="comment">//$api-&gt;refillAll();</span></div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line">  <span class="keywordflow">while</span> ($message = $api-&gt;popQueue(<span class="stringliteral">&quot;meta&quot;</span>, 2)) {</div><div class="line">    <span class="keywordflow">foreach</span> ($message-&gt;products as $product) {</div><div class="line">       print <span class="stringliteral">&quot;======================\n&quot;</span>;</div><div class="line"></div><div class="line">       print_info($product, <span class="stringliteral">&quot;Identyfikator rekordu&quot;</span>, <span class="stringliteral">&quot;record_reference&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Forma produktu&quot;</span>, <span class="stringliteral">&#39;product_form_name&#39;</span>);</div><div class="line">       <span class="comment">//tytuły</span></div><div class="line">       print_info($product, <span class="stringliteral">&quot;Pełen tytuł&quot;</span>, <span class="stringliteral">&#39;full_title&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł kolekcji&quot;</span>, <span class="stringliteral">&#39;collection_title&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Numer w kolekcji&quot;</span>, <span class="stringliteral">&#39;collection_part&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł&quot;</span>, <span class="stringliteral">&#39;title&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Podtytuł&quot;</span>, <span class="stringliteral">&#39;subtitle&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł originału&quot;</span>, <span class="stringliteral">&#39;original_title&#39;</span>);</div><div class="line"></div><div class="line">       print_info($product, <span class="stringliteral">&quot;ISBN-13&quot;</span>, <span class="stringliteral">&quot;isbn13&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;EAN&quot;</span>, <span class="stringliteral">&quot;ean&quot;</span>);</div><div class="line"></div><div class="line">       print_info($product, <span class="stringliteral">&quot;Status rekordu&quot;</span>, <span class="stringliteral">&quot;current_state&quot;</span>);</div><div class="line"></div><div class="line">       <span class="keywordflow">foreach</span> ($product-&gt;contributors as $contr) {</div><div class="line">         print strtolower($contr-&gt;role_name) . <span class="stringliteral">&quot;: &quot;</span> . $contr-&gt;person_name . <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">       }</div><div class="line"></div><div class="line">       $series_names = join(<span class="stringliteral">&quot;, &quot;</span>, $product-&gt;series_names);</div><div class="line">       <span class="keywordflow">if</span> ($series_names) {</div><div class="line">         print <span class="stringliteral">&quot;Serie: $series_names\n&quot;</span>;</div><div class="line">       }</div><div class="line"></div><div class="line">       print_info($product, <span class="stringliteral">&quot;Wydawnictwo&quot;</span>, <span class="stringliteral">&quot;publisher_name&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;ID wydawnictwa&quot;</span>, <span class="stringliteral">&quot;publisher_id&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Nazwa imprintu&quot;</span>, <span class="stringliteral">&quot;imprint_name&quot;</span>);</div><div class="line">   </div><div class="line">       <span class="comment">//produkt z liczbach</span></div><div class="line">       print_info($product, <span class="stringliteral">&quot;Wysokość (w mm)&quot;</span>, <span class="stringliteral">&quot;height&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Szerokość (w mm)&quot;</span>, <span class="stringliteral">&quot;width&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Grubość (w mm)&quot;</span>, <span class="stringliteral">&#39;thickness&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Waga (w gr)&quot;</span>, <span class="stringliteral">&quot;weight&quot;</span>);      </div><div class="line">       print_info($product, <span class="stringliteral">&quot;Ilość stron&quot;</span>, <span class="stringliteral">&quot;number_of_pages&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Czas trwania nagrania (w min.)&quot;</span>, <span class="stringliteral">&quot;duration&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Wielkość pliku (w mb)&quot;</span>, <span class="stringliteral">&quot;file_size&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Wiek czytelnika od&quot;</span>, <span class="stringliteral">&quot;reading_age_from&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Wiek czytelnika do&quot;</span>, <span class="stringliteral">&quot;reading_age_to&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Stawka VAT&quot;</span>, <span class="stringliteral">&quot;vat&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;PKWiU&quot;</span>, <span class="stringliteral">&#39;pkwiu&#39;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Cena okładkowa&quot;</span>, <span class="stringliteral">&quot;cover_price&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Numer wydania&quot;</span>, <span class="stringliteral">&quot;edition_statement&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Liczba ilustracji&quot;</span>, <span class="stringliteral">&quot;number_of_illustrations&quot;</span>);</div><div class="line">       print_info($product, <span class="stringliteral">&quot;Okładka&quot;</span>, <span class="stringliteral">&#39;cover_type&#39;</span>);</div><div class="line"></div><div class="line">       <span class="keywordflow">if</span> ($product-&gt;description) {</div><div class="line">         print <span class="stringliteral">&quot;Opis: &quot;</span> . $product-&gt;description-&gt;text . <span class="stringliteral">&quot;\n\n\n&quot;</span>;</div><div class="line">       }</div><div class="line"></div><div class="line">       print <span class="stringliteral">&quot;Link do okładki: &quot;</span> . $product-&gt;front_cover-&gt;link . <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"></div><div class="line">       print <span class="stringliteral">&quot;Data publikacji: &quot;</span> . join(<span class="stringliteral">&quot;/&quot;</span>, array_reverse($product-&gt;parsed_publishing_date)) . <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">       <span class="keywordflow">if</span> ($product-&gt;premiere) {</div><div class="line">          print <span class="stringliteral">&quot;Premiera: &quot;</span> . $product-&gt;premiere-&gt;format(<span class="stringliteral">&#39;d.m.Y&#39;</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">       }</div><div class="line">   </div><div class="line">       <span class="keywordflow">foreach</span> ($product-&gt;thema_subjects as $subject) {</div><div class="line">          print <span class="stringliteral">&quot;Kategoria: {$subject-&gt;code} {$subject-&gt;heading_text}\n&quot;</span>;</div><div class="line">       }</div><div class="line">    }</div><div class="line">  }</div><div class="line">?&gt;</div></div><!-- fragment --><h2><a class="anchor" id="example3"></a>
+<p>Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. Wiadomość&#160;otrzymana z serwera to instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a>, która zawiera listę produktów - <a class="el" href="classElibriProduct.html" title="Reprezentacja produktu.">ElibriProduct</a>. Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.</p>
+<div class="fragment"><div class="line">&lt;?php</div>
+<div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div>
+<div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div>
+<div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div>
+<div class="line">  } <span class="keywordflow">else</span> {</div>
+<div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">function</span> print_info($product, $label, $field) {</div>
+<div class="line">    <span class="keywordflow">if</span> ($product-&gt;$field) {</div>
+<div class="line">      print <span class="stringliteral">&quot;$label: {$product-&gt;$field}\n&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div>
+<div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">//opcjonalnie - zapełnij kolejkę wszystkimi dostępnymi danymi</span></div>
+<div class="line">  <span class="comment">//$api-&gt;refillAll();</span></div>
+<div class="line"> </div>
+<div class="line">  </div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">while</span> ($message = $api-&gt;popQueue(<span class="stringliteral">&quot;meta&quot;</span>, 2)) {</div>
+<div class="line">    <span class="keywordflow">foreach</span> ($message-&gt;products as $product) {</div>
+<div class="line">       print <span class="stringliteral">&quot;======================\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Identyfikator rekordu&quot;</span>, <span class="stringliteral">&quot;record_reference&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Forma produktu&quot;</span>, <span class="stringliteral">&#39;product_form_name&#39;</span>);</div>
+<div class="line">       <span class="comment">//tytuły</span></div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Pełen tytuł&quot;</span>, <span class="stringliteral">&#39;full_title&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł kolekcji&quot;</span>, <span class="stringliteral">&#39;collection_title&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Numer w kolekcji&quot;</span>, <span class="stringliteral">&#39;collection_part&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł&quot;</span>, <span class="stringliteral">&#39;title&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Podtytuł&quot;</span>, <span class="stringliteral">&#39;subtitle&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Tytuł originału&quot;</span>, <span class="stringliteral">&#39;original_title&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;ISBN-13&quot;</span>, <span class="stringliteral">&quot;isbn13&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;EAN&quot;</span>, <span class="stringliteral">&quot;ean&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Status rekordu&quot;</span>, <span class="stringliteral">&quot;current_state&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">       <span class="keywordflow">foreach</span> ($product-&gt;contributors as $contr) {</div>
+<div class="line">         print strtolower($contr-&gt;role_name) . <span class="stringliteral">&quot;: &quot;</span> . $contr-&gt;person_name . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">       }</div>
+<div class="line"> </div>
+<div class="line">       $series_names = join(<span class="stringliteral">&quot;, &quot;</span>, $product-&gt;series_names);</div>
+<div class="line">       <span class="keywordflow">if</span> ($series_names) {</div>
+<div class="line">         print <span class="stringliteral">&quot;Serie: $series_names\n&quot;</span>;</div>
+<div class="line">       }</div>
+<div class="line"> </div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Wydawnictwo&quot;</span>, <span class="stringliteral">&quot;publisher_name&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;ID wydawnictwa&quot;</span>, <span class="stringliteral">&quot;publisher_id&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Nazwa imprintu&quot;</span>, <span class="stringliteral">&quot;imprint_name&quot;</span>);</div>
+<div class="line">   </div>
+<div class="line">       <span class="comment">//produkt z liczbach</span></div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Wysokość (w mm)&quot;</span>, <span class="stringliteral">&quot;height&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Szerokość (w mm)&quot;</span>, <span class="stringliteral">&quot;width&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Grubość (w mm)&quot;</span>, <span class="stringliteral">&#39;thickness&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Waga (w gr)&quot;</span>, <span class="stringliteral">&quot;weight&quot;</span>);      </div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Ilość stron&quot;</span>, <span class="stringliteral">&quot;number_of_pages&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Czas trwania nagrania (w min.)&quot;</span>, <span class="stringliteral">&quot;duration&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Wielkość pliku (w mb)&quot;</span>, <span class="stringliteral">&quot;file_size&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Wiek czytelnika od&quot;</span>, <span class="stringliteral">&quot;reading_age_from&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Wiek czytelnika do&quot;</span>, <span class="stringliteral">&quot;reading_age_to&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Stawka VAT&quot;</span>, <span class="stringliteral">&quot;vat&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;PKWiU&quot;</span>, <span class="stringliteral">&#39;pkwiu&#39;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Cena okładkowa&quot;</span>, <span class="stringliteral">&quot;cover_price&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Numer wydania&quot;</span>, <span class="stringliteral">&quot;edition_statement&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Liczba ilustracji&quot;</span>, <span class="stringliteral">&quot;number_of_illustrations&quot;</span>);</div>
+<div class="line">       print_info($product, <span class="stringliteral">&quot;Okładka&quot;</span>, <span class="stringliteral">&#39;cover_type&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">       <span class="keywordflow">if</span> ($product-&gt;description) {</div>
+<div class="line">         print <span class="stringliteral">&quot;Opis: &quot;</span> . $product-&gt;description-&gt;text . <span class="stringliteral">&quot;\n\n\n&quot;</span>;</div>
+<div class="line">       }</div>
+<div class="line"> </div>
+<div class="line">       print <span class="stringliteral">&quot;Link do okładki: &quot;</span> . $product-&gt;front_cover-&gt;link . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">       print <span class="stringliteral">&quot;Data publikacji: &quot;</span> . join(<span class="stringliteral">&quot;/&quot;</span>, array_reverse($product-&gt;parsed_publishing_date)) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">       <span class="keywordflow">if</span> ($product-&gt;premiere) {</div>
+<div class="line">          print <span class="stringliteral">&quot;Premiera: &quot;</span> . $product-&gt;premiere-&gt;format(<span class="stringliteral">&#39;d.m.Y&#39;</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">       }</div>
+<div class="line">   </div>
+<div class="line">       <span class="keywordflow">foreach</span> ($product-&gt;thema_subjects as $subject) {</div>
+<div class="line">          print <span class="stringliteral">&quot;Kategoria: {$subject-&gt;code} {$subject-&gt;heading_text}\n&quot;</span>;</div>
+<div class="line">       }</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">?&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="example3"></a>
 Przykład 3</h2>
 <p>Poniżej pobieramy listę wszystkich wydawnictw dostępnych w systemie, po czym drukowana jest informacja o pierwszym wydawnictwie, i pobierane dane pierwszej książki tego wydawnictwa.</p>
-<div class="fragment"><div class="line">&lt;?php</div><div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div><div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div><div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div><div class="line">  } <span class="keywordflow">else</span> {</div><div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div><div class="line">  }</div><div class="line"> </div><div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div><div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div><div class="line"></div><div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div><div class="line"></div><div class="line">  $publisher_list = $api-&gt;getPublishersList();</div><div class="line"></div><div class="line">  print <span class="stringliteral">&quot;W systemie eLibri znajduje się: &quot;</span> . count($publisher_list) . <span class="stringliteral">&quot; wydawnictw\n\n&quot;</span>;</div><div class="line"></div><div class="line">  print <span class="stringliteral">&quot;Dane pierwszego wydawnictwa:\n&quot;</span>;</div><div class="line"></div><div class="line">  <span class="comment">//wyświetl dane pierwszego wydawnictwa</span></div><div class="line">  $p = $publisher_list[0];</div><div class="line">  print <span class="stringliteral">&quot;  ID: {$p-&gt;publisher_id}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Nazwa wydawnictwa: {$p-&gt;name}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Nazwa firmy: {$p-&gt;company_name}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  NIP: {$p-&gt;nip}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Ulica: {$p-&gt;street}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Miasto: {$p-&gt;city}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Kod pocztowy: {$p-&gt;zip_code}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Telefon (1): {$p-&gt;phone1}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Telefon (2): {$p-&gt;phone2}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  www: {$p-&gt;www}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  E-mail: {$p-&gt;email}\n&quot;</span>;</div><div class="line">  print <span class="stringliteral">&quot;  Liczba produktów: {$p-&gt;products_count}\n\n&quot;</span>;</div><div class="line"></div><div class="line">  print <span class="stringliteral">&quot;Lista produktów\n&quot;</span>;</div><div class="line">  $products = $api-&gt;getPublisherProducts($p-&gt;publisher_id);</div><div class="line">  <span class="comment">//$products to tablica instancji ElibriPublisherProduct</span></div><div class="line">  <span class="keywordflow">foreach</span> ($products as $product) {</div><div class="line">    print <span class="stringliteral">&quot;   {$product-&gt;record_reference} - {$product-&gt;title}\n&quot;</span>;</div><div class="line">  };</div><div class="line"></div><div class="line">  $first_product = $products[0];</div><div class="line">  $product_data = $api-&gt;getProduct($first_product-&gt;record_reference);</div><div class="line">  <span class="comment">//$product_data to instancja ElibriOnixMessage</span></div><div class="line">  print <span class="stringliteral">&quot;Zwrócony został produkt: {$product_data-&gt;products[0]-&gt;full_title}\n&quot;</span>;</div><div class="line"></div><div class="line">  $product_data = $api-&gt;getProduct(<span class="stringliteral">&quot;ea5782b2b67263943052&quot;</span>);</div><div class="line">  print <span class="stringliteral">&quot;Zwrócony został produkt: {$product_data-&gt;products[0]-&gt;full_title}\n&quot;</span>;</div><div class="line"></div><div class="line"></div><div class="line">?&gt;</div></div><!-- fragment --> </div></div><!-- contents -->
+<div class="fragment"><div class="line">&lt;?php</div>
+<div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div>
+<div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div>
+<div class="line">    require_once(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>);</div>
+<div class="line">  } <span class="keywordflow">else</span> {</div>
+<div class="line">    require_once(<span class="stringliteral">&#39;elibriPHP.php&#39;</span>);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  $login = getenv(<span class="stringliteral">&#39;ELIBRI_API_LOGIN&#39;</span>);</div>
+<div class="line">  $password = getenv(<span class="stringliteral">&#39;ELIBRI_API_PASSWORD&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">  $api = <span class="keyword">new</span> <a class="code" href="classElibriAPI.html">ElibriAPI</a>($login, $password);</div>
+<div class="line"> </div>
+<div class="line">  $publisher_list = $api-&gt;getPublishersList();</div>
+<div class="line"> </div>
+<div class="line">  print <span class="stringliteral">&quot;W systemie eLibri znajduje się: &quot;</span> . count($publisher_list) . <span class="stringliteral">&quot; wydawnictw\n\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  print <span class="stringliteral">&quot;Dane pierwszego wydawnictwa:\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">//wyświetl dane pierwszego wydawnictwa</span></div>
+<div class="line">  $p = $publisher_list[0];</div>
+<div class="line">  print <span class="stringliteral">&quot;  ID: {$p-&gt;publisher_id}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Nazwa wydawnictwa: {$p-&gt;name}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Nazwa firmy: {$p-&gt;company_name}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  NIP: {$p-&gt;nip}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Ulica: {$p-&gt;street}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Miasto: {$p-&gt;city}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Kod pocztowy: {$p-&gt;zip_code}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Telefon (1): {$p-&gt;phone1}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Telefon (2): {$p-&gt;phone2}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  www: {$p-&gt;www}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  E-mail: {$p-&gt;email}\n&quot;</span>;</div>
+<div class="line">  print <span class="stringliteral">&quot;  Liczba produktów: {$p-&gt;products_count}\n\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  print <span class="stringliteral">&quot;Lista produktów\n&quot;</span>;</div>
+<div class="line">  $products = $api-&gt;getPublisherProducts($p-&gt;publisher_id);</div>
+<div class="line">  <span class="comment">//$products to tablica instancji ElibriPublisherProduct</span></div>
+<div class="line">  <span class="keywordflow">foreach</span> ($products as $product) {</div>
+<div class="line">    print <span class="stringliteral">&quot;   {$product-&gt;record_reference} - {$product-&gt;title}\n&quot;</span>;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  $first_product = $products[0];</div>
+<div class="line">  $product_data = $api-&gt;getProduct($first_product-&gt;record_reference);</div>
+<div class="line">  <span class="comment">//$product_data to instancja ElibriOnixMessage</span></div>
+<div class="line">  print <span class="stringliteral">&quot;Zwrócony został produkt: {$product_data-&gt;products[0]-&gt;full_title}\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  $product_data = $api-&gt;getProduct(<span class="stringliteral">&quot;ea5782b2b67263943052&quot;</span>);</div>
+<div class="line">  print <span class="stringliteral">&quot;Zwrócony został produkt: {$product_data-&gt;products[0]-&gt;full_title}\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">?&gt;</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>
@@ -163,7 +335,7 @@ Przykład 3</h2>
 <hr class="footer"/><address class="footer"><small>
 Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.9.1
 </small></address>
 </body>
 </html>
