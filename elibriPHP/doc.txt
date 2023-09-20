@@ -8,7 +8,7 @@
  *
  * \section changes Lista zmian:
  *
- * \subsection c20092023 20 wrześnie 2023 roku
+ * \subsection c20092023 20 września 2023 roku
  *
  * - usunięcie reszty kodu obsługującego dodatkowe tagi, spoza ONIX-a.
  *
