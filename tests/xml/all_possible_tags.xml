@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ONIXMessage release="3.0" xmlns:elibri="http://elibri.com.pl/ns/extensions" xmlns="http://www.editeur.org/onix/3.0/reference">
-  <elibri:Dialect>3.0.1</elibri:Dialect>
+<ONIXMessage release="3.0" xmlns="http://www.editeur.org/onix/3.0/reference">
   <Header>
     <Sender>
       <SenderName>Elibri.com.pl</SenderName>
@@ -56,7 +55,7 @@
           CB - mapa składana
           CD - mapa w rolce
           AA - nagranie audio -->
-      <ProductForm>BA</ProductForm>
+      <ProductForm>BC</ProductForm>
       <Measure>
         <!-- Wysokość: 195mm -->
         <MeasureType>01</MeasureType>
@@ -419,16 +418,5 @@
         </Price>
       </SupplyDetail>
     </ProductSupply>
-    <!-- Format okładki
-          gąbka
-          kartonowa
-          kartonowa foliowana
-          miękka
-          miękka ze skrzydełkami
-          plastikowa
-          skórzana
-          twarda
-          twarda z obwolutą -->
-    <elibri:CoverType>miękka</elibri:CoverType>
   </Product>
 </ONIXMessage>

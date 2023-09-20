@@ -55,9 +55,6 @@ class CoverType {
 //! Klasa abstrahująca wiadomość ONIX
 class ElibriOnixMessage {
 
-  //! Wewnętrzny numer wersji używanego XML-a
-  public $elibri_dialect;
-
   //! Lista zwróconych produktów - ElibriProduct
   public $products = array();
 
@@ -72,7 +69,6 @@ class ElibriOnixMessage {
     $doc->loadXML($source);
 
     $message = new ElibriOnixMessage();
-    $message->elibri_dialect = FirstNodeValue::get($doc, "Dialect");
 
     $xheader = $doc->getElementsByTagName("Header");
     if ($xheader->length == 1) {
@@ -545,7 +541,6 @@ class ElibriProduct {
     $this->record_reference = FirstNodeValue::get($xml_fragment, "RecordReference");
     $this->notification_type = FirstNodeValue::get($xml_fragment, "NotificationType");
     $this->deletion_text = FirstNodeValue::get($xml_fragment, "DeletionText");
-    $this->cover_type = FirstNodeValue::get($xml_fragment, "CoverType");
 
     $this->city_of_publication = FirstNodeValue::get($xml_fragment, "CityOfPublication");
 

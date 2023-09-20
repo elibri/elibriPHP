@@ -7,7 +7,15 @@
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
  * \section changes Lista zmian:
- * 
+ *
+ * \subsection c20092023 20 wrześnie 2023 roku
+ *
+ * - usunięcie reszty kodu obsługującego dodatkowe tagi, spoza ONIX-a.
+ *
+ * \subsection c27082023 27 sierpnia 2023 roku
+ *
+ * - dodanie nowego wyjątku, `ElibriDataAPITooManyRequestsException`, informującego o przekroczeniu dopuszczalnego dzienniego limitu requestów
+ *
  * \subsection c05022023 5 luty 2023 roku
  *
  * - dodanie języka śląskiego do listy języków

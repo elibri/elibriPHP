@@ -116,7 +116,7 @@ class ElibriAPI {
   private $_POST = "POST";
   private $_GET = "GET";
 
-  private $curlHeader = "X-eLibri-API-ONIX-dialect: 3.0.1";
+  private $curlHeader = "X-eLibri-API-ONIX-dialect: 3.0.2";
 
   //! Nazwa kolejki z danymi o dostępności produktów
   const STOCKS_QUEUE = "stocks";

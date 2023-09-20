@@ -3,7 +3,7 @@
 require_once(dirname(__FILE__) . '/../elibriPHP.php');
 use PHPUnit\Framework\TestCase;
 
-class ElibriDictTest extends TestCase {
+class ElibriOnixTest extends TestCase {
 
   public function load($s, $idx = 0) {
     $xml = file_get_contents(dirname(__FILE__) . "/xml/".$s);
