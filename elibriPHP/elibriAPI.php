@@ -100,6 +100,8 @@ class ElibriDataAPIConnectionException extends Exception {
 //! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri
 class ElibriAPI {
 
+  public $VERSION = "0.9";
+
   private $host = "https://www.elibri.com.pl";
   private $login;
   private $password;
@@ -129,7 +131,7 @@ class ElibriAPI {
 
     $this->login = $login;
     $this->password = $password;
-    if (isset($_host)) $this->host = $host;
+    if (isset($host)) $this->host = $host;
 
   }
 
@@ -162,6 +164,7 @@ class ElibriAPI {
     $ch = curl_init($uri);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->curlHeader));
     curl_setopt($ch, CURLOPT_USERPWD, $this->login.":".$this->password);
+    curl_setopt($ch, CURLOPT_USERAGENT, "elibriPHP " . $this->VERSION);
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
