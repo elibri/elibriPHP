@@ -1,12 +1,20 @@
-/*! \mainpage Biblioteka do obsługi API eLibri
+/*! \mainpage Biblioteka do obsługi API Elibri
  *
  * \section intro_sec Wprowadzenie
  *
- * <a href='https://www.elibri.com.pl'>eLibri</a> jest systemem stworzonym dla wydawnictw,
+ * <a href='https://www.elibri.com.pl'>Elibri</a> jest systemem stworzonym dla wydawnictw,
  * które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek.
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
  * \section changes Lista zmian:
+ *
+ * \subsection c20082024 20 sierpnia 2024 roku
+ *
+ * - dodanie informacji, czy głos lektora w audiobooku jest generowany przez AI. Do `ElibriContributor` zostały dodane pola `ElibriContributor::$ai_generated_voice`
+ *   oraz `ElibriContributor::$voice_name`. Pole `ElibriContributor::$unnamed_persons` może przyjąć wartości
+ *   `ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED` lub `ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE`.
+ *   (patrz również testy `ElibriOnixTest::test_audiobook_with_ai_synthesised_voice()` oraz `ElibriOnixTest::test_audiobook_with_ai_synthesised_cloned_voice()` w katalogu `tests`.
+ *
  *
  * \subsection c20092023 20 września 2023 roku
  *
@@ -80,10 +88,10 @@
  *
  * \subsection example2 Przykład 2
  *
- * Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły.
+ * Typowe użycie API Elibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły.
  * Wiadomość otrzymana z serwera to instancja ElibriOnixMessage, która zawiera listę produktów - ElibriProduct.
  * Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID
- * w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.
+ * w bazie Elibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.
  *
  * \include get_products.php
  *

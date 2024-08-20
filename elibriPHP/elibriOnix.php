@@ -20,6 +20,15 @@ class FirstNodeValue {
       }
     }
   }
+
+  public static function getChild($parentNode, $tagName) {
+    foreach ($parentNode->childNodes as $child) {
+      if ($child->nodeType === XML_ELEMENT_NODE && $child->nodeName === $tagName) {
+        return $child->nodeValue;
+      }
+    }
+  }
+
 }
 
 //! Odtwarzaj rodzaj okładki na podstawie product form i product from detail
@@ -88,7 +97,7 @@ class ElibriOnixMessage {
 //! Informacja o wydawnictwie
 class ElibriPublisherInfo {
 
-  //! wewnętrzne Id wydawnictwo w eLibri
+  //! wewnętrzne Id wydawnictwo w Elibri
   public $publisher_id;
 
   //! nazwa wydawnictwa
@@ -209,9 +218,9 @@ class ElibriQueue {
   }
 
 }
-//! Klasa macierzysta dla obiektów, które przechowują informację o id w systemie eLibri i dacie stworzenia/ostatniej aktualizacji
+//! Klasa macierzysta dla obiektów, które przechowują informację o id w systemie Elibri i dacie stworzenia/ostatniej aktualizacji
 class ElibriAnnotatedObject {
-  //! numeryczne ID w systemie eLibri - dotyczy tego konkretnego wpisu, tej wartości nie można używać do kojarzenia autorów
+  //! numeryczne ID w systemie Elibri - dotyczy tego konkretnego wpisu, tej wartości nie można używać do kojarzenia autorów
   public $id;
 
   //! data ostatniej aktualizacji - instanca DateTime
@@ -301,7 +310,7 @@ class ElibriProduct {
   //! nazwa wydawnictwa
   public $publisher_name;
 
-  //! numeryczne ID wydawnictwa w bazie eLibri
+  //! numeryczne ID wydawnictwa w bazie Elibri
   public $publisher_id;
 
   //! miasto publikacji
@@ -1230,27 +1239,42 @@ class ElibriContributor extends ElibriAnnotatedObject {
   //! rola w postaci Stringa - np. 'AUTHOR'
   public $role_name;
 
+  //! czy jest to głos wygenerowany przez AI?
+  public $ai_generated_voice;
+
+  //! nazwa głosu, jeśli zostało użyte AI
+  public $voice_name;
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
 
     parent::__construct($xml_fragment);
 
-    $this->number = FirstNodeValue::get($xml_fragment, "SequenceNumber");
-    $this->role = FirstNodeValue::get($xml_fragment, "ContributorRole");
+    $this->number = FirstNodeValue::getChild($xml_fragment, "SequenceNumber");
+    $this->role = FirstNodeValue::getChild($xml_fragment, "ContributorRole");
     if (ElibriDictContributorRole::byCode($this->role)) {
       $this->role_name = ElibriDictContributorRole::byCode($this->role)->const_name;
     }
     if ($this->role == ElibriDictContributorRole::TRANSLATOR) {
-      $this->from_language = FirstNodeValue::get($xml_fragment, "FromLanguage");
+      $this->from_language = FirstNodeValue::getChild($xml_fragment, "FromLanguage");
     }
-    $this->person_name = FirstNodeValue::get($xml_fragment, "PersonName");
-    $this->titles_before_names = FirstNodeValue::get($xml_fragment, "TitlesBeforeNames");
-    $this->names_before_key = FirstNodeValue::get($xml_fragment, "NamesBeforeKey");
-    $this->prefix_to_key = FirstNodeValue::get($xml_fragment, "PrefixToKey");
-    $this->key_names = FirstNodeValue::get($xml_fragment, "KeyNames");
-    $this->names_after_key = FirstNodeValue::get($xml_fragment, "NamesAfterKey");
-    $this->biographical_note = FirstNodeValue::get($xml_fragment, "BiographicalNote");
-    $this->unnamed_persons = FirstNodeValue::get($xml_fragment, "UnnamedPersons");
+    $this->person_name = FirstNodeValue::getChild($xml_fragment, "PersonName");
+    $this->titles_before_names = FirstNodeValue::getChild($xml_fragment, "TitlesBeforeNames");
+    $this->names_before_key = FirstNodeValue::getChild($xml_fragment, "NamesBeforeKey");
+    $this->prefix_to_key = FirstNodeValue::getChild($xml_fragment, "PrefixToKey");
+    $this->key_names = FirstNodeValue::getChild($xml_fragment, "KeyNames");
+    $this->names_after_key = FirstNodeValue::getChild($xml_fragment, "NamesAfterKey");
+    $this->biographical_note = FirstNodeValue::getChild($xml_fragment, "BiographicalNote");
+    $this->unnamed_persons = FirstNodeValue::getChild($xml_fragment, "UnnamedPersons");
+    $this->ai_generated_voice = $this->unnamed_persons == ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED ||
+      $this->unnamed_persons == ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE;
+
+    $alternative_name_tags = $xml_fragment->getElementsByTagName("AlternativeName");
+    if ($alternative_name_tags->length > 0) {
+      $this->voice_name = FirstNodeValue::getChild($alternative_name_tags[0], "PersonName");
+    }
+
+
   }
 }
 
@@ -1489,7 +1513,7 @@ class ElibriPublisher {
   //! nazwa wydawnictwa
   public $name;
 
-  //! numeryczne ID wydawnictwa w systemie eLibri
+  //! numeryczne ID wydawnictwa w systemie Elibri
   public $id;
 
   //! Konstruuj obiekt na bazie fragmentu xml-a

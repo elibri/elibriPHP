@@ -832,6 +832,40 @@ class ElibriDictMeasureType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictNameType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! prawdziwe imię i nazwisko
+  const REAL_NAME = '04';
+
+  //! imię i nazwisko postaci fikcyjnej
+  const FICTIONAL_NAME = '07';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('04', array('pl' => 'prawdziwe imię i nazwisko', 'en' => 'real name'), 'REAL_NAME'),
+          new ElibriDictAtom('07', array('pl' => 'imię i nazwisko postaci fikcyjnej', 'en' => 'fictional character name'), 'FICTIONAL_NAME'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictNameType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictNotificationType extends  ElibriDictElement {
 
   private static $instance;
@@ -2119,10 +2153,26 @@ class ElibriDictUnnamedPersons extends  ElibriDictElement {
   //! opracowanie zbiorowe
   const VARIOUS_AUTHORS = '04';
 
+  //! Głos syntetyzowany - męski
+  const SYNTHESISED_VOICE_MALE = '05';
+
+  //! Głos syntetyzowany - kobiecy
+  const SYNTHESISED_VOICE_FEMALE = '06';
+
+  //! Głos syntetyzowany
+  const SYNTHESISED_VOICE_UNSPECIFIED = '07';
+
+  //! Głos syntetyzowany - bazujący na głosie aktora
+  const SYNTHESISED_VOICE_BASED_ON_REAL_VOICE = '08';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('04', array('pl' => 'opracowanie zbiorowe', 'en' => 'various authors'), 'VARIOUS_AUTHORS'),
+          new ElibriDictAtom('05', array('pl' => 'Głos syntetyzowany - męski', 'en' => 'Synthesised voice – male'), 'SYNTHESISED_VOICE_MALE'),
+          new ElibriDictAtom('06', array('pl' => 'Głos syntetyzowany - kobiecy', 'en' => 'Synthesised voice – female'), 'SYNTHESISED_VOICE_FEMALE'),
+          new ElibriDictAtom('07', array('pl' => 'Głos syntetyzowany', 'en' => 'Synthesised voice – female'), 'SYNTHESISED_VOICE_UNSPECIFIED'),
+          new ElibriDictAtom('08', array('pl' => 'Głos syntetyzowany - bazujący na głosie aktora', 'en' => 'Synthesised voice – based on real voice'), 'SYNTHESISED_VOICE_BASED_ON_REAL_VOICE'),
       ));
 
    }

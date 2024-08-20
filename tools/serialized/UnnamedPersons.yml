@@ -1,8 +1,36 @@
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
   onix_code: '04'
   const_name: VARIOUS_AUTHORS
   name:
     en: various authors
     pl: opracowanie zbiorowe
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
+  onix_code: '05'
+  const_name: SYNTHESISED_VOICE_MALE
+  name:
+    en: "Synthesised voice – male"
+    pl: "Głos syntetyzowany - męski"
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
+  onix_code: '06'
+  const_name: SYNTHESISED_VOICE_FEMALE
+  name:
+    en: "Synthesised voice – female"
+    pl: "Głos syntetyzowany - kobiecy"
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
+  onix_code: '07'
+  const_name: SYNTHESISED_VOICE_UNSPECIFIED
+  name:
+    en: "Synthesised voice – female"
+    pl: "Głos syntetyzowany"
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnnamedPersons
+  onix_code: '08'
+  const_name: SYNTHESISED_VOICE_BASED_ON_REAL_VOICE
+  name:
+    en: "Synthesised voice – based on real voice"
+    pl: "Głos syntetyzowany - bazujący na głosie aktora"

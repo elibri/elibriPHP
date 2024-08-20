@@ -1,0 +1,16 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NameType
+  onix_code: '04'
+  const_name: REAL_NAME
+  name:
+    en: real name
+    pl: prawdziwe imię i nazwisko
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NameType
+  onix_code: '07'
+  const_name: FICTIONAL_NAME
+  name:
+    en: fictional character name
+    pl: imię i nazwisko postaci fikcyjnej
+

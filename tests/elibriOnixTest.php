@@ -553,8 +553,41 @@ class ElibriOnixTest extends TestCase {
     $this->assertEquals("02", $pr->printed_on_product);
   }
 
+
+  public function test_audiobook_with_ai_synthesised_voice() {
+    $product = $this->load("audiobook_ai_synthesised_voice.xml");
+
+    $lector = $product->contributors[2];
+
+    $this->assertEquals("READ_BY", $lector->role_name);
+    $this->assertEquals("Wojtek", $lector->voice_name);
+    $this->assertTrue($lector->ai_generated_voice);
+
+    $this->assertEquals(ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED, $lector->unnamed_persons);
+  }
+
+  public function test_audiobook_with_ai_synthesised_cloned_voice() {
+    $product = $this->load("audiobook_ai_cloned_voice.xml");
+
+    $lector = $product->contributors[2];
+
+    $this->assertEquals("READ_BY", $lector->role_name);
+    $this->assertTrue($lector->ai_generated_voice);
+
+    $this->assertEquals("Tomasz Kowalik", $lector->voice_name);
+
+    $this->assertEquals(ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE, $lector->unnamed_persons);
+  }
+
   public function test_audiobook() {
     $product = $this->load("audiobook.xml");
+
+    $lector = $product->contributors[2];
+    $this->assertEquals("READ_BY", $lector->role_name);
+    $this->assertEquals("Maciej Kowalik", $lector->person_name);
+    $this->assertFalse($lector->ai_generated_voice);
+    $this->assertNull($lector->unnamed_persons);
+
 
     $this->assertEquals(1, count($product->excerpt_infos));
     $e = $product->excerpt_infos[0];

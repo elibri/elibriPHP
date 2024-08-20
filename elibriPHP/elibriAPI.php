@@ -97,7 +97,7 @@ class ElibriDataAPIConnectionException extends Exception {
   }
 }
 
-//! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri
+//! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez Elibri
 class ElibriAPI {
 
   public $VERSION = "0.9";
@@ -222,7 +222,7 @@ class ElibriAPI {
     return Array($headers, $curlResult);
   }
 
-  //! Pobierz listę wydawnict obecnych w eLibri
+  //! Pobierz listę wydawnict obecnych w Elibri
   function getPublishersList() {
 
     $data = $this->request($this->_P, $this->_GET);
