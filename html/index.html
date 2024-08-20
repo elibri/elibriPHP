@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.9.1"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Moduł &nbsp; PHP &nbsp; dla &nbsp; API &nbsp; elibri: Biblioteka do obsługi API eLibri</title>
+        <title>Moduł &nbsp; PHP &nbsp; dla &nbsp; API &nbsp; elibri: Biblioteka do obsługi API Elibri</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -85,14 +85,29 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Biblioteka do obsługi API eLibri </div>  </div>
+<div class="title">Biblioteka do obsługi API Elibri </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Wprowadzenie</h1>
-<p><a href="https://www.elibri.com.pl">eLibri</a> jest systemem stworzonym dla wydawnictw, które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek. Niniejsza biblioteka jest implementacją API udokumentowanego <a href="https://www.elibri.com.pl/doc/api">tutaj</a>.</p>
+<p><a href="https://www.elibri.com.pl">Elibri</a> jest systemem stworzonym dla wydawnictw, które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek. Niniejsza biblioteka jest implementacją API udokumentowanego <a href="https://www.elibri.com.pl/doc/api">tutaj</a>.</p>
 <h1><a class="anchor" id="changes"></a>
 Lista zmian:</h1>
+<h2><a class="anchor" id="c20082024"></a>
+20 sierpnia 2024 roku</h2>
+<ul>
+<li>dodanie informacji, czy głos lektora w audiobooku jest generowany przez AI. Do <code><a class="el" href="classElibriContributor.html" title="Klasa reprezentująca osoby tworzące książkę (autor, rysownik itd)">ElibriContributor</a></code> zostały dodane pola <code><a class="el" href="classElibriContributor.html#a970f83d0f51a5bc0d367db3621596098" title="czy jest to głos wygenerowany przez AI?">ElibriContributor::$ai_generated_voice</a></code> oraz <code><a class="el" href="classElibriContributor.html#a7a54a2ee18a990d61eb1474e2e6656cd" title="nazwa głosu, jeśli zostało użyte AI">ElibriContributor::$voice_name</a></code>. Pole <code><a class="el" href="classElibriContributor.html#ab90c7bcb1b39335b500ed7d49696c47b" title="true, jeśli praca zbiorowa">ElibriContributor::$unnamed_persons</a></code> może przyjąć&#160;wartości <code><a class="el" href="classElibriDictUnnamedPersons.html#a3e8c50cb31a8dfbf1d388d2e1b0e2390" title="Głos syntetyzowany.">ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED</a></code> lub <code><a class="el" href="classElibriDictUnnamedPersons.html#ae17659653e2394520bd3fc2bb502e260" title="Głos syntetyzowany - bazujący na głosie aktora.">ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE</a></code>. (patrz również testy <code>ElibriOnixTest::test_audiobook_with_ai_synthesised_voice()</code> oraz <code>ElibriOnixTest::test_audiobook_with_ai_synthesised_cloned_voice()</code> w katalogu <code>tests</code>.</li>
+</ul>
+<h2><a class="anchor" id="c20092023"></a>
+20 września 2023 roku</h2>
+<ul>
+<li>usunięcie reszty kodu obsługującego dodatkowe tagi, spoza ONIX-a.</li>
+</ul>
+<h2><a class="anchor" id="c27082023"></a>
+27 sierpnia 2023 roku</h2>
+<ul>
+<li>dodanie nowego wyjątku, <code><a class="el" href="classElibriDataAPITooManyRequestsException.html" title="Wyjątek - Przekroczony limit zapytań">ElibriDataAPITooManyRequestsException</a></code>, informującego o przekroczeniu dopuszczalnego dzienniego limitu requestów</li>
+</ul>
 <h2><a class="anchor" id="c05022023"></a>
 5 luty 2023 roku</h2>
 <ul>
@@ -153,7 +168,7 @@ Przykłady użycia</h1>
 <p>Użycie biblioteki jest bardzo proste. W poniższych przykładach zakładamy, że login i hasło są przechowywane jako zmienne środowiskowe ELIBRI_API_LOGIN i ELIBRI_API_PASSWORD. Wszystkie przykłady można znaleźć w katalogu examples</p>
 <h2><a class="anchor" id="example1"></a>
 Przykład 1</h2>
-<p>W poniższym przykładzie instancjujemy obiekt klasy <a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.">ElibriAPI</a> oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących w każdej z kolejek. Podczas połączenia może wystąpić jeden z <a class="el" href="group__exceptions.html">wyjątków </a></p>
+<p>W poniższym przykładzie instancjujemy obiekt klasy <a class="el" href="classElibriAPI.html" title="ElibriAPI abstrahuje wykorzystanie API udostępniane przez Elibri.">ElibriAPI</a> oraz pobieramy listę dostępnych kolejek wraz z informacją o ilości produktów znajdujących w każdej z kolejek. Podczas połączenia może wystąpić jeden z <a class="el" href="group__exceptions.html">wyjątków </a></p>
 <div class="fragment"><div class="line">&lt;?php</div>
 <div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div>
 <div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div>
@@ -175,10 +190,10 @@ Przykład 1</h2>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">?&gt;</div>
-<div class="ttc" id="aclassElibriAPI_html"><div class="ttname"><a href="classElibriAPI.html">ElibriAPI</a></div><div class="ttdoc">ElibriAPI abstrahuje wykorzystanie API udostępniane przez eLibri.</div><div class="ttdef"><b>Definition:</b> elibriAPI.php:94</div></div>
+<div class="ttc" id="aclassElibriAPI_html"><div class="ttname"><a href="classElibriAPI.html">ElibriAPI</a></div><div class="ttdoc">ElibriAPI abstrahuje wykorzystanie API udostępniane przez Elibri.</div><div class="ttdef"><b>Definition:</b> elibriAPI.php:101</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="example2"></a>
 Przykład 2</h2>
-<p>Typowe użycie API eLibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. Wiadomość&#160;otrzymana z serwera to instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a>, która zawiera listę produktów - <a class="el" href="classElibriProduct.html" title="Reprezentacja produktu.">ElibriProduct</a>. Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID w bazie eLibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.</p>
+<p>Typowe użycie API Elibri to regularne pobieranie nowych danych - w kolejce meta znajdą się zarówno nowododane produkty, jak i te, których dane się zmieniły. Wiadomość&#160;otrzymana z serwera to instancja <a class="el" href="classElibriOnixMessage.html" title="Klasa abstrahująca wiadomość ONIX.">ElibriOnixMessage</a>, która zawiera listę produktów - <a class="el" href="classElibriProduct.html" title="Reprezentacja produktu.">ElibriProduct</a>. Po Twojej stronie jest wykrycie, które dane się zmieniły. Żeby jednak ułatwić to zadanie, udostępniamy przy linkach, tekstach oraz autorach ich wewnętrzne ID w bazie Elibri. Pozwala to łatwiej sprawdzić, które dane uległy zmianie.</p>
 <div class="fragment"><div class="line">&lt;?php</div>
 <div class="line">  <span class="comment">//korzystaj z lokalnej kopii, jeśli istnieje</span></div>
 <div class="line">  <span class="keywordflow">if</span> (file_exists(dirname(__FILE__) . <span class="stringliteral">&#39;/../elibriPHP.php&#39;</span>)) {</div>
