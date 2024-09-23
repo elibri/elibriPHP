@@ -1543,6 +1543,9 @@ class ElibriDictPublishingStatusCode extends  ElibriDictElement {
   //! nadchodzący
   const FORTHCOMING = '02';
 
+  //! publikacja wstrzymana
+  const POSTPONED_INDEFINITELY = '03';
+
   //! w sprzedaży
   const ACTIVE = '04';
 
@@ -1558,6 +1561,7 @@ class ElibriDictPublishingStatusCode extends  ElibriDictElement {
           new ElibriDictAtom('00', array('pl' => 'nieokreślony', 'en' => 'unspecified'), 'UNSPECIFIED'),
           new ElibriDictAtom('01', array('pl' => 'anulowany', 'en' => 'cancelled'), 'CANCELLED'),
           new ElibriDictAtom('02', array('pl' => 'nadchodzący', 'en' => 'forthcoming'), 'FORTHCOMING'),
+          new ElibriDictAtom('03', array('pl' => 'publikacja wstrzymana', 'en' => 'postponed indefinitely'), 'POSTPONED_INDEFINITELY'),
           new ElibriDictAtom('04', array('pl' => 'w sprzedaży', 'en' => 'active'), 'ACTIVE'),
           new ElibriDictAtom('07', array('pl' => 'nakład wyczerpany', 'en' => 'out of print'), 'OUT_OF_PRINT'),
           new ElibriDictAtom('08', array('pl' => 'niedostępny', 'en' => 'inactive'), 'UNAVAILABLE'),

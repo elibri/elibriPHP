@@ -938,7 +938,15 @@ class ElibriProduct {
     if ($this->notification_type == "01") {
       $this->current_state = 'announced';
     } else if ($this->notification_type == "02") {
-      $this->current_state = 'preorder';
+      if ($this->publishing_status == "02") {
+        $this->current_state = 'preorder';
+      } else if ($this->publishing_status == "03") {
+        $this->current_state = 'indefinitely_postponed';
+      } else if ($this->publishing_status == "01") {
+        $this->current_state = 'cancelled';
+      }
+    } else if ($this->notification_type == "05") {
+      $this->current_state = 'deleted';
     } else {
       if ($this->publishing_status == "04") {
         $this->current_state = 'published';

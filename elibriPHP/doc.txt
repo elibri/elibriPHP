@@ -8,6 +8,11 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c23092024 23 września 2024 roku
+ *
+ * - dodanie obsługi dwóch statusów: **cancelled** - gdy produkt zostaje usunięty z planu wydawniczego, oraz **indefinitely_postponed** - gdy publikacja została
+ *   odłożona na bliżej nieokreśloną przyszłość.
+ *
  * \subsection c20082024 20 sierpnia 2024 roku
  *
  * - dodanie informacji, czy głos lektora w audiobooku jest generowany przez AI. Do `ElibriContributor` zostały dodane pola `ElibriContributor::$ai_generated_voice`

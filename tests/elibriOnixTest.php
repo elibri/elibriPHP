@@ -281,6 +281,28 @@ class ElibriOnixTest extends TestCase {
     $this->assertFalse($product->sales_restrictions);
   }
 
+  public function test_cancelled_state() {
+    $product = $this->load("onix_cancelled_product_example.xml");
+    $this->assertEquals("02", $product->notification_type);
+    $this->assertEquals("01", $product->publishing_status);
+    $this->assertEquals('cancelled', $product->current_state);
+  }
+
+  public function test_deleted_state() {
+    $product = $this->load("onix_deleted_product_example.xml");
+    $this->assertEquals("05", $product->notification_type);
+    $this->assertEquals("00", $product->publishing_status);
+    $this->assertEquals('deleted', $product->current_state);
+    $this->assertEquals("Błędnie założony rekord", $product->deletion_text);
+  }
+
+  public function test_indefinitely_postponed_state() {
+    $product = $this->load("onix_indefinitely_postponed_product_example.xml");
+    $this->assertEquals("02", $product->notification_type);
+    $this->assertEquals("03", $product->publishing_status);
+    $this->assertEquals('indefinitely_postponed', $product->current_state);
+  }
+
   public function test_published_state() {
     $product = $this->load("onix_published_product_example.xml");
     $this->assertEquals("03", $product->notification_type);
@@ -640,8 +662,6 @@ class ElibriOnixTest extends TestCase {
 
     $this->assertEquals(13.99, $product->future_cover_price);
     $this->assertEquals(new DateTime("2022-04-01"), $product->future_price_from);
-
-
 
   }
 

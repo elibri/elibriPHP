@@ -1,5 +1,5 @@
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
   onix_code: '00'
   const_name: UNSPECIFIED
@@ -20,6 +20,13 @@
   name:
     en: forthcoming
     pl: nadchodzący
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
+  onix_code: '03'
+  const_name: POSTPONED_INDEFINITELY
+  name:
+    en: postponed indefinitely
+    pl: publikacja wstrzymana
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::PublishingStatusCode
   onix_code: '04'
