@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wyjątki_940',['Wyjątki',['../group__exceptions.html',1,'']]]
+  ['wyjątki_942',['Wyjątki',['../group__exceptions.html',1,'']]]
 ];

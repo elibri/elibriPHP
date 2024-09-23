@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['słowniki_939',['Słowniki',['../group__dictionaries.html',1,'']]]
+  ['słowniki_941',['Słowniki',['../group__dictionaries.html',1,'']]]
 ];
