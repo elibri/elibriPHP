@@ -47,14 +47,14 @@
         <Territory>
           <RegionsIncluded>WORLD</RegionsIncluded>
         </Territory>
+        <SalesRestriction>
+          <SalesRestrictionType>04</SalesRestrictionType>
+          <SalesOutlet>
+            <SalesOutletName>Empik</SalesOutletName>
+          </SalesOutlet>
+          <EndDate>20120722</EndDate>
+        </SalesRestriction>
       </SalesRights>
-      <SalesRestriction>
-        <SalesRestrictionType>04</SalesRestrictionType>
-        <SalesOutlet>
-          <SalesOutletName>Empik</SalesOutletName>
-        </SalesOutlet>
-        <EndDate>20120722</EndDate>
-      </SalesRestriction>
     </PublishingDetail>
     <ProductSupply>
       <SupplyDetail>

@@ -274,15 +274,17 @@
             05 - RRRR -->
         <Date dateformat="05">2011</Date>
       </PublishingDate>
-      <SalesRestriction>
-        <!-- Typ restrykcji - zawsze 04 -->
-        <SalesRestrictionType>04</SalesRestrictionType>
-        <SalesOutlet>
-          <SalesOutletName>sklep.gildia.pl</SalesOutletName>
-        </SalesOutlet>
-        <!-- Ograniczenie wygasa 2012-07-22 -->
-        <EndDate>20120722</EndDate>
-      </SalesRestriction>
+      <SalesRights>
+        <SalesRestriction>
+          <!-- Typ restrykcji - zawsze 04 -->
+          <SalesRestrictionType>04</SalesRestrictionType>
+          <SalesOutlet>
+            <SalesOutletName>sklep.gildia.pl</SalesOutletName>
+          </SalesOutlet>
+          <!-- Ograniczenie wygasa 2012-07-22 -->
+          <EndDate>20120722</EndDate>
+        </SalesRestriction>
+      </SalesRights>
     </PublishingDetail>
     <RelatedMaterial>
       <!-- Typy relacji
