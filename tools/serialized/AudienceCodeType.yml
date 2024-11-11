@@ -1,0 +1,8 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeType
+  onix_code: '01'
+  const_name: ONIX
+  name:
+    en: ONIX audience codes
+    pl: kody ONIX

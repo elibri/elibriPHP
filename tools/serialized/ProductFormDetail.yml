@@ -1,5 +1,5 @@
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
   onix_code: 'E101'
   const_name: EPUB
@@ -27,4 +27,11 @@
   name:
     en: MP3
     pl: MP3
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormDetail
+  onix_code: 'A113'
+  const_name: LPF
+  name:
+    en: LPF
+    pl: LPF
 

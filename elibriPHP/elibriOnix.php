@@ -31,6 +31,41 @@ class FirstNodeValue {
 
 }
 
+//! Dane podmiotu odpowiedzialnego za produkt
+class ElibriSafetyContact {
+
+   //! nazwa firmy
+  public $company_name;
+
+  //! Numer telefon
+  public $phone;
+
+  //! Emial
+  public $email;
+
+  //! Ulica i numer domu
+  public $street;
+
+  //! Miasto
+  public $city;
+
+  //! Kod pocztowy
+  public $postal_code;
+
+  //! Kod kraju (PL dla Polski)
+  public $country_code;
+
+  function __construct($xml_fragment) {
+    $this->company_name = FirstNodeValue::get($xml_fragment, "ProductContactName");
+    $this->phone = FirstNodeValue::get($xml_fragment, "TelephoneNumber");
+    $this->email = FirstNodeValue::get($xml_fragment, "EmailAddress");
+    $this->street = FirstNodeValue::get($xml_fragment, "StreetAddress");
+    $this->city = FirstNodeValue::get($xml_fragment, "LocationName");
+    $this->postal_code = FirstNodeValue::get($xml_fragment, "PostalCode");
+    $this->country_code = FirstNodeValue::get($xml_fragment, "CountryCode");
+  }
+}
+
 //! Odtwarzaj rodzaj okładki na podstawie product form i product from detail
 //! @ingroup private
 class CoverType {
@@ -530,6 +565,28 @@ class ElibriProduct {
   //! Informacje o plikach master (dotyczy produktów cyfrowych) - lista instancji ElibriFileInfo
   public $file_infos = array();
 
+  //! Dane podmiotu odpowiedzialnego za produkt
+  public $safety_contact;
+
+  //! Produkt Ma logo ‘CE’
+  public $carries_ce_logo = False;
+
+  //! Produkt jest oznaczony symbolem ’nieprzeznaczony dla dzieci poniżej 3 roku życia’
+  public $carries_unsuitable_for_children_below_3_logo = False;
+
+  //! Produkt posiada certyfikat EN71
+  public $carries_en71_logo = False;
+
+
+  //! Tekstowe ostrzeżenie dotyczące wieku
+  public $minimum_age_warning;
+
+  //! Tekstowe ostrzeżenie o bezpieczeństwie produktu
+  public $toy_safety_warning;
+
+  //! Link to pliku PDF dokumentującego nadanie certyfikatu EN71
+  public $declaration_of_conformity_url;
+
   //! Lista identyfikatorów - patrz pola $ean, $isbn, $proprietary_identifiers
   private $identifiers = array();
 
@@ -656,6 +713,12 @@ class ElibriProduct {
       $this->publisher_name = $publisher->name;
     }
 
+    foreach ($publishing_node->getElementsByTagName("ProductContact") as $node) {
+      if ($node->getElementsByTagName("ProductContactRole")->item(0)->nodeValue == ElibriDictProductContactRole::PRODUCT_SAFETY_CONTACT) {
+        $this->safety_contact = new ElibriSafetyContact($node);
+      }
+    }
+
     $this->publishing_status = $publishing_node->getElementsByTagName("PublishingStatus")->item(0)->nodeValue;
 
     //publishing dates
@@ -763,6 +826,22 @@ class ElibriProduct {
         $this->playing_time_from = $feature_value[0];
         if (count($feature_value) > 1) {
           $this->playing_time_to = explode(" ", $feature_value[1])[0];
+        }
+      } else if ($feature_type == ElibriDictProductFormFeatureType::EU_TOY_SAFETY_HAZARD_WARNING) {
+        $warning_type = FirstNodeValue::get($feature, "ProductFormFeatureValue");
+
+        if ($warning_type == ElibriDictToySafetyHazardWarningType::CARRIES_CE_LOGO) {
+          $this->carries_ce_logo = True;
+        } else if ($warning_type == ElibriDictToySafetyHazardWarningType::CARRIES_MINIMUM_AGE_WARNING) {
+          $this->minimum_age_warning = FirstNodeValue::get($feature, "ProductFormFeatureDescription");
+        } else if ($warning_type == ElibriDictToySafetyHazardWarningType::UNSUITABLE_FOR_CHILDREN_AGES_0_3) {
+          $this->carries_unsuitable_for_children_below_3_logo = True;
+        } else if ($warning_type == ElibriDictToySafetyHazardWarningType::CARRIES_EU_TOY_SAFETY_WARNING) {
+          $this->toy_safety_warning = FirstNodeValue::get($feature, "ProductFormFeatureDescription");
+        } else if ($warning_type == ElibriDictToySafetyHazardWarningType::DECLARATION_OF_CONFORMITY_AVAILABLE) {
+          $this->declaration_of_conformity_url = FirstNodeValue::get($feature, "ProductFormFeatureDescription");
+        } else if ($warning_type == ElibriDictToySafetyHazardWarningType::CARRIES_EN71_LOGO) {
+          $this->carries_en71_logo = True;
         }
       }
     }

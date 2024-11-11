@@ -6,3 +6,11 @@
   name:
     en: watermark
     pl: watermark
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EpubTechnicalProtection
+  onix_code: '06'
+  const_name: LCP
+  name:
+    en: LCP
+    pl: LCP
+

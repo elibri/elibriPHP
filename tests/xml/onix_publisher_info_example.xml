@@ -28,18 +28,28 @@
     </DescriptiveDetail>
     <PublishingDetail>
       <Imprint>
-        <ImprintName>National Geographic</ImprintName>
+        <ImprintName>Echa</ImprintName>
       </Imprint>
       <Publisher>
         <PublishingRole>01</PublishingRole>
         <PublisherIdentifier>
           <PublisherIDType>01</PublisherIDType>
           <IDTypeName>ElibriPublisherCode</IDTypeName>
-          <IDValue>14</IDValue>
+          <IDValue>7</IDValue>
         </PublisherIdentifier>
-        <PublisherName>G+J Gruner+Jahr Polska</PublisherName>
+        <PublisherName>Czarna Owca</PublisherName>
       </Publisher>
       <CityOfPublication>Warszawa</CityOfPublication>
+      <ProductContact>
+        <ProductContactRole>10</ProductContactRole>
+        <ProductContactName>Wydawnictwo Czarna Owca Sp. z o.o.</ProductContactName>
+        <TelephoneNumber>+48 226161272</TelephoneNumber>
+        <EmailAddress>handel@czarnaowca.pl</EmailAddress>
+        <StreetAddress>ul. Wspólna 35/5</StreetAddress>
+        <LocationName>Warszawa</LocationName>
+        <PostalCode>00-519</PostalCode>
+        <CountryCode>PL</CountryCode>
+      </ProductContact>
       <PublishingStatus>04</PublishingStatus>
       <SalesRights>
         <SalesRightsType>01</SalesRightsType>

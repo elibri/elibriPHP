@@ -1,0 +1,54 @@
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '00'
+  const_name: NO_WARNING
+  name:
+    en: No warning
+    pl: bez ostrzeżeń
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '01'
+  const_name: CARRIES_CE_LOGO
+  name:
+    en: Carries ‘CE’ logo
+    pl: Posiada oznaczenie ‘CE’
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '02'
+  const_name: CARRIES_MINIMUM_AGE_WARNING
+  name:
+    en: Carries minimum age warning
+    pl: Posiada oznaczenie minimalnego wieku
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '03'
+  const_name: UNSUITABLE_FOR_CHILDREN_AGES_0_3
+  name:
+    en: Carries EU Toy Safety Directive ‘Unsuitable for children ages 0–3’ warning logo
+    pl: Posiada logo ‘Nie dla dzieci poniżej 3 roku życia‘
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '04'
+  const_name: CARRIES_EU_TOY_SAFETY_WARNING
+  name:
+    en: Carries EU Toy Safety Directive hazard warning
+    pl: Zawiera ostrzeżenie o niebezpieczeństwie związane z dyrektywą UE w sprawie bezpieczeństwa zabawek
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '07'
+  const_name: DECLARATION_OF_CONFORMITY_AVAILABLE
+  name:
+    en: Declaration of Conformity available
+    pl: Deklaracja zgodności
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ToySafetyHazardWarningType
+  onix_code: '08'
+  const_name: CARRIES_EN71_LOGO
+  name:
+    en: Carries ‘EN71’ logo
+    pl: Posiada oznaczenie ‘EN71’
+
+
+
+
+

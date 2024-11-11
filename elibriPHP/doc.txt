@@ -8,6 +8,10 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c11112024 12 listopada 2024 roku
+ * - dodanie obsługi danych podmiotu odpowiedzialnego oraz ostrzeżeń o bezpieczeństwie produktów. Szczegóły w testach `ElibriOnixTest::test_publisher_safety_contact` oraz
+ *   `ElibriOnixTest::test_product_safety_features`.
+ *
  * \subsection c23092024 23 września 2024 roku
  *
  * - dodanie obsługi dwóch statusów: **cancelled** - gdy produkt zostaje usunięty z planu wydawniczego, oraz **indefinitely_postponed** - gdy publikacja została

@@ -1,5 +1,12 @@
 ---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormFeatureType
+  onix_code: '13'
+  const_name: EU_TOY_SAFETY_HAZARD_WARNING
+  name:
+    en: EU Toy Safety Hazard warning
+    pl: Ostrzeżenia dotyczące bezpieczeństwa zabawek
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormFeatureType
   onix_code: '22'
   const_name: NUMBER_OF_GAME_PIECES
   name:

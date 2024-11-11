@@ -1,0 +1,23 @@
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::WebsiteRole
+  onix_code: '01'
+  const_name: PUBLISHER_WEBPAGE
+  name:
+    en: publisher's webpage
+    pl: strona www wydawnictwa
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::WebsiteRole
+  onix_code: '02'
+  const_name: PUBLISHER_WEBPAGE_FOR_SPECIFIED_WORK
+  name:
+    en: publisher’s website for a specified work
+    pl: strona www wydawnictwa dotycząca określonej publikacji
+
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::WebsiteRole
+  onix_code: '29'
+  const_name: FULL_CONTENT_LINK
+  name:
+    en: full content link
+    pl: link do pełnej treści książki
+

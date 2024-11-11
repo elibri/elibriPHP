@@ -1,0 +1,8 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductContactRole
+  onix_code: '10'
+  const_name: PRODUCT_SAFETY_CONTACT
+  name:
+    en: Product safety contact
+    pl: Kontakt w sprawie bezpieczeństwa produktu

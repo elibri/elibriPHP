@@ -9,6 +9,94 @@
 
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictAudienceCodeType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! kody ONIX
+  const ONIX = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'kody ONIX', 'en' => 'ONIX audience codes'), 'ONIX'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictAudienceCodeType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictAudienceCodeValue extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! książka jest skierowana do ogólnego odbiorcy
+  const GENERAL = '01';
+
+  //! książka jest skierowana do dzieci
+  const CHILDREN = '02';
+
+  //! książka jest skierowana do młodzieży
+  const YOUNG_ADULT = '03';
+
+  //! książka edukacyjna (szkoły podstawowe i średnie)
+  const EDUCATION = '04';
+
+  //! podręcznik akademicki
+  const HIGHER_EDUCATION = '05';
+
+  //! książka dla profesjonalistów
+  const EXPERTS = '06';
+
+  //! edukacja dla dorosłych
+  const ADULT_EDUCATION = '08';
+
+  //! nauka języka obcego
+  const SECOND_LANGUAGE_TEACHING = '09';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'książka jest skierowana do ogólnego odbiorcy', 'en' => 'general'), 'GENERAL'),
+          new ElibriDictAtom('02', array('pl' => 'książka jest skierowana do dzieci', 'en' => 'children'), 'CHILDREN'),
+          new ElibriDictAtom('03', array('pl' => 'książka jest skierowana do młodzieży', 'en' => 'young adult'), 'YOUNG_ADULT'),
+          new ElibriDictAtom('04', array('pl' => 'książka edukacyjna (szkoły podstawowe i średnie)', 'en' => 'education'), 'EDUCATION'),
+          new ElibriDictAtom('05', array('pl' => 'podręcznik akademicki', 'en' => 'higher education'), 'HIGHER_EDUCATION'),
+          new ElibriDictAtom('06', array('pl' => 'książka dla profesjonalistów', 'en' => 'experts'), 'EXPERTS'),
+          new ElibriDictAtom('08', array('pl' => 'edukacja dla dorosłych', 'en' => 'adult education'), 'ADULT_EDUCATION'),
+          new ElibriDictAtom('09', array('pl' => 'nauka języka obcego', 'en' => 'second language teaching'), 'SECOND_LANGUAGE_TEACHING'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictAudienceCodeValue();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictAudienceRangePrecision extends  ElibriDictElement {
 
   private static $instance;
@@ -421,6 +509,36 @@ class ElibriDictEditionType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictEpubLicenseExpressionType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! ogólnodostępny dokument
+  const HUMAN_READABLE = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'ogólnodostępny dokument', 'en' => 'human readable'), 'HUMAN_READABLE'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictEpubLicenseExpressionType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictEpubTechnicalProtection extends  ElibriDictElement {
 
   private static $instance;
@@ -428,10 +546,14 @@ class ElibriDictEpubTechnicalProtection extends  ElibriDictElement {
   //! watermark
   const WATERMARK = '02';
 
+  //! LCP
+  const LCP = '06';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('02', array('pl' => 'watermark', 'en' => 'watermark'), 'WATERMARK'),
+          new ElibriDictAtom('06', array('pl' => 'LCP', 'en' => 'LCP'), 'LCP'),
       ));
 
    }
@@ -832,6 +954,36 @@ class ElibriDictMeasureType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictNameIdentifier extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! ORCID
+  const ORCID = '21';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('21', array('pl' => 'ORCID', 'en' => 'ORCID'), 'ORCID'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictNameIdentifier();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictNameType extends  ElibriDictElement {
 
   private static $instance;
@@ -1204,6 +1356,36 @@ class ElibriDictProductComposition extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictProductContactRole extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! Kontakt w sprawie bezpieczeństwa produktu
+  const PRODUCT_SAFETY_CONTACT = '10';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('10', array('pl' => 'Kontakt w sprawie bezpieczeństwa produktu', 'en' => 'Product safety contact'), 'PRODUCT_SAFETY_CONTACT'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictProductContactRole();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictProductFormCode extends  ElibriDictElement {
 
   private static $instance;
@@ -1322,6 +1504,9 @@ class ElibriDictProductFormDetail extends  ElibriDictElement {
   //! MP3
   const MP3 = 'A103';
 
+  //! LPF
+  const LPF = 'A113';
+
 
   protected function __construct() {
       parent::__construct(array(
@@ -1329,6 +1514,7 @@ class ElibriDictProductFormDetail extends  ElibriDictElement {
           new ElibriDictAtom('E107', array('pl' => 'PDF', 'en' => 'PDF'), 'PDF'),
           new ElibriDictAtom('E127', array('pl' => 'Mobipocket', 'en' => 'Mobipocket'), 'MOBIPOCKET'),
           new ElibriDictAtom('A103', array('pl' => 'MP3', 'en' => 'MP3'), 'MP3'),
+          new ElibriDictAtom('A113', array('pl' => 'LPF', 'en' => 'LPF'), 'LPF'),
       ));
 
    }
@@ -1352,6 +1538,9 @@ class ElibriDictProductFormFeatureType extends  ElibriDictElement {
 
   private static $instance;
 
+  //! Ostrzeżenia dotyczące bezpieczeństwa zabawek
+  const EU_TOY_SAFETY_HAZARD_WARNING = '13';
+
   //! Ilość elementów
   const NUMBER_OF_GAME_PIECES = '22';
 
@@ -1364,6 +1553,7 @@ class ElibriDictProductFormFeatureType extends  ElibriDictElement {
 
   protected function __construct() {
       parent::__construct(array(
+          new ElibriDictAtom('13', array('pl' => 'Ostrzeżenia dotyczące bezpieczeństwa zabawek', 'en' => 'EU Toy Safety Hazard warning'), 'EU_TOY_SAFETY_HAZARD_WARNING'),
           new ElibriDictAtom('22', array('pl' => 'Ilość elementów', 'en' => 'Number of game pieces'), 'NUMBER_OF_GAME_PIECES'),
           new ElibriDictAtom('23', array('pl' => 'liczba graczy', 'en' => 'Game players'), 'GAME_PLAYERS'),
           new ElibriDictAtom('24', array('pl' => 'Czas gry', 'en' => 'Game play time'), 'GAME_PLAY_TIME'),
@@ -2150,6 +2340,60 @@ class ElibriDictTitleType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictToySafetyHazardWarningType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! bez ostrzeżeń
+  const NO_WARNING = '00';
+
+  //! Posiada oznaczenie ‘CE’
+  const CARRIES_CE_LOGO = '01';
+
+  //! Posiada oznaczenie minimalnego wieku
+  const CARRIES_MINIMUM_AGE_WARNING = '02';
+
+  //! Posiada logo ‘Nie dla dzieci poniżej 3 roku życia‘
+  const UNSUITABLE_FOR_CHILDREN_AGES_0_3 = '03';
+
+  //! Zawiera ostrzeżenie o niebezpieczeństwie związane z dyrektywą UE w sprawie bezpieczeństwa zabawek
+  const CARRIES_EU_TOY_SAFETY_WARNING = '04';
+
+  //! Deklaracja zgodności
+  const DECLARATION_OF_CONFORMITY_AVAILABLE = '07';
+
+  //! Posiada oznaczenie ‘EN71’
+  const CARRIES_EN71_LOGO = '08';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('00', array('pl' => 'bez ostrzeżeń', 'en' => 'No warning'), 'NO_WARNING'),
+          new ElibriDictAtom('01', array('pl' => 'Posiada oznaczenie ‘CE’', 'en' => 'Carries ‘CE’ logo'), 'CARRIES_CE_LOGO'),
+          new ElibriDictAtom('02', array('pl' => 'Posiada oznaczenie minimalnego wieku', 'en' => 'Carries minimum age warning'), 'CARRIES_MINIMUM_AGE_WARNING'),
+          new ElibriDictAtom('03', array('pl' => 'Posiada logo ‘Nie dla dzieci poniżej 3 roku życia‘', 'en' => 'Carries EU Toy Safety Directive ‘Unsuitable for children ages 0–3’ warning logo'), 'UNSUITABLE_FOR_CHILDREN_AGES_0_3'),
+          new ElibriDictAtom('04', array('pl' => 'Zawiera ostrzeżenie o niebezpieczeństwie związane z dyrektywą UE w sprawie bezpieczeństwa zabawek', 'en' => 'Carries EU Toy Safety Directive hazard warning'), 'CARRIES_EU_TOY_SAFETY_WARNING'),
+          new ElibriDictAtom('07', array('pl' => 'Deklaracja zgodności', 'en' => 'Declaration of Conformity available'), 'DECLARATION_OF_CONFORMITY_AVAILABLE'),
+          new ElibriDictAtom('08', array('pl' => 'Posiada oznaczenie ‘EN71’', 'en' => 'Carries ‘EN71’ logo'), 'CARRIES_EN71_LOGO'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictToySafetyHazardWarningType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictUnnamedPersons extends  ElibriDictElement {
 
   private static $instance;
@@ -2185,6 +2429,74 @@ class ElibriDictUnnamedPersons extends  ElibriDictElement {
   protected static function getInstance() {
     if (empty(self::$instance)) {
        self::$instance = new ElibriDictUnnamedPersons();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictUnpricedItemType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! bezpłatnie
+  const FREE_OF_CHARGE = '01';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'bezpłatnie', 'en' => 'free of charge'), 'FREE_OF_CHARGE'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictUnpricedItemType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictWebsiteRole extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! strona www wydawnictwa
+  const PUBLISHER_WEBPAGE = '01';
+
+  //! strona www wydawnictwa dotycząca określonej publikacji
+  const PUBLISHER_WEBPAGE_FOR_SPECIFIED_WORK = '02';
+
+  //! link do pełnej treści książki
+  const FULL_CONTENT_LINK = '29';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'strona www wydawnictwa', 'en' => 'publisher\'s webpage'), 'PUBLISHER_WEBPAGE'),
+          new ElibriDictAtom('02', array('pl' => 'strona www wydawnictwa dotycząca określonej publikacji', 'en' => 'publisher’s website for a specified work'), 'PUBLISHER_WEBPAGE_FOR_SPECIFIED_WORK'),
+          new ElibriDictAtom('29', array('pl' => 'link do pełnej treści książki', 'en' => 'full content link'), 'FULL_CONTENT_LINK'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictWebsiteRole();
     }
     return self::$instance;
   }

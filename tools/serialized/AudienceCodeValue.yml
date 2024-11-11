@@ -1,0 +1,64 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '01'
+  const_name: GENERAL
+  name:
+    en: general
+    pl: książka jest skierowana do ogólnego odbiorcy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '02'
+  const_name: CHILDREN
+  name:
+    en: children
+    pl: książka jest skierowana do dzieci
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '03'
+  const_name: YOUNG_ADULT
+  name:
+    en: young adult
+    pl: książka jest skierowana do młodzieży
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '04'
+  const_name: EDUCATION
+  name:
+    en: education
+    pl: książka edukacyjna (szkoły podstawowe i średnie)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '05'
+  const_name: HIGHER_EDUCATION
+  name:
+    en: higher education
+    pl: podręcznik akademicki
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '06'
+  const_name: EXPERTS
+  name:
+    en: experts
+    pl: książka dla profesjonalistów
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '08'
+  const_name: ADULT_EDUCATION
+  name:
+    en: adult education
+    pl: edukacja dla dorosłych
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::AudienceCodeValue
+  onix_code: '09'
+  const_name: SECOND_LANGUAGE_TEACHING
+  name:
+    en: second language teaching
+    pl: nauka języka obcego
+
+
+
+
+
+
+

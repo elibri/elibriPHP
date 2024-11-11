@@ -141,10 +141,34 @@ class ElibriOnixTest extends TestCase {
   public function test_publisher_info() {
     $product = $this->load("onix_publisher_info_example.xml");
 
-    $this->assertEquals("G+J Gruner+Jahr Polska", $product->publisher_name);
-    $this->assertEquals(14, $product->publisher_id);
-    $this->assertEquals("National Geographic", $product->imprint_name);
+    $this->assertEquals("Czarna Owca", $product->publisher_name);
+    $this->assertEquals(7, $product->publisher_id);
+    $this->assertEquals("Echa", $product->imprint_name);
     $this->assertEquals("Warszawa", $product->city_of_publication);
+  }
+
+  public function test_publisher_safety_contact() {
+    $product = $this->load("onix_publisher_info_example.xml");
+
+    $this->assertEquals("Wydawnictwo Czarna Owca Sp. z o.o.", $product->safety_contact->company_name);
+    $this->assertEquals("+48 226161272", $product->safety_contact->phone);
+    $this->assertEquals("handel@czarnaowca.pl", $product->safety_contact->email);
+    $this->assertEquals("ul. Wspólna 35/5", $product->safety_contact->street);
+    $this->assertEquals("Warszawa", $product->safety_contact->city);
+    $this->assertEquals("00-519", $product->safety_contact->postal_code);
+    $this->assertEquals("PL", $product->safety_contact->country_code);
+  }
+
+  public function test_product_safety_features() {
+
+    $product = $this->load("onix_puzzle_example.xml");
+
+    $this->assertTrue($product->carries_ce_logo);
+    $this->assertTrue($product->carries_unsuitable_for_children_below_3_logo);
+    $this->assertTrue($product->carries_en71_logo);
+    $this->assertEquals("Dla dzieci od 6 lat", $product->minimum_age_warning);
+    $this->assertEquals("Zawiera małe elementy", $product->toy_safety_warning);
+    $this->assertEquals("https://www.hseni.gov.uk/publications/example-declaration-conformity", $product->declaration_of_conformity_url);
   }
 
   public function test_onix_record_identifiers() {

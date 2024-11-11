@@ -22,6 +22,33 @@
         <!--ProductFormFeatureType: NUMBER_OF_GAME_PIECES--><ProductFormFeatureType>22</ProductFormFeatureType>
         <ProductFormFeatureValue>25</ProductFormFeatureValue>
       </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>01</ProductFormFeatureValue>  <!-- Posiada oznaczenie ‘CE’ -->
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>03</ProductFormFeatureValue>  <!-- Posiada logo ‘Nie dla dzieci poniżej 3 roku życia‘ -->
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>02</ProductFormFeatureValue>  <!-- Posiada oznaczenie minimalnego wieku -->
+        <ProductFormFeatureDescription>Dla dzieci od 6 lat</ProductFormFeatureDescription>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>04</ProductFormFeatureValue>  <!-- Zawiera ostrzeżenie o niebezpieczeństwie związane z dyrektywą UE w sprawie bezpieczeństwa zabawek -->
+        <ProductFormFeatureDescription>Zawiera małe elementy</ProductFormFeatureDescription>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>08</ProductFormFeatureValue>  <!-- Posiada oznaczenie ‘EN71’ -->
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>  <!-- ostrzeżenia dotyczące bezpieczeństwa produktu -->
+        <ProductFormFeatureValue>07</ProductFormFeatureValue>  <!-- Link do deklaracji zgodności -->
+        <ProductFormFeatureDescription>https://www.hseni.gov.uk/publications/example-declaration-conformity</ProductFormFeatureDescription>
+      </ProductFormFeature>
       <ProductClassification>
         <!--ProductClassificationType: PKWIU--><ProductClassificationType>12</ProductClassificationType>
         <ProductClassificationCode>32.40.32</ProductClassificationCode>
