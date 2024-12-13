@@ -1,6 +1,6 @@
 
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
   onix_code: '20'
   const_name: AVAILABLE
@@ -20,6 +20,12 @@
   name:
     en: not available
     pl: niedostępne
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
+  onix_code: '10'
+  const_name: NOT_YET_AVAILABLE
+  name:
+    en: not yet available
+    pl: jeszcze niedostępne
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductAvailabilityType
   onix_code: '99'
   const_name: CONTACT_SUPPLIER

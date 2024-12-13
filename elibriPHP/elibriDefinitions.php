@@ -1263,6 +1263,9 @@ class ElibriDictProductAvailabilityType extends  ElibriDictElement {
   //! niedostępne
   const NOT_AVAILABLE = '40';
 
+  //! jeszcze niedostępne
+  const NOT_YET_AVAILABLE = '10';
+
   //! skontaktuj się z dostawcą
   const CONTACT_SUPPLIER = '99';
 
@@ -1272,6 +1275,7 @@ class ElibriDictProductAvailabilityType extends  ElibriDictElement {
           new ElibriDictAtom('20', array('pl' => 'dostępny', 'en' => 'available'), 'AVAILABLE'),
           new ElibriDictAtom('21', array('pl' => 'na stanie', 'en' => 'in stock'), 'IN_STOCK'),
           new ElibriDictAtom('40', array('pl' => 'niedostępne', 'en' => 'not available'), 'NOT_AVAILABLE'),
+          new ElibriDictAtom('10', array('pl' => 'jeszcze niedostępne', 'en' => 'not yet available'), 'NOT_YET_AVAILABLE'),
           new ElibriDictAtom('99', array('pl' => 'skontaktuj się z dostawcą', 'en' => 'Contact supplier'), 'CONTACT_SUPPLIER'),
       ));
 

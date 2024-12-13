@@ -63,7 +63,7 @@
           </SupplierIdentifier>
           <SupplierName>GREG</SupplierName>
         </Supplier>
-        <ProductAvailability>99</ProductAvailability>
+        <ProductAvailability>10</ProductAvailability>
         <Price>
           <PriceType>02</PriceType>
           <PriceAmount>12.99</PriceAmount>
