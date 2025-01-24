@@ -839,6 +839,7 @@ class ElibriDictLanguageCode extends  ElibriDictElement {
           new ElibriDictAtom('arm', array('pl' => 'armeński', 'en' => 'Armenian'), NULL),
           new ElibriDictAtom('san', array('pl' => 'sanskryt', 'en' => 'Sanskrit'), NULL),
           new ElibriDictAtom('szl', array('pl' => 'śląski', 'en' => 'Silesian'), NULL),
+          new ElibriDictAtom('ind', array('pl' => 'indonezyjski', 'en' => 'Indonesian'), NULL),
       ));
 
    }

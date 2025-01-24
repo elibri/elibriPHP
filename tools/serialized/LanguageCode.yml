@@ -342,3 +342,8 @@
     en: Silesian
     pl: śląski
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::LanguageCode
+  onix_code: ind
+  name:
+    en: Indonesian
+    pl: indonezyjski
