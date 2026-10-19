@@ -698,6 +698,7 @@ class ElibriOnixTest extends TestCase {
 
     $this->assertEquals(array("LTE", "ILL"), $product->edition_types);
     $this->assertEquals(array("LARGE_TYPE_EDITION", "ILLUSTRATED_EDITION"), $product->edition_type_names);
+    $this->assertEquals(array("edycja z powiększoną czcionką", "wydanie ilustrowane"), $product->edition_type_descriptions);
     $this->assertEquals("LTE", $product->edition_type);
   }
 

@@ -343,13 +343,16 @@ class ElibriProduct {
   //! Numer wydania, jako string
   public $edition_statement;
 
-  //! Informacja o typie wydania (kod ONIX) - patrz ElibriDictProductType
+  /** Pierwszy typ wydania (kod ONIX) - patrz ElibriDictEditionType
+   *  @deprecated użyj $edition_types - produkt może mieć kilka typów wydania */
   public $edition_type;
 
-  //! Informacja o typie wydania jako string, np. 'LARGE_PRINT_EDITION'
+  /** Pierwszy typ wydania jako string, np. 'LARGE_TYPE_EDITION'
+   *  @deprecated użyj $edition_type_names - produkt może mieć kilka typów wydania */
   public $edition_type_name;
 
-  //! Informacja o typie wydania opisowo, np. 'edycja z powiększoną czcionką'
+  /** Pierwszy typ wydania opisowo, np. 'edycja z powiększoną czcionką'
+   *  @deprecated użyj $edition_type_descriptions - produkt może mieć kilka typów wydania */
   public $edition_type_description;
 
   //! Wszystkie typy wydania (kody ONIX) - produkt może mieć ich kilka, patrz ElibriDictEditionType
@@ -357,6 +360,9 @@ class ElibriProduct {
 
   //! Wszystkie typy wydania jako stringi, np. array('LARGE_TYPE_EDITION', 'ILLUSTRATED_EDITION')
   public $edition_type_names = array();
+
+  //! Wszystkie typy wydania opisowo, np. array('edycja z powiększoną czcionką', 'wydanie ilustrowane')
+  public $edition_type_descriptions = array();
 
   //! Liczba ilustracji
   public $number_of_illustrations;
@@ -993,6 +999,7 @@ class ElibriProduct {
       $this->edition_types[] = $xml_fragment->nodeValue;
       if (ElibriDictEditionType::byCode($xml_fragment->nodeValue)) {
         $this->edition_type_names[] = ElibriDictEditionType::byCode($xml_fragment->nodeValue)->const_name;
+        $this->edition_type_descriptions[] = ElibriDictEditionType::byCode($xml_fragment->nodeValue)->name["pl"];
       }
     }
     if (($this->edition_type) && ElibriDictEditionType::byCode($this->edition_type)) {

@@ -108,7 +108,7 @@ class ElibriAPI {
   //! wersja biblioteki
   const VERSION = "0.11.0";
 
-  //! @deprecated użyj ElibriAPI::VERSION
+  /** @deprecated użyj ElibriAPI::VERSION */
   public $VERSION = self::VERSION;
 
   private $host = "https://www.elibri.com.pl";
