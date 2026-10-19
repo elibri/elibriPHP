@@ -8,7 +8,7 @@ This library is released under the MIT license.
 
 ## Installation
 
-    composer require elibri/elibriphp
+    composer require elibri/elibri_onix_client
 
 or without Composer:
 

@@ -1,5 +1,5 @@
 {
-    "name": "elibri/elibriphp",
+    "name": "elibri/elibri_onix_client",
     "description": "PHP client for the elibri API (ONIX 3.0 book metadata)",
     "type": "library",
     "license": "MIT",
