@@ -66,6 +66,14 @@ class ElibriSafetyContact {
   }
 }
 
+//! Tworzy DateTime w strefie czasowej Elibri (Europe/Warsaw), niezależnie od ustawień PHP
+//! @ingroup private
+class ElibriDate {
+  public static function create($date) {
+    return new DateTime($date, new DateTimeZone("Europe/Warsaw"));
+  }
+}
+
 //! Odtwarzaj rodzaj okładki na podstawie product form i product from detail
 //! @ingroup private
 class CoverType {
@@ -272,7 +280,7 @@ class ElibriAnnotatedObject {
     $this->datestamp_before_type_cast = $xml_fragment->getAttribute("datestamp");
     if ($this->datestamp_before_type_cast) {
       $d = $this->datestamp_before_type_cast;
-      $this->datestamp = new DateTime(substr($d, 0, 4) . "-" . substr($d, 4, 2) . "-" . substr($d, 6, 2) . " " . substr($d, 9, 2) . ":" . substr($d, 11, 2));
+      $this->datestamp = ElibriDate::create(substr($d, 0, 4) . "-" . substr($d, 4, 2) . "-" . substr($d, 6, 2) . " " . substr($d, 9, 2) . ":" . substr($d, 11, 2));
     }
   }
 
@@ -729,12 +737,12 @@ class ElibriProduct {
          $this->publishing_date = new ElibriPublishingDate($node);
          $this->parsed_publishing_date = $this->publishing_date->parsed;
          if (count($this->parsed_publishing_date) == 3) {
-            $this->premiere = new DateTime($this->parsed_publishing_date[0] . "-" . $this->parsed_publishing_date[1] . "-" . $this->parsed_publishing_date[2]);
+            $this->premiere = ElibriDate::create($this->parsed_publishing_date[0] . "-" . $this->parsed_publishing_date[1] . "-" . $this->parsed_publishing_date[2]);
          }
        } else if ($role == ElibriDictPublishingDateRole::OUT_OF_PRINT_DATE) {
          $this->licence_limited_to_before_type_cast = FirstNodeValue::get($node, "Date");
          $this->parsed_licence_limited_to = ElibriPublishingDate::parseDate($this->licence_limited_to_before_type_cast, 'YYYYMMDD');
-         $this->licence_limited_to =  new DateTime($this->parsed_licence_limited_to[0] . "-" .
+         $this->licence_limited_to =  ElibriDate::create($this->parsed_licence_limited_to[0] . "-" .
                                                    $this->parsed_licence_limited_to[1] . "-" . $this->parsed_licence_limited_to[2]);
        }
     }
@@ -1675,7 +1683,7 @@ class ElibriSalesRestriction {
     }
     $this->outlet_name = $xml_fragment->getElementsByTagName("SalesOutlet")->item(0)->getElementsByTagName("SalesOutletName")->item(0)->nodeValue;
     $this->end_date = $xml_fragment->getElementsByTagName("EndDate")->item(0)->nodeValue;
-    $this->end_date_as_datetime = new DateTime(substr($this->end_date, 0, 4) . "-" . substr($this->end_date, 4, 2) . "-" . substr($this->end_date, 6, 2));
+    $this->end_date_as_datetime = ElibriDate::create(substr($this->end_date, 0, 4) . "-" . substr($this->end_date, 4, 2) . "-" . substr($this->end_date, 6, 2));
   }
 }
 
@@ -1837,7 +1845,7 @@ class ElibriPrice {
       $price_date = $xml_fragment->getElementsByTagName("PriceDate")->item(0);
       $this->price_date_type = FirstNodeValue::get($price_date, "PriceDateRole");
       $date_value = ElibriPublishingDate::parseDate(FirstNodeValue::get($price_date, "Date"), 'YYYYMMDD');
-      $this->price_date_value = new DateTime($date_value[0] . "-" . $date_value[1] . "-" . $date_value[2]);
+      $this->price_date_value = ElibriDate::create($date_value[0] . "-" . $date_value[1] . "-" . $date_value[2]);
     }
 
     $this->tax_type = intval($xml_fragment->getElementsByTagName("Tax")->item(0)->getElementsByTagName("TaxType")->item(0)->nodeValue);

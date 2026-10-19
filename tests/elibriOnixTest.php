@@ -5,6 +5,10 @@ use PHPUnit\Framework\TestCase;
 
 class ElibriOnixTest extends TestCase {
 
+  private function warsaw($date) {
+    return new DateTime($date, new DateTimeZone("Europe/Warsaw"));
+  }
+
   public function load($s, $idx = 0) {
     $xml = file_get_contents(dirname(__FILE__) . "/xml/".$s);
     $m = ElibriOnixMessage::parse($xml);
@@ -31,7 +35,7 @@ class ElibriOnixTest extends TestCase {
 
     $this->assertEquals(255, $cont1->id);
     $this->assertEquals("20111104T0905", $cont1->datestamp_before_type_cast);
-    $this->assertEquals(new DateTime("2011-11-04 09:05"), $cont1->datestamp);
+    $this->assertEquals($this->warsaw("2011-11-04 09:05"), $cont1->datestamp);
 
     $this->assertEquals("AUTHOR", $cont1->role_name);
     $this->assertEquals("Św. Tomasz z Akwinu", $cont1->person_name);
@@ -217,7 +221,7 @@ class ElibriOnixTest extends TestCase {
     $this->assertEquals("DOWNLOADABLE_FILE", $product->supporting_resources[0]->form_name);
 
     $this->assertEquals("http://elibri.com.pl/sciezka/do/pliku.png", $product->front_cover->link);
-    $this->assertEquals(new DateTime("2011-12-01 18:05"), $product->front_cover->datestamp);
+    $this->assertEquals($this->warsaw("2011-12-01 18:05"), $product->front_cover->datestamp);
     $this->assertEquals(667, $product->front_cover->id);
 
     $this->assertEquals("SAMPLE_CONTENT", $product->supporting_resources[1]->content_type_name);
@@ -238,7 +242,7 @@ class ElibriOnixTest extends TestCase {
 
     $this->assertEquals("1. Wprowadzenie<br/>2. Rozdział pierwszy<br/>[...]", $product->table_of_contents->text);
     $this->assertEquals("20111204T1215", $product->table_of_contents->datestamp_before_type_cast);
-    $this->assertEquals(new DateTime("2011-12-04 12:15"), $product->table_of_contents->datestamp);
+    $this->assertEquals($this->warsaw("2011-12-04 12:15"), $product->table_of_contents->datestamp);
     //sprawdźmy, czy na pewno nie ma błędu z interpretacją formatu
     $this->assertEquals("04.12.2011 12:15", $product->table_of_contents->datestamp->format('d.m.Y H:i'));
     $this->assertEquals(133, $product->table_of_contents->id);
@@ -248,18 +252,18 @@ class ElibriOnixTest extends TestCase {
     $this->assertEquals("Jan Kowalski", $product->reviews[0]->author);
 
     $this->assertEquals("20111204T1218", $product->reviews[0]->datestamp_before_type_cast);
-    $this->assertEquals(new DateTime("2011-12-04 12:18"), $product->reviews[0]->datestamp);
+    $this->assertEquals($this->warsaw("2011-12-04 12:18"), $product->reviews[0]->datestamp);
     $this->assertEquals(134, $product->reviews[0]->id);
 
     $this->assertEquals("Opis książki<br/>[...]", $product->description->text);
     $this->assertEquals("20111204T1225", $product->description->datestamp_before_type_cast);
-    $this->assertEquals(new DateTime("2011-12-04 12:25"), $product->description->datestamp);
+    $this->assertEquals($this->warsaw("2011-12-04 12:25"), $product->description->datestamp);
     $this->assertEquals(135, $product->description->id);
 
     $this->assertEquals(1, count($product->excerpts));
     $this->assertEquals("Fragment książki<br/>[...]", $product->excerpts[0]->text);
     $this->assertEquals("20111204T1235", $product->excerpts[0]->datestamp_before_type_cast);
-    $this->assertEquals(new DateTime("2011-12-04 12:35"), $product->excerpts[0]->datestamp);
+    $this->assertEquals($this->warsaw("2011-12-04 12:35"), $product->excerpts[0]->datestamp);
     $this->assertEquals(136, $product->excerpts[0]->id);
 
   }
@@ -301,7 +305,7 @@ class ElibriOnixTest extends TestCase {
     $this->assertEquals("02", $product->publishing_status);
     $this->assertEquals('preorder', $product->current_state);
     $this->assertEquals(array(2011, 2, 10), $product->parsed_publishing_date);
-    $this->assertEquals(new DateTime("2011-02-10"), $product->premiere);
+    $this->assertEquals($this->warsaw("2011-02-10"), $product->premiere);
     $this->assertFalse($product->sales_restrictions);
   }
 
@@ -363,7 +367,7 @@ class ElibriOnixTest extends TestCase {
     $this->assertFalse($product->unlimited_licence);
     $this->assertEquals("20140307", $product->licence_limited_to_before_type_cast);
     $this->assertEquals(array('2014', '03', '07'), $product->parsed_licence_limited_to);
-    $this->assertEquals(new DateTime("2014-03-07"), $product->licence_limited_to);
+    $this->assertEquals($this->warsaw("2014-03-07"), $product->licence_limited_to);
   }
 
   public function test_formats_and_protection() {
@@ -682,10 +686,10 @@ class ElibriOnixTest extends TestCase {
 
     $product = $this->load("onix_future_price_change_example.xml");
     $this->assertEquals(12.99, $product->cover_price);
-    $this->assertEquals(new DateTime("2022-03-31"), $product->currrent_price_until);
+    $this->assertEquals($this->warsaw("2022-03-31"), $product->currrent_price_until);
 
     $this->assertEquals(13.99, $product->future_cover_price);
-    $this->assertEquals(new DateTime("2022-04-01"), $product->future_price_from);
+    $this->assertEquals($this->warsaw("2022-04-01"), $product->future_price_from);
 
   }
 

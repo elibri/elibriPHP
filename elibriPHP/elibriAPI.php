@@ -6,7 +6,14 @@
 //! @}
 
 
-class ElibriDataAPIUnknownException extends Exception {
+//! @brief Wspólna klasa bazowa wszystkich wyjątków ElibriAPI
+//! @ingroup exceptions
+class ElibriDataAPIException extends Exception {
+}
+
+//! @brief Wyjątek - Nieznany błąd
+//! @ingroup exceptions
+class ElibriDataAPIUnknownException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Unknown Error", 9999);
@@ -15,7 +22,7 @@ class ElibriDataAPIUnknownException extends Exception {
 
 //! @brief Wyjątek - Przekroczony limit zapytań
 //! @ingroup exceptions
-class ElibriDataAPITooManyRequestsException extends Exception {
+class ElibriDataAPITooManyRequestsException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Too Many Requests", 429);
@@ -24,27 +31,25 @@ class ElibriDataAPITooManyRequestsException extends Exception {
 
 //! @brief Wyjątek - Ścieżka nie została znaleziona
 //! @ingroup exceptions
-class ElibriDataAPINotFoundException extends Exception {
+class ElibriDataAPINotFoundException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Not Found", 404);
-
   }
 }
 
 //! @brief Wyjątek - Nie posiadasz wystarczających praw dostępu
 //! @ingroup exceptions
-class ElibriDataAPIForbiddenException extends Exception {
+class ElibriDataAPIForbiddenException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Forbidden", 403);
-
   }
 }
 
 //! @brief Wyjątek po stronie serwera (Internal server error)
 //! @ingroup exceptions
-class ElibriDataAPIServerErrorException extends Exception {
+class ElibriDataAPIServerErrorException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Server Error", 500);
@@ -53,7 +58,7 @@ class ElibriDataAPIServerErrorException extends Exception {
 
 //! @brief Wyjątek - Nieprawidłowy login lub hasło
 //! @ingroup exceptions
-class ElibriDataAPIInvalidAuthException extends Exception {
+class ElibriDataAPIInvalidAuthException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Invalid Login or Password", 1000);
@@ -62,7 +67,7 @@ class ElibriDataAPIInvalidAuthException extends Exception {
 
 //! @brief Wyjątek - Kolejka z danymi nie istnieje
 //! @ingroup exceptions
-class ElibriDataAPIInvalidQueueException extends Exception {
+class ElibriDataAPIInvalidQueueException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Queue Does Not Exist", 1001);
@@ -71,7 +76,7 @@ class ElibriDataAPIInvalidQueueException extends Exception {
 
 //! @brief Wyjątek - Ostatnio nie pobierano żadnych danych
 //! @ingroup exceptions
-class ElibriDataAPINoPoppedDataException extends Exception {
+class ElibriDataAPINoPoppedDataException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("No Recently Popped Data", 1002);
@@ -80,7 +85,7 @@ class ElibriDataAPINoPoppedDataException extends Exception {
 
 //! @brief Wyjątek - Nie został podany nagłówek X-eLibri-API-ONIX-dialect, albo jego wartość jest nieprawidłowa
 //! @ingroup exceptions
-class ElibriDataAPIInvalidDialectException extends Exception {
+class ElibriDataAPIInvalidDialectException extends ElibriDataAPIException {
 
   function __construct() {
     parent::__construct("Invalid Onix Dialect", 1003);
@@ -89,7 +94,7 @@ class ElibriDataAPIInvalidDialectException extends Exception {
 
 //! @brief Wyjątek używany w przypadku wystąpienia błędu połączenia z serwerem
 //! @ingroup exceptions
-class ElibriDataAPIConnectionException extends Exception {
+class ElibriDataAPIConnectionException extends ElibriDataAPIException {
 
   //! konstruktor wyjątku w przypadku błędu zwróconego przez curl-a
   function __construct($msg, $errno) {
@@ -100,7 +105,11 @@ class ElibriDataAPIConnectionException extends Exception {
 //! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez Elibri
 class ElibriAPI {
 
-  public $VERSION = "0.9.1";
+  //! wersja biblioteki
+  const VERSION = "0.9.1";
+
+  //! @deprecated użyj ElibriAPI::VERSION
+  public $VERSION = self::VERSION;
 
   private $host = "https://www.elibri.com.pl";
   private $login;
@@ -125,6 +134,15 @@ class ElibriAPI {
 
   //! Nazwa kolejki z metadanymi produktów
   const META_QUEUE = "meta";
+
+  //! wyjątki rzucane dla kodów odpowiedzi HTTP
+  private const HTTP_ERRORS = array(
+    401 => "ElibriDataAPIInvalidAuthException",
+    403 => "ElibriDataAPIForbiddenException",
+    404 => "ElibriDataAPINotFoundException",
+    429 => "ElibriDataAPITooManyRequestsException",
+    500 => "ElibriDataAPIServerErrorException",
+  );
 
   //! Kontruktor obiektu API
   function __construct($login, $password, $host=NULL) {
@@ -164,7 +182,7 @@ class ElibriAPI {
     $ch = curl_init($uri);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->curlHeader));
     curl_setopt($ch, CURLOPT_USERPWD, $this->login.":".$this->password);
-    curl_setopt($ch, CURLOPT_USERAGENT, "elibriPHP " . $this->VERSION);
+    curl_setopt($ch, CURLOPT_USERAGENT, "elibriPHP " . self::VERSION);
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
@@ -181,16 +199,9 @@ class ElibriAPI {
       throw new ElibriDataAPIConnectionException (curl_error($ch), curl_errno($ch));
     }
     $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    if ($response_code == 404) {
-      throw new ElibriDataAPINotFoundException();
-    } else if ($response_code == 403) {
-      throw new ElibriDataAPIForbiddenException();
-    } else if ($response_code == 500) {
-      throw new ElibriDataAPIServerErrorException();
-    } else if ($response_code == 401) {
-      throw new ElibriDataAPIInvalidAuthException();
-    } else if ($response_code == 429) {
-      throw new ElibriDataAPITooManyRequestsException();
+    if (isset(self::HTTP_ERRORS[$response_code])) {
+      $exception = self::HTTP_ERRORS[$response_code];
+      throw new $exception();
     } else if (($response_code != 200) && ($response_code != 412)) {
       throw new ElibriDataAPIUnknownException();
     }
@@ -252,7 +263,7 @@ class ElibriAPI {
   //! @param bool $testing - jeśli true, to dane nie są usuwane z kolejki (domyślnie false)
   //! @return instancja ElibriOnixMessage albo NULL, jeśli kolejka danych jest pusta
   function popQueue($queue, $count = 30, $testing = false) {
-    if (($queue != "meta") && ($queue != "stocks")) {
+    if (($queue != self::META_QUEUE) && ($queue != self::STOCKS_QUEUE)) {
       throw new ElibriDataAPIInvalidQueueException();
     }
     $query = http_build_query(array("count" => $count, "testing" => (int) $testing));
