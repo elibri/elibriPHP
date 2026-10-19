@@ -8,6 +8,39 @@
  *
  * \section changes Lista zmian:
  *
+ * \subsection c19102026 19 października 2026 roku (wersje 0.9.1, 0.10.0, 0.10.1 i 0.11.0)
+ *
+ * Wersja 0.11.0 - obsługa nowych elementów ONIX-a (szczegóły w testach w katalogu `tests`):
+ * - API w dialekcie 3.0.2 zwraca teraz dane w formacie ONIX 3.1. Parser obsługuje zarówno ONIX 3.0, jak i 3.1.
+ * - uszlachetnienia książek drukowanych (barwione brzegi, złocenia, zakładka-wstążka...): `ElibriProduct::$finishings` i `ElibriProduct::$finishing_names`,
+ *   patrz `ElibriDictFinishing`. Wszystkie kody `ProductFormDetail` są dostępne w `ElibriProduct::$product_form_details`.
+ * - opakowanie produktu (etui, pudełko, folia, tuba...): `ElibriProduct::$product_packaging` i `ElibriProduct::$product_packaging_name`, patrz `ElibriDictProductPackaging`.
+ * - produkt może mieć kilka typów wydania: `ElibriProduct::$edition_types`, `ElibriProduct::$edition_type_names` i `ElibriProduct::$edition_type_descriptions`.
+ *   Pola `ElibriProduct::$edition_type`, `ElibriProduct::$edition_type_name` i `ElibriProduct::$edition_type_description` są przestarzałe (zawierają tylko pierwszy typ wydania).
+ * - identyfikatory twórców (ISNI, VIAF): `ElibriContributor::$name_identifiers` (lista `ElibriNameIdentifier`), `ElibriContributor::$isni`, `ElibriContributor::$viaf`,
+ *   oraz inne zapisy nazwiska: `ElibriContributor::$alternative_names`.
+ * - osoby i organizacje będące tematem książki: `ElibriProduct::$names_as_subject` (lista `ElibriNameAsSubject`).
+ * - kolekcje: `ElibriProduct::$collections` (lista `ElibriCollection`), ISSN kolekcji w `ElibriCollection::$issn`.
+ * - terytorium sprzedaży: `ElibriProduct::$territory_countries` i `ElibriProduct::$territory_regions` (np. `WORLD`).
+ * - `ElibriPrice::$position_on_product` jest teraz wypełniane.
+ * - poprawki: `ElibriContributor::$voice_name` nie zawiera już innego zapisu nazwiska twórcy, `ElibriContributor::$ai_generated_voice` rozpoznaje
+ *   głosy syntetyzowane męskie i kobiece (`SYNTHESISED_VOICE_MALE`, `SYNTHESISED_VOICE_FEMALE`), a rodzaj okładki jest ustalany na podstawie kodu oprawy,
+ *   niezależnie od kolejności uszlachetnień.
+ * - słowniki zsynchronizowane z elibri: nowe słowniki `ElibriDictFinishing`, `ElibriDictProductPackaging`, `ElibriDictNameIdentifierType`, `ElibriDictPriceQualifier`
+ *   i inne. Z `ElibriDictProductFormCode` zostały usunięte stałe `POD_HARDCOVER` i `POD_SOFTCOVER`.
+ *
+ * Wersje 0.10.0 i 0.10.1:
+ * - biblioteka jest dostępna jako pakiet Composera `elibri/elibri_onix_client`.
+ * - biblioteka nie ustawia już domyślnej strefy czasowej PHP. Daty bez strefy czasowej (np. `ElibriProduct::$premiere`, `ElibriProduct::$licence_limited_to`)
+ *   są zawsze tworzone w strefie Europe/Warsaw, niezależnie od ustawienia `date.timezone`.
+ * - wszystkie wyjątki API dziedziczą po `ElibriDataAPIException`.
+ * - wersja biblioteki jest dostępna w stałej `ElibriAPI::VERSION`, pole `ElibriAPI::$VERSION` jest przestarzałe.
+ *
+ * Wersja 0.9.1:
+ * - włączona weryfikacja certyfikatu TLS przy połączeniu z serwerem elibri.
+ * - parametr `$testing` w `ElibriAPI::popQueue()` jest teraz poprawnie przekazywany do serwera - wcześniej dane były usuwane z kolejki nawet przy `$testing = true`.
+ * - poprawione odczytywanie nagłówków odpowiedzi zawierających dwukropek.
+ *
  * \subsection c11112024 12 listopada 2024 roku
  * - dodanie obsługi danych podmiotu odpowiedzialnego oraz ostrzeżeń o bezpieczeństwie produktów. Szczegóły w testach `ElibriOnixTest::test_publisher_safety_contact` oraz
  *   `ElibriOnixTest::test_product_safety_features`.
@@ -75,7 +108,19 @@
  *
  * \section install_sec Instalacja
  *
- * Proszę instalować bibliotekę bezpośrednio ze źródeł z <a href='https://github.com/elibri/elibriPHP'>github-a.</a>
+ * Najprościej zainstalować bibliotekę za pomocą <a href='https://getcomposer.org'>Composera</a>:
+ *
+ * \code
+ * composer require elibri/elibri_onix_client
+ * \endcode
+ *
+ * Można też pobrać źródła z <a href='https://github.com/elibri/elibriPHP'>github-a</a> i dołączyć plik `elibriPHP.php`:
+ *
+ * \code
+ * require_once 'elibriPHP.php';
+ * \endcode
+ *
+ * Biblioteka wymaga PHP 7.4 lub nowszego z rozszerzeniami curl, dom, simplexml i xmlreader.
  *
  * \section usage_sec Użycie biblioteki
  *

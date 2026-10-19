@@ -2006,6 +2006,7 @@ class ElibriRelatedProduct {
 }
 
 //! Klasa reprezentuje cenę książki w kanale dystrybucji
+//! Cena produktu
 class ElibriPrice {
 
   public $type;
@@ -2015,6 +2016,8 @@ class ElibriPrice {
   public $currency_code;
   public $printed_on_product;
   public $printed_on_product_name;
+
+  //! miejsce, w którym cena jest wydrukowana na produkcie (kod ONIX, lista 142), np. '00' - nieokreślone
   public $position_on_product;
   public $tax_type;
   public $tax_rate_percent;
