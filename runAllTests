@@ -1,4 +1,0 @@
-#!/bin/bash
-phpunit tests/elibriDictTest.php
-phpunit tests/elibriOnixTest.php
-

@@ -46,6 +46,3 @@
 
   $product_data = $api->getProduct("ea5782b2b67263943052");
   print "Zwrócony został produkt: {$product_data->products[0]->full_title}\n";
-
-
-?>

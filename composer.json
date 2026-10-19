@@ -1,0 +1,23 @@
+{
+    "name": "elibri/elibriphp",
+    "description": "PHP client for the elibri API (ONIX 3.0 book metadata)",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://elibri.github.io/elibriPHP/",
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-simplexml": "*",
+        "ext-xmlreader": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "classmap": ["elibriPHP/"]
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

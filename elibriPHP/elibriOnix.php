@@ -2001,5 +2001,3 @@ class ElibriHeader {
     $this->sent_date_time = FirstNodeValue::get($xml_fragment->item(0), "SentDateTime");
   }
 }
-
-?>

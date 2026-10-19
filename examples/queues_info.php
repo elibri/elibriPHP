@@ -16,6 +16,3 @@
   foreach ($queues_list as $queue) {
     print "Kolejka {$queue->name} => {$queue->product_count} produktów\n";
   }
-
-
-?>

@@ -2511,4 +2511,3 @@ class ElibriDictWebsiteRole extends  ElibriDictElement {
     return self::getInstance()->atomByCode($code);
   }
 }
-?>

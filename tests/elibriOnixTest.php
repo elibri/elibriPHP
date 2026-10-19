@@ -690,6 +690,3 @@ class ElibriOnixTest extends TestCase {
   }
 
 }
-
-
-?>

@@ -72,10 +72,6 @@ module Elibri
           f.puts
         end
 
-        def dump_footer(f)
-          f.puts "?>"
-        end
-
         def load_and_generate_php
           serialized_path = File.join(File.dirname(__FILE__), "serialized", "*.yml")
           serialized_path = File.expand_path(serialized_path)
@@ -93,7 +89,6 @@ module Elibri
             dictionaries.each do |klass, klass_name|
               dump_dictionary(f, klass, klass_name)
             end
-            dump_footer(f)
           end
         end
 

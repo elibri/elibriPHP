@@ -14,4 +14,3 @@ class ElibriDictTest extends TestCase {
       $this->assertEquals("BA", $form->onix_code);
    }
 }
-?>

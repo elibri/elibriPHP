@@ -5,3 +5,16 @@ This is a library for accessing [elibri API](https://www.elibri.com.pl/doc/api) 
 the elibri API allows accessing the stream of bookdata in ONIX 3.0 format. More info and changelog [here](https://elibri.github.io/elibriPHP/)
 
 This library is released under the MIT license.
+
+## Installation
+
+    composer require elibri/elibriphp
+
+or without Composer:
+
+    require_once 'elibriPHP.php';
+
+## Running tests
+
+    composer install
+    composer test
