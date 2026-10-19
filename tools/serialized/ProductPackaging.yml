@@ -1,0 +1,59 @@
+# Opakowanie, w którym produkt fizyczny (poza audiobookami na nośnikach) trafia do klienta - kody ONIX List 80 (<ProductPackaging>),
+# wybrane te, które mają sens dla wydawców książek (bez m.in. opakowań płyt - jewel case, keep case, digipak - oraz slip-sleeve, clamshell, pouch, browse-prevention tape).
+# Formularz w elibri_gui sortuje je alfabetycznie po nazwie.
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '10'
+  const_name: SLIP_CASED
+  name:
+    en: Slip-cased
+    pl: etui (na jedną książkę)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '11'
+  const_name: SLIP_CASED_SET
+  name:
+    en: Slip-cased set
+    pl: etui na komplet tomów (box)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '09'
+  const_name: IN_BOX
+  name:
+    en: In box (with lid)
+    pl: pudełko z wieczkiem
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '04'
+  const_name: WRAPAROUND_SLEEVE
+  name:
+    en: Wraparound sleeve
+    pl: opaska / banderola (otwarta z dwóch stron)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '21'
+  const_name: SHRINK_WRAPPED
+  name:
+    en: Shrink-wrapped
+    pl: folia termokurczliwa
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '08'
+  const_name: SHRINK_WRAPPED_BIODEGRADABLE
+  name:
+    en: Shrink-wrapped (biodegradable)
+    pl: folia termokurczliwa biodegradowalna
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '12'
+  const_name: TUBE
+  name:
+    en: Tube
+    pl: tuba (np. mapa, plakat)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductPackaging
+  onix_code: '22'
+  const_name: BLISTER_PACK
+  name:
+    en: Blister pack
+    pl: blister

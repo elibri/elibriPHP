@@ -14,3 +14,9 @@
     en: Non-exclusive distributor to end-customers
     pl: Dystrybutor do klientów końcowych
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::SupplierRole
+  onix_code: '10'
+  const_name: EXCLUSIVE_DISTRIBUTOR
+  name:
+    en: Exclusive distributor to end-customers
+    pl: Wyłączny dystrybutor do klientów końcowych i instytucjonalnych

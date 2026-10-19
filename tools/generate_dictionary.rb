@@ -1,5 +1,9 @@
 $KCODE = "UTF-8"
 
+# Słowniki pochodzą z repozytorium elibri_onix_dict. Przed generowaniem zsynchronizuj je:
+#   cp ../elibri_onix_dict/lib/elibri_onix_dict/onix_3_0/serialized/*.yml tools/serialized/
+#   ruby tools/generate_dictionary.rb
+
 require 'yaml'
 
 module Elibri

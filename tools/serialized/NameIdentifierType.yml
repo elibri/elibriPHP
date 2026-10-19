@@ -1,0 +1,14 @@
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NameIdentifierType
+  onix_code: '16'
+  const_name: ISNI
+  name:
+    en: ISNI
+    pl: ISNI
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::NameIdentifierType
+  onix_code: '31'
+  const_name: VIAF
+  name:
+    en: VIAF ID
+    pl: identyfikator VIAF

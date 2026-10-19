@@ -483,13 +483,61 @@ class ElibriDictEditionType extends  ElibriDictElement {
   //! reprint
   const FACSIMILE_EDITION = 'FAC';
 
+  //! nowe wydanie
+  const NEW_EDITION = 'NED';
+
+  //! wydanie rozszerzone
+  const ENLARGED_EDITION = 'ENL';
+
+  //! wydanie poprawione / zaktualizowane
+  const REVISED_EDITION = 'REV';
+
+  //! wydanie specjalne (kolekcjonerskie, jubileuszowe, ekskluzywne)
+  const SPECIAL_EDITION = 'SPE';
+
+  //! wydanie limitowane z numerowanymi egzemplarzami
+  const EDITION_WITH_NUMBERED_COPIES = 'NUM';
+
+  //! wydanie limitowane bez numeracji egzemplarzy
+  const EDITION_WITH_UNNUMBERED_COPIES = 'UNN';
+
+  //! wydanie z autografem
+  const SIGNED_EDITION = 'SIG';
+
+  //! wydanie filmowe / serialowe
+  const MEDIA_TIE_IN = 'MDT';
+
+  //! wydanie ilustrowane
+  const ILLUSTRATED_EDITION = 'ILL';
+
+  //! wydanie zbiorcze
+  const COMBINED_VOLUME = 'CMB';
+
+  //! wydanie dwujęzyczne (tekst równoległy)
+  const BILINGUAL_FACING_PAGE_EDITION = 'BLP';
+
+  //! wydanie skrócone
+  const ABRIDGED_EDITION = 'ABR';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('LTE', array('pl' => 'edycja z powiększoną czcionką', 'en' => 'large type edition'), 'LARGE_TYPE_EDITION'),
-          new ElibriDictAtom('CRI', array('pl' => 'wydanie krytyczne (z komentarzem)', 'en' => 'critial edition'), 'CRITICAL_EDITION'),
+          new ElibriDictAtom('CRI', array('pl' => 'wydanie krytyczne (z komentarzem)', 'en' => 'critical edition'), 'CRITICAL_EDITION'),
           new ElibriDictAtom('BLL', array('pl' => 'wydanie dwujęzyczne', 'en' => 'bilingual edition'), 'BILINGUAL_EDITION'),
           new ElibriDictAtom('FAC', array('pl' => 'reprint', 'en' => 'facsimile edition'), 'FACSIMILE_EDITION'),
+          new ElibriDictAtom('NED', array('pl' => 'nowe wydanie', 'en' => 'new edition'), 'NEW_EDITION'),
+          new ElibriDictAtom('ENL', array('pl' => 'wydanie rozszerzone', 'en' => 'enlarged edition'), 'ENLARGED_EDITION'),
+          new ElibriDictAtom('REV', array('pl' => 'wydanie poprawione / zaktualizowane', 'en' => 'revised edition'), 'REVISED_EDITION'),
+          new ElibriDictAtom('SPE', array('pl' => 'wydanie specjalne (kolekcjonerskie, jubileuszowe, ekskluzywne)', 'en' => 'special edition'), 'SPECIAL_EDITION'),
+          new ElibriDictAtom('NUM', array('pl' => 'wydanie limitowane z numerowanymi egzemplarzami', 'en' => 'edition with numbered copies'), 'EDITION_WITH_NUMBERED_COPIES'),
+          new ElibriDictAtom('UNN', array('pl' => 'wydanie limitowane bez numeracji egzemplarzy', 'en' => 'edition with unnumbered copies'), 'EDITION_WITH_UNNUMBERED_COPIES'),
+          new ElibriDictAtom('SIG', array('pl' => 'wydanie z autografem', 'en' => 'signed edition'), 'SIGNED_EDITION'),
+          new ElibriDictAtom('MDT', array('pl' => 'wydanie filmowe / serialowe', 'en' => 'media tie-in'), 'MEDIA_TIE_IN'),
+          new ElibriDictAtom('ILL', array('pl' => 'wydanie ilustrowane', 'en' => 'illustrated edition'), 'ILLUSTRATED_EDITION'),
+          new ElibriDictAtom('CMB', array('pl' => 'wydanie zbiorcze', 'en' => 'combined volume'), 'COMBINED_VOLUME'),
+          new ElibriDictAtom('BLP', array('pl' => 'wydanie dwujęzyczne (tekst równoległy)', 'en' => 'bilingual facing page edition'), 'BILINGUAL_FACING_PAGE_EDITION'),
+          new ElibriDictAtom('ABR', array('pl' => 'wydanie skrócone', 'en' => 'abridged edition'), 'ABRIDGED_EDITION'),
       ));
 
    }
@@ -682,6 +730,9 @@ class ElibriDictExtentType extends  ElibriDictElement {
   //! ilość stron
   const PAGE_COUNT = '00';
 
+  //! długość tekstu
+  const TEXT_LENGTH = '02';
+
   //! czas trwania
   const DURATION = '09';
 
@@ -692,6 +743,7 @@ class ElibriDictExtentType extends  ElibriDictElement {
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('00', array('pl' => 'ilość stron', 'en' => 'page count'), 'PAGE_COUNT'),
+          new ElibriDictAtom('02', array('pl' => 'długość tekstu', 'en' => 'text length'), 'TEXT_LENGTH'),
           new ElibriDictAtom('09', array('pl' => 'czas trwania', 'en' => 'duration'), 'DURATION'),
           new ElibriDictAtom('22', array('pl' => 'rozmiar pliku', 'en' => 'file size'), 'FILE_SIZE'),
       ));
@@ -717,6 +769,9 @@ class ElibriDictExtentUnit extends  ElibriDictElement {
 
   private static $instance;
 
+  //! znaki
+  const CHARACTERS = '01';
+
   //! strony
   const PAGES = '03';
 
@@ -741,6 +796,7 @@ class ElibriDictExtentUnit extends  ElibriDictElement {
 
   protected function __construct() {
       parent::__construct(array(
+          new ElibriDictAtom('01', array('pl' => 'znaki', 'en' => 'characters'), 'CHARACTERS'),
           new ElibriDictAtom('03', array('pl' => 'strony', 'en' => 'pages'), 'PAGES'),
           new ElibriDictAtom('05', array('pl' => 'minuty', 'en' => 'minutes'), 'MINUTES'),
           new ElibriDictAtom('19', array('pl' => 'megabajty', 'en' => 'megabytes'), 'MEGABYTES'),
@@ -756,6 +812,88 @@ class ElibriDictExtentUnit extends  ElibriDictElement {
   protected static function getInstance() {
     if (empty(self::$instance)) {
        self::$instance = new ElibriDictExtentUnit();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictFinishing extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! barwione brzegi (złocone, nadrukowane)
+  const DECORATED_PAGE_EDGES = 'B419';
+
+  //! folia / złocenie na okładce (hot-stamping)
+  const FOIL_ON_COVER = 'B422';
+
+  //! folia / złocenie na obwolucie
+  const FOIL_ON_JACKET = 'B423';
+
+  //! tłoczenie / wytłoczenie (emboss/deboss)
+  const EMBOSSED_COVER = 'B421';
+
+  //! okładka soft-touch
+  const SOFT_TO_TOUCH = 'B214';
+
+  //! delikatne wykończenie (lakier wybiórczy UV, mat)
+  const DELICATE_COVER_FINISH = 'B420';
+
+  //! zdobione wyklejki
+  const DECORATED_ENDPAPERS = 'B408';
+
+  //! kapitałka
+  const HEAD_AND_TAIL_BANDS = 'B407';
+
+  //! zakładka-wstążka
+  const RIBBON_MARKER = 'B506';
+
+  //! wycinanie (die-cut)
+  const DIE_CUT = 'B212';
+
+  //! zaokrąglone rogi
+  const ROUNDED_CORNERS = 'B520';
+
+  //! indeks palcowy (wycięcia)
+  const THUMB_INDEX = 'B505';
+
+  //! nieobcięte brzegi (deckle edge)
+  const ROUGH_FRONT = 'B510';
+
+  //! obwoluta przezroczysta
+  const TRANSLUCENT_DUST_COVER = 'B503';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('B419', array('pl' => 'barwione brzegi (złocone, nadrukowane)', 'en' => 'decorated page edges'), 'DECORATED_PAGE_EDGES'),
+          new ElibriDictAtom('B422', array('pl' => 'folia / złocenie na okładce (hot-stamping)', 'en' => 'foil (on cover)'), 'FOIL_ON_COVER'),
+          new ElibriDictAtom('B423', array('pl' => 'folia / złocenie na obwolucie', 'en' => 'foil (on jacket)'), 'FOIL_ON_JACKET'),
+          new ElibriDictAtom('B421', array('pl' => 'tłoczenie / wytłoczenie (emboss/deboss)', 'en' => 'embossed cover'), 'EMBOSSED_COVER'),
+          new ElibriDictAtom('B214', array('pl' => 'okładka soft-touch', 'en' => 'soft-to-touch book'), 'SOFT_TO_TOUCH'),
+          new ElibriDictAtom('B420', array('pl' => 'delikatne wykończenie (lakier wybiórczy UV, mat)', 'en' => 'delicate cover / jacket finish'), 'DELICATE_COVER_FINISH'),
+          new ElibriDictAtom('B408', array('pl' => 'zdobione wyklejki', 'en' => 'decorated endpapers'), 'DECORATED_ENDPAPERS'),
+          new ElibriDictAtom('B407', array('pl' => 'kapitałka', 'en' => 'head and tail bands'), 'HEAD_AND_TAIL_BANDS'),
+          new ElibriDictAtom('B506', array('pl' => 'zakładka-wstążka', 'en' => 'with ribbon marker(s)'), 'RIBBON_MARKER'),
+          new ElibriDictAtom('B212', array('pl' => 'wycinanie (die-cut)', 'en' => 'die-cut book'), 'DIE_CUT'),
+          new ElibriDictAtom('B520', array('pl' => 'zaokrąglone rogi', 'en' => 'rounded corners'), 'ROUNDED_CORNERS'),
+          new ElibriDictAtom('B505', array('pl' => 'indeks palcowy (wycięcia)', 'en' => 'with thumb index'), 'THUMB_INDEX'),
+          new ElibriDictAtom('B510', array('pl' => 'nieobcięte brzegi (deckle edge)', 'en' => 'rough front (deckle edge)'), 'ROUGH_FRONT'),
+          new ElibriDictAtom('B503', array('pl' => 'obwoluta przezroczysta', 'en' => 'with translucent dust cover'), 'TRANSLUCENT_DUST_COVER'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictFinishing();
     }
     return self::$instance;
   }
@@ -985,6 +1123,40 @@ class ElibriDictNameIdentifier extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictNameIdentifierType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! ISNI
+  const ISNI = '16';
+
+  //! identyfikator VIAF
+  const VIAF = '31';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('16', array('pl' => 'ISNI', 'en' => 'ISNI'), 'ISNI'),
+          new ElibriDictAtom('31', array('pl' => 'identyfikator VIAF', 'en' => 'VIAF ID'), 'VIAF'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictNameIdentifierType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictNameType extends  ElibriDictElement {
 
   private static $instance;
@@ -1123,6 +1295,108 @@ class ElibriDictOtherTextType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictPriceConstraintStatus extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! limit
+  const LIMIT = '02';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('02', array('pl' => 'limit', 'en' => 'limit'), 'LIMIT'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictPriceConstraintStatus();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictPriceConstraintType extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! wypożyczenia
+  const LENDING = '06';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('06', array('pl' => 'wypożyczenia', 'en' => 'lending'), 'LENDING'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictPriceConstraintType();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
+class ElibriDictPriceConstraintUnit extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! razy
+  const TIMES = '10';
+
+  //! jednoczesnych użytkowników
+  const CONCURRENT_USERS = '07';
+
+  //! miesięcy
+  const MONTHS = '14';
+
+  //! obowiązuje od
+  const VALID_FROM = '98';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('10', array('pl' => 'razy', 'en' => 'times'), 'TIMES'),
+          new ElibriDictAtom('07', array('pl' => 'jednoczesnych użytkowników', 'en' => 'concurrent users'), 'CONCURRENT_USERS'),
+          new ElibriDictAtom('14', array('pl' => 'miesięcy', 'en' => 'months'), 'MONTHS'),
+          new ElibriDictAtom('98', array('pl' => 'obowiązuje od', 'en' => 'valid from'), 'VALID_FROM'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictPriceConstraintUnit();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictPriceDateRole extends  ElibriDictElement {
 
   private static $instance;
@@ -1221,6 +1495,44 @@ class ElibriDictPricePrintedOnProduct extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictPriceQualifier extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! cena dla klienta końcowego
+  const CONSUMER_PRICE = '05';
+
+  //! cena dla bibliotek
+  const LIBRARY_PRICE = '10';
+
+  //! cena dla systemów subskrypcyjnych
+  const SUBSCRIPTION_PRICE = '13';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('05', array('pl' => 'cena dla klienta końcowego', 'en' => 'consumer price'), 'CONSUMER_PRICE'),
+          new ElibriDictAtom('10', array('pl' => 'cena dla bibliotek', 'en' => 'library price'), 'LIBRARY_PRICE'),
+          new ElibriDictAtom('13', array('pl' => 'cena dla systemów subskrypcyjnych', 'en' => 'subscription service price'), 'SUBSCRIPTION_PRICE'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictPriceQualifier();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictPriceTypeCode extends  ElibriDictElement {
 
   private static $instance;
@@ -1228,10 +1540,14 @@ class ElibriDictPriceTypeCode extends  ElibriDictElement {
   //! sugerowana cena detaliczna brutto
   const RRP_WITH_TAX = '02';
 
+  //! cena netto sprzedaży
+  const SUPPLIERS_NET_PRICE = '05';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('02', array('pl' => 'sugerowana cena detaliczna brutto', 'en' => 'RRP including tax'), 'RRP_WITH_TAX'),
+          new ElibriDictAtom('05', array('pl' => 'cena netto sprzedaży', 'en' => 'Supplier’s Net price'), 'SUPPLIERS_NET_PRICE'),
       ));
 
    }
@@ -1443,12 +1759,6 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
   //! zabawka (również edukacyjna)
   const TOY = 'ZD';
 
-  //! POD - okładka twarda
-  const POD_HARDCOVER = 'PODH';
-
-  //! POD - okładka miękka
-  const POD_SOFTCOVER = 'PODS';
-
   //! e-book open access
   const OPEN_ACCESS = 'OPEN_ACCESS';
 
@@ -1471,8 +1781,6 @@ class ElibriDictProductFormCode extends  ElibriDictElement {
           new ElibriDictAtom('ZB', array('pl' => 'figurka', 'en' => 'doll or figure'), 'FIGURE'),
           new ElibriDictAtom('ZC', array('pl' => 'zabawka - pluszak', 'en' => 'plush toy'), 'PLUSH_TOY'),
           new ElibriDictAtom('ZD', array('pl' => 'zabawka (również edukacyjna)', 'en' => 'toy'), 'TOY'),
-          new ElibriDictAtom('PODH', array('pl' => 'POD - okładka twarda', 'en' => 'pod hardcover book'), 'POD_HARDCOVER'),
-          new ElibriDictAtom('PODS', array('pl' => 'POD - okładka miękka', 'en' => 'pod softcover book'), 'POD_SOFTCOVER'),
           new ElibriDictAtom('OPEN_ACCESS', array('pl' => 'e-book open access', 'en' => 'e-book open access'), 'OPEN_ACCESS'),
       ));
 
@@ -1623,6 +1931,64 @@ class ElibriDictProductIDType extends  ElibriDictElement {
 }
 //! @brief Słownik
 //! @ingroup dictionaries
+class ElibriDictProductPackaging extends  ElibriDictElement {
+
+  private static $instance;
+
+  //! etui (na jedną książkę)
+  const SLIP_CASED = '10';
+
+  //! etui na komplet tomów (box)
+  const SLIP_CASED_SET = '11';
+
+  //! pudełko z wieczkiem
+  const IN_BOX = '09';
+
+  //! opaska / banderola (otwarta z dwóch stron)
+  const WRAPAROUND_SLEEVE = '04';
+
+  //! folia termokurczliwa
+  const SHRINK_WRAPPED = '21';
+
+  //! folia termokurczliwa biodegradowalna
+  const SHRINK_WRAPPED_BIODEGRADABLE = '08';
+
+  //! tuba (np. mapa, plakat)
+  const TUBE = '12';
+
+  //! blister
+  const BLISTER_PACK = '22';
+
+
+  protected function __construct() {
+      parent::__construct(array(
+          new ElibriDictAtom('10', array('pl' => 'etui (na jedną książkę)', 'en' => 'Slip-cased'), 'SLIP_CASED'),
+          new ElibriDictAtom('11', array('pl' => 'etui na komplet tomów (box)', 'en' => 'Slip-cased set'), 'SLIP_CASED_SET'),
+          new ElibriDictAtom('09', array('pl' => 'pudełko z wieczkiem', 'en' => 'In box (with lid)'), 'IN_BOX'),
+          new ElibriDictAtom('04', array('pl' => 'opaska / banderola (otwarta z dwóch stron)', 'en' => 'Wraparound sleeve'), 'WRAPAROUND_SLEEVE'),
+          new ElibriDictAtom('21', array('pl' => 'folia termokurczliwa', 'en' => 'Shrink-wrapped'), 'SHRINK_WRAPPED'),
+          new ElibriDictAtom('08', array('pl' => 'folia termokurczliwa biodegradowalna', 'en' => 'Shrink-wrapped (biodegradable)'), 'SHRINK_WRAPPED_BIODEGRADABLE'),
+          new ElibriDictAtom('12', array('pl' => 'tuba (np. mapa, plakat)', 'en' => 'Tube'), 'TUBE'),
+          new ElibriDictAtom('22', array('pl' => 'blister', 'en' => 'Blister pack'), 'BLISTER_PACK'),
+      ));
+
+   }
+
+  //! zwaca zawsze tą samą instancję obiektu, metoda wykorzystywana wewnętrznie
+  protected static function getInstance() {
+    if (empty(self::$instance)) {
+       self::$instance = new ElibriDictProductPackaging();
+    }
+    return self::$instance;
+  }
+
+  //! zwraca mapowanie dla kodu ONIX-a przekazanego w parametrze $code
+  public static function byCode($code) {
+    return self::getInstance()->atomByCode($code);
+  }
+}
+//! @brief Słownik
+//! @ingroup dictionaries
 class ElibriDictProductRelationType extends  ElibriDictElement {
 
   private static $instance;
@@ -1700,12 +2066,20 @@ class ElibriDictPublishingDateRole extends  ElibriDictElement {
   //! data, po której książka zostanie wycofana z rynku
   const OUT_OF_PRINT_DATE = '13';
 
+  //! data embarga sprzedaży do bibliotek
+  const LIBRARY_EMBARGO_DATE = '39';
+
+  //! data embarga do streamingu
+  const STREAMING_EMBARGO_DATE = '30';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('01', array('pl' => 'data publikacji', 'en' => 'publication date'), 'PUBLICATION_DATE'),
           new ElibriDictAtom('27', array('pl' => 'data, od której mogą być składane zamówienia', 'en' => 'preorder embargo date'), 'PREORDER_EMBARGO_DATE'),
           new ElibriDictAtom('13', array('pl' => 'data, po której książka zostanie wycofana z rynku', 'en' => 'out of print date'), 'OUT_OF_PRINT_DATE'),
+          new ElibriDictAtom('39', array('pl' => 'data embarga sprzedaży do bibliotek', 'en' => 'library embargo date'), 'LIBRARY_EMBARGO_DATE'),
+          new ElibriDictAtom('30', array('pl' => 'data embarga do streamingu', 'en' => 'streaming embargo date'), 'STREAMING_EMBARGO_DATE'),
       ));
 
    }
@@ -2219,11 +2593,15 @@ class ElibriDictSupplierRole extends  ElibriDictElement {
   //! Dystrybutor do klientów końcowych
   const RETAIL_NON_EXL_DIST = '11';
 
+  //! Wyłączny dystrybutor do klientów końcowych i instytucjonalnych
+  const EXCLUSIVE_DISTRIBUTOR = '10';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('01', array('pl' => 'sprzedaż wydawnictwa do detalu', 'en' => 'publisher to retailers'), 'PUB_TO_RET'),
           new ElibriDictAtom('11', array('pl' => 'Dystrybutor do klientów końcowych', 'en' => 'Non-exclusive distributor to end-customers'), 'RETAIL_NON_EXL_DIST'),
+          new ElibriDictAtom('10', array('pl' => 'Wyłączny dystrybutor do klientów końcowych i instytucjonalnych', 'en' => 'Exclusive distributor to end-customers'), 'EXCLUSIVE_DISTRIBUTOR'),
       ));
 
    }
@@ -2452,10 +2830,22 @@ class ElibriDictUnpricedItemType extends  ElibriDictElement {
   //! bezpłatnie
   const FREE_OF_CHARGE = '01';
 
+  //! Revenue share
+  const REVENUE_SHARE = '06';
+
+  //! cena jest jeszcze nieznana
+  const PRICE_TO_BE_ANNOUNCED = '02';
+
+  //! skontaktuj się z dostawcą
+  const CONTACT_SUPPLIER = '04';
+
 
   protected function __construct() {
       parent::__construct(array(
           new ElibriDictAtom('01', array('pl' => 'bezpłatnie', 'en' => 'free of charge'), 'FREE_OF_CHARGE'),
+          new ElibriDictAtom('06', array('pl' => 'Revenue share', 'en' => 'Revenue share'), 'REVENUE_SHARE'),
+          new ElibriDictAtom('02', array('pl' => 'cena jest jeszcze nieznana', 'en' => 'price to be announced'), 'PRICE_TO_BE_ANNOUNCED'),
+          new ElibriDictAtom('04', array('pl' => 'skontaktuj się z dostawcą', 'en' => 'contact supplier'), 'CONTACT_SUPPLIER'),
       ));
 
    }

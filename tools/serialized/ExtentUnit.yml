@@ -1,6 +1,13 @@
 
 ---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
+  onix_code: '01'
+  const_name: CHARACTERS
+  onix_doc: true
+  name:
+    en: characters
+    pl: znaki
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentUnit
   onix_code: '03'
   const_name: PAGES
   onix_doc: true

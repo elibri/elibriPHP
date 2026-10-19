@@ -1,5 +1,5 @@
 
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'BA'
   const_name: BOOK
@@ -162,26 +162,6 @@
   digital: false
   carrier: druk
   mandatory_isbn: false
-
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
-  onix_code: 'PODH'
-  const_name: POD_HARDCOVER
-  name:
-    en: pod hardcover book
-    pl: POD - okładka twarda
-  digital: false
-  carrier: druk
-  mandatory_isbn: true
-
-- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
-  onix_code: 'PODS'
-  const_name: POD_SOFTCOVER
-  name:
-    en: pod softcover book
-    pl: POD - okładka miękka
-  digital: false
-  carrier: druk
-  mandatory_isbn: true
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ProductFormCode
   onix_code: 'OPEN_ACCESS'

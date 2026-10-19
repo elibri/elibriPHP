@@ -6,3 +6,10 @@
   name:
     en: RRP including tax
     pl: sugerowana cena detaliczna brutto
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceTypeCode
+  onix_code: '05'
+  const_name: SUPPLIERS_NET_PRICE
+  name:
+    en: Supplier’s Net price
+    pl: cena netto sprzedaży

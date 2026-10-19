@@ -11,7 +11,7 @@
   onix_code: 'CRI'
   const_name: CRITICAL_EDITION
   name:
-    en: critial edition
+    en: critical edition
     pl: wydanie krytyczne (z komentarzem)
 
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
@@ -29,6 +29,86 @@
     en: facsimile edition
     pl: reprint
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'NED'
+  const_name: NEW_EDITION
+  name:
+    en: new edition
+    pl: nowe wydanie
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'ENL'
+  const_name: ENLARGED_EDITION
+  name:
+    en: enlarged edition
+    pl: wydanie rozszerzone
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'REV'
+  const_name: REVISED_EDITION
+  name:
+    en: revised edition
+    pl: wydanie poprawione / zaktualizowane
 
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'SPE'
+  const_name: SPECIAL_EDITION
+  name:
+    en: special edition
+    pl: wydanie specjalne (kolekcjonerskie, jubileuszowe, ekskluzywne)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'NUM'
+  const_name: EDITION_WITH_NUMBERED_COPIES
+  name:
+    en: edition with numbered copies
+    pl: wydanie limitowane z numerowanymi egzemplarzami
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'UNN'
+  const_name: EDITION_WITH_UNNUMBERED_COPIES
+  name:
+    en: edition with unnumbered copies
+    pl: wydanie limitowane bez numeracji egzemplarzy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'SIG'
+  const_name: SIGNED_EDITION
+  name:
+    en: signed edition
+    pl: wydanie z autografem
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'MDT'
+  const_name: MEDIA_TIE_IN
+  name:
+    en: media tie-in
+    pl: wydanie filmowe / serialowe
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'ILL'
+  const_name: ILLUSTRATED_EDITION
+  name:
+    en: illustrated edition
+    pl: wydanie ilustrowane
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'CMB'
+  const_name: COMBINED_VOLUME
+  name:
+    en: combined volume
+    pl: wydanie zbiorcze
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'BLP'
+  const_name: BILINGUAL_FACING_PAGE_EDITION
+  name:
+    en: bilingual facing page edition
+    pl: wydanie dwujęzyczne (tekst równoległy)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::EditionType
+  onix_code: 'ABR'
+  const_name: ABRIDGED_EDITION
+  name:
+    en: abridged edition
+    pl: wydanie skrócone

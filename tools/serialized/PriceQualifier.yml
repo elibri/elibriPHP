@@ -1,0 +1,23 @@
+
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceQualifier
+  onix_code: '05'
+  const_name: CONSUMER_PRICE
+  name:
+    en: consumer price
+    pl: cena dla klienta końcowego
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceQualifier
+  onix_code: '10'
+  const_name: LIBRARY_PRICE
+  name:
+    en: library price
+    pl: cena dla bibliotek
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceQualifier
+  onix_code: '13'
+  const_name: SUBSCRIPTION_PRICE
+  name:
+    en: subscription service price
+    pl: cena dla systemów subskrypcyjnych
+

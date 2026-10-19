@@ -1,10 +1,18 @@
---- 
+---
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
   onix_code: '00'
   const_name: PAGE_COUNT
   name:
     en: page count
     pl: ilość stron
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
+  onix_code: '02'
+  const_name: TEXT_LENGTH
+  name:
+    en: text length
+    pl: długość tekstu
+
 - !ruby/object:Elibri::ONIX::Dict::Release_3_0::ExtentType
   onix_code: '09'
   const_name: DURATION

@@ -1,0 +1,100 @@
+# Uszlachetnienia książki drukowanej - kody ONIX List 175 (<ProductFormDetail>), w eLibri
+# trzymane osobno od ProductFormDetail, który oznacza format pliku (E101, A103, ...).
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B419'
+  const_name: DECORATED_PAGE_EDGES
+  name:
+    en: decorated page edges
+    pl: barwione brzegi (złocone, nadrukowane)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B422'
+  const_name: FOIL_ON_COVER
+  name:
+    en: foil (on cover)
+    pl: folia / złocenie na okładce (hot-stamping)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B423'
+  const_name: FOIL_ON_JACKET
+  name:
+    en: foil (on jacket)
+    pl: folia / złocenie na obwolucie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B421'
+  const_name: EMBOSSED_COVER
+  name:
+    en: embossed cover
+    pl: tłoczenie / wytłoczenie (emboss/deboss)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B214'
+  const_name: SOFT_TO_TOUCH
+  name:
+    en: soft-to-touch book
+    pl: okładka soft-touch
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B420'
+  const_name: DELICATE_COVER_FINISH
+  name:
+    en: delicate cover / jacket finish
+    pl: delikatne wykończenie (lakier wybiórczy UV, mat)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B408'
+  const_name: DECORATED_ENDPAPERS
+  name:
+    en: decorated endpapers
+    pl: zdobione wyklejki
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B407'
+  const_name: HEAD_AND_TAIL_BANDS
+  name:
+    en: head and tail bands
+    pl: kapitałka
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B506'
+  const_name: RIBBON_MARKER
+  name:
+    en: with ribbon marker(s)
+    pl: zakładka-wstążka
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B212'
+  const_name: DIE_CUT
+  name:
+    en: die-cut book
+    pl: wycinanie (die-cut)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B520'
+  const_name: ROUNDED_CORNERS
+  name:
+    en: rounded corners
+    pl: zaokrąglone rogi
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B505'
+  const_name: THUMB_INDEX
+  name:
+    en: with thumb index
+    pl: indeks palcowy (wycięcia)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B510'
+  const_name: ROUGH_FRONT
+  name:
+    en: rough front (deckle edge)
+    pl: nieobcięte brzegi (deckle edge)
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::Finishing
+  onix_code: 'B503'
+  const_name: TRANSLUCENT_DUST_COVER
+  name:
+    en: with translucent dust cover
+    pl: obwoluta przezroczysta

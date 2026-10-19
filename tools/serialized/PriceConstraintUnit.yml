@@ -1,0 +1,28 @@
+---
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceConstraintUnit
+  onix_code: '10'
+  const_name: TIMES
+  name:
+    en: times
+    pl: razy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceConstraintUnit
+  onix_code: '07'
+  const_name: CONCURRENT_USERS
+  name:
+    en: concurrent users
+    pl: jednoczesnych użytkowników
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceConstraintUnit
+  onix_code: '14'
+  const_name: MONTHS
+  name:
+    en: months
+    pl: miesięcy
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::PriceConstraintUnit
+  onix_code: '98'
+  const_name: VALID_FROM
+  name:
+    en: valid from
+    pl: obowiązuje od

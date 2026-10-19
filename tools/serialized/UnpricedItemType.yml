@@ -6,3 +6,25 @@
   name:
     en: free of charge
     pl: bezpłatnie
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnpricedItemType
+  onix_code: '06'
+  const_name: REVENUE_SHARE
+  name:
+    en: Revenue share
+    pl: Revenue share
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnpricedItemType
+  onix_code: '02'
+  const_name: PRICE_TO_BE_ANNOUNCED
+  name:
+    en: price to be announced
+    pl: cena jest jeszcze nieznana
+
+- !ruby/object:Elibri::ONIX::Dict::Release_3_0::UnpricedItemType
+  onix_code: '04'
+  const_name: CONTACT_SUPPLIER
+  name:
+    en: contact supplier
+    pl: skontaktuj się z dostawcą
+
