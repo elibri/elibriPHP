@@ -100,7 +100,7 @@ class ElibriDataAPIConnectionException extends Exception {
 //! @brief ElibriAPI abstrahuje wykorzystanie API udostępniane przez Elibri
 class ElibriAPI {
 
-  public $VERSION = "0.9";
+  public $VERSION = "0.9.1";
 
   private $host = "https://www.elibri.com.pl";
   private $login;
@@ -140,7 +140,7 @@ class ElibriAPI {
     $lines = explode("\n", $headers);
     foreach($lines as $line) {
        if ((trim($line)) && strrpos($line, ":")) {
-         $spl = explode(":", trim($line));
+         $spl = explode(":", trim($line), 2);
          $header = $spl[0];
          $value = trim($spl[1]);
          $dict[$header] = $value;
@@ -167,8 +167,6 @@ class ElibriAPI {
     curl_setopt($ch, CURLOPT_USERAGENT, "elibriPHP " . $this->VERSION);
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
 
     if ($method == $this->_GET) {
@@ -254,19 +252,16 @@ class ElibriAPI {
   //! @param bool $testing - jeśli true, to dane nie są usuwane z kolejki (domyślnie false)
   //! @return instancja ElibriOnixMessage albo NULL, jeśli kolejka danych jest pusta
   function popQueue($queue, $count = 30, $testing = false) {
-    global $xml;
     if (($queue != "meta") && ($queue != "stocks")) {
       throw new ElibriDataAPIInvalidQueueException();
     }
-    $testing = (int) $testing;
-    $query = "count=$count&amp;testing=$testing";
+    $query = http_build_query(array("count" => $count, "testing" => (int) $testing));
     $data = $this->request($this->_Q_POP, $this->_POST, $queue, $query);
     $headers = array_change_key_case($data[0], CASE_LOWER);
     $source = $data[1];
     if ($headers["x-elibri-api-pop-products-count"] == 0) {
       return NULL;
     } else {
-      $xml =  "$source\n\n\n";
       return ElibriOnixMessage::parse($source);
     }
   }
