@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage release="3.1" xmlns="http://ns.editeur.org/onix/3.1/reference">
+  <Header>
+    <Sender>
+      <SenderName>Elibri sp. z o. o.</SenderName>
+    </Sender>
+    <SentDateTime>20261019</SentDateTime>
+  </Header>
+  <Product>
+    <RecordReference>fdb8fa072be774d97a97</RecordReference>
+    <NotificationType>03</NotificationType>
+    <ProductIdentifier>
+      <ProductIDType>03</ProductIDType>
+      <IDValue>5902719473715</IDValue>
+    </ProductIdentifier>
+    <DescriptiveDetail>
+      <ProductComposition>00</ProductComposition>
+      <ProductForm>ZE</ProductForm>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>01</ProductFormFeatureValue>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>03</ProductFormFeatureValue>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>02</ProductFormFeatureValue>
+        <ProductFormFeatureDescription>Dla dzieci od 6 lat</ProductFormFeatureDescription>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>04</ProductFormFeatureValue>
+        <ProductFormFeatureDescription>Zawiera małe elementy</ProductFormFeatureDescription>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>08</ProductFormFeatureValue>
+      </ProductFormFeature>
+      <ProductFormFeature>
+        <ProductFormFeatureType>13</ProductFormFeatureType>
+        <ProductFormFeatureValue>07</ProductFormFeatureValue>
+        <ProductFormFeatureDescription>https://www.hseni.gov.uk/publications/example-declaration-conformity</ProductFormFeatureDescription>
+      </ProductFormFeature>
+      <TitleDetail>
+        <TitleType>01</TitleType>
+        <TitleElement>
+          <TitleElementLevel>01</TitleElementLevel>
+          <TitleText language="pol">Spacer po Burano</TitleText>
+        </TitleElement>
+      </TitleDetail>
+    </DescriptiveDetail>
+    <PublishingDetail>
+      <Imprint>
+        <ImprintName>Nasza Księgarnia</ImprintName>
+      </Imprint>
+      <Publisher>
+        <PublishingRole>01</PublishingRole>
+        <PublisherIdentifier>
+          <PublisherIDType>01</PublisherIDType>
+          <IDTypeName>ElibriPublisherCode</IDTypeName>
+          <IDValue>11</IDValue>
+        </PublisherIdentifier>
+        <PublisherName>Nasza Księgarnia</PublisherName>
+      </Publisher>
+      <CityOfPublication>Warszawa</CityOfPublication>
+      <ProductContact>
+        <ProductContactRole>10</ProductContactRole>
+        <ProductContactName>Nasza Księgarnia</ProductContactName>
+        <StreetAddress>Puławska 5</StreetAddress>
+        <LocationName>Warszawa</LocationName>
+        <PostalCode>00-876</PostalCode>
+        <CountryCode>PL</CountryCode>
+      </ProductContact>
+      <PublishingStatus>04</PublishingStatus>
+      <SalesRights>
+        <SalesRightsType>01</SalesRightsType>
+        <Territory>
+          <RegionsIncluded>WORLD</RegionsIncluded>
+        </Territory>
+      </SalesRights>
+    </PublishingDetail>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL6782821670</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>Nasza Księgarnia</SupplierName>
+        </Supplier>
+        <ProductAvailability>99</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceQualifier>05</PriceQualifier>
+          <PriceAmount>49.9</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>5</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+  </Product>
+</ONIXMessage>

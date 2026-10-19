@@ -77,7 +77,8 @@ class ElibriDate {
 //! Odtwarzaj rodzaj okładki na podstawie product form i product from detail
 //! @ingroup private
 class CoverType {
-  public static function determine($product_form, $product_form_detail) {
+  public static function determine($product_form, $product_form_details) {
+    $product_form_detail = self::bindingDetail($product_form, (array) $product_form_details);
     if ($product_form == "BG") {
       return "skórzana";
     } else if ($product_form == "BP") {
@@ -101,6 +102,17 @@ class CoverType {
          return "twarda";
       }
     }
+  }
+
+  //! wybierz kod ProductFormDetail określający oprawę - pozostałe to np. uszlachetnienia
+  private static function bindingDetail($product_form, $product_form_details) {
+    $binding_codes = array("BC" => array("B504", "B412"), "BB" => array("B501", "B415", "B413"));
+    if (isset($binding_codes[$product_form])) {
+      foreach ($product_form_details as $code) {
+        if (in_array($code, $binding_codes[$product_form])) return $code;
+      }
+    }
+    return NULL;
   }
 }
 
@@ -340,6 +352,12 @@ class ElibriProduct {
   //! Informacja o typie wydania opisowo, np. 'edycja z powiększoną czcionką'
   public $edition_type_description;
 
+  //! Wszystkie typy wydania (kody ONIX) - produkt może mieć ich kilka, patrz ElibriDictEditionType
+  public $edition_types = array();
+
+  //! Wszystkie typy wydania jako stringi, np. array('LARGE_TYPE_EDITION', 'ILLUSTRATED_EDITION')
+  public $edition_type_names = array();
+
   //! Liczba ilustracji
   public $number_of_illustrations;
 
@@ -438,6 +456,21 @@ class ElibriProduct {
   //! rodzaj okładki, np. twarda
   public $cover_type;
 
+  //! Wszystkie kody ProductFormDetail (oprawa, uszlachetnienia, formaty plików), patrz ElibriDictProductFormDetail
+  public $product_form_details = array();
+
+  //! Uszlachetnienia książki drukowanej (kody ONIX), np. barwione brzegi - patrz ElibriDictFinishing
+  public $finishings = array();
+
+  //! Uszlachetnienia jako stringi, np. array('DECORATED_PAGE_EDGES', 'RIBBON_MARKER')
+  public $finishing_names = array();
+
+  //! Opakowanie produktu (kod ONIX), np. etui - patrz ElibriDictProductPackaging, NULL jeśli produkt nie jest opakowany
+  public $product_packaging;
+
+  //! Opakowanie produktu jako string, np. 'SLIP_CASED'
+  public $product_packaging_name;
+
   //! cena okładkowa
   public $cover_price;
 
@@ -513,6 +546,12 @@ class ElibriProduct {
   //! Lista kategorii Thema, do których należy produkt - lista instacji ElibriSubject
   public $thema_subjects = array();
 
+  //! Osoby i organizacje będące tematem książki - lista instancji ElibriNameAsSubject
+  public $names_as_subject = array();
+
+  //! Kolekcje (serie), do których należy produkt - lista instancji ElibriCollection, patrz też $series
+  public $collections = array();
+
   //! Lista plików towarzyszących produktowi - patrz również $cover_cover, lista instancji  ElibriSupportingResource
   public $supporting_resources = array();
 
@@ -533,6 +572,12 @@ class ElibriProduct {
 
   //! Czy sprzedaż produktu jest ograniczona do teresu Polski? (flaga bool)
   public $sale_restricted_to_poland;
+
+  //! Kraje, w których produkt może być sprzedawany (kody ISO), np. array('PL')
+  public $territory_countries = array();
+
+  //! Regiony, w których produkt może być sprzedawany, np. array('WORLD')
+  public $territory_regions = array();
 
   //! Czy licencja jest nieograniczona czasowo (tylko produkty elektroniczne, bool)
   public $unlimited_licence;
@@ -769,6 +814,14 @@ class ElibriProduct {
     if (FirstNodeValue::get($publishing_node, "CountriesIncluded") == "PL") {
       $this->sale_restricted_to_poland = True;
     }
+    foreach ($publishing_node->getElementsByTagName("SalesRights") as $sales_rights) {
+      foreach ($sales_rights->getElementsByTagName("CountriesIncluded") as $countries) {
+        $this->territory_countries = array_merge($this->territory_countries, preg_split('/\s+/', trim($countries->nodeValue)));
+      }
+      foreach ($sales_rights->getElementsByTagName("RegionsIncluded") as $regions) {
+        $this->territory_regions = array_merge($this->territory_regions, preg_split('/\s+/', trim($regions->nodeValue)));
+      }
+    }
   }
 
   private function parseCollateralDetail($collateral_node) {
@@ -808,11 +861,25 @@ class ElibriProduct {
   private function parseDescriptiveDetail($descriptive_detail) {
     $this->product_composition = FirstNodeValue::get($descriptive_detail, "ProductComposition");
     $this->product_form = FirstNodeValue::get($descriptive_detail, "ProductForm");
+    foreach ($descriptive_detail->getElementsByTagName("ProductFormDetail") as $xml_fragment) {
+      $this->product_form_details[] = $xml_fragment->nodeValue;
+    }
     if (substr($this->product_form, 0, 1) == "B") {
       if (!$this->cover_type) {
-        $this->cover_type = CoverType::determine($this->product_form, FirstNodeValue::get($descriptive_detail, "ProductFormDetail"));
+        $this->cover_type = CoverType::determine($this->product_form, $this->product_form_details);
+      }
+      foreach ($this->product_form_details as $code) {
+        if (ElibriDictFinishing::byCode($code)) {
+          $this->finishings[] = $code;
+          $this->finishing_names[] = ElibriDictFinishing::byCode($code)->const_name;
+        }
       }
       $this->product_form = "BA";
+    }
+
+    $this->product_packaging = FirstNodeValue::get($descriptive_detail, "ProductPackaging");
+    if (($this->product_packaging) && ElibriDictProductPackaging::byCode($this->product_packaging)) {
+      $this->product_packaging_name = ElibriDictProductPackaging::byCode($this->product_packaging)->const_name;
     }
     if (ElibriDictProductFormCode::byCode($this->product_form)) {
       $this->product_form_name = ElibriDictProductFormCode::byCode($this->product_form)->const_name;
@@ -879,6 +946,7 @@ class ElibriProduct {
     $colls = $descriptive_detail->getElementsByTagName("Collection");
     foreach ($colls as $coll) {
       $collection = new ElibriCollection($coll);
+      $this->collections[] = $collection;
       $titleDet = $coll->getElementsByTagName("TitleDetail")->item(0);
       $tDet = new ElibriTitleDetail($titleDet);
       $this->series[] = array($tDet->elements[0]->title, $tDet->elements[0]->part_number);
@@ -921,6 +989,12 @@ class ElibriProduct {
     $this->edition_statement = FirstNodeValue::get($descriptive_detail, "EditionStatement");
 
     $this->edition_type = FirstNodeValue::get($descriptive_detail, "EditionType");
+    foreach ($descriptive_detail->getElementsByTagName("EditionType") as $xml_fragment) {
+      $this->edition_types[] = $xml_fragment->nodeValue;
+      if (ElibriDictEditionType::byCode($xml_fragment->nodeValue)) {
+        $this->edition_type_names[] = ElibriDictEditionType::byCode($xml_fragment->nodeValue)->const_name;
+      }
+    }
     if (($this->edition_type) && ElibriDictEditionType::byCode($this->edition_type)) {
       $this->edition_type_name = ElibriDictEditionType::byCode($this->edition_type)->const_name;
       $this->edition_type_description = ElibriDictEditionType::byCode($this->edition_type)->name["pl"];
@@ -952,6 +1026,11 @@ class ElibriProduct {
       } else if ($subject->is_keyword) {
         $this->keywords = explode("; ", $subject->heading_text);
       }
+    }
+
+    //descriptive detail - osoby i organizacje będące tematem książki
+    foreach ($descriptive_detail->getElementsByTagName("NameAsSubject") as $xml_fragment) {
+      $this->names_as_subject[] = new ElibriNameAsSubject($xml_fragment);
     }
 
     //descriptive detail - audience range
@@ -1277,9 +1356,17 @@ class ElibriCollection {
   //! zawsze 'PUBLISHER_COLLECTION'
   public $type_name;
 
+  //! ISSN kolekcji (np. czasopisma), jeśli jest znany
+  public $issn;
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
     $this->type = $xml_fragment->getElementsByTagName("CollectionType")->item(0)->nodeValue;
+    foreach ($xml_fragment->getElementsByTagName("CollectionIdentifier") as $identifier) {
+      if (FirstNodeValue::get($identifier, "CollectionIDType") == "02") {
+        $this->issn = FirstNodeValue::get($identifier, "IDValue");
+      }
+    }
     $this->title_detail = new ElibriTitleDetail($xml_fragment->getElementsByTagName("TitleDetail")->item(0));
     if (ElibriDictCollectionType::byCode($this->type)) {
       $this->type_name = ElibriDictCollectionType::byCode($this->type)->const_name;
@@ -1340,6 +1427,18 @@ class ElibriContributor extends ElibriAnnotatedObject {
   //! nazwa głosu, jeśli zostało użyte AI
   public $voice_name;
 
+  //! identyfikatory osoby (ISNI, VIAF) - lista instancji ElibriNameIdentifier
+  public $name_identifiers = array();
+
+  //! numer ISNI osoby, jeśli jest znany
+  public $isni;
+
+  //! numer VIAF osoby, jeśli jest znany
+  public $viaf;
+
+  //! inne znane zapisy imienia i nazwiska osoby, np. array('William Szekspir')
+  public $alternative_names = array();
+
   //! Konstruuj obiekt na bazie fragmentu xml-a
   function __construct($xml_fragment) {
 
@@ -1361,15 +1460,98 @@ class ElibriContributor extends ElibriAnnotatedObject {
     $this->names_after_key = FirstNodeValue::getChild($xml_fragment, "NamesAfterKey");
     $this->biographical_note = FirstNodeValue::getChild($xml_fragment, "BiographicalNote");
     $this->unnamed_persons = FirstNodeValue::getChild($xml_fragment, "UnnamedPersons");
-    $this->ai_generated_voice = $this->unnamed_persons == ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED ||
-      $this->unnamed_persons == ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE;
+    $this->ai_generated_voice = in_array($this->unnamed_persons, array(
+      ElibriDictUnnamedPersons::SYNTHESISED_VOICE_MALE,
+      ElibriDictUnnamedPersons::SYNTHESISED_VOICE_FEMALE,
+      ElibriDictUnnamedPersons::SYNTHESISED_VOICE_UNSPECIFIED,
+      ElibriDictUnnamedPersons::SYNTHESISED_VOICE_BASED_ON_REAL_VOICE,
+    ), true);
 
-    $alternative_name_tags = $xml_fragment->getElementsByTagName("AlternativeName");
-    if ($alternative_name_tags->length > 0) {
-      $this->voice_name = FirstNodeValue::getChild($alternative_name_tags[0], "PersonName");
+    foreach ($xml_fragment->getElementsByTagName("NameIdentifier") as $identifier_fragment) {
+      $identifier = new ElibriNameIdentifier($identifier_fragment);
+      $this->name_identifiers[] = $identifier;
+      if ($identifier->type == ElibriDictNameIdentifierType::ISNI) $this->isni = $identifier->value;
+      if ($identifier->type == ElibriDictNameIdentifierType::VIAF) $this->viaf = $identifier->value;
     }
 
+    $this->alternative_names = ElibriAlternativeNames::get($xml_fragment);
+    $this->voice_name = ElibriAlternativeNames::voiceName($xml_fragment);
 
+
+  }
+}
+
+//! Pomocnicza klasa odczytująca inne zapisy imienia i nazwiska (AlternativeName)
+//! @ingroup private
+class ElibriAlternativeNames {
+
+  //! NameType 00 - nieokreślony rodzaj nazwy, czyli inny zapis imienia i nazwiska
+  const UNSPECIFIED = '00';
+
+  public static function get($xml_fragment) {
+    $names = array();
+    foreach ($xml_fragment->getElementsByTagName("AlternativeName") as $alternative_name) {
+      if (FirstNodeValue::getChild($alternative_name, "NameType") == self::UNSPECIFIED) {
+        $names[] = FirstNodeValue::getChild($alternative_name, "PersonName");
+      }
+    }
+    return $names;
+  }
+
+  //! nazwa głosu AI - AlternativeName z NameType 07 (postać fikcyjna) albo 04 (prawdziwe nazwisko aktora)
+  public static function voiceName($xml_fragment) {
+    foreach ($xml_fragment->getElementsByTagName("AlternativeName") as $alternative_name) {
+      if (FirstNodeValue::getChild($alternative_name, "NameType") != self::UNSPECIFIED) {
+        return FirstNodeValue::getChild($alternative_name, "PersonName");
+      }
+    }
+  }
+}
+
+//! Identyfikator osoby, np. ISNI albo VIAF
+class ElibriNameIdentifier {
+
+  //! rodzaj identyfikatora (kod ONIX) - patrz ElibriDictNameIdentifierType
+  public $type;
+
+  //! rodzaj identyfikatora jako string, np. 'ISNI'
+  public $type_name;
+
+  //! wartość identyfikatora
+  public $value;
+
+  //! Konstruuj obiekt na bazie fragmentu xml-a
+  function __construct($xml_fragment) {
+    $this->type = FirstNodeValue::get($xml_fragment, "NameIDType");
+    if (ElibriDictNameIdentifierType::byCode($this->type)) {
+      $this->type_name = ElibriDictNameIdentifierType::byCode($this->type)->const_name;
+    }
+    $this->value = FirstNodeValue::get($xml_fragment, "IDValue");
+  }
+}
+
+//! Osoba albo organizacja będąca tematem książki
+class ElibriNameAsSubject {
+
+  //! imię i nazwisko osoby, NULL dla organizacji
+  public $person_name;
+
+  //! nazwa organizacji, NULL dla osoby
+  public $corporate_name;
+
+  //! inne znane zapisy imienia i nazwiska, np. array('Marie Curie')
+  public $alternative_names = array();
+
+  //! Konstruuj obiekt na bazie fragmentu xml-a
+  function __construct($xml_fragment) {
+    $this->person_name = FirstNodeValue::getChild($xml_fragment, "PersonName");
+    $this->corporate_name = FirstNodeValue::getChild($xml_fragment, "CorporateName");
+    $this->alternative_names = ElibriAlternativeNames::get($xml_fragment);
+  }
+
+  //! czy tematem jest osoba (a nie organizacja)?
+  function is_person() {
+    return isset($this->person_name);
   }
 }
 
@@ -1860,6 +2042,7 @@ class ElibriPrice {
     if (($this->printed_on_product) && ElibriDictPricePrintedOnProduct::byCode($this->printed_on_product)) {
       $this->printed_on_product_name = ElibriDictPricePrintedOnProduct::byCode($this->printed_on_product)->const_name;
     }
+    $this->position_on_product = FirstNodeValue::get($xml_fragment, "PositionOnProduct");
 
   }
 }

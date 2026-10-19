@@ -106,7 +106,7 @@ class ElibriDataAPIConnectionException extends ElibriDataAPIException {
 class ElibriAPI {
 
   //! wersja biblioteki
-  const VERSION = "0.10.1";
+  const VERSION = "0.11.0";
 
   //! @deprecated użyj ElibriAPI::VERSION
   public $VERSION = self::VERSION;

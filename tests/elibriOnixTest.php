@@ -693,4 +693,171 @@ class ElibriOnixTest extends TestCase {
 
   }
 
+  public function test_multiple_edition_types() {
+    $product = $this->load("onix_edition_example.xml");
+
+    $this->assertEquals(array("LTE", "ILL"), $product->edition_types);
+    $this->assertEquals(array("LARGE_TYPE_EDITION", "ILLUSTRATED_EDITION"), $product->edition_type_names);
+    $this->assertEquals("LTE", $product->edition_type);
+  }
+
+  public function test_finishing() {
+    $product = $this->load("onix_finishing_example.xml");
+
+    $this->assertEquals("twarda z obwolutą", $product->cover_type);
+    $this->assertEquals(array("B501", "B419", "B506"), $product->product_form_details);
+    $this->assertEquals(array(ElibriDictFinishing::DECORATED_PAGE_EDGES, ElibriDictFinishing::RIBBON_MARKER), $product->finishings);
+    $this->assertEquals(array("DECORATED_PAGE_EDGES", "RIBBON_MARKER"), $product->finishing_names);
+  }
+
+  public function test_cover_type_does_not_depend_on_finishing_order() {
+    $xml = file_get_contents(dirname(__FILE__) . "/xml/onix_finishing_example.xml");
+    $xml = str_replace("<ProductFormDetail>B501</ProductFormDetail>\n      <ProductFormDetail>B419</ProductFormDetail>",
+                       "<ProductFormDetail>B419</ProductFormDetail>\n      <ProductFormDetail>B501</ProductFormDetail>", $xml);
+    $product = ElibriOnixMessage::parse($xml)->products[0];
+
+    $this->assertEquals(array("B419", "B501", "B506"), $product->product_form_details);
+    $this->assertEquals("twarda z obwolutą", $product->cover_type);
+  }
+
+  public function test_product_subform() {
+    $product = $this->load("onix_product_subform_example.xml");
+
+    $this->assertEquals("miękka ze skrzydełkami", $product->cover_type);
+    $this->assertEquals(array(), $product->finishings);
+  }
+
+  public function test_packaging() {
+    $product = $this->load("onix_packaging_example.xml");
+
+    $this->assertEquals(ElibriDictProductPackaging::SLIP_CASED, $product->product_packaging);
+    $this->assertEquals("SLIP_CASED", $product->product_packaging_name);
+    $this->assertEquals("twarda z obwolutą", $product->cover_type);
+    $this->assertEquals(array(), $product->finishings);
+
+    $this->assertNull($this->load("onix_finishing_example.xml")->product_packaging);
+  }
+
+  public function test_contributor_identifiers() {
+    $product = $this->load("onix_contributor_identifiers_example.xml");
+    $author = $product->contributors[0];
+
+    $this->assertEquals("William Shakespeare", $author->person_name);
+    $this->assertEquals(2, count($author->name_identifiers));
+    $this->assertEquals(ElibriDictNameIdentifierType::ISNI, $author->name_identifiers[0]->type);
+    $this->assertEquals("ISNI", $author->name_identifiers[0]->type_name);
+    $this->assertEquals("0000000121032683", $author->name_identifiers[0]->value);
+    $this->assertEquals("0000000121032683", $author->isni);
+    $this->assertEquals("96994048", $author->viaf);
+    $this->assertEquals(array("William Szekspir"), $author->alternative_names);
+    $this->assertNull($author->voice_name);
+    $this->assertFalse($author->ai_generated_voice);
+  }
+
+  public function test_ai_voice() {
+    $product = $this->load("onix_ai_voice_example.xml");
+    $lector = $product->contributors[1];
+
+    $this->assertTrue($lector->ai_generated_voice);
+    $this->assertNull($lector->voice_name);
+    $this->assertEquals(array(), $lector->alternative_names);
+  }
+
+  public function test_cloned_ai_voice() {
+    $product = $this->load("onix_cloned_ai_voice_example.xml");
+    $lector = $product->contributors[1];
+
+    $this->assertTrue($lector->ai_generated_voice);
+    $this->assertEquals("Wojtek", $lector->voice_name);
+    $this->assertEquals(array(), $lector->alternative_names);
+    $this->assertEquals(array(), $lector->name_identifiers);
+  }
+
+  public function test_person_as_subject() {
+    $product = $this->load("onix_name_as_subject_person_example.xml");
+
+    $this->assertEquals(1, count($product->names_as_subject));
+    $name = $product->names_as_subject[0];
+    $this->assertTrue($name->is_person());
+    $this->assertEquals("Maria Skłodowska-Curie", $name->person_name);
+    $this->assertNull($name->corporate_name);
+    $this->assertEquals(array("Marie Curie"), $name->alternative_names);
+    $this->assertEquals(array(), $product->contributors);
+  }
+
+  public function test_corporate_as_subject() {
+    $product = $this->load("onix_name_as_subject_corporate_example.xml");
+
+    $this->assertEquals(1, count($product->names_as_subject));
+    $name = $product->names_as_subject[0];
+    $this->assertFalse($name->is_person());
+    $this->assertEquals("Templariusze", $name->corporate_name);
+    $this->assertEquals(array(), $name->alternative_names);
+  }
+
+  public function test_no_territorial_restrictions() {
+    $product = $this->load("onix_no_territorial_restrictions.xml");
+
+    $this->assertFalse($product->sale_restricted_to_poland);
+    $this->assertEquals(array("WORLD"), $product->territory_regions);
+    $this->assertEquals(array(), $product->territory_countries);
+
+    $pl_product = $this->load("onix_territorial_rights_example.xml", 0);
+    $this->assertEquals(array("PL"), $pl_product->territory_countries);
+    $this->assertEquals(array(), $pl_product->territory_regions);
+  }
+
+  public function test_stock_info() {
+    $product = $this->load("onix_stock_info_example.xml");
+    $supply = $product->supply_details[0];
+
+    $this->assertEquals(150, $supply->on_hand);
+    $this->assertEquals("wyprzedaż", $supply->supplier_own_coding);
+    $this->assertEquals("YES", $supply->prices[0]->printed_on_product_name);
+    $this->assertEquals("00", $supply->prices[0]->position_on_product);
+  }
+
+  public function test_epress() {
+    $product = $this->load("onix_epress_example.xml");
+
+    $this->assertEquals("9770137892007", $product->ean);
+    $this->assertEquals("Wiedza i życie 10/2014", $product->full_title);
+    $this->assertEquals(array(array("Wiedza i Życie", "10/2014")), $product->series);
+    $this->assertEquals(1, count($product->collections));
+    $this->assertEquals("0137-8929", $product->collections[0]->issn);
+    $this->assertEquals("Wiedza i Życie (10/2014)", $product->collections[0]->full_title());
+  }
+
+  public function test_digital_audiobook() {
+    $product = $this->load("onix_digital_audiobook_example.xml");
+
+    $this->assertEquals("AUDIO_DOWNLOADABLE_FILE", $product->product_form_name);
+    $this->assertEquals(array("A113"), $product->product_form_details);
+    $this->assertEquals("WATERMARK", $product->technical_protection);
+    $this->assertEquals($this->warsaw("2014-03-07"), $product->licence_limited_to);
+  }
+
+  public function test_book_extent() {
+    $product = $this->load("onix_book_extent_example.xml");
+
+    $this->assertEquals(150, $product->number_of_pages);
+  }
+
+  public function test_game_features() {
+    $product = $this->load("onix_pform_features_example.xml");
+
+    $this->assertEquals("ZE", $product->product_form);
+    $this->assertEquals(2, $product->players_number_from);
+    $this->assertEquals(20, $product->playing_time_from);
+    $this->assertEquals(40, $product->playing_time_to);
+  }
+
+  public function test_safety_features() {
+    $product = $this->load("onix_safety_features_example.xml");
+
+    $this->assertEquals("Dla dzieci od 6 lat", $product->minimum_age_warning);
+    $this->assertEquals("Zawiera małe elementy", $product->toy_safety_warning);
+    $this->assertEquals("https://www.hseni.gov.uk/publications/example-declaration-conformity", $product->declaration_of_conformity_url);
+  }
+
 }

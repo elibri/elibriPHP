@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage release="3.1" xmlns="http://ns.editeur.org/onix/3.1/reference">
+  <Header>
+    <Sender>
+      <SenderName>Elibri sp. z o. o.</SenderName>
+    </Sender>
+    <SentDateTime>20261019</SentDateTime>
+  </Header>
+  <Product>
+    <RecordReference>fdb8fa072be774d97a97</RecordReference>
+    <NotificationType>03</NotificationType>
+    <ProductIdentifier>
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9788324799992</IDValue>
+    </ProductIdentifier>
+    <DescriptiveDetail>
+      <ProductComposition>00</ProductComposition>
+      <ProductForm>BA</ProductForm>
+      <TitleDetail>
+        <TitleType>01</TitleType>
+        <TitleElement>
+          <TitleElementLevel>01</TitleElementLevel>
+          <TitleText language="pol">Taka jest nasza wiara</TitleText>
+        </TitleElement>
+      </TitleDetail>
+      <Contributor sourcename="contributorid:255" datestamp="20111104T1005">
+        <SequenceNumber>1</SequenceNumber>
+        <ContributorRole>A01</ContributorRole>
+        <PersonName>Henryk Kwaśniewski</PersonName>
+        <NamesBeforeKey>Henryk</NamesBeforeKey>
+        <KeyNames>Kwaśniewski</KeyNames>
+      </Contributor>
+      <Contributor sourcename="contributorid:256" datestamp="20111104T1005">
+        <SequenceNumber>2</SequenceNumber>
+        <ContributorRole>E07</ContributorRole>
+        <UnnamedPersons>05</UnnamedPersons>
+      </Contributor>
+    </DescriptiveDetail>
+    <PublishingDetail>
+      <Imprint>
+        <ImprintName>GREG</ImprintName>
+      </Imprint>
+      <Publisher>
+        <PublishingRole>01</PublishingRole>
+        <PublisherIdentifier>
+          <PublisherIDType>01</PublisherIDType>
+          <IDTypeName>ElibriPublisherCode</IDTypeName>
+          <IDValue>11</IDValue>
+        </PublisherIdentifier>
+        <PublisherName>GREG</PublisherName>
+      </Publisher>
+      <CityOfPublication>Warszawa</CityOfPublication>
+      <ProductContact>
+        <ProductContactRole>10</ProductContactRole>
+        <ProductContactName>GREG</ProductContactName>
+        <StreetAddress>Puławska 5</StreetAddress>
+        <LocationName>Warszawa</LocationName>
+        <PostalCode>00-876</PostalCode>
+        <CountryCode>PL</CountryCode>
+      </ProductContact>
+      <PublishingStatus>04</PublishingStatus>
+      <SalesRights>
+        <SalesRightsType>01</SalesRightsType>
+        <Territory>
+          <RegionsIncluded>WORLD</RegionsIncluded>
+        </Territory>
+      </SalesRights>
+    </PublishingDetail>
+    <ProductSupply>
+      <SupplyDetail>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierIdentifier>
+            <SupplierIDType>23</SupplierIDType>
+            <IDValue>PL6782821670</IDValue>
+          </SupplierIdentifier>
+          <SupplierName>GREG</SupplierName>
+        </Supplier>
+        <ProductAvailability>99</ProductAvailability>
+        <Price>
+          <PriceType>02</PriceType>
+          <PriceQualifier>05</PriceQualifier>
+          <PriceAmount>12.99</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>5</TaxRatePercent>
+          </Tax>
+          <CurrencyCode>PLN</CurrencyCode>
+        </Price>
+      </SupplyDetail>
+    </ProductSupply>
+  </Product>
+</ONIXMessage>
