@@ -6,6 +6,22 @@
  * które mogą za jego pośrednictwem udostępniać dane bibliograficzne wydawanych przez siebie książek.
  * Niniejsza biblioteka jest implementacją API udokumentowanego <a href='https://www.elibri.com.pl/doc/api'>tutaj</a>.
  *
+ * \section install_sec Instalacja
+ *
+ * Najprościej zainstalować bibliotekę za pomocą <a href='https://getcomposer.org'>Composera</a>:
+ *
+ * \code
+ * composer require elibri/elibri_onix_client
+ * \endcode
+ *
+ * Można też pobrać źródła z <a href='https://github.com/elibri/elibriPHP'>github-a</a> i dołączyć plik `elibriPHP.php`:
+ *
+ * \code
+ * require_once 'elibriPHP.php';
+ * \endcode
+ *
+ * Biblioteka wymaga PHP 7.4 lub nowszego z rozszerzeniami curl, dom, simplexml i xmlreader.
+ *
  * \section changes Lista zmian:
  *
  * \subsection c19102026 19 października 2026 roku (wersje 0.9.1, 0.10.0, 0.10.1 i 0.11.0)
@@ -105,22 +121,6 @@
  * - Naprawione parsowanie SupplyDetails (dzięki uprzejmości Sebastiana Tatarczucha)
  * - Dodane pole $proximity_name (wartości 'EXACTLY' albo 'MORE_THAN' - informują o dokładności wartości w polu $on_hand
  * - Dodane pole $thema_subjects, które jest listą kategorii Thema
- *
- * \section install_sec Instalacja
- *
- * Najprościej zainstalować bibliotekę za pomocą <a href='https://getcomposer.org'>Composera</a>:
- *
- * \code
- * composer require elibri/elibri_onix_client
- * \endcode
- *
- * Można też pobrać źródła z <a href='https://github.com/elibri/elibriPHP'>github-a</a> i dołączyć plik `elibriPHP.php`:
- *
- * \code
- * require_once 'elibriPHP.php';
- * \endcode
- *
- * Biblioteka wymaga PHP 7.4 lub nowszego z rozszerzeniami curl, dom, simplexml i xmlreader.
  *
  * \section usage_sec Użycie biblioteki
  *
